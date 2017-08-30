@@ -1,26 +1,31 @@
 webpackJsonp([1],{
 
-/***/ 130:
+/***/ 135:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__src__ = __webpack_require__(83);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src__ = __webpack_require__(87);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /* tslint:disable:no-console */
 
@@ -30,12 +35,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var en = location.search.indexOf('en') !== -1;
 
 var BasicDemo = function (_React$Component) {
-    _inherits(BasicDemo, _React$Component);
+    __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(BasicDemo, _React$Component);
 
     function BasicDemo(props) {
-        _classCallCheck(this, BasicDemo);
+        __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, BasicDemo);
 
-        var _this = _possibleConstructorReturn(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
+        var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
 
         _this.state = {
             show: false,
@@ -44,70 +49,70 @@ var BasicDemo = function (_React$Component) {
         return _this;
     }
 
-    _createClass(BasicDemo, [{
+    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(BasicDemo, [{
         key: 'renderContent',
         value: function renderContent() {
             var pStyle = { margin: 0, padding: 10 };
-            return [__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            return [__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { key: 't1', style: { background: '#ADFFD7' } },
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 1 1'
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 1 2'
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 1 3'
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 1 4'
                 )
-            ), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { key: 't2', style: { background: '#ADFFD7' } },
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 1'
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 2'
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 3'
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 4'
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 5'
                 )
-            ), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { key: 't3', style: { background: '#ADFFD7' } },
                 'tab 3'
-            ), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { key: 't4', style: { background: '#ADFFD7' } },
                 'tab 4'
-            ), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { key: 't5', style: { background: '#ADFFD7' } },
                 'tab 5'
@@ -119,61 +124,61 @@ var BasicDemo = function (_React$Component) {
             var baseStyle = {
                 display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
             };
-            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'div',
                     { style: baseStyle },
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         'h2',
                         null,
                         'normal'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_3__src__["a" /* Tabs */],
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
                         { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }], initalTab: 't2' },
                         this.renderContent()
                     )
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'div',
                     { style: baseStyle },
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         'h2',
                         null,
                         'bottom'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_3__src__["a" /* Tabs */],
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
                         { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initalTab: 't2', tabBarPosition: 'bottom' },
                         this.renderContent()
                     )
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'div',
-                    { style: _extends({}, baseStyle, { height: 240 }) },
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, baseStyle, { height: 240 }) },
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         'h2',
                         null,
                         'fixed height'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_3__src__["a" /* Tabs */],
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
                         { tabs: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], initalTab: 1 },
                         this.renderContent()
                     )
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'div',
-                    { style: _extends({}, baseStyle, { height: 240 }) },
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, baseStyle, { height: 240 }) },
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         'h2',
                         null,
                         'no animate'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_3__src__["a" /* Tabs */],
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
                         { tabs: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], animated: false },
                         this.renderContent()
                     )
@@ -183,16 +188,16 @@ var BasicDemo = function (_React$Component) {
     }]);
 
     return BasicDemo;
-}(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
 
-__WEBPACK_IMPORTED_MODULE_2_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(BasicDemo, null), document.getElementById('__react-content'));
+__WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(BasicDemo, null), document.getElementById('__react-content'));
 
 /***/ }),
 
 /***/ 285:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(130);
+module.exports = __webpack_require__(135);
 
 
 /***/ })
