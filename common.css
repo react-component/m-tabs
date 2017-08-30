@@ -1,0 +1,80 @@
+.rmc-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+.rmc-tabs-content-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.rmc-tabs-content-wrap-animated {
+  transition: margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-top 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-top 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-top 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  will-change: transform;
+}
+.rmc-tabs-pane-wrap {
+  height: 0;
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  overflow-y: auto;
+}
+.rmc-tabs-pane-wrap-actived {
+  height: 100%;
+}
+.rmc-tabs-top .rmc-tabs-tab-bar-wrap {
+  border-bottom: 1px #eee solid;
+}
+.rmc-tabs-bottom .rmc-tabs-tab-bar-wrap {
+  border-top: 1px #eee solid;
+}
+.rmc-tabs-tab-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  background: #fff;
+}
+.rmc-tabs-tab-bar-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.rmc-tabs-tab-bar-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0;
+}
+.rmc-tabs-tab-bar-underline {
+  position: relative;
+  border: 1px #108ee9 solid;
+}
+.rmc-tabs-tab-bar-animated .rmc-tabs-tab-bar-underline {
+  transition: margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+}
+
+/*# sourceMappingURL=common.css.map*/
