@@ -1,0 +1,26 @@
+.@{tabBarPrefixClass} {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+
+    &-tabs {
+        display: flex;
+    }
+
+    &-tab {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+    }
+
+    &-underline {
+        position: relative;
+        border: 1px #108ee9 solid;
+    }
+
+    &-animated &-underline {
+        transition: margin-left @effect-duration @easing-in-out;
+    }
+}

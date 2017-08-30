@@ -1,0 +1,41 @@
+.@{tabsPrefixClass} {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+
+    &-content-wrap {
+        display: flex;
+        height: 100%;
+        width: 100%;
+
+        &-animated {
+            transition: transform @effect-duration @easing-in-out,
+            margin-left @effect-duration @easing-in-out,
+            margin-top @effect-duration @easing-in-out;
+            will-change: transform;
+        }
+    }
+
+    &-pane-wrap {
+        height: 0;
+        width: 100%;
+        flex-shrink: 0;
+        overflow-y: auto;
+    }
+
+    &-pane-wrap-actived {
+        height: 100%;
+    }
+
+    &-top &-tab-bar-wrap {
+        border-bottom: 1px #eee solid;
+    }
+
+    &-bottom &-tab-bar-wrap {
+        border-top: 1px #eee solid;
+    }
+}

@@ -1,0 +1,89 @@
+{
+  "name": "rmc-tabs",
+  "version": "0.0.1",
+  "description": "React Mobile Tabs Component(web)",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-m-tabs",
+    "m-tabs"
+  ],
+  "homepage": "https://github.com/react-component/m-tabs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-component/m-tabs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/react-component/m-tabs/issues"
+  },
+  "files": [
+    "lib",
+    "es",
+    "assets/*.css"
+  ],
+  "licenses": "MIT",
+  "main": "./lib/index",
+  "module": "./es/index",
+  "config": {
+    "port": 8021
+  },
+  "scripts": {
+    "watch-tsc": "rc-tools run watch-tsc",
+    "compile": "rc-tools run compile --babel-runtime",
+    "build": "rc-tools run build",
+    "gh-pages": "rc-tools run gh-pages",
+    "start": "rc-tools run server",
+    "pub": "rc-tools run pub --babel-runtime",
+    "lint": "rc-tools run lint --no-js-lint",
+    "rn-start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "update-snap": "jest --updateSnapshot",
+    "coverage": "jest --coverage",
+    "coverage:upload": "npm run coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)(spec|test).ts?(x)"
+    ],
+    "coverageDirectory": "./coverage/",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*"
+    ],
+    "transform": {
+      "\\.tsx?$": "./node_modules/rc-tools/scripts/jestPreprocessor.js",
+      "\\.jsx?$": "./node_modules/rc-tools/scripts/jestPreprocessor.js"
+    }
+  },
+  "dependencies": {
+    "babel-runtime": "6.x",
+    "rc-gesture": "^0.0.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^20.0.7",
+    "@types/react-sticky": "5.0.4",
+    "jest": "^20.0.4",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "coveralls": "^2.13.1",
+    "@types/react": "^15.0.27",
+    "@types/react-dom": "^15.5.0",
+    "pre-commit": "1.x",
+    "rc-test": "6.x",
+    "rc-tools": "6.x",
+    "react": "15.5.x",
+    "react-dom": "15.5.x",
+    "react-sticky": "5.x",
+    "react-test-renderer": "^15.5.0",
+    "stylelint-config-standard": "^17.0.0"
+  },
+  "typings": "./lib/index.d.ts",
+  "pre-commit": [
+    "lint"
+  ]
+}
