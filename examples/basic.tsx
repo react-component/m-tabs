@@ -6,8 +6,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Models, Tabs, DefaultTabBar } from '../src';
 
-import zhCN from '../src/locale/zh_CN';
-import enUS from '../src/locale/en_US';
 const en = location.search.indexOf('en') !== -1;
 
 class BasicDemo extends React.Component<{}, {
@@ -90,7 +88,7 @@ class BasicDemo extends React.Component<{}, {
                     </Tabs>
                 </div>
                 <div style={{ ...baseStyle, height: 240 }}>
-                    <h2>scrollWithoutAnimation</h2>
+                    <h2>no animate</h2>
                     <Tabs tabs={[
                         { title: 't1' },
                         { title: 't2' },

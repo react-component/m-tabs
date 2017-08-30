@@ -4,14 +4,16 @@ import { Models } from './Models';
 import { DefaultTabBar } from './DefaultTabBar';
 import { getTransformByIndex, getTransformPropValue } from './util';
 
-interface PropsType {
+export interface PropsType {
     /** 样式前缀(web only), default: rmc-tabs */
     prefixCls?: string;
     /** 样式 */
     style?: React.CSSProperties;
+    /** tab数据 */
     tabs: Models.TabData[];
-    /** default: top */
+    /** TabBar位置, default: top */
     tabBarPosition?: 'top' | 'bottom'; // TODO left, right
+    /** 替换TabBar */
     renderTabBar?: (props: any) => any;
     /** 初始化Tab, index or key */
     initalTab?: number | string;
@@ -23,9 +25,10 @@ interface PropsType {
     prerenderingSiblingsNumber?: number;
     /** 是否开启切换动画, default: true */
     animated?: boolean;
+    /** tab变化时触发 */
     onChangeTab?: (index: number) => void;
 }
-class StateType {
+export class StateType {
     currentTab: number;
 }
 

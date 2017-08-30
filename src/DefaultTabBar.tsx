@@ -1,7 +1,7 @@
 import React from 'react';
 import { Models } from './Models';
 
-interface PropsType {
+export interface PropsType {
     /** default: rmc-tabs-tab-bar */
     prefixCls?: string;
     /** default: true */
@@ -11,7 +11,7 @@ interface PropsType {
     renderTab?: (tab: Models.TabData) => React.ReactNode;
     goToPage?: (index: number) => void;
 }
-interface StateType { }
+export interface StateType { }
 
 export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     static defaultProps = {
