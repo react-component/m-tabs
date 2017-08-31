@@ -46,45 +46,45 @@ class BasicDemo extends React.Component<{}, any> {
             <div>
                 <div style={baseStyle}>
                     <h2>normal</h2>
-                    <Tabs tabData={[
+                    <Tabs tabs={[
                         { key: 't1', title: 't1' },
                         { key: 't2', title: 't2' },
                         { key: 't3', title: 't3' },
                         { key: 't4', title: 't4' },
                         { key: 't5', title: 't5' },
-                    ]} initalTab={'t2'}
+                    ]} initalPage={'t2'}
                     >
                         {this.renderContent()}
                     </Tabs>
                 </div>
                 <div style={baseStyle}>
                     <h2>bottom</h2>
-                    <Tabs tabData={[
+                    <Tabs tabs={[
                         { key: 't1', title: 't1' },
                         { key: 't2', title: 't2' },
                         { key: 't3', title: 't3' },
                         { key: 't4', title: 't4' },
-                    ]} initalTab={'t2'} tabBarPosition="bottom"
+                    ]} initalPage={'t2'} tabBarPosition="bottom"
                     >
                         {this.renderContent()}
                     </Tabs>
                 </div>
                 <div style={{ ...baseStyle, height: 240 }}>
                     <h2>fixed height</h2>
-                    <Tabs tabData={[
+                    <Tabs tabs={[
                         { title: 't1' },
                         { title: 't2' },
                         { title: 't3' },
                         { title: 't4' },
                         { title: 't5' },
-                    ]} initalTab={1} prerenderingSiblingsNumber={1}
+                    ]} initalPage={1} prerenderingSiblingsNumber={1}
                     >
                         {this.renderContent()}
                     </Tabs>
                 </div>
                 <div style={{ ...baseStyle, height: 240 }}>
                     <h2>no animate</h2>
-                    <Tabs tabData={[
+                    <Tabs tabs={[
                         { title: 't1' },
                         { title: 't2' },
                         { title: 't3' },

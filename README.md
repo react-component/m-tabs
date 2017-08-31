@@ -104,19 +104,29 @@ online example: http://react-component.github.io/m-tabs/
 ```
 
 ## API
+### Tabs:
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
 prefixCls|样式前缀(web only)|string| rmc-tabs|false
 style|样式|React.CSSProperties||false
-tabData|tab数据|Models.TabData[]||true
+tabs|tab数据|Models.TabData[]||true
 tabBarPosition|TabBar位置 top: 上, bottom: 下|'top' \| 'bottom' // TODO left, right| top|false
-renderTabBar|替换TabBar|(props: any) => any||false
-initalTab|初始化Tab, index or key|number \| string||false
-tab|当前Tab, index or key|number \| string||false
+renderTabBar|替换TabBar|(props: TabBarPropsType) => React.ReactNode||false
+initalPage|初始化Tab, index or key|number \| string||false
+page|当前Tab, index or key|number \| string||false
 swipeable|是否可以滑动内容切换|boolean| true|false
 prerenderingSiblingsNumber|预加载两侧Tab数量|number| 0|false
 animated|是否开启切换动画|boolean| true|false
 onChangeTab|tab变化时触发|(index: number, tabData: Models.TabData) => void||false
+
+### TabBarPropsType（Common）:
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+goToTab|跳转Tab|(index: number) => void||true
+tabs|tab数据|Models.TabData[]||true
+activeTab|当前激活Tab索引|number||true
+animated|是否使用动画|boolean||true
+tabBarPosition|TabBar位置 top: 上, bottom: 下|'top' \| 'bottom' // TODO left, right||false
 
 ## Test Case
 

@@ -1,15 +1,11 @@
 import React from 'react';
 import { Models } from './Models';
+import { TabBarPropsType } from './PropsType';
 
-export interface PropsType {
+export interface PropsType extends TabBarPropsType {
     /** default: rmc-tabs-tab-bar */
     prefixCls?: string;
-    /** default: true */
-    animated?: boolean;
-    activeTab?: number;
-    tabs?: Models.TabData[];
     renderTab?: (tab: Models.TabData) => React.ReactNode;
-    goToPage?: (index: number) => void;
 }
 export interface StateType { }
 
@@ -18,11 +14,13 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         prefixCls: 'rmc-tabs-tab-bar',
         animated: true,
         tabs: [],
+        goToTab: () => { },
+        activeTab: 0,
     } as PropsType;
 
     onTap = (index: number) => {
-        const { goToPage } = this.props;
-        goToPage && goToPage(index);
+        const { goToTab } = this.props;
+        goToTab && goToTab(index);
     }
 
     render() {

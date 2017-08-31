@@ -40,7 +40,7 @@ class BasicDemo extends React.Component<{}, any> {
             <div>
                 <div style={{ ...baseStyle, height: 240 }}>
                     <h2>single content</h2>
-                    <Tabs tabData={tabData} onChangeTab={(index, tab) => {
+                    <Tabs tabs={tabData} onChangeTab={(index, tab) => {
                         this.setState({
                             scData: JSON.stringify({ index: index + Math.random(), tab })
                         });
@@ -54,7 +54,7 @@ class BasicDemo extends React.Component<{}, any> {
                 </div>
                 <div style={{ ...baseStyle, height: 240 }}>
                     <h2>single content function</h2>
-                    <Tabs tabData={tabData}>
+                    <Tabs tabs={tabData}>
                         {this.renderContent}
                     </Tabs>
                 </div>

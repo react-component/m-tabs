@@ -53,13 +53,13 @@ class BasicDemo extends React.Component<{}, {
                 <div style={baseStyle}>
                     <h2>Sticky</h2>
                     <StickyContainer>
-                        <Tabs tabData={[
+                        <Tabs tabs={[
                             { key: 't1', title: 't1' },
                             { key: 't2', title: 't2' },
                             { key: 't3', title: 't3' },
                             { key: 't4', title: 't4' },
                             { key: 't5', title: 't5' },
-                        ]} initalTab={'t2'}
+                        ]} initalPage={'t2'}
                             renderTabBar={(props) => {
                                 return <Sticky style={{ zIndex: 1 }}>
                                     <DefaultTabBar {...props} />

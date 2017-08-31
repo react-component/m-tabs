@@ -44,7 +44,7 @@ const renderContent = () => {
 describe('basic', () => {
     it('base.', () => {
         const wrapper = render(
-            <Tabs tabData={tabData}
+            <Tabs tabs={tabData}
             >
                 {renderContent()}
             </Tabs>
@@ -54,7 +54,7 @@ describe('basic', () => {
 
     it('no animation.', () => {
         const wrapper = render(
-            <Tabs tabData={tabData}
+            <Tabs tabs={tabData}
                 animated={false}
             >
                 {renderContent()}
@@ -65,8 +65,8 @@ describe('basic', () => {
 
     it('inital tab.', () => {
         const wrapper = render(
-            <Tabs tabData={tabData}
-                initalTab={'t2'}
+            <Tabs tabs={tabData}
+                initalPage={'t2'}
             >
                 {renderContent()}
             </Tabs>
@@ -76,7 +76,7 @@ describe('basic', () => {
 
     it('tabBarPosition.', () => {
         const wrapper = render(
-            <Tabs tabData={tabData}
+            <Tabs tabs={tabData}
                 tabBarPosition="bottom"
             >
                 {renderContent()}
@@ -87,7 +87,7 @@ describe('basic', () => {
 
     it('prerenderingSiblingsNumber.', () => {
         const wrapper = render(
-            <Tabs tabData={tabData}
+            <Tabs tabs={tabData}
                 prerenderingSiblingsNumber={1}
             >
                 {renderContent()}
@@ -100,7 +100,7 @@ describe('basic', () => {
 describe('single content.', () => {
     it('function', () => {
         const wrapper = render(
-            <Tabs tabData={tabDataWithoutKey}
+            <Tabs tabs={tabDataWithoutKey}
             >
                 {
                     (index, tab) =>
@@ -116,7 +116,7 @@ describe('single content.', () => {
 
     it('base', () => {
         const wrapper = render(
-            <Tabs tabData={tabDataWithoutKey}
+            <Tabs tabs={tabDataWithoutKey}
             >
                 <div>
                     <p>single content</p>

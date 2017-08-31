@@ -1,34 +1,10 @@
 import React from 'react';
 import Gesture, { IGestureStauts } from 'rc-gesture';
-import { Models } from './Models';
+import { PropsType, TabBarPropsType } from './PropsType';
 import { TabPane } from './TabPane';
 import { DefaultTabBar } from './DefaultTabBar';
 import { getTransformByIndex, getTransformPropValue } from './util';
 
-export interface PropsType {
-    /** 样式前缀(web only) | default: rmc-tabs */
-    prefixCls?: string;
-    /** 样式 */
-    style?: React.CSSProperties;
-    /** tab数据 */
-    tabData: Models.TabData[];
-    /** TabBar位置 | default: top | top: 上, bottom: 下 */
-    tabBarPosition?: 'top' | 'bottom'; // TODO left, right
-    /** 替换TabBar */
-    renderTabBar?: (props: any) => any;
-    /** 初始化Tab, index or key */
-    initalTab?: number | string;
-    /** 当前Tab, index or key */
-    tab?: number | string;
-    /** 是否可以滑动内容切换 | default: true */
-    swipeable?: boolean;
-    /** 预加载两侧Tab数量 | default: 0 */
-    prerenderingSiblingsNumber?: number;
-    /** 是否开启切换动画 | default: true */
-    animated?: boolean;
-    /** tab变化时触发 */
-    onChangeTab?: (index: number, tabData: Models.TabData) => void;
-}
 export class StateType {
     currentTab: number;
     minRenderIndex: number;
@@ -39,7 +15,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
     static defaultProps = {
         prefixCls: 'rmc-tabs',
         tabBarPosition: 'top',
-        initalTab: 0,
+        initalPage: 0,
         swipeable: true,
         animated: true,
         prerenderingSiblingsNumber: 0,
@@ -50,18 +26,18 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
         this.state = this.getPrerenderRange(props.prerenderingSiblingsNumber, {
             currentTab: this.getTabIndex(props),
-            minRenderIndex: props.tabData.length - 1,
+            minRenderIndex: props.tabs.length - 1,
             maxRenderIndex: 0,
         });
     }
 
     getTabIndex(props: PropsType) {
-        const { tab, initalTab } = props;
-        const param = (tab !== undefined ? tab : initalTab) || 0;
+        const { page, initalPage } = props;
+        const param = (page !== undefined ? page : initalPage) || 0;
 
         let index = 0;
         if (typeof (param as any) === 'string') {
-            index = this.props.tabData.findIndex(t => t.key === param);
+            index = this.props.tabs.findIndex(t => t.key === param);
         } else {
             index = param as number || 0;
         }
@@ -96,7 +72,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
     }
 
     componentWillReceiveProps(nextProps: PropsType) {
-        if (this.props.tab !== nextProps.tab && nextProps.tab !== undefined) {
+        if (this.props.page !== nextProps.page && nextProps.page !== undefined) {
             this.goToTab(this.getTabIndex(nextProps));
         }
         if (this.props.prerenderingSiblingsNumber !== nextProps.prerenderingSiblingsNumber) {
@@ -106,7 +82,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
                     minRenderIndex: this.state.minRenderIndex,
                     maxRenderIndex: this.state.maxRenderIndex,
                 } as any,
-                nextProps.tab !== undefined ? this.getTabIndex(nextProps) : this.state.currentTab
+                nextProps.page !== undefined ? this.getTabIndex(nextProps) : this.state.currentTab
             ));
         }
     }
@@ -141,12 +117,12 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         if (this.state.currentTab === index) {
             return;
         }
-        const { tabData, onChangeTab, prerenderingSiblingsNumber } = this.props;
-        onChangeTab && onChangeTab(index, tabData[index]);
-        if (this.props.tab !== undefined) {
+        const { tabs, onChangeTab, prerenderingSiblingsNumber } = this.props;
+        onChangeTab && onChangeTab(index, tabs[index]);
+        if (this.props.page !== undefined) {
             return;
         }
-        const maxPage = tabData.length;
+        const maxPage = tabs.length;
         if (index >= 0 && index < maxPage) {
             this.setState({
                 currentTab: index,
@@ -156,7 +132,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
     }
 
     render() {
-        const { prefixCls, tabData, tabBarPosition, renderTabBar, animated, children } = this.props;
+        const { prefixCls, tabs, tabBarPosition, renderTabBar, animated, children } = this.props;
         const { currentTab } = this.state;
         const defaultPrefix = '$i$-';
 
@@ -179,11 +155,12 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
         const contentStyle = getTransformPropValue(getTransformByIndex(currentTab, tabBarPosition));
 
-        const tabBarProps = {
-            goToPage: this.goToTab,
-            tabs: tabData,
+        const tabBarProps: TabBarPropsType = {
+            goToTab: this.goToTab,
+            tabs,
             activeTab: currentTab,
-            animated,
+            animated: !!animated,
+            tabBarPosition,
         };
 
         let tabBarComponent;
@@ -200,7 +177,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
             </div>,
             <Gesture key="content" onSwipe={this.onSwipe}>
                 <div className={contentCls} style={contentStyle}>
-                    {tabData.map((tab, index) => {
+                    {tabs.map((tab, index) => {
                         const key = tab.key || `${defaultPrefix}${index}`;
                         let component = subElements[key];
                         if (component instanceof Function) {
