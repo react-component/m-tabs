@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(199)();
+  module.exports = __webpack_require__(200)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -97,7 +97,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_sticky__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_sticky__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_sticky___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_sticky__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src__ = __webpack_require__(55);
 
@@ -232,7 +232,7 @@ var BasicDemo = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                            { tabData: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }], initalTab: 't2', renderTabBar: function renderTabBar(props) {
+                            { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }], initalPage: 't2', renderTabBar: function renderTabBar(props) {
                                     return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_7_react_sticky__["Sticky"],
                                         { style: { zIndex: 1 } },
@@ -254,7 +254,7 @@ __WEBPACK_IMPORTED_MODULE_6_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 199:
+/***/ 200:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -321,7 +321,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 272:
+/***/ 273:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -432,7 +432,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 273:
+/***/ 274:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -443,11 +443,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Channel = exports.StickyContainer = exports.Sticky = undefined;
 
-var _sticky = __webpack_require__(274);
+var _sticky = __webpack_require__(275);
 
 var _sticky2 = _interopRequireDefault(_sticky);
 
-var _container = __webpack_require__(272);
+var _container = __webpack_require__(273);
 
 var _container2 = _interopRequireDefault(_container);
 
@@ -464,7 +464,7 @@ exports.default = _sticky2.default;
 
 /***/ }),
 
-/***/ 274:
+/***/ 275:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -739,7 +739,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 290:
+/***/ 291:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(137);
@@ -747,5 +747,5 @@ module.exports = __webpack_require__(137);
 
 /***/ })
 
-},[290]);
+},[291]);
 //# sourceMappingURL=sticky.js.map

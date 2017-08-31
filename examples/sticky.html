@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>sticky.js - example - rmc-tabs@0.1.0</title>
+  <title>sticky.js - example - rmc-tabs@0.2.0</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rmc-tabs@0.1.0</h1>
+      <h1>rmc-tabs@0.2.0</h1>
 
       <p>React Mobile Tabs Component(web)</p>
     </div>
@@ -324,13 +324,13 @@ class BasicDemo extends React.Component&lt;{}, {
                 &lt;div style={baseStyle}&gt;
                     &lt;h2&gt;Sticky&lt;/h2&gt;
                     &lt;StickyContainer&gt;
-                        &lt;Tabs tabData={[
+                        &lt;Tabs tabs={[
                             { key: 't1', title: 't1' },
                             { key: 't2', title: 't2' },
                             { key: 't3', title: 't3' },
                             { key: 't4', title: 't4' },
                             { key: 't5', title: 't5' },
-                        ]} initalTab={'t2'}
+                        ]} initalPage={'t2'}
                             renderTabBar={(props) =&gt; {
                                 return &lt;Sticky style={{ zIndex: 1 }}&gt;
                                     &lt;DefaultTabBar {...props} /&gt;

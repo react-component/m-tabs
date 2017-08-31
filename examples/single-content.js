@@ -86,7 +86,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: tabData, onChangeTab: function onChangeTab(index, tab) {
+                        { tabs: tabData, onChangeTab: function onChangeTab(index, tab) {
                                 _this2.setState({
                                     scData: JSON.stringify({ index: index + Math.random(), tab: tab })
                                 });
@@ -117,7 +117,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: tabData },
+                        { tabs: tabData },
                         this.renderContent
                     )
                 )
@@ -132,7 +132,7 @@ __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 289:
+/***/ 290:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(136);
@@ -140,5 +140,5 @@ module.exports = __webpack_require__(136);
 
 /***/ })
 
-},[289]);
+},[290]);
 //# sourceMappingURL=single-content.js.map

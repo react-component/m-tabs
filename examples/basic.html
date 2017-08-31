@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>basic.js - example - rmc-tabs@0.1.0</title>
+  <title>basic.js - example - rmc-tabs@0.2.0</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rmc-tabs@0.1.0</h1>
+      <h1>rmc-tabs@0.2.0</h1>
 
       <p>React Mobile Tabs Component(web)</p>
     </div>
@@ -317,45 +317,45 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
             <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{baseStyle}</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>normal<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabData</span>=<span class="hljs-value">{[</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t1</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t2</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t3</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t4</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t5</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t5</span>' },
-                    ]} <span class="hljs-attribute">initalTab</span>=<span class="hljs-value">{'t2'}</span>
+                    ]} <span class="hljs-attribute">initalPage</span>=<span class="hljs-value">{'t2'}</span>
                     &gt;</span>
                         {this.renderContent()}
                     <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{baseStyle}</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>bottom<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabData</span>=<span class="hljs-value">{[</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t1</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t2</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t3</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
                         { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t4</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
-                    ]} <span class="hljs-attribute">initalTab</span>=<span class="hljs-value">{'t2'}</span> <span class="hljs-attribute">tabBarPosition</span>=<span class="hljs-value">"bottom"</span>
+                    ]} <span class="hljs-attribute">initalPage</span>=<span class="hljs-value">{'t2'}</span> <span class="hljs-attribute">tabBarPosition</span>=<span class="hljs-value">"bottom"</span>
                     &gt;</span>
                         {this.renderContent()}
                     <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">...baseStyle</span>, <span class="hljs-attribute">height:</span> <span class="hljs-attribute">240</span> }}&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>fixed height<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabData</span>=<span class="hljs-value">{[</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
                         { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
                         { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
                         { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
                         { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
                         { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t5</span>' },
-                    ]} <span class="hljs-attribute">initalTab</span>=<span class="hljs-value">{1}</span> <span class="hljs-attribute">prerenderingSiblingsNumber</span>=<span class="hljs-value">{1}</span>
+                    ]} <span class="hljs-attribute">initalPage</span>=<span class="hljs-value">{1}</span> <span class="hljs-attribute">prerenderingSiblingsNumber</span>=<span class="hljs-value">{1}</span>
                     &gt;</span>
                         {this.renderContent()}
                     <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">...baseStyle</span>, <span class="hljs-attribute">height:</span> <span class="hljs-attribute">240</span> }}&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>no animate<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabData</span>=<span class="hljs-value">{[</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
                         { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
                         { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
                         { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },

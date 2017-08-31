@@ -131,7 +131,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }], initalTab: 't2' },
+                        { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }], initalPage: 't2' },
                         this.renderContent()
                     )
                 ),
@@ -145,7 +145,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initalTab: 't2', tabBarPosition: 'bottom' },
+                        { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initalPage: 't2', tabBarPosition: 'bottom' },
                         this.renderContent()
                     )
                 ),
@@ -159,7 +159,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], initalTab: 1, prerenderingSiblingsNumber: 1 },
+                        { tabs: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], initalPage: 1, prerenderingSiblingsNumber: 1 },
                         this.renderContent()
                     )
                 ),
@@ -173,7 +173,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], animated: false },
+                        { tabs: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], animated: false },
                         this.renderContent()
                     )
                 )
@@ -188,7 +188,7 @@ __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 288:
+/***/ 289:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(135);
@@ -196,5 +196,5 @@ module.exports = __webpack_require__(135);
 
 /***/ })
 
-},[288]);
+},[289]);
 //# sourceMappingURL=basic.js.map

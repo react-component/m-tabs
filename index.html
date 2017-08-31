@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
-  <title>rmc-tabs@0.1.0 - React Mobile Tabs Component(web)</title>
+  <title>rmc-tabs@0.2.0 - React Mobile Tabs Component(web)</title>
   <style>
     @font-face {
       font-family: octicons-anchor;
@@ -737,7 +737,7 @@
 
 <body>
 <div class="header">
-  <h1>rmc-tabs@0.1.0</h1>
+  <h1>rmc-tabs@0.2.0</h1>
 </div>
 <div class="examples">
   <h3>EXAMPLES</h3>
@@ -819,7 +819,7 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
                 <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{JSON.stringify({ index: index + Math.random(), tab })}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     }
-<span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span></code></pre></div><h2>API<a id="user-content-api" name="api" class="anchor" aria-hidden="true" href="#api"><span class="octicon octicon-link"></span></a></h2><table>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span></code></pre></div><h2>API<a id="user-content-api" name="api" class="anchor" aria-hidden="true" href="#api"><span class="octicon octicon-link"></span></a></h2><h3>Tabs:<a id="user-content-tabs:" name="tabs:" class="anchor" aria-hidden="true" href="#tabs:"><span class="octicon octicon-link"></span></a></h3><table>
 <thead>
 <tr>
 <th>属性</th>
@@ -845,7 +845,7 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <td>false</td>
 </tr>
 <tr>
-<td>tabData</td>
+<td>tabs</td>
 <td>tab数据</td>
 <td>Models.TabData[]</td>
 <td></td>
@@ -862,12 +862,12 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <tr>
 <td>renderTabBar</td>
 <td>替换TabBar</td>
-<td>(props: any) =&gt; any</td>
+<td>(props: TabBarPropsType) =&gt; React.ReactNode</td>
 <td></td>
 <td>false</td>
 </tr>
 <tr>
-<td>initalTab</td>
+<td>initalPage</td>
 <td>初始化Tab, index or key</td>
 <td>number \</td>
 <td>string</td>
@@ -875,7 +875,7 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <td>false</td>
 </tr>
 <tr>
-<td>tab</td>
+<td>page</td>
 <td>当前Tab, index or key</td>
 <td>number \</td>
 <td>string</td>
@@ -907,6 +907,55 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <td>onChangeTab</td>
 <td>tab变化时触发</td>
 <td>(index: number, tabData: Models.TabData) =&gt; void</td>
+<td></td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h3>TabBarPropsType（Common）:<a id="user-content-tabbarpropstype（common）:" name="tabbarpropstype（common）:" class="anchor" aria-hidden="true" href="#tabbarpropstype（common）:"><span class="octicon octicon-link"></span></a></h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+<th>必选</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>goToTab</td>
+<td>跳转Tab</td>
+<td>(index: number) =&gt; void</td>
+<td></td>
+<td>true</td>
+</tr>
+<tr>
+<td>tabs</td>
+<td>tab数据</td>
+<td>Models.TabData[]</td>
+<td></td>
+<td>true</td>
+</tr>
+<tr>
+<td>activeTab</td>
+<td>当前激活Tab索引</td>
+<td>number</td>
+<td></td>
+<td>true</td>
+</tr>
+<tr>
+<td>animated</td>
+<td>是否使用动画</td>
+<td>boolean</td>
+<td></td>
+<td>true</td>
+</tr>
+<tr>
+<td>tabBarPosition</td>
+<td>TabBar位置 top: 上, bottom: 下</td>
+<td>&#39;top&#39; \</td>
+<td>&#39;bottom&#39; // TODO left, right</td>
 <td></td>
 <td>false</td>
 </tr>
