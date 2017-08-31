@@ -1,6 +1,6 @@
-webpackJsonp([2],{
+webpackJsonp([1],{
 
-/***/ 135:
+/***/ 136:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33,6 +33,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var en = location.search.indexOf('en') !== -1;
+var tabData = [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }];
 
 var BasicDemo = function (_React$Component) {
     __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(BasicDemo, _React$Component);
@@ -40,81 +41,35 @@ var BasicDemo = function (_React$Component) {
     function BasicDemo(props) {
         __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, BasicDemo);
 
-        return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
+        var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
+
+        _this.renderContent = function (index, tab) {
+            return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'p',
+                    null,
+                    'single content'
+                ),
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'p',
+                    null,
+                    JSON.stringify({ index: index + Math.random(), tab: tab })
+                )
+            );
+        };
+        _this.state = {
+            scData: JSON.stringify({ index: 0, tab: { title: 't1' } })
+        };
+        return _this;
     }
 
     __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(BasicDemo, [{
-        key: 'renderContent',
-        value: function renderContent() {
-            var pStyle = { margin: 0, padding: 10 };
-            return [__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                'div',
-                { key: 't1', style: { background: '#ADFFD7' } },
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 1 1'
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 1 2'
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 1 3'
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 1 4'
-                )
-            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                'div',
-                { key: 't2', style: { background: '#ADFFD7' } },
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 2 1'
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 2 2'
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 2 3'
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 2 4'
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    { style: pStyle },
-                    'tab 2 5'
-                )
-            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                'div',
-                { key: 't3', style: { background: '#ADFFD7' } },
-                'tab 3'
-            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                'div',
-                { key: 't4', style: { background: '#ADFFD7' } },
-                'tab 4'
-            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                'div',
-                { key: 't5', style: { background: '#ADFFD7' } },
-                'tab 5'
-            )];
-        }
-    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             var baseStyle = {
                 display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
             };
@@ -123,30 +78,33 @@ var BasicDemo = function (_React$Component) {
                 null,
                 __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'div',
-                    { style: baseStyle },
+                    { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, baseStyle, { height: 240 }) },
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         'h2',
                         null,
-                        'normal'
+                        'single content'
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }], initalTab: 't2' },
-                        this.renderContent()
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'div',
-                    { style: baseStyle },
-                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                        'h2',
-                        null,
-                        'bottom'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initalTab: 't2', tabBarPosition: 'bottom' },
-                        this.renderContent()
+                        { tabData: tabData, onChangeTab: function onChangeTab(index, tab) {
+                                _this2.setState({
+                                    scData: JSON.stringify({ index: index + Math.random(), tab: tab })
+                                });
+                            } },
+                        __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            'div',
+                            null,
+                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                                'p',
+                                null,
+                                'single content'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                                'p',
+                                null,
+                                this.state.scData
+                            )
+                        )
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
@@ -155,26 +113,12 @@ var BasicDemo = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         'h2',
                         null,
-                        'fixed height'
+                        'single content function'
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], initalTab: 1, prerenderingSiblingsNumber: 1 },
-                        this.renderContent()
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'div',
-                    { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, baseStyle, { height: 240 }) },
-                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                        'h2',
-                        null,
-                        'no animate'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabData: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], animated: false },
-                        this.renderContent()
+                        { tabData: tabData },
+                        this.renderContent
                     )
                 )
             );
@@ -188,13 +132,13 @@ __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 288:
+/***/ 289:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(135);
+module.exports = __webpack_require__(136);
 
 
 /***/ })
 
-},[288]);
-//# sourceMappingURL=basic.js.map
+},[289]);
+//# sourceMappingURL=single-content.js.map

@@ -20,20 +20,23 @@
   width: 100%;
 }
 .rmc-tabs-content-wrap-animated {
-  transition: margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-top 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-top 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-top 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
   will-change: transform;
 }
 .rmc-tabs-pane-wrap {
-  height: 0;
   width: 100%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   overflow-y: auto;
 }
-.rmc-tabs-pane-wrap-actived {
+.rmc-tabs-pane-wrap-active {
   height: 100%;
+}
+.rmc-tabs-pane-wrap-inactive {
+  height: 0;
+  overflow: visible;
 }
 .rmc-tabs-top .rmc-tabs-tab-bar-wrap {
   border-bottom: 1px #eee solid;
