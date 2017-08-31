@@ -769,13 +769,13 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <p>online example: <a href="http://react-component.github.io/m-tabs/" title="null">http://react-component.github.io/m-tabs/</a></p>
 <h2>install<a id="user-content-install" name="install" class="anchor" aria-hidden="true" href="#install"><span class="octicon octicon-link"></span></a></h2><p><a href="https://npmjs.org/package/rmc-tabs" title="null"><img src="https://nodei.co/npm/rmc-tabs.png" alt="rmc-tabs"></a></p>
 <h1>docs<a id="user-content-docs" name="docs" class="anchor" aria-hidden="true" href="#docs"><span class="octicon octicon-link"></span></a></h1><h2>Usage<a id="user-content-usage" name="usage" class="anchor" aria-hidden="true" href="#usage"><span class="octicon octicon-link"></span></a></h2><div class="highlight"><pre><code language="xml">// normal
-<span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabData</span>=<span class="hljs-value">{[</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
     { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t1</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
     { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t2</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
     { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t3</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
     { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t4</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
     { <span class="hljs-attribute">key:</span> '<span class="hljs-attribute">t5</span>', <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t5</span>' },
-]} <span class="hljs-attribute">initalTab</span>=<span class="hljs-value">{'t2'}</span>
+]} <span class="hljs-attribute">initalPage</span>=<span class="hljs-value">{'t2'}</span>
 &gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>content1<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>content2<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
@@ -785,7 +785,7 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
 
 // single content
-<span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabData</span>=<span class="hljs-value">{[</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
@@ -804,7 +804,7 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
 
 // single content function
-<span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabData</span>=<span class="hljs-value">{[</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
@@ -819,7 +819,25 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
                 <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{JSON.stringify({ index: index + Math.random(), tab })}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     }
-<span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span></code></pre></div><h2>API<a id="user-content-api" name="api" class="anchor" aria-hidden="true" href="#api"><span class="octicon octicon-link"></span></a></h2><h3>Tabs:<a id="user-content-tabs:" name="tabs:" class="anchor" aria-hidden="true" href="#tabs:"><span class="octicon octicon-link"></span></a></h3><table>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
+
+// renderTabBar e.g: Sticky, react-sticky
+<span class="hljs-tag">&lt;<span class="hljs-title">StickyContainer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
+        { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
+        { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
+        { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
+        { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
+        { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t5</span>' },
+    ]} <span class="hljs-attribute">renderTabBar</span>=<span class="hljs-value">{(props)</span> =&gt;</span> {
+            return <span class="hljs-tag">&lt;<span class="hljs-title">Sticky</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">zIndex:</span> <span class="hljs-attribute">1</span> }}&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">DefaultTabBar</span> {<span class="hljs-attribute">...props</span>} /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">Sticky</span>&gt;</span>;
+        }}
+    &gt;
+        ...
+    <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">StickyContainer</span>&gt;</span></code></pre></div><h2>API<a id="user-content-api" name="api" class="anchor" aria-hidden="true" href="#api"><span class="octicon octicon-link"></span></a></h2><h3>Tabs:<a id="user-content-tabs:" name="tabs:" class="anchor" aria-hidden="true" href="#tabs:"><span class="octicon octicon-link"></span></a></h3><table>
 <thead>
 <tr>
 <th>属性</th>
