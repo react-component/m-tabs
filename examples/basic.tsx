@@ -12,6 +12,10 @@ class BasicDemo extends React.Component<{}, any> {
 
     constructor(props: any) {
         super(props);
+
+        this.state = {
+            page: 0
+        };
     }
 
     renderContent() {
@@ -46,13 +50,19 @@ class BasicDemo extends React.Component<{}, any> {
             <div>
                 <div style={baseStyle}>
                     <h2>normal</h2>
+                    <div style={{ background: '#eee', boxShadow: '0 0 0 5px #eee', margin: 10, padding: 10 }}
+                        onClick={() => this.setState({ page: 2 })}
+                    >
+                        change to 3
+                    </div>
                     <Tabs tabs={[
                         { key: 't1', title: 't1' },
                         { key: 't2', title: 't2' },
                         { key: 't3', title: 't3' },
                         { key: 't4', title: 't4' },
                         { key: 't5', title: 't5' },
-                    ]} initalPage={'t2'}
+                    ]} page={this.state.page}
+                        onChangeTab={(index) => this.setState({ page: index })}
                     >
                         {this.renderContent()}
                     </Tabs>

@@ -19,6 +19,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         swipeable: true,
         animated: true,
         prerenderingSiblingsNumber: 0,
+        tabs: [],
     } as PropsType;
 
     constructor(props: PropsType) {
@@ -73,7 +74,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
     componentWillReceiveProps(nextProps: PropsType) {
         if (this.props.page !== nextProps.page && nextProps.page !== undefined) {
-            this.goToTab(this.getTabIndex(nextProps));
+            this.goToTab(this.getTabIndex(nextProps), true);
         }
         if (this.props.prerenderingSiblingsNumber !== nextProps.prerenderingSiblingsNumber) {
             this.setState(this.getPrerenderRange(
@@ -113,17 +114,16 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         }
     }
 
-    goToTab = (index: number) => {
+    goToTab = (index: number, force = false) => {
         if (this.state.currentTab === index) {
             return;
         }
         const { tabs, onChangeTab, prerenderingSiblingsNumber } = this.props;
-        onChangeTab && onChangeTab(index, tabs[index]);
-        if (this.props.page !== undefined) {
+        !force && onChangeTab && onChangeTab(index, tabs[index]);
+        if (!force && this.props.page !== undefined) {
             return;
         }
-        const maxPage = tabs.length;
-        if (index >= 0 && index < maxPage) {
+        if (index >= 0 && index < tabs.length) {
             this.setState({
                 currentTab: index,
                 ...this.getPrerenderRange(prerenderingSiblingsNumber, undefined, index),
