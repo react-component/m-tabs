@@ -49,10 +49,74 @@ online example: http://react-component.github.io/m-tabs/
 
 ## Usage
 ```jsx
+// normal
+<Tabs tabData={[
+    { key: 't1', title: 't1' },
+    { key: 't2', title: 't2' },
+    { key: 't3', title: 't3' },
+    { key: 't4', title: 't4' },
+    { key: 't5', title: 't5' },
+]} initalTab={'t2'}
+>
+    <div><p>content1</p></div>
+    <div><p>content2</p></div>
+    <div><p>content3</p></div>
+    <div><p>content4</p></div>
+    <div><p>content5</p></div>
+</Tabs>
+
+// single content
+<Tabs tabData={[
+    { title: 't1' },
+    { title: 't2' },
+    { title: 't3' },
+    { title: 't4' },
+    { title: 't5' },
+]} onChangeTab={(index, tab) => {
+    this.setState({
+        scData: JSON.stringify({ index: index + Math.random(), tab })
+    });
+}}
+>
+    <div>
+        <p>single content</p>
+        <p>{this.state.scData}</p>
+    </div>
+</Tabs>
+
+// single content function
+<Tabs tabData={[
+    { title: 't1' },
+    { title: 't2' },
+    { title: 't3' },
+    { title: 't4' },
+    { title: 't5' },
+]}
+>
+    {
+        (index, tab) =>
+            <div>
+                <p>single content</p>
+                <p>{JSON.stringify({ index: index + Math.random(), tab })}</p>
+            </div>
+    }
+</Tabs>
 ```
 
 ## API
-
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+prefixCls|样式前缀(web only)|string| rmc-tabs|false
+style|样式|React.CSSProperties||false
+tabData|tab数据|Models.TabData[]||true
+tabBarPosition|TabBar位置 top: 上, bottom: 下|'top' \| 'bottom' // TODO left, right| top|false
+renderTabBar|替换TabBar|(props: any) => any||false
+initalTab|初始化Tab, index or key|number \| string||false
+tab|当前Tab, index or key|number \| string||false
+swipeable|是否可以滑动内容切换|boolean| true|false
+prerenderingSiblingsNumber|预加载两侧Tab数量|number| 0|false
+animated|是否开启切换动画|boolean| true|false
+onChangeTab|tab变化时触发|(index: number, tabData: Models.TabData) => void||false
 
 ## Test Case
 

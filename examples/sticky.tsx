@@ -7,8 +7,6 @@ import ReactDOM from 'react-dom';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Models, Tabs, DefaultTabBar } from '../src';
 
-import zhCN from '../src/locale/zh_CN';
-import enUS from '../src/locale/en_US';
 const en = location.search.indexOf('en') !== -1;
 
 class BasicDemo extends React.Component<{}, {
@@ -16,10 +14,6 @@ class BasicDemo extends React.Component<{}, {
 
     constructor(props: any) {
         super(props);
-        this.state = {
-            show: false,
-            config: {},
-        };
     }
 
     renderContent() {
@@ -59,7 +53,7 @@ class BasicDemo extends React.Component<{}, {
                 <div style={baseStyle}>
                     <h2>Sticky</h2>
                     <StickyContainer>
-                        <Tabs tabs={[
+                        <Tabs tabData={[
                             { key: 't1', title: 't1' },
                             { key: 't2', title: 't2' },
                             { key: 't3', title: 't3' },

@@ -8,15 +8,10 @@ import { Models, Tabs, DefaultTabBar } from '../src';
 
 const en = location.search.indexOf('en') !== -1;
 
-class BasicDemo extends React.Component<{}, {
-}> {
+class BasicDemo extends React.Component<{}, any> {
 
     constructor(props: any) {
         super(props);
-        this.state = {
-            show: false,
-            config: {},
-        };
     }
 
     renderContent() {
@@ -51,7 +46,7 @@ class BasicDemo extends React.Component<{}, {
             <div>
                 <div style={baseStyle}>
                     <h2>normal</h2>
-                    <Tabs tabs={[
+                    <Tabs tabData={[
                         { key: 't1', title: 't1' },
                         { key: 't2', title: 't2' },
                         { key: 't3', title: 't3' },
@@ -64,7 +59,7 @@ class BasicDemo extends React.Component<{}, {
                 </div>
                 <div style={baseStyle}>
                     <h2>bottom</h2>
-                    <Tabs tabs={[
+                    <Tabs tabData={[
                         { key: 't1', title: 't1' },
                         { key: 't2', title: 't2' },
                         { key: 't3', title: 't3' },
@@ -76,20 +71,20 @@ class BasicDemo extends React.Component<{}, {
                 </div>
                 <div style={{ ...baseStyle, height: 240 }}>
                     <h2>fixed height</h2>
-                    <Tabs tabs={[
+                    <Tabs tabData={[
                         { title: 't1' },
                         { title: 't2' },
                         { title: 't3' },
                         { title: 't4' },
                         { title: 't5' },
-                    ]} initalTab={1}
+                    ]} initalTab={1} prerenderingSiblingsNumber={1}
                     >
                         {this.renderContent()}
                     </Tabs>
                 </div>
                 <div style={{ ...baseStyle, height: 240 }}>
                     <h2>no animate</h2>
-                    <Tabs tabs={[
+                    <Tabs tabData={[
                         { title: 't1' },
                         { title: 't2' },
                         { title: 't3' },

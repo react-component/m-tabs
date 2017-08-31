@@ -13,22 +13,24 @@
         width: 100%;
 
         &-animated {
-            transition: transform @effect-duration @easing-in-out,
-            margin-left @effect-duration @easing-in-out,
-            margin-top @effect-duration @easing-in-out;
+            transition: transform @effect-duration @easing-in-out;
             will-change: transform;
         }
     }
 
     &-pane-wrap {
-        height: 0;
         width: 100%;
         flex-shrink: 0;
         overflow-y: auto;
     }
 
-    &-pane-wrap-actived {
+    &-pane-wrap-active {
         height: 100%;
+    }
+
+    &-pane-wrap-inactive {
+        height: 0;
+        overflow: visible;
     }
 
     &-top &-tab-bar-wrap {
