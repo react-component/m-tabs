@@ -1,7 +1,7 @@
 import React from 'react';
 
 export class StaticContainer extends React.Component<{ shouldUpdate?: boolean } & React.HTMLAttributes<any>, {}> {
-    static defaultProps = { shouldUpdate: true }
+    static defaultProps = { shouldUpdate: true };
 
     shouldComponentUpdate(nextProps: any): boolean {
         return !!nextProps.shouldUpdate;

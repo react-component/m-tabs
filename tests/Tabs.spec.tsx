@@ -39,7 +39,7 @@ const renderContent = () => {
         <div key="t4" style={{ background: '#ADFFD7' }}>tab 4</div>,
         <div key="t5" style={{ background: '#ADFFD7' }}>tab 5</div>,
     ];
-}
+};
 
 describe('basic', () => {
     it('base.', () => {
