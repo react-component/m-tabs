@@ -50,13 +50,13 @@ online example: http://react-component.github.io/m-tabs/
 ## Usage
 ```jsx
 // normal
-<Tabs tabData={[
+<Tabs tabs={[
     { key: 't1', title: 't1' },
     { key: 't2', title: 't2' },
     { key: 't3', title: 't3' },
     { key: 't4', title: 't4' },
     { key: 't5', title: 't5' },
-]} initalTab={'t2'}
+]} initalPage={'t2'}
 >
     <div><p>content1</p></div>
     <div><p>content2</p></div>
@@ -66,7 +66,7 @@ online example: http://react-component.github.io/m-tabs/
 </Tabs>
 
 // single content
-<Tabs tabData={[
+<Tabs tabs={[
     { title: 't1' },
     { title: 't2' },
     { title: 't3' },
@@ -85,7 +85,7 @@ online example: http://react-component.github.io/m-tabs/
 </Tabs>
 
 // single content function
-<Tabs tabData={[
+<Tabs tabs={[
     { title: 't1' },
     { title: 't2' },
     { title: 't3' },
@@ -101,6 +101,24 @@ online example: http://react-component.github.io/m-tabs/
             </div>
     }
 </Tabs>
+
+// renderTabBar e.g: Sticky, react-sticky
+<StickyContainer>
+    <Tabs tabs={[
+        { title: 't1' },
+        { title: 't2' },
+        { title: 't3' },
+        { title: 't4' },
+        { title: 't5' },
+    ]} renderTabBar={(props) => {
+            return <Sticky style={{ zIndex: 1 }}>
+                <DefaultTabBar {...props} />
+            </Sticky>;
+        }}
+    >
+        ...
+    </Tabs>
+</StickyContainer>
 ```
 
 ## API
