@@ -11,48 +11,44 @@ exports[`basic base. 1`] = `
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
     >
       <div
-        class="rmc-tabs-tab-bar-tabs"
+        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+        style="width:20%;"
       >
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t1
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t2
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t3
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t4
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t5
-        </div>
+        t1
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t2
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t3
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t4
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t5
       </div>
       <div
         class="rmc-tabs-tab-bar-underline"
-        style="width:20%;margin-left:0%;"
+        style="width:20%;left:0%;"
       />
     </div>
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -84,79 +80,6 @@ exports[`basic base. 1`] = `
     </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
-    <div
-      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
-    <div
-      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
-    <div
-      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
-  </div>
-</div>
-`;
-
-exports[`basic inital tab. 1`] = `
-<div
-  class="rmc-tabs rmc-tabs-top"
->
-  <div
-    class="rmc-tabs-tab-bar-wrap"
-  >
-    <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
-    >
-      <div
-        class="rmc-tabs-tab-bar-tabs"
-      >
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t1
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t2
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t3
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t4
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t5
-        </div>
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-underline"
-        style="width:20%;margin-left:20%;"
-      />
-    </div>
-  </div>
-  <div
-    class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="transform:translateX(-100%) translateZ(0);-webkit-transform:translateX(-100%) translateZ(0);-moz-transform:translateX(-100%) translateZ(0);"
-  >
-    <div
-      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
-    <div
-      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
     >
       <div
         style="background:#ADFFD7;"
@@ -201,6 +124,136 @@ exports[`basic inital tab. 1`] = `
 </div>
 `;
 
+exports[`basic inital tab. 1`] = `
+<div
+  class="rmc-tabs rmc-tabs-top"
+>
+  <div
+    class="rmc-tabs-tab-bar-wrap"
+  >
+    <div
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+    >
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t1
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+        style="width:20%;"
+      >
+        t2
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t3
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t4
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t5
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-underline"
+        style="width:20%;left:20%;"
+      />
+    </div>
+  </div>
+  <div
+    class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
+    style="touch-action:pan-x pan-y;transform:translate3d(-100%, 0px, 0px);-webkit-transform:translate3d(-100%, 0px, 0px);-moz-transform:translate3d(-100%, 0px, 0px);"
+  >
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+    >
+      <div
+        style="background:#ADFFD7;"
+      >
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 1 1
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 1 2
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 1 3
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 1 4
+        </p>
+      </div>
+    </div>
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+    >
+      <div
+        style="background:#ADFFD7;"
+      >
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 1
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 2
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 3
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 4
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 5
+        </p>
+      </div>
+    </div>
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+    >
+      <div
+        style="background:#ADFFD7;"
+      >
+        tab 3
+      </div>
+    </div>
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+    />
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+    />
+  </div>
+</div>
+`;
+
 exports[`basic no animation. 1`] = `
 <div
   class="rmc-tabs rmc-tabs-top"
@@ -212,48 +265,44 @@ exports[`basic no animation. 1`] = `
       class="rmc-tabs-tab-bar"
     >
       <div
-        class="rmc-tabs-tab-bar-tabs"
+        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+        style="width:20%;"
       >
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t1
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t2
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t3
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t4
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t5
-        </div>
+        t1
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t2
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t3
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t4
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t5
       </div>
       <div
         class="rmc-tabs-tab-bar-underline"
-        style="width:20%;margin-left:0%;"
+        style="width:20%;left:0%;"
       />
     </div>
   </div>
   <div
     class="rmc-tabs-content-wrap"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -285,7 +334,37 @@ exports[`basic no animation. 1`] = `
     </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
+    >
+      <div
+        style="background:#ADFFD7;"
+      >
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 1
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 2
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 3
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 4
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 5
+        </p>
+      </div>
+    </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
     />
@@ -310,48 +389,44 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
     >
       <div
-        class="rmc-tabs-tab-bar-tabs"
+        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+        style="width:20%;"
       >
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t1
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t2
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t3
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t4
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t5
-        </div>
+        t1
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t2
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t3
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t4
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t5
       </div>
       <div
         class="rmc-tabs-tab-bar-underline"
-        style="width:20%;margin-left:0%;"
+        style="width:20%;left:0%;"
       />
     </div>
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -433,7 +508,7 @@ exports[`basic tabBarPosition. 1`] = `
 >
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -465,7 +540,37 @@ exports[`basic tabBarPosition. 1`] = `
     </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
+    >
+      <div
+        style="background:#ADFFD7;"
+      >
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 1
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 2
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 3
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 4
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 5
+        </p>
+      </div>
+    </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
     />
@@ -483,42 +588,38 @@ exports[`basic tabBarPosition. 1`] = `
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
     >
       <div
-        class="rmc-tabs-tab-bar-tabs"
+        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+        style="width:20%;"
       >
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t1
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t2
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t3
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t4
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t5
-        </div>
+        t1
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t2
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t3
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t4
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t5
       </div>
       <div
         class="rmc-tabs-tab-bar-underline"
-        style="width:20%;margin-left:0%;"
+        style="width:20%;left:0%;"
       />
     </div>
   </div>
@@ -536,48 +637,44 @@ exports[`single content. base 1`] = `
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
     >
       <div
-        class="rmc-tabs-tab-bar-tabs"
+        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+        style="width:20%;"
       >
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t1
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t2
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t3
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t4
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t5
-        </div>
+        t1
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t2
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t3
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t4
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t5
       </div>
       <div
         class="rmc-tabs-tab-bar-underline"
-        style="width:20%;margin-left:0%;"
+        style="width:20%;left:0%;"
       />
     </div>
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -615,48 +712,44 @@ exports[`single content. function 1`] = `
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
     >
       <div
-        class="rmc-tabs-tab-bar-tabs"
+        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+        style="width:20%;"
       >
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t1
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t2
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t3
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t4
-        </div>
-        <div
-          class="rmc-tabs-tab-bar-tab"
-          style="width:20%;"
-        >
-          t5
-        </div>
+        t1
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t2
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t3
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t4
+      </div>
+      <div
+        class="rmc-tabs-tab-bar-tab"
+        style="width:20%;"
+      >
+        t5
       </div>
       <div
         class="rmc-tabs-tab-bar-underline"
-        style="width:20%;margin-left:0%;"
+        style="width:20%;left:0%;"
       />
     </div>
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
