@@ -7423,6 +7423,7 @@ var DefaultTabBar = function (_React$PureComponent) {
                 prefixCls = _this$props.prefixCls,
                 renderTab = _this$props.renderTab,
                 activeTab = _this$props.activeTab,
+                tabs = _this$props.tabs,
                 tabBarTextStyle = _this$props.tabBarTextStyle,
                 tabBarActiveTextColor = _this$props.tabBarActiveTextColor,
                 tabBarInactiveTextColor = _this$props.tabBarInactiveTextColor;
@@ -7441,6 +7442,11 @@ var DefaultTabBar = function (_React$PureComponent) {
                 'div',
                 { key: 't_' + i, style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, textStyle, { width: width + '%' }), className: cls, onClick: function onClick() {
                         return _this.onTap(i);
+                    }, ref: function ref(div) {
+                        if (tabs.length > 5 && activeTab === i && div && div.parentElement) {
+                            var single = div.parentElement.scrollWidth / tabs.length;
+                            div.parentElement.scrollLeft = single * (i - 2);
+                        }
                     } },
                 renderTab ? renderTab(t) : t.title
             );
