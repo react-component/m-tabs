@@ -4,10 +4,10 @@
     flex-shrink: 0;
     flex-direction: row;
     width: 100%;
-    background: #fff;
 
     &-tab {
         display: flex;
+        flex-shrink: 0;
         justify-content: center;
         align-items: center;
         padding: 8px 0;
@@ -15,7 +15,7 @@
         line-height: 14px;
     }
 
-    &-tab-ative {
+    &-tab-active {
         color: @tabs-color;
     }
 
@@ -27,7 +27,8 @@
 
     &-animated &-underline {
         transition: left @effect-duration @easing-in-out,
+        color @effect-duration @easing-in-out,
         width @effect-duration @easing-in-out;
-        will-change: left, width;
+        will-change: left, width, color;
     }
 }

@@ -11,13 +11,18 @@ export interface TabBarPropsType {
     animated: boolean;
     /** TabBar位置 | top: 上, bottom: 下 */
     tabBarPosition?: 'top' | 'bottom'; // TODO left, right
+
+    // TabBar shortcut settings.
+    tabBarUnderlineStyle?: React.CSSProperties;
+    tabBarBackgroundColor?: string;
+    tabBarActiveTextColor?: string;
+    tabBarInactiveTextColor?: string;
+    tabBarTextStyle?: React.CSSProperties;
 }
 
 export interface PropsType {
     /** 样式前缀(web only) | default: rmc-tabs */
     prefixCls?: string;
-    /** 样式 */
-    style?: React.CSSProperties;
     /** tab数据 */
     tabs: Models.TabData[];
     /** TabBar位置 | default: top | top: 上, bottom: 下 */
@@ -38,4 +43,11 @@ export interface PropsType {
     onChangeTab?: (index: number, tabData: Models.TabData) => void;
     /** 使用跟手滚动 | default: true */
     useOnPan?: boolean;
+
+    // TabBar shortcut settings.
+    tabBarUnderlineStyle?: React.CSSProperties;
+    tabBarBackgroundColor?: string;
+    tabBarActiveTextColor?: string;
+    tabBarInactiveTextColor?: string;
+    tabBarTextStyle?: React.CSSProperties;
 }

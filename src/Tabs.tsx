@@ -201,7 +201,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
                 subElements[`${defaultPrefix}${index}`] = child;
             });
         } else if (children) {
-            subElements[`${defaultPrefix}${currentTab}`] = children;
+            subElements['$ALL$'] = children;
         }
 
         let contentCls = `${prefixCls}-content-wrap`;
@@ -211,12 +211,24 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
         const contentStyle = getTransformPropValue(getTransformByIndex(currentTab, tabBarPosition));
 
+        const {
+            tabBarActiveTextColor,
+            tabBarBackgroundColor,
+            tabBarInactiveTextColor,
+            tabBarTextStyle,
+            tabBarUnderlineStyle,
+        } = this.props;
         const tabBarProps: TabBarPropsType = {
             goToTab: this.goToTab,
             tabs,
             activeTab: currentTab,
             animated: !!animated,
             tabBarPosition,
+            tabBarActiveTextColor,
+            tabBarBackgroundColor,
+            tabBarInactiveTextColor,
+            tabBarTextStyle,
+            tabBarUnderlineStyle,
         };
 
         let tabBarComponent;
@@ -245,7 +257,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
                     {
                         tabs.map((tab, index) => {
                             const key = tab.key || `${defaultPrefix}${index}`;
-                            let component = subElements[key];
+                            let component = subElements[key] || subElements['$ALL$'];
                             if (component instanceof Function) {
                                 component = component(index, tab);
                             }

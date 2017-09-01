@@ -19,6 +19,11 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         goToTab: () => { },
         activeTab: 0,
         page: 5,
+        tabBarUnderlineStyle: {},
+        tabBarBackgroundColor: '',
+        tabBarActiveTextColor: '',
+        tabBarInactiveTextColor: '',
+        tabBarTextStyle: {},
     } as PropsType;
 
     onTap = (index: number) => {
@@ -27,14 +32,29 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     }
 
     renderTab = (t: Models.TabData, i: number, width: number) => {
-        const { prefixCls, renderTab, activeTab } = this.props;
+        const {
+            prefixCls, renderTab, activeTab,
+            tabBarTextStyle,
+            tabBarActiveTextColor,
+            tabBarInactiveTextColor,
+        } = this.props;
+
+        const textStyle = { ...tabBarTextStyle } as React.CSSProperties;
         let cls = `${prefixCls}-tab`;
         if (activeTab === i) {
             cls += ` ${cls}-active`;
+            if (tabBarActiveTextColor) {
+                textStyle.color = tabBarActiveTextColor;
+            }
+        } else {
+            textStyle.color = tabBarInactiveTextColor;
         }
 
         return <div key={`t_${i}`}
-            style={{ width: `${width}%` }}
+            style={{
+                ...textStyle,
+                width: `${width}%`,
+            }}
             className={cls}
             onClick={() => this.onTap(i)}>
             {renderTab ? renderTab(t) : t.title}
@@ -55,9 +75,14 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
             cls += ` ${prefixCls}-animated`;
         }
 
-        return <div className={`${cls}`}>
+        const backcolor = this.props.tabBarBackgroundColor || '#fff';
+        return <div className={`${cls}`} style={{
+            overflowX: needScroll ? 'auto' : 'hidden',
+            backgroundColor: backcolor,
+        }}>
             {Tabs}
             <div style={{
+                ...this.props.tabBarUnderlineStyle,
                 width: `${width}%`,
                 left: `${width * activeTab}%`,
             }} className={`${prefixCls}-underline`}></div>

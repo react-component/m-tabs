@@ -126,25 +126,24 @@ online example: http://react-component.github.io/m-tabs/
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
 prefixCls|prefix class (web only)|string| rmc-tabs|false
-style|style|React.CSSProperties||false
 tabs|tabs data|Models.TabData[]||true
-tabBarPosition|TabBar position top: 上, bottom: 下|'top' \| 'bottom' // TODO left, right| top|false
-renderTabBar|替换TabBar|(props: TabBarPropsType) => React.ReactNode||false
-initalPage|初始化Tab, index or key|number \| string||false
-page|当前Tab, index or key|number \| string||false
-swipeable|是否可以滑动内容切换|boolean| true|false
-prerenderingSiblingsNumber|预加载两侧Tab数量|number| 0|false
-animated|是否开启切换动画|boolean| true|false
-onChangeTab|tab变化时触发|(index: number, tabData: Models.TabData) => void||false
+tabBarPosition|TabBar's position|'top' \| 'bottom' // TODO left, right||false
+renderTabBar|replace the TabBar|(props: TabBarPropsType) => React.ReactNode||false
+initalPage|the tab when inital, index or key|number \| string||false
+page|current tab, index or key|number \| string||false
+swipeable|Whether to switch tabs with swipe gestrue in the content|boolean| true|false
+prerenderingSiblingsNumber|pre-render nearby # sibling, Infinity === render all the siblings, default to 0 === render current page.|number| 1|false
+animated|Whether to change tabs with animation|boolean| true|false
+onChangeTab|Callback when tab is switched|(index: number, tabData: Models.TabData) => void||false
 
 ### TabBarPropsType（Common）:
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-goToTab|跳转Tab|(index: number) => void||true
-tabs|tab数据|Models.TabData[]||true
-activeTab|当前激活Tab索引|number||true
-animated|是否使用动画|boolean||true
-tabBarPosition|TabBar位置 top: 上, bottom: 下|'top' \| 'bottom' // TODO left, right||false
+goToTab|call this function to switch tab|(index: number) => void||true
+tabs|tabs data|Models.TabData[]||true
+activeTab|current active tab|number||true
+animated|Whether to change tabs with animation|boolean||true
+tabBarPosition|TabBar's position|'top' \| 'bottom' // TODO left, right||false
 
 ## Test Case
 
