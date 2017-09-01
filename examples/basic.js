@@ -1,27 +1,27 @@
-webpackJsonp([2],{
+webpackJsonp([3],{
 
 /***/ 135:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src__ = __webpack_require__(45);
 
 
 
@@ -106,15 +106,24 @@ var BasicDemo = function (_React$Component) {
             ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { key: 't3', style: { background: '#ADFFD7' } },
-                'tab 3'
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'p',
+                    { style: pStyle },
+                    'tab 3 1'
+                ),
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'p',
+                    { style: pStyle },
+                    'tab 3 2'
+                )
             ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { key: 't4', style: { background: '#ADFFD7' } },
-                'tab 4'
-            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                'div',
-                { key: 't5', style: { background: '#ADFFD7' } },
-                'tab 5'
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'p',
+                    { style: pStyle },
+                    'tab 4 1'
+                )
             )];
         }
     }, {
@@ -145,8 +154,34 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }], page: this.state.page, onChangeTab: function onChangeTab(index) {
+                        { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }], page: this.state.page, onChangeTab: function onChangeTab(index) {
                                 return _this2.setState({ page: index });
+                            }, renderTabBar: function renderTabBar(props) {
+                                return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__src__["b" /* DefaultTabBar */], __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, props, { renderTab: function renderTab(tab) {
+                                        if (tab.key === 't2') {
+                                            return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                                                'div',
+                                                { style: { position: 'relative' } },
+                                                tab.title,
+                                                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement('div', { style: {
+                                                        position: 'absolute',
+                                                        right: -3,
+                                                        top: -1,
+                                                        width: 6, height: 6,
+                                                        background: 'red',
+                                                        borderTopLeftRadius: 6,
+                                                        borderBottomLeftRadius: 6,
+                                                        borderBottomRightRadius: 6,
+                                                        borderTopRightRadius: 6
+                                                    } })
+                                            );
+                                        }
+                                        return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                                            'div',
+                                            null,
+                                            tab.title
+                                        );
+                                    } }));
                             } },
                         this.renderContent()
                     )
@@ -201,10 +236,14 @@ var BasicDemo = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
 
 __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(BasicDemo, null), document.getElementById('__react-content'));
+var ip = document.body.children[3].innerText.split('/')[2].split(':')[0];
+var elm = document.createElement('script');
+elm.src = 'http://' + ip + ':1337/vorlon.js';
+document.body.appendChild(elm);
 
 /***/ }),
 
-/***/ 289:
+/***/ 290:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(135);
@@ -212,5 +251,5 @@ module.exports = __webpack_require__(135);
 
 /***/ })
 
-},[289]);
+},[290]);
 //# sourceMappingURL=basic.js.map
