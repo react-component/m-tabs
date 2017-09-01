@@ -1,26 +1,33 @@
 .@{tabBarPrefixClass} {
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-shrink: 0;
+    flex-direction: row;
     width: 100%;
     background: #fff;
-
-    &-tabs {
-        display: flex;
-    }
 
     &-tab {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 5px 0;
+        padding: 8px 0;
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    &-tab-ative {
+        color: @tabs-color;
     }
 
     &-underline {
-        position: relative;
-        border: 1px #108ee9 solid;
+        position: absolute;
+        bottom: 0;
+        border: 1px @tabs-color solid;
     }
 
     &-animated &-underline {
-        transition: margin-left @effect-duration @easing-in-out;
+        transition: left @effect-duration @easing-in-out,
+        width @effect-duration @easing-in-out;
+        will-change: left, width;
     }
 }

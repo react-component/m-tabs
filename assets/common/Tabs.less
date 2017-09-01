@@ -1,7 +1,11 @@
 .@{tabsPrefixClass} {
+    box-sizing: border-box;
+    * {
+        box-sizing: border-box;
+    }
+
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
     position: relative;
     overflow: hidden;
     height: 100%;
@@ -9,8 +13,6 @@
 
     &-content-wrap {
         display: flex;
-        height: 100%;
-        width: 100%;
 
         &-animated {
             transition: transform @effect-duration @easing-in-out;
@@ -25,12 +27,16 @@
     }
 
     &-pane-wrap-active {
-        height: 100%;
+        height: auto;
     }
 
     &-pane-wrap-inactive {
         height: 0;
         overflow: visible;
+    }
+
+    &-tab-bar-wrap {
+        flex-shrink: 0;
     }
 
     &-top &-tab-bar-wrap {

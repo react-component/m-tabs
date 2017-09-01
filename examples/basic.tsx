@@ -35,9 +35,13 @@ class BasicDemo extends React.Component<{}, any> {
                 <p style={pStyle}>tab 2 4</p>
                 <p style={pStyle}>tab 2 5</p>
             </div>,
-            <div key="t3" style={{ background: '#ADFFD7' }}>tab 3</div>,
-            <div key="t4" style={{ background: '#ADFFD7' }}>tab 4</div>,
-            <div key="t5" style={{ background: '#ADFFD7' }}>tab 5</div>,
+            <div key="t3" style={{ background: '#ADFFD7' }}>
+                <p style={pStyle}>tab 3 1</p>
+                <p style={pStyle}>tab 3 2</p>
+            </div>,
+            <div key="t4" style={{ background: '#ADFFD7' }}>
+                <p style={pStyle}>tab 4 1</p>
+            </div>,
         ];
     }
 
@@ -59,10 +63,30 @@ class BasicDemo extends React.Component<{}, any> {
                         { key: 't1', title: 't1' },
                         { key: 't2', title: 't2' },
                         { key: 't3', title: 't3' },
-                        { key: 't4', title: 't4' },
-                        { key: 't5', title: 't5' },
                     ]} page={this.state.page}
                         onChangeTab={(index) => this.setState({ page: index })}
+                        renderTabBar={(props) => <DefaultTabBar
+                            {...props}
+                            renderTab={(tab: Models.TabData) => {
+                                if (tab.key === 't2') {
+                                    return <div style={{ position: 'relative' }}>
+                                        {tab.title}
+                                        <div style={{
+                                            position: 'absolute',
+                                            right: -3,
+                                            top: -1,
+                                            width: 6, height: 6,
+                                            background: 'red',
+                                            borderTopLeftRadius: 6,
+                                            borderBottomLeftRadius: 6,
+                                            borderBottomRightRadius: 6,
+                                            borderTopRightRadius: 6,
+                                        }}></div>
+                                    </div>;
+                                }
+                                return <div>{tab.title}</div>;
+                            }}
+                        />}
                     >
                         {this.renderContent()}
                     </Tabs>
@@ -111,3 +135,8 @@ class BasicDemo extends React.Component<{}, any> {
 }
 
 ReactDOM.render(<BasicDemo />, document.getElementById('__react-content'));
+
+const ip = (document.body.children[3] as HTMLScriptElement).innerText.split('/')[2].split(':')[0];
+const elm = document.createElement('script');
+elm.src = `http://${ip}:1337/vorlon.js`;
+document.body.appendChild(elm);

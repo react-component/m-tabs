@@ -1,9 +1,9 @@
 import React from 'react';
-import Gesture, { IGestureStauts } from 'rc-gesture';
+import Gesture, { IGestureStatus } from 'rc-gesture';
 import { PropsType, TabBarPropsType } from './PropsType';
 import { TabPane } from './TabPane';
 import { DefaultTabBar } from './DefaultTabBar';
-import { getTransformByIndex, getTransformPropValue } from './util';
+import { getTransformByIndex, getTransformPropValue, setTransform, setPxStyle } from './util';
 
 export class StateType {
     currentTab: number;
@@ -18,9 +18,14 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         initalPage: 0,
         swipeable: true,
         animated: true,
-        prerenderingSiblingsNumber: 0,
+        prerenderingSiblingsNumber: 1,
         tabs: [],
+        useOnPan: true,
     } as PropsType;
+
+    layout: HTMLDivElement;
+    isMoving = false;
+    tmpOffset = 0;
 
     constructor(props: PropsType) {
         super(props);
@@ -32,20 +37,24 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         });
     }
 
-    getTabIndex(props: PropsType) {
-        const { page, initalPage } = props;
+    getTabIndex = (props: PropsType) => {
+        const { page, initalPage, tabs } = props;
         const param = (page !== undefined ? page : initalPage) || 0;
 
         let index = 0;
         if (typeof (param as any) === 'string') {
-            index = this.props.tabs.findIndex(t => t.key === param);
+            tabs.forEach((t, i) => {
+                if (t.key === param) {
+                    index = i;
+                }
+            });
         } else {
             index = param as number || 0;
         }
         return index < 0 ? 0 : index;
     }
 
-    getPrerenderRange(preRenderNumber = 0, state?: StateType, currentTab = -1) {
+    getPrerenderRange = (preRenderNumber = 0, state?: StateType, currentTab = -1) => {
         let { minRenderIndex, maxRenderIndex } = (state || this.state);
         state = state || {} as StateType;
         if (currentTab === -1) {
@@ -59,13 +68,13 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         };
     }
 
-    shouldRenderTab(idx: number) {
+    shouldRenderTab = (idx: number) => {
         const { minRenderIndex, maxRenderIndex } = this.state;
 
         return minRenderIndex <= idx && idx <= maxRenderIndex;
     }
 
-    shouldUpdateTab(idx: number) {
+    shouldUpdateTab = (idx: number) => {
         const { prerenderingSiblingsNumber: prerenderNumber = 0 } = this.props;
         const { currentTab = 0 } = this.state;
 
@@ -88,9 +97,9 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         }
     }
 
-    onSwipe = (status: IGestureStauts) => {
+    onSwipe = (status: IGestureStatus) => {
         const { tabBarPosition, swipeable } = this.props;
-        if (!swipeable) return;
+        if (!swipeable || this.isMoving) return;
         // DIRECTION_NONE	1
         // DIRECTION_LEFT	2
         // DIRECTION_RIGHT	4
@@ -114,6 +123,49 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         }
     }
 
+    getOffset = () => {
+        let offset = 0;
+        const { style } = this.layout;
+        if (style.transform) {
+            const transform = style.transform;
+            offset = +transform
+                .replace('(', 'px')
+                .replace('%', 'px')
+                .split('px')[1] || 0;
+            if (style.transform.indexOf('%') >= 0) {
+                offset /= 100;
+                offset *= this.layout.clientWidth;
+            }
+        }
+        return offset;
+    }
+
+    onPanStart = () => {
+        this.isMoving = true;
+        this.tmpOffset = this.getOffset();
+    }
+
+    onPanMove = (status: IGestureStatus) => {
+        if (!status.moveStatus || !this.layout) return;
+        const angle = Math.abs(status.moveStatus.angle);
+        if (45 < angle && angle < 135) return;
+
+        let offset = this.tmpOffset + status.moveStatus.x;
+        offset = offset > 0 ? 0 : offset;
+        setPxStyle(this.layout, offset);
+    }
+
+    onPanEnd = () => {
+        this.isMoving = false;
+        const offsetIndex = Math.round(Math.abs(this.getOffset() / this.layout.clientWidth));
+        if (offsetIndex === this.state.currentTab) {
+            const { tabBarPosition } = this.props;
+            setTransform(this.layout.style, getTransformByIndex(offsetIndex, tabBarPosition));
+        } else {
+            this.goToTab(offsetIndex);
+        }
+    }
+
     goToTab = (index: number, force = false) => {
         if (this.state.currentTab === index) {
             return;
@@ -131,8 +183,12 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         }
     }
 
+    setContentLayout = (div: HTMLDivElement) => {
+        this.layout = div;
+    }
+
     render() {
-        const { prefixCls, tabs, tabBarPosition, renderTabBar, animated, children } = this.props;
+        const { prefixCls, tabs, tabBarPosition, renderTabBar, animated, useOnPan, children } = this.props;
         const { currentTab } = this.state;
         const defaultPrefix = '$i$-';
 
@@ -171,30 +227,41 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
             tabBarComponent = <DefaultTabBar {...tabBarProps} />;
         }
 
+        const onPan = useOnPan ? {
+            onPanStart: this.onPanStart,
+            onPanMove: this.onPanMove,
+            onPanEnd: this.onPanEnd,
+        } : {};
+
         const content = [
             <div key="tabBar" className={`${prefixCls}-tab-bar-wrap`}>
                 {tabBarComponent}
             </div>,
-            <Gesture key="content" onSwipe={this.onSwipe}>
-                <div className={contentCls} style={contentStyle}>
-                    {tabs.map((tab, index) => {
-                        const key = tab.key || `${defaultPrefix}${index}`;
-                        let component = subElements[key];
-                        if (component instanceof Function) {
-                            component = component(index, tab);
-                        }
-                        let cls = `${prefixCls}-pane-wrap`;
-                        if (this.state.currentTab === index) {
-                            cls += ` ${cls}-active`;
-                        } else {
-                            cls += ` ${cls}-inactive`;
-                        }
+            <Gesture key="$content"
+                onSwipe={this.onSwipe}
+                {...onPan}
+            >
+                <div className={contentCls} style={contentStyle} ref={this.setContentLayout}>
+                    {
+                        tabs.map((tab, index) => {
+                            const key = tab.key || `${defaultPrefix}${index}`;
+                            let component = subElements[key];
+                            if (component instanceof Function) {
+                                component = component(index, tab);
+                            }
+                            let cls = `${prefixCls}-pane-wrap`;
+                            if (this.state.currentTab === index) {
+                                cls += ` ${cls}-active`;
+                            } else {
+                                cls += ` ${cls}-inactive`;
+                            }
 
-                        return <TabPane key={key} className={cls}
-                            shouldUpdate={this.shouldUpdateTab(index)}>
-                            {this.shouldRenderTab(index) && component}
-                        </TabPane>;
-                    })}
+                            return <TabPane key={key} className={cls}
+                                shouldUpdate={this.shouldUpdateTab(index)}>
+                                {this.shouldRenderTab(index) && component}
+                            </TabPane>;
+                        })
+                    }
                 </div>
             </Gesture>,
         ];

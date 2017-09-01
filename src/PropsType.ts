@@ -30,10 +30,12 @@ export interface PropsType {
     page?: number | string;
     /** 是否可以滑动内容切换 | default: true */
     swipeable?: boolean;
-    /** 预加载两侧Tab数量 | default: 0 */
+    /** 预加载两侧Tab数量 | default: 1 */
     prerenderingSiblingsNumber?: number;
     /** 是否开启切换动画 | default: true */
     animated?: boolean;
     /** tab变化时触发 */
     onChangeTab?: (index: number, tabData: Models.TabData) => void;
+    /** 使用跟手滚动 | default: true */
+    useOnPan?: boolean;
 }

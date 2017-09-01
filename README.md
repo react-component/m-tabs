@@ -125,10 +125,10 @@ online example: http://react-component.github.io/m-tabs/
 ### Tabs:
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-prefixCls|样式前缀(web only)|string| rmc-tabs|false
-style|样式|React.CSSProperties||false
-tabs|tab数据|Models.TabData[]||true
-tabBarPosition|TabBar位置 top: 上, bottom: 下|'top' \| 'bottom' // TODO left, right| top|false
+prefixCls|prefix class (web only)|string| rmc-tabs|false
+style|style|React.CSSProperties||false
+tabs|tabs data|Models.TabData[]||true
+tabBarPosition|TabBar position top: 上, bottom: 下|'top' \| 'bottom' // TODO left, right| top|false
 renderTabBar|替换TabBar|(props: TabBarPropsType) => React.ReactNode||false
 initalPage|初始化Tab, index or key|number \| string||false
 page|当前Tab, index or key|number \| string||false
