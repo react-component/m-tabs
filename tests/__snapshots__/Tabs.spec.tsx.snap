@@ -9,6 +9,7 @@ exports[`basic base. 1`] = `
   >
     <div
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      style="overflow-x:hidden;background-color:#fff;"
     >
       <div
         class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -133,6 +134,7 @@ exports[`basic inital tab. 1`] = `
   >
     <div
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      style="overflow-x:hidden;background-color:#fff;"
     >
       <div
         class="rmc-tabs-tab-bar-tab"
@@ -263,6 +265,7 @@ exports[`basic no animation. 1`] = `
   >
     <div
       class="rmc-tabs-tab-bar"
+      style="overflow-x:hidden;background-color:#fff;"
     >
       <div
         class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -387,6 +390,7 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
   >
     <div
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      style="overflow-x:hidden;background-color:#fff;"
     >
       <div
         class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -586,6 +590,7 @@ exports[`basic tabBarPosition. 1`] = `
   >
     <div
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      style="overflow-x:hidden;background-color:#fff;"
     >
       <div
         class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -635,6 +640,7 @@ exports[`single content. base 1`] = `
   >
     <div
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      style="overflow-x:hidden;background-color:#fff;"
     >
       <div
         class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -687,7 +693,13 @@ exports[`single content. base 1`] = `
     </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
+    >
+      <div>
+        <p>
+          single content
+        </p>
+      </div>
+    </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
     />
@@ -710,6 +722,7 @@ exports[`single content. function 1`] = `
   >
     <div
       class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      style="overflow-x:hidden;background-color:#fff;"
     >
       <div
         class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -765,7 +778,16 @@ exports[`single content. function 1`] = `
     </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
-    />
+    >
+      <div>
+        <p>
+          single content
+        </p>
+        <p>
+          {"index":1,"tab":{"title":"t2"}}
+        </p>
+      </div>
+    </div>
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
     />

@@ -33,7 +33,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
 
     renderTab = (t: Models.TabData, i: number, width: number) => {
         const {
-            prefixCls, renderTab, activeTab,
+            prefixCls, renderTab, activeTab, tabs,
             tabBarTextStyle,
             tabBarActiveTextColor,
             tabBarInactiveTextColor,
@@ -46,7 +46,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
             if (tabBarActiveTextColor) {
                 textStyle.color = tabBarActiveTextColor;
             }
-        } else {
+        } else if (tabBarInactiveTextColor) {
             textStyle.color = tabBarInactiveTextColor;
         }
 
@@ -56,7 +56,14 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
                 width: `${width}%`,
             }}
             className={cls}
-            onClick={() => this.onTap(i)}>
+            onClick={() => this.onTap(i)}
+            ref={(div) => {
+                if (tabs.length > 5 && activeTab === i && div && div.parentElement) {
+                    const single = div.parentElement.scrollWidth / tabs.length;
+                    div.parentElement.scrollLeft = single * (i - 2);
+                }
+            }}
+        >
             {renderTab ? renderTab(t) : t.title}
         </div>;
     }
