@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
-  <title>rmc-tabs@0.3.0 - React Mobile Tabs Component(web)</title>
+  <title>rmc-tabs@0.3.1 - React Mobile Tabs Component(web)</title>
   <style>
     @font-face {
       font-family: octicons-anchor;
@@ -737,7 +737,7 @@
 
 <body>
 <div class="header">
-  <h1>rmc-tabs@0.3.0</h1>
+  <h1>rmc-tabs@0.3.1</h1>
 </div>
 <div class="examples">
   <h3>EXAMPLES</h3>
@@ -858,13 +858,6 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <td>false</td>
 </tr>
 <tr>
-<td>style</td>
-<td>style</td>
-<td>React.CSSProperties</td>
-<td></td>
-<td>false</td>
-</tr>
-<tr>
 <td>tabs</td>
 <td>tabs data</td>
 <td>Models.TabData[]</td>
@@ -873,22 +866,22 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 </tr>
 <tr>
 <td>tabBarPosition</td>
-<td>TabBar position top: 上, bottom: 下</td>
+<td>TabBar&#39;s position</td>
 <td>&#39;top&#39; \</td>
 <td>&#39;bottom&#39; // TODO left, right</td>
-<td>top</td>
+<td></td>
 <td>false</td>
 </tr>
 <tr>
 <td>renderTabBar</td>
-<td>替换TabBar</td>
+<td>replace the TabBar</td>
 <td>(props: TabBarPropsType) =&gt; React.ReactNode</td>
 <td></td>
 <td>false</td>
 </tr>
 <tr>
 <td>initalPage</td>
-<td>初始化Tab, index or key</td>
+<td>the tab when inital, index or key</td>
 <td>number \</td>
 <td>string</td>
 <td></td>
@@ -896,7 +889,7 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 </tr>
 <tr>
 <td>page</td>
-<td>当前Tab, index or key</td>
+<td>current tab, index or key</td>
 <td>number \</td>
 <td>string</td>
 <td></td>
@@ -904,28 +897,28 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 </tr>
 <tr>
 <td>swipeable</td>
-<td>是否可以滑动内容切换</td>
+<td>Whether to switch tabs with swipe gestrue in the content</td>
 <td>boolean</td>
 <td>true</td>
 <td>false</td>
 </tr>
 <tr>
 <td>prerenderingSiblingsNumber</td>
-<td>预加载两侧Tab数量</td>
+<td>pre-render nearby # sibling, Infinity === render all the siblings, default to 0 === render current page.</td>
 <td>number</td>
-<td>0</td>
+<td>1</td>
 <td>false</td>
 </tr>
 <tr>
 <td>animated</td>
-<td>是否开启切换动画</td>
+<td>Whether to change tabs with animation</td>
 <td>boolean</td>
 <td>true</td>
 <td>false</td>
 </tr>
 <tr>
 <td>onChangeTab</td>
-<td>tab变化时触发</td>
+<td>Callback when tab is switched</td>
 <td>(index: number, tabData: Models.TabData) =&gt; void</td>
 <td></td>
 <td>false</td>
@@ -945,35 +938,35 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <tbody>
 <tr>
 <td>goToTab</td>
-<td>跳转Tab</td>
+<td>call this function to switch tab</td>
 <td>(index: number) =&gt; void</td>
 <td></td>
 <td>true</td>
 </tr>
 <tr>
 <td>tabs</td>
-<td>tab数据</td>
+<td>tabs data</td>
 <td>Models.TabData[]</td>
 <td></td>
 <td>true</td>
 </tr>
 <tr>
 <td>activeTab</td>
-<td>当前激活Tab索引</td>
+<td>current active tab</td>
 <td>number</td>
 <td></td>
 <td>true</td>
 </tr>
 <tr>
 <td>animated</td>
-<td>是否使用动画</td>
+<td>Whether to change tabs with animation</td>
 <td>boolean</td>
 <td></td>
 <td>true</td>
 </tr>
 <tr>
 <td>tabBarPosition</td>
-<td>TabBar位置 top: 上, bottom: 下</td>
+<td>TabBar&#39;s position</td>
 <td>&#39;top&#39; \</td>
 <td>&#39;bottom&#39; // TODO left, right</td>
 <td></td>

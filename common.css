@@ -61,12 +61,13 @@
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
-  background: #fff;
 }
 .rmc-tabs-tab-bar-tab {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -77,7 +78,7 @@
   font-size: 14px;
   line-height: 14px;
 }
-.rmc-tabs-tab-bar-tab-ative {
+.rmc-tabs-tab-bar-tab-active {
   color: #108ee9;
 }
 .rmc-tabs-tab-bar-underline {
@@ -86,8 +87,8 @@
   border: 1px #108ee9 solid;
 }
 .rmc-tabs-tab-bar-animated .rmc-tabs-tab-bar-underline {
-  transition: left 0.3s cubic-bezier(0.35, 0, 0.25, 1), width 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  will-change: left, width;
+  transition: left 0.3s cubic-bezier(0.35, 0, 0.25, 1), color 0.3s cubic-bezier(0.35, 0, 0.25, 1), width 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  will-change: left, width, color;
 }
 
 /*# sourceMappingURL=common.css.map*/
