@@ -99,7 +99,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
     onSwipe = (status: IGestureStatus) => {
         const { tabBarPosition, swipeable } = this.props;
-        if (!swipeable || this.state.isMoving) return;
+        if (!swipeable) return;
         // DIRECTION_NONE	1
         // DIRECTION_LEFT	2
         // DIRECTION_RIGHT	4
@@ -153,7 +153,9 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         if (45 < angle && angle < 135) return;
 
         let offset = this.tmpOffset + status.moveStatus.x;
+        const canScrollWidth = -this.layout.scrollWidth + this.layout.clientWidth;
         offset = offset > 0 ? 0 : offset;
+        offset = offset > canScrollWidth ? offset : canScrollWidth;
         setPxStyle(this.layout, offset);
     }
 
