@@ -15,13 +15,34 @@ export function getTransformByIndex(index: number, tabBarPosition?: string) {
     return `translate3d(${translate}, 0px)`;
 }
 
-export function setPxStyle(el: HTMLElement, value: number | string, vertical: boolean = false) {
-    value = vertical ? `0px, ${value}px, 0px` : `${value}px, 0px, 0px`;
-    setTransform(el.style, `translate3d(${value})`);
+export function getPxStyle(value: number | string, unit = 'px', vertical: boolean = false) {
+    value = vertical ? `0px, ${value}${unit}, 0px` : `${value}${unit}, 0px, 0px`;
+    return `translate3d(${value})`;
+}
+
+export function setPxStyle(el: HTMLElement, value: number | string, unit = 'px', vertical: boolean = false) {
+    setTransform(el.style, getPxStyle(value, unit, vertical));
 }
 
 export function setTransform(style: any, v: any) {
     style.transform = v;
     style.webkitTransform = v;
     style.mozTransform = v;
+}
+
+export const getOffset = (layout: HTMLDivElement) => {
+    let offset = 0;
+    const { style } = layout;
+    if (style.transform) {
+        const transform = style.transform;
+        offset = +transform
+            .replace('(', 'px')
+            .replace('%', 'px')
+            .split('px')[1] || 0;
+        if (style.transform.indexOf('%') >= 0) {
+            offset /= 100;
+            offset *= layout.clientWidth;
+        }
+    }
+    return offset;
 }

@@ -9,15 +9,15 @@ import { Models, Tabs, DefaultTabBar } from '../src';
 const en = location.search.indexOf('en') !== -1;
 
 const tabData = [
-    { title: 't1' },
-    { title: 't2' },
-    { title: 't3' },
-    { title: 't4' },
-    { title: 't5' },
-    { title: 't6' },
-    { title: 't7' },
-    { title: 't8' },
-    { title: 't9' },
+    { title: 'tit 1' },
+    { title: 'tit 2' },
+    { title: 'tit 3' },
+    { title: 'tit 4' },
+    { title: 'tit 5' },
+    { title: 'tit 6' },
+    { title: 'tit 7' },
+    { title: 'tit 8' },
+    { title: 'tit 9' },
 ];
 
 class BasicDemo extends React.Component<{}, any> {

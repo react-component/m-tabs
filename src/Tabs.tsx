@@ -3,7 +3,7 @@ import Gesture, { IGestureStatus } from 'rc-gesture';
 import { PropsType, TabBarPropsType } from './PropsType';
 import { TabPane } from './TabPane';
 import { DefaultTabBar } from './DefaultTabBar';
-import { getTransformByIndex, getTransformPropValue, setTransform, setPxStyle } from './util';
+import { getTransformByIndex, getTransformPropValue, setTransform, setPxStyle, getOffset } from './util';
 
 export class StateType {
     currentTab: number;
@@ -123,28 +123,11 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         }
     }
 
-    getOffset = () => {
-        let offset = 0;
-        const { style } = this.layout;
-        if (style.transform) {
-            const transform = style.transform;
-            offset = +transform
-                .replace('(', 'px')
-                .replace('%', 'px')
-                .split('px')[1] || 0;
-            if (style.transform.indexOf('%') >= 0) {
-                offset /= 100;
-                offset *= this.layout.clientWidth;
-            }
-        }
-        return offset;
-    }
-
     onPanStart = () => {
         this.setState({
             isMoving: true,
         });
-        this.tmpOffset = this.getOffset();
+        this.tmpOffset = getOffset(this.layout);
     }
 
     onPanMove = (status: IGestureStatus) => {
@@ -154,8 +137,8 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
         let offset = this.tmpOffset + status.moveStatus.x;
         const canScrollWidth = -this.layout.scrollWidth + this.layout.clientWidth;
-        offset = offset > 0 ? 0 : offset;
-        offset = offset > canScrollWidth ? offset : canScrollWidth;
+        offset = Math.min(offset, 0);
+        offset = Math.max(offset, canScrollWidth);
         setPxStyle(this.layout, offset);
     }
 
@@ -163,7 +146,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         this.setState({
             isMoving: false,
         });
-        const offsetIndex = Math.round(Math.abs(this.getOffset() / this.layout.clientWidth));
+        const offsetIndex = Math.round(Math.abs(getOffset(this.layout) / this.layout.clientWidth));
         if (offsetIndex === this.state.currentTab) {
             const { tabBarPosition } = this.props;
             setTransform(this.layout.style, getTransformByIndex(offsetIndex, tabBarPosition));
