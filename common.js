@@ -7561,18 +7561,16 @@ var DefaultTabBar = function (_React$PureComponent) {
             var style = {
                 backgroundColor: tabBarBackgroundColor || '#fff'
             };
-            if (needScroll) {
-                style = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, style, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util__["d" /* getTransformPropValue */])(transform));
-            }
+            var transformStyle = needScroll ? __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util__["d" /* getTransformPropValue */])(transform)) : {};
             return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                 'div',
-                { className: '' + cls },
+                { className: '' + cls, style: style },
                 __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_6_rc_gesture__["a" /* default */],
                     this.onPan,
                     __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                         'div',
-                        { className: prefixCls + '-content', style: style, ref: this.setContentLayout },
+                        { className: prefixCls + '-content', style: transformStyle, ref: this.setContentLayout },
                         Tabs,
                         __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, tabBarUnderlineStyle, { width: width + '%', left: width * activeTab + '%' }), className: prefixCls + '-underline' })
                     )
