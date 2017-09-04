@@ -248,7 +248,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
                             const key = tab.key || `${defaultPrefix}${index}`;
                             let component = subElements[key] || subElements['$ALL$'];
                             if (component instanceof Function) {
-                                component = component(index, tab);
+                                component = component(tab, index);
                             }
                             let cls = `${prefixCls}-pane-wrap`;
                             if (this.state.currentTab === index) {

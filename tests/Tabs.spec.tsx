@@ -103,7 +103,7 @@ describe('single content.', () => {
             <Tabs tabs={tabDataWithoutKey}
             >
                 {
-                    (index, tab) =>
+                    (tab, index) =>
                         <div>
                             <p>single content</p>
                             <p>{JSON.stringify({ index, tab })}</p>

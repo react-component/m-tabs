@@ -25,7 +25,7 @@ class BasicDemo extends React.Component<{}, any> {
         };
     }
 
-    renderContent = (index, tab) =>
+    renderContent = (tab, index) =>
         <div>
             <p>single content</p>
             <p>{JSON.stringify({ index: index + Math.random(), tab })}</p>
