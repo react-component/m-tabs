@@ -171,16 +171,14 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         let style = {
             backgroundColor: tabBarBackgroundColor || '#fff',
         } as React.CSSProperties;
-        if (needScroll) {
-            style = {
-                ...style,
-                ...getTransformPropValue(transform),
-            };
-        }
 
-        return <div className={`${cls}`}>
+        let transformStyle = needScroll ? {
+            ...getTransformPropValue(transform),
+        } : {};
+
+        return <div className={`${cls}`} style={style}>
             <Gesture {...this.onPan }>
-                <div className={`${prefixCls}-content`} style={style} ref={this.setContentLayout}>
+                <div className={`${prefixCls}-content`} style={transformStyle} ref={this.setContentLayout}>
                     {Tabs}
                     <div style={{
                         ...tabBarUnderlineStyle,
