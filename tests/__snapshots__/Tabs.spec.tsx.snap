@@ -8,43 +8,48 @@ exports[`basic base. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
-      style="overflow-x:hidden;background-color:#fff;"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      style="background-color:#fff;"
     >
       <div
-        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
-        style="width:20%;"
+        class="rmc-tabs-tab-bar-content"
+        style="touch-action:pan-x pan-y;"
       >
-        t1
+        <div
+          class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          style="width:20%;"
+        >
+          t1
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t2
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t3
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t4
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t5
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-underline"
+          style="width:20%;left:0%;"
+        />
       </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t2
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t3
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t4
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t5
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-underline"
-        style="width:20%;left:0%;"
-      />
     </div>
   </div>
   <div
@@ -133,43 +138,48 @@ exports[`basic inital tab. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
-      style="overflow-x:hidden;background-color:#fff;"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      style="background-color:#fff;"
     >
       <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
+        class="rmc-tabs-tab-bar-content"
+        style="touch-action:pan-x pan-y;"
       >
-        t1
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t1
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          style="width:20%;"
+        >
+          t2
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t3
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t4
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t5
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-underline"
+          style="width:20%;left:20%;"
+        />
       </div>
-      <div
-        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
-        style="width:20%;"
-      >
-        t2
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t3
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t4
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t5
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-underline"
-        style="width:20%;left:20%;"
-      />
     </div>
   </div>
   <div
@@ -264,43 +274,48 @@ exports[`basic no animation. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar"
-      style="overflow-x:hidden;background-color:#fff;"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-nextpage"
+      style="background-color:#fff;"
     >
       <div
-        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
-        style="width:20%;"
+        class="rmc-tabs-tab-bar-content"
+        style="touch-action:pan-x pan-y;"
       >
-        t1
+        <div
+          class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          style="width:20%;"
+        >
+          t1
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t2
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t3
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t4
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t5
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-underline"
+          style="width:20%;left:0%;"
+        />
       </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t2
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t3
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t4
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t5
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-underline"
-        style="width:20%;left:0%;"
-      />
     </div>
   </div>
   <div
@@ -389,43 +404,48 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
-      style="overflow-x:hidden;background-color:#fff;"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      style="background-color:#fff;"
     >
       <div
-        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
-        style="width:20%;"
+        class="rmc-tabs-tab-bar-content"
+        style="touch-action:pan-x pan-y;"
       >
-        t1
+        <div
+          class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          style="width:20%;"
+        >
+          t1
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t2
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t3
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t4
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t5
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-underline"
+          style="width:20%;left:0%;"
+        />
       </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t2
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t3
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t4
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t5
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-underline"
-        style="width:20%;left:0%;"
-      />
     </div>
   </div>
   <div
@@ -589,43 +609,48 @@ exports[`basic tabBarPosition. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
-      style="overflow-x:hidden;background-color:#fff;"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      style="background-color:#fff;"
     >
       <div
-        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
-        style="width:20%;"
+        class="rmc-tabs-tab-bar-content"
+        style="touch-action:pan-x pan-y;"
       >
-        t1
+        <div
+          class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          style="width:20%;"
+        >
+          t1
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t2
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t3
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t4
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t5
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-underline"
+          style="width:20%;left:0%;"
+        />
       </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t2
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t3
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t4
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t5
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-underline"
-        style="width:20%;left:0%;"
-      />
     </div>
   </div>
 </div>
@@ -639,43 +664,48 @@ exports[`single content. base 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
-      style="overflow-x:hidden;background-color:#fff;"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      style="background-color:#fff;"
     >
       <div
-        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
-        style="width:20%;"
+        class="rmc-tabs-tab-bar-content"
+        style="touch-action:pan-x pan-y;"
       >
-        t1
+        <div
+          class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          style="width:20%;"
+        >
+          t1
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t2
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t3
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t4
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t5
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-underline"
+          style="width:20%;left:0%;"
+        />
       </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t2
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t3
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t4
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t5
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-underline"
-        style="width:20%;left:0%;"
-      />
     </div>
   </div>
   <div
@@ -721,43 +751,48 @@ exports[`single content. function 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
-      style="overflow-x:hidden;background-color:#fff;"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      style="background-color:#fff;"
     >
       <div
-        class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
-        style="width:20%;"
+        class="rmc-tabs-tab-bar-content"
+        style="touch-action:pan-x pan-y;"
       >
-        t1
+        <div
+          class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          style="width:20%;"
+        >
+          t1
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t2
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t3
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t4
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="width:20%;"
+        >
+          t5
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-underline"
+          style="width:20%;left:0%;"
+        />
       </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t2
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t3
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t4
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-tab"
-        style="width:20%;"
-      >
-        t5
-      </div>
-      <div
-        class="rmc-tabs-tab-bar-underline"
-        style="width:20%;left:0%;"
-      />
     </div>
   </div>
   <div
