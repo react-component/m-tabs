@@ -12085,7 +12085,7 @@ var Tabs = function (_React$PureComponent) {
                         var key = tab.key || '' + defaultPrefix + index;
                         var component = subElements[key] || subElements['$ALL$'];
                         if (component instanceof Function) {
-                            component = component(index, tab);
+                            component = component(tab, index);
                         }
                         var cls = prefixCls + '-pane-wrap';
                         if (_this2.state.currentTab === index) {

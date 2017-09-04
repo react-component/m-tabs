@@ -43,7 +43,7 @@ var BasicDemo = function (_React$Component) {
 
         var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
 
-        _this.renderContent = function (index, tab) {
+        _this.renderContent = function (tab, index) {
             return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 null,
