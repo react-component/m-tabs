@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 136:
+/***/ 138:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33,7 +33,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var en = location.search.indexOf('en') !== -1;
-var tabData = [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }, { title: 't6' }, { title: 't7' }, { title: 't8' }, { title: 't9' }];
+var tabData = [{ title: 'tit 1' }, { title: 'tit 2' }, { title: 'tit 3' }, { title: 'tit 4' }, { title: 'tit 5' }, { title: 'tit 6' }, { title: 'tit 7' }, { title: 'tit 8' }, { title: 'tit 9' }];
 
 var BasicDemo = function (_React$Component) {
     __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(BasicDemo, _React$Component);
@@ -183,7 +183,7 @@ __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 /***/ 291:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(136);
+module.exports = __webpack_require__(138);
 
 
 /***/ })
