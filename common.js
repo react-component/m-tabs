@@ -11259,6 +11259,8 @@ var TabPane = function TabPane(Props) {
 
 var StateType = function StateType() {
     __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_classCallCheck___default()(this, StateType);
+
+    this.isMoving = false;
 };
 var Tabs = function (_React$PureComponent) {
     __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default()(Tabs, _React$PureComponent);
@@ -11268,7 +11270,6 @@ var Tabs = function (_React$PureComponent) {
 
         var _this = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
 
-        _this.isMoving = false;
         _this.tmpOffset = 0;
         _this.getTabIndex = function (props) {
             var page = props.page,
@@ -11323,7 +11324,7 @@ var Tabs = function (_React$PureComponent) {
                 tabBarPosition = _this$props.tabBarPosition,
                 swipeable = _this$props.swipeable;
 
-            if (!swipeable || _this.isMoving) return;
+            if (!swipeable || _this.state.isMoving) return;
             // DIRECTION_NONE	1
             // DIRECTION_LEFT	2
             // DIRECTION_RIGHT	4
@@ -11361,7 +11362,9 @@ var Tabs = function (_React$PureComponent) {
             return offset;
         };
         _this.onPanStart = function () {
-            _this.isMoving = true;
+            _this.setState({
+                isMoving: true
+            });
             _this.tmpOffset = _this.getOffset();
         };
         _this.onPanMove = function (status) {
@@ -11373,7 +11376,9 @@ var Tabs = function (_React$PureComponent) {
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util__["a" /* setPxStyle */])(_this.layout, offset);
         };
         _this.onPanEnd = function () {
-            _this.isMoving = false;
+            _this.setState({
+                isMoving: false
+            });
             var offsetIndex = Math.round(Math.abs(_this.getOffset() / _this.layout.clientWidth));
             if (offsetIndex === _this.state.currentTab) {
                 var tabBarPosition = _this.props.tabBarPosition;
@@ -11439,7 +11444,9 @@ var Tabs = function (_React$PureComponent) {
                 animated = _props.animated,
                 useOnPan = _props.useOnPan,
                 children = _props.children;
-            var currentTab = this.state.currentTab;
+            var _state = this.state,
+                currentTab = _state.currentTab,
+                isMoving = _state.isMoving;
 
             var defaultPrefix = '$i$-';
             var subElements = {};
@@ -11454,7 +11461,7 @@ var Tabs = function (_React$PureComponent) {
                 subElements['$ALL$'] = children;
             }
             var contentCls = prefixCls + '-content-wrap';
-            if (animated) {
+            if (animated && !isMoving) {
                 contentCls += ' ' + contentCls + '-animated';
             }
             var contentStyle = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util__["d" /* getTransformPropValue */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util__["c" /* getTransformByIndex */])(currentTab, tabBarPosition));
