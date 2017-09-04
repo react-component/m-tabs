@@ -11324,7 +11324,7 @@ var Tabs = function (_React$PureComponent) {
                 tabBarPosition = _this$props.tabBarPosition,
                 swipeable = _this$props.swipeable;
 
-            if (!swipeable || _this.state.isMoving) return;
+            if (!swipeable) return;
             // DIRECTION_NONE	1
             // DIRECTION_LEFT	2
             // DIRECTION_RIGHT	4
@@ -11372,7 +11372,9 @@ var Tabs = function (_React$PureComponent) {
             var angle = Math.abs(status.moveStatus.angle);
             if (45 < angle && angle < 135) return;
             var offset = _this.tmpOffset + status.moveStatus.x;
+            var canScrollWidth = -_this.layout.scrollWidth + _this.layout.clientWidth;
             offset = offset > 0 ? 0 : offset;
+            offset = offset > canScrollWidth ? offset : canScrollWidth;
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util__["a" /* setPxStyle */])(_this.layout, offset);
         };
         _this.onPanEnd = function () {
