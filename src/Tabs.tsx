@@ -9,6 +9,7 @@ export class StateType {
     currentTab: number;
     minRenderIndex: number;
     maxRenderIndex: number;
+    isMoving?= false;
 }
 
 export class Tabs extends React.PureComponent<PropsType, StateType> {
@@ -24,7 +25,6 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
     } as PropsType;
 
     layout: HTMLDivElement;
-    isMoving = false;
     tmpOffset = 0;
 
     constructor(props: PropsType) {
@@ -99,7 +99,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
     onSwipe = (status: IGestureStatus) => {
         const { tabBarPosition, swipeable } = this.props;
-        if (!swipeable || this.isMoving) return;
+        if (!swipeable || this.state.isMoving) return;
         // DIRECTION_NONE	1
         // DIRECTION_LEFT	2
         // DIRECTION_RIGHT	4
@@ -141,7 +141,9 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
     }
 
     onPanStart = () => {
-        this.isMoving = true;
+        this.setState({
+            isMoving: true,
+        });
         this.tmpOffset = this.getOffset();
     }
 
@@ -156,7 +158,9 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
     }
 
     onPanEnd = () => {
-        this.isMoving = false;
+        this.setState({
+            isMoving: false,
+        });
         const offsetIndex = Math.round(Math.abs(this.getOffset() / this.layout.clientWidth));
         if (offsetIndex === this.state.currentTab) {
             const { tabBarPosition } = this.props;
@@ -189,7 +193,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
     render() {
         const { prefixCls, tabs, tabBarPosition, renderTabBar, animated, useOnPan, children } = this.props;
-        const { currentTab } = this.state;
+        const { currentTab, isMoving } = this.state;
         const defaultPrefix = '$i$-';
 
         let subElements: { [key: string]: any } = {};
@@ -205,7 +209,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         }
 
         let contentCls = `${prefixCls}-content-wrap`;
-        if (animated) {
+        if (animated && !isMoving) {
             contentCls += ` ${contentCls}-animated`;
         }
 
