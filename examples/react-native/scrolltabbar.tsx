@@ -26,9 +26,9 @@ const renderContent = (tab: Models.TabData, index: number) =>
 const TabsExample = () => (
     <View style={{ flex: 1 }}>
         <Tabs tabs={[
-            { title: 'First Tab' },
-            { title: 'Second Tab' },
-            { title: 'Third Tab' },
+            { title: '1st Tab' },
+            { title: '2nd Tab' },
+            { title: '3rd Tab' },
             { title: '4th Tab' },
             { title: '5th Tab' },
             { title: '6th Tab' },

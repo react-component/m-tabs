@@ -42,7 +42,8 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         page: 5,
         tabBarUnderlineStyle: {},
         tabBarBackgroundColor: '#fff',
-        tabBarActiveTextColor: '#108ee9',
+        tabBarActiveTextColor: '',
+        tabBarInactiveTextColor: '',
         tabBarTextStyle: {},
         dynamicTabUnderlineWidth: false,
         styles: Styles,
@@ -144,7 +145,9 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
             styles = Styles
         } = this.props;
         const isTabActive = activeTab === index;
-        const textColor = isTabActive ? activeTextColor : inactiveTextColor;
+        const textColor = isTabActive ?
+            (activeTextColor || styles.TabBar.activeTextColor) :
+            (inactiveTextColor || styles.TabBar.inactiveTextColor);
 
         return <TouchableOpacity
             activeOpacity={1}
@@ -165,6 +168,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
                     renderTab ? renderTab(tab) :
                         <Text style={{
                             color: textColor,
+                            ...styles.TabBar.textStyle,
                             ...textStyle
                         }}>
                             {tab.title}
@@ -184,7 +188,6 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         const {
             tabs, page = 1,
             tabBarUnderlineStyle,
-            tabBarActiveTextColor,
             tabBarBackgroundColor,
             styles = Styles,
             tabsContainerStyle
@@ -192,9 +195,8 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
 
         const tabUnderlineStyle = {
             position: 'absolute',
-            height: 2,
-            backgroundColor: tabBarActiveTextColor,
             bottom: 0,
+            ...styles.TabBar.underline,
             ...tabBarUnderlineStyle,
         };
 
@@ -227,7 +229,6 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
                         ...styles.TabBar.tabs,
                         ...tabsContainerStyle,
                     }}
-                    ref={'tabContainer'}
                     onLayout={this.onTabContainerLayout}
                 >
                     {
@@ -242,7 +243,6 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
                     <Animated.View style={{
                         ...tabUnderlineStyle,
                         ...dynamicTabUnderline,
-                        ...tabBarUnderlineStyle,
                     }} />
                 </View>
             </ScrollView>

@@ -35,5 +35,14 @@ export default {
             paddingLeft: 2,
             flexDirection: 'row'
         } as RN.ViewStyle,
+        underline: {
+            height: 2,
+            backgroundColor: '#108ee9',
+        } as RN.ViewStyle,
+        textStyle: {
+            fontSize: 15,
+        } as RN.ViewStyle,
+        activeTextColor: '#108ee9',
+        inactiveTextColor: '',
     },
 };
