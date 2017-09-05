@@ -23,7 +23,7 @@ const renderContent = (tab: Models.TabData, index: number) =>
     </ScrollView>
     ;
 
-const SwipeoutExample = () => (
+const TabsExample = () => (
     <View style={{ flex: 1 }}>
         <Tabs tabs={[
             { title: 'First Tab' },
@@ -37,5 +37,5 @@ const SwipeoutExample = () => (
     </View>
 );
 
-export const Demo = SwipeoutExample;
+export const Demo = TabsExample;
 export const title = 'Simple';

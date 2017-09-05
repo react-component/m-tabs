@@ -12,6 +12,7 @@ import { PropsType as BasePropsType } from './PropsType';
 import { Tabs as Component, StateType as BaseStateType } from './Tabs.base';
 import { DefaultTabBar } from './DefaultTabBar';
 import { StaticContainer } from './StaticContainer';
+import Styles from './Styles.native';
 
 const TabPane = (Props: any) => {
     const { shouldUpdate, ...props } = Props;
@@ -25,6 +26,7 @@ const TabPane = (Props: any) => {
 export interface PropsType extends BasePropsType {
     children?: any;
     style?: RN.ViewStyle;
+    styles?: typeof Styles;
 }
 export interface StateType extends BaseStateType {
     scrollX: Animated.Value;
@@ -77,7 +79,7 @@ export class Tabs extends Component<PropsType, StateType> {
         const { tabs } = this.props;
         const { currentTab, containerWidth } = this.state;
 
-        return <ScrollView
+        return <ScrollView key="$content"
             horizontal
             pagingEnabled
             automaticallyAdjustContentInsets={false}
@@ -154,7 +156,7 @@ export class Tabs extends Component<PropsType, StateType> {
     }
 
     render() {
-        const { tabBarPosition } = this.props;
+        const { tabBarPosition, styles = Styles } = this.props;
         const { scrollX, scrollValue, containerWidth } = this.state;
         // let overlayTabs = (this.props.tabBarPosition === 'overlayTop' || this.props.tabBarPosition === 'overlayBottom');
         let overlayTabs = false;
@@ -176,18 +178,17 @@ export class Tabs extends Component<PropsType, StateType> {
             // };
         }
 
+        const content = [
+            <View key="$tabbar" style={tabBarPosition === 'top' ? styles.Tabs.topTabBarSplitLine : styles.Tabs.bottomTabBarSplitLine}>
+                {this.renderTabBar(tabBarProps, DefaultTabBar)}
+            </View>,
+            this.renderContent()
+        ];
+
         return <View style={{
-            ...Styles.container, ...this.props.style,
+            ...styles.Tabs.container, ...this.props.style,
         }} onLayout={this.handleLayout}>
-            {tabBarPosition === 'top' && this.renderTabBar(tabBarProps, DefaultTabBar)}
-            {this.renderContent()}
-            {(tabBarPosition === 'bottom' || overlayTabs) && this.renderTabBar(tabBarProps, DefaultTabBar)}
+            {tabBarPosition === 'top' ? content : content.reverse()}
         </View>;
     }
 }
-
-const Styles = {
-    container: {
-        flex: 1,
-    } as RN.ViewStyle,
-};

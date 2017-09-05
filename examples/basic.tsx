@@ -6,8 +6,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Models, Tabs, DefaultTabBar } from '../src';
 
-const en = location.search.indexOf('en') !== -1;
-
 class BasicDemo extends React.Component<{}, any> {
 
     constructor(props: any) {

@@ -7,8 +7,6 @@ import ReactDOM from 'react-dom';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Models, Tabs, DefaultTabBar } from '../src';
 
-const en = location.search.indexOf('en') !== -1;
-
 class BasicDemo extends React.Component<{}, {
 }> {
 
