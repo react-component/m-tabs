@@ -58,6 +58,7 @@
       flex-shrink: 0;
   width: 100%;
   overflow: visible;
+  z-index: 1;
 }
 .rmc-tabs-tab-bar-content {
   display: -webkit-box;
