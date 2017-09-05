@@ -43,6 +43,6 @@ export default {
             fontSize: 15,
         } as RN.ViewStyle,
         activeTextColor: '#108ee9',
-        inactiveTextColor: '',
+        inactiveTextColor: '#000',
     },
 };
