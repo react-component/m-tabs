@@ -59,7 +59,7 @@ class BasicDemo extends React.Component<{}, {
                             { key: 't3', title: 't3' },
                             { key: 't4', title: 't4' },
                             { key: 't5', title: 't5' },
-                        ]} initalPage={'t2'}
+                        ]} initialPage={'t2'}
                             renderTabBar={(props) => {
                                 return <Sticky style={{ zIndex: 1 }}>
                                     <DefaultTabBar {...props} />

@@ -66,7 +66,7 @@ describe('basic', () => {
     it('inital tab.', () => {
         const wrapper = render(
             <Tabs tabs={tabData}
-                initalPage={'t2'}
+                initialPage={'t2'}
             >
                 {renderContent()}
             </Tabs>

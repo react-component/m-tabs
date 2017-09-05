@@ -98,7 +98,7 @@ class BasicDemo extends React.Component<{}, any> {
                         { key: 't2', title: 't2' },
                         { key: 't3', title: 't3' },
                         { key: 't4', title: 't4' },
-                    ]} initalPage={'t2'} tabBarPosition="bottom"
+                    ]} initialPage={'t2'} tabBarPosition="bottom"
                     >
                         {this.renderContent()}
                     </Tabs>
@@ -111,7 +111,7 @@ class BasicDemo extends React.Component<{}, any> {
                         { title: 't3' },
                         { title: 't4' },
                         { title: 't5' },
-                    ]} initalPage={1} prerenderingSiblingsNumber={1}
+                    ]} initialPage={1} prerenderingSiblingsNumber={1}
                     >
                         {this.renderContent()}
                     </Tabs>
