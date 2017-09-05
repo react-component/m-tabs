@@ -27,7 +27,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         activeTab: 0,
         page: 5,
         tabBarUnderlineStyle: {},
-        tabBarBackgroundColor: '',
+        tabBarBackgroundColor: '#fff',
         tabBarActiveTextColor: '',
         tabBarInactiveTextColor: '',
         tabBarTextStyle: {},
@@ -101,7 +101,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         };
     }
 
-    onTap = (index: number) => {
+    onPress = (index: number) => {
         const { goToTab } = this.props;
         goToTab && goToTab(index);
     }
@@ -131,7 +131,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
                 width: `${width}%`,
             }}
             className={cls}
-            onClick={() => this.onTap(i)}
+            onClick={() => this.onPress(i)}
         >
             {renderTab ? renderTab(t) : t.title}
         </div>;
@@ -169,7 +169,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         }
 
         let style = {
-            backgroundColor: tabBarBackgroundColor || '#fff',
+            backgroundColor: tabBarBackgroundColor || '',
         } as React.CSSProperties;
 
         let transformStyle = needScroll ? {

@@ -4,6 +4,7 @@ import { PropsType, TabBarPropsType } from './PropsType';
 import { TabPane } from './TabPane';
 import { DefaultTabBar } from './DefaultTabBar';
 import { getTransformByIndex, getTransformPropValue, setTransform, setPxStyle, getOffset } from './util';
+import { Tabs as Component } from './Tabs.base';
 
 export class StateType {
     currentTab: number;
@@ -12,90 +13,15 @@ export class StateType {
     isMoving?= false;
 }
 
-export class Tabs extends React.PureComponent<PropsType, StateType> {
+export class Tabs extends Component<PropsType, StateType> {
     static defaultProps = {
+        ...Component.defaultProps,
         prefixCls: 'rmc-tabs',
-        tabBarPosition: 'top',
-        initalPage: 0,
-        swipeable: true,
-        animated: true,
-        prerenderingSiblingsNumber: 1,
-        tabs: [],
         useOnPan: true,
     } as PropsType;
 
     layout: HTMLDivElement;
     tmpOffset = 0;
-
-    constructor(props: PropsType) {
-        super(props);
-
-        this.state = this.getPrerenderRange(props.prerenderingSiblingsNumber, {
-            currentTab: this.getTabIndex(props),
-            minRenderIndex: props.tabs.length - 1,
-            maxRenderIndex: 0,
-        });
-    }
-
-    getTabIndex = (props: PropsType) => {
-        const { page, initalPage, tabs } = props;
-        const param = (page !== undefined ? page : initalPage) || 0;
-
-        let index = 0;
-        if (typeof (param as any) === 'string') {
-            tabs.forEach((t, i) => {
-                if (t.key === param) {
-                    index = i;
-                }
-            });
-        } else {
-            index = param as number || 0;
-        }
-        return index < 0 ? 0 : index;
-    }
-
-    getPrerenderRange = (preRenderNumber = 0, state?: StateType, currentTab = -1) => {
-        let { minRenderIndex, maxRenderIndex } = (state || this.state);
-        state = state || {} as StateType;
-        if (currentTab === -1) {
-            currentTab = state.currentTab !== undefined ? state.currentTab : this.state.currentTab;
-        }
-
-        return {
-            ...state,
-            minRenderIndex: Math.min(minRenderIndex, currentTab - preRenderNumber),
-            maxRenderIndex: Math.max(maxRenderIndex, currentTab + preRenderNumber),
-        };
-    }
-
-    shouldRenderTab = (idx: number) => {
-        const { minRenderIndex, maxRenderIndex } = this.state;
-
-        return minRenderIndex <= idx && idx <= maxRenderIndex;
-    }
-
-    shouldUpdateTab = (idx: number) => {
-        const { prerenderingSiblingsNumber: prerenderNumber = 0 } = this.props;
-        const { currentTab = 0 } = this.state;
-
-        return currentTab - prerenderNumber <= idx && idx <= currentTab + prerenderNumber;
-    }
-
-    componentWillReceiveProps(nextProps: PropsType) {
-        if (this.props.page !== nextProps.page && nextProps.page !== undefined) {
-            this.goToTab(this.getTabIndex(nextProps), true);
-        }
-        if (this.props.prerenderingSiblingsNumber !== nextProps.prerenderingSiblingsNumber) {
-            this.setState(this.getPrerenderRange(
-                nextProps.prerenderingSiblingsNumber,
-                {
-                    minRenderIndex: this.state.minRenderIndex,
-                    maxRenderIndex: this.state.maxRenderIndex,
-                } as any,
-                nextProps.page !== undefined ? this.getTabIndex(nextProps) : this.state.currentTab
-            ));
-        }
-    }
 
     onSwipe = (status: IGestureStatus) => {
         const { tabBarPosition, swipeable } = this.props;
@@ -155,29 +81,12 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
         }
     }
 
-    goToTab = (index: number, force = false) => {
-        if (this.state.currentTab === index) {
-            return;
-        }
-        const { tabs, onChangeTab, prerenderingSiblingsNumber } = this.props;
-        !force && onChangeTab && onChangeTab(index, tabs[index]);
-        if (!force && this.props.page !== undefined) {
-            return;
-        }
-        if (index >= 0 && index < tabs.length) {
-            this.setState({
-                currentTab: index,
-                ...this.getPrerenderRange(prerenderingSiblingsNumber, undefined, index),
-            });
-        }
-    }
-
     setContentLayout = (div: HTMLDivElement) => {
         this.layout = div;
     }
 
     render() {
-        const { prefixCls, tabs, tabBarPosition, renderTabBar, animated, useOnPan, children } = this.props;
+        const { prefixCls, tabs, tabBarPosition, animated, useOnPan, children } = this.props;
         const { currentTab, isMoving } = this.state;
         const defaultPrefix = '$i$-';
 
@@ -212,21 +121,12 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
             tabs,
             activeTab: currentTab,
             animated: !!animated,
-            tabBarPosition,
             tabBarActiveTextColor,
             tabBarBackgroundColor,
             tabBarInactiveTextColor,
             tabBarTextStyle,
             tabBarUnderlineStyle,
         };
-
-        let tabBarComponent;
-        if (renderTabBar) {
-            tabBarComponent = renderTabBar(tabBarProps);
-            // tabBarComponent = React.cloneElement(tabBarComponent, tabBarProps);
-        } else {
-            tabBarComponent = <DefaultTabBar {...tabBarProps} />;
-        }
 
         const onPan = useOnPan ? {
             onPanStart: this.onPanStart,
@@ -236,7 +136,7 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
 
         const content = [
             <div key="tabBar" className={`${prefixCls}-tab-bar-wrap`}>
-                {tabBarComponent}
+                {this.renderTabBar(tabBarProps, DefaultTabBar)}
             </div>,
             <Gesture key="$content"
                 onSwipe={this.onSwipe}
@@ -258,7 +158,9 @@ export class Tabs extends React.PureComponent<PropsType, StateType> {
                             }
 
                             return <TabPane key={key} className={cls}
-                                shouldUpdate={this.shouldUpdateTab(index)}>
+                                shouldUpdate={this.shouldUpdateTab(index)}
+                                active={currentTab === index}
+                            >
                                 {this.shouldRenderTab(index) && component}
                             </TabPane>;
                         })

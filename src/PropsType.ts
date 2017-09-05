@@ -9,15 +9,13 @@ export interface TabBarPropsType {
     activeTab: number;
     /** 是否使用动画 */
     animated: boolean;
-    /** TabBar位置 | top: 上, bottom: 下 */
-    tabBarPosition?: 'top' | 'bottom'; // TODO left, right
 
     // TabBar shortcut settings.
-    tabBarUnderlineStyle?: React.CSSProperties;
+    tabBarUnderlineStyle?: React.CSSProperties | any;
     tabBarBackgroundColor?: string;
     tabBarActiveTextColor?: string;
     tabBarInactiveTextColor?: string;
-    tabBarTextStyle?: React.CSSProperties;
+    tabBarTextStyle?: React.CSSProperties | any;
 }
 
 export interface PropsType {
@@ -28,26 +26,31 @@ export interface PropsType {
     /** TabBar位置 | default: top | top: 上, bottom: 下 */
     tabBarPosition?: 'top' | 'bottom'; // TODO left, right
     /** 替换TabBar */
-    renderTabBar?: (props: TabBarPropsType) => React.ReactNode;
+    renderTabBar?: ((props: TabBarPropsType) => React.ReactNode) | false;
     /** 初始化Tab, index or key */
-    initalPage?: number | string;
+    initialPage?: number | string;
     /** 当前Tab, index or key */
     page?: number | string;
     /** 是否可以滑动内容切换 | default: true */
     swipeable?: boolean;
+    /** 使用跟手滚动 | default: true */
+    useOnPan?: boolean;
     /** 预加载两侧Tab数量 | default: 1 */
     prerenderingSiblingsNumber?: number;
     /** 是否开启切换动画 | default: true */
     animated?: boolean;
     /** tab变化时触发 */
     onChangeTab?: (index: number, tabData: Models.TabData) => void;
-    /** 使用跟手滚动 | default: true */
-    useOnPan?: boolean;
 
     // TabBar shortcut settings.
-    tabBarUnderlineStyle?: React.CSSProperties;
+    /** tabBar下划线样式 */
+    tabBarUnderlineStyle?: React.CSSProperties | any;
+    /** tabBar背景色 */
     tabBarBackgroundColor?: string;
+    /** tabBar激活Tab文字颜色 */
     tabBarActiveTextColor?: string;
+    /** tabBar非激活Tab文字颜色 */
     tabBarInactiveTextColor?: string;
-    tabBarTextStyle?: React.CSSProperties;
+    /** tabBar文字样式 */
+    tabBarTextStyle?: React.CSSProperties | any;
 }

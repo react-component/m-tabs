@@ -1,8 +1,7 @@
 # rmc-tabs
 ---
 
-React Mobile Tabs Component (web)
-
+React Mobile Tabs Component (web), inspired by [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
 
 [![NPM version][npm-image]][npm-url]
 ![react](https://img.shields.io/badge/react-%3E%3D_15.2.0-green.svg)
