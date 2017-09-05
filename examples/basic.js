@@ -32,7 +32,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var en = location.search.indexOf('en') !== -1;
 
 var BasicDemo = function (_React$Component) {
     __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(BasicDemo, _React$Component);

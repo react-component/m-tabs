@@ -32,7 +32,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var en = location.search.indexOf('en') !== -1;
 var tabData = [{ title: 'tit 1' }, { title: 'tit 2' }, { title: 'tit 3' }, { title: 'tit 4' }, { title: 'tit 5' }, { title: 'tit 6' }, { title: 'tit 7' }, { title: 'tit 8' }, { title: 'tit 9' }];
 
 var BasicDemo = function (_React$Component) {
