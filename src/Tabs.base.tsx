@@ -33,7 +33,7 @@ export abstract class Tabs<
         } as S);
     }
 
-    getTabIndex = (props: P) => {
+    getTabIndex(props: P) {
         const { page, initialPage, tabs } = props;
         const param = (page !== undefined ? page : initialPage) || 0;
 
@@ -93,14 +93,16 @@ export abstract class Tabs<
         }
     }
 
-    goToTab = (index: number, force = false) => {
+    goToTab(index: number, force = false) {
         if (this.state.currentTab === index) {
-            return;
+            return false;
         }
         const { tabs, onChangeTab, prerenderingSiblingsNumber } = this.props as P;
-        !force && onChangeTab && onChangeTab(index, tabs[index]);
-        if (!force && this.props.page !== undefined) {
-            return;
+        if (!force) {
+            onChangeTab && onChangeTab(index, tabs[index]);
+            if (this.props.page !== undefined) {
+                return false;
+            }
         }
         if (index >= 0 && index < tabs.length) {
             this.setState({
@@ -108,6 +110,31 @@ export abstract class Tabs<
                 ...this.getPrerenderRange(prerenderingSiblingsNumber, undefined, index) as any,
             });
         }
+        return true;
+    }
+
+    getTabBarBaseProps() {
+        const { currentTab } = this.state;
+
+        const {
+                tabs, animated,
+            tabBarActiveTextColor,
+            tabBarBackgroundColor,
+            tabBarInactiveTextColor,
+            tabBarTextStyle,
+            tabBarUnderlineStyle,
+            } = this.props;
+        return {
+            goToTab: this.goToTab.bind(this),
+            tabs,
+            activeTab: currentTab,
+            animated: !!animated,
+            tabBarActiveTextColor,
+            tabBarBackgroundColor,
+            tabBarInactiveTextColor,
+            tabBarTextStyle,
+            tabBarUnderlineStyle,
+        };
     }
 
     renderTabBar(tabBarProps: any, DefaultTabBar: React.ComponentClass) {
@@ -120,5 +147,21 @@ export abstract class Tabs<
         } else {
             return <DefaultTabBar {...tabBarProps} />;
         }
+    }
+
+    getSubElements(defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') {
+        const { children } = this.props;
+        let subElements: { [key: string]: any } = {};
+        if (Array.isArray(children) && children.length > 1) {
+            children.forEach((child: any, index) => {
+                if (child.key) {
+                    subElements[child.key] = child;
+                }
+                subElements[`${defaultPrefix}${index}`] = child;
+            });
+        } else if (children) {
+            subElements[allPrefix] = children;
+        }
+        return subElements;
     }
 }

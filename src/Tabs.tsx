@@ -14,6 +14,8 @@ export class StateType {
 }
 
 export class Tabs extends Component<PropsType, StateType> {
+    static DefaultTabBar = DefaultTabBar;
+
     static defaultProps = {
         ...Component.defaultProps,
         prefixCls: 'rmc-tabs',
@@ -85,47 +87,46 @@ export class Tabs extends Component<PropsType, StateType> {
         this.layout = div;
     }
 
-    render() {
-        const { prefixCls, tabs, tabBarPosition, animated, useOnPan, children } = this.props;
+    renderContent(subElements: { [key: string]: any } = this.getSubElements(), defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') {
+        const { prefixCls, tabs, tabBarPosition, animated } = this.props;
         const { currentTab, isMoving } = this.state;
-        const defaultPrefix = '$i$-';
-
-        let subElements: { [key: string]: any } = {};
-        if (Array.isArray(children)) {
-            children.forEach((child: any, index) => {
-                if (child.key) {
-                    subElements[child.key] = child;
-                }
-                subElements[`${defaultPrefix}${index}`] = child;
-            });
-        } else if (children) {
-            subElements['$ALL$'] = children;
-        }
-
         let contentCls = `${prefixCls}-content-wrap`;
         if (animated && !isMoving) {
             contentCls += ` ${contentCls}-animated`;
         }
-
         const contentStyle = getTransformPropValue(getTransformByIndex(currentTab, tabBarPosition));
 
-        const {
-            tabBarActiveTextColor,
-            tabBarBackgroundColor,
-            tabBarInactiveTextColor,
-            tabBarTextStyle,
-            tabBarUnderlineStyle,
-        } = this.props;
+        return <div className={contentCls} style={contentStyle} ref={this.setContentLayout}>
+            {
+                tabs.map((tab, index) => {
+                    const key = tab.key || `${defaultPrefix}${index}`;
+                    let component = subElements[key] || subElements[allPrefix];
+                    if (component instanceof Function) {
+                        component = component(tab, index);
+                    }
+                    let cls = `${prefixCls}-pane-wrap`;
+                    if (this.state.currentTab === index) {
+                        cls += ` ${cls}-active`;
+                    } else {
+                        cls += ` ${cls}-inactive`;
+                    }
+
+                    return <TabPane key={key} className={cls}
+                        shouldUpdate={this.shouldUpdateTab(index)}
+                        active={currentTab === index}
+                    >
+                        {this.shouldRenderTab(index) && component}
+                    </TabPane>;
+                })
+            }
+        </div>;
+    }
+
+    render() {
+        const { prefixCls, tabBarPosition, useOnPan } = this.props;
+
         const tabBarProps: TabBarPropsType = {
-            goToTab: this.goToTab,
-            tabs,
-            activeTab: currentTab,
-            animated: !!animated,
-            tabBarActiveTextColor,
-            tabBarBackgroundColor,
-            tabBarInactiveTextColor,
-            tabBarTextStyle,
-            tabBarUnderlineStyle,
+            ...this.getTabBarBaseProps(),
         };
 
         const onPan = useOnPan ? {
@@ -142,30 +143,7 @@ export class Tabs extends Component<PropsType, StateType> {
                 onSwipe={this.onSwipe}
                 {...onPan}
             >
-                <div className={contentCls} style={contentStyle} ref={this.setContentLayout}>
-                    {
-                        tabs.map((tab, index) => {
-                            const key = tab.key || `${defaultPrefix}${index}`;
-                            let component = subElements[key] || subElements['$ALL$'];
-                            if (component instanceof Function) {
-                                component = component(tab, index);
-                            }
-                            let cls = `${prefixCls}-pane-wrap`;
-                            if (this.state.currentTab === index) {
-                                cls += ` ${cls}-active`;
-                            } else {
-                                cls += ` ${cls}-inactive`;
-                            }
-
-                            return <TabPane key={key} className={cls}
-                                shouldUpdate={this.shouldUpdateTab(index)}
-                                active={currentTab === index}
-                            >
-                                {this.shouldRenderTab(index) && component}
-                            </TabPane>;
-                        })
-                    }
-                </div>
+                {this.renderContent()}
             </Gesture>,
         ];
 

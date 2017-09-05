@@ -35,4 +35,4 @@ android/
 xcuserdata
 yarn.lock
 _ts2js
-project-lock.json
+package-lock.json

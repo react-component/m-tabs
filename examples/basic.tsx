@@ -124,7 +124,7 @@ class BasicDemo extends React.Component<{}, any> {
                         { title: 't3' },
                         { title: 't4' },
                         { title: 't5' },
-                    ]} animated={false}
+                    ]} animated={false} useOnPan={false}
                     >
                         {this.renderContent()}
                     </Tabs>

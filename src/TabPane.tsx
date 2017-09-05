@@ -28,9 +28,9 @@ export class TabPane extends React.PureComponent<PropsType, {}> {
 
     render() {
         const { shouldUpdate, active, ...props } = this.props;
-        return <div {...props} style={{
+        return <div {...props} style={this.offset ? {
             ...getTransformPropValue(getPxStyle(-this.offset, 'px', true))
-        }} ref={this.setLayout}>
+        } : {}} ref={this.setLayout}>
             <StaticContainer shouldUpdate={shouldUpdate}>
                 {props.children}
             </StaticContainer>

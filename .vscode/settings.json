@@ -1,2 +1,7 @@
 {
+    "files.exclude": {
+        "components/**/*.js*": {
+            "when": "$(basename).tsx"
+        }
+    }
 }

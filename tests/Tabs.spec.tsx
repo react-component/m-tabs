@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
-import { Tabs } from '../src';
+import renderToJson from 'enzyme-to-json';
+import { Tabs, Models } from '../src';
 
 const tabData = [
     { key: 't1', title: 't1' },
@@ -103,7 +103,7 @@ describe('single content.', () => {
             <Tabs tabs={tabDataWithoutKey}
             >
                 {
-                    (tab, index) =>
+                    (tab: Models.TabData, index: number) =>
                         <div>
                             <p>single content</p>
                             <p>{JSON.stringify({ index, tab })}</p>
