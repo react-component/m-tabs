@@ -13,6 +13,8 @@ export interface TabBarPropsType {
   renderTab?: (tab: Models.TabData) => React.ReactNode;
   /** 分页个数，超过将启用scroll模式 default: 5 */
   page?: number;
+  /** on tab click */
+  onTabClick?: (tab: Models.TabData, index: number) => void;
 
   // TabBar shortcut settings.
   tabBarUnderlineStyle?: React.CSSProperties | any;
@@ -44,7 +46,9 @@ export interface PropsType {
   /** 是否开启切换动画 | default: true */
   animated?: boolean;
   /** tab变化时触发 */
-  onChangeTab?: (index: number, tabData: Models.TabData) => void;
+  onChange?: (tab: Models.TabData, index: number) => void;
+  /** on tab click */
+  onTabClick?: (tab: Models.TabData, index: number) => void;
 
   // TabBar shortcut settings.
   /** tabBar下划线样式 */

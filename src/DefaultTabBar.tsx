@@ -99,7 +99,8 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
   }
 
   onPress = (index: number) => {
-    const { goToTab } = this.props;
+    const { goToTab, onTabClick, tabs } = this.props;
+    onTabClick && onTabClick(tabs[index], index);
     goToTab && goToTab(index);
   }
 

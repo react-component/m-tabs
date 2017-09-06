@@ -62,7 +62,13 @@ class BasicDemo extends React.Component<{}, any> {
             { key: 't2', title: 't2' },
             { key: 't3', title: 't3' },
           ]} page={this.state.page}
-            onChangeTab={(index) => this.setState({ page: index })}
+            onChange={(tab, index) => {
+              console.log('onChange', tab, index);
+              this.setState({ page: index });
+            }}
+            onTabClick={(tab, index) => {
+              console.log('onTabClick', tab, index);
+            }}
             renderTabBar={(props) => <DefaultTabBar
               {...props}
               renderTab={(tab: Models.TabData) => {

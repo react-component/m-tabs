@@ -37,7 +37,7 @@ class BasicDemo extends React.Component<{}, any> {
       <div>
         <div style={{ ...baseStyle }}>
           <h2>normal</h2>
-          <Tabs tabs={tabData} onChangeTab={(index, tab) => {
+          <Tabs tabs={tabData} onChange={(tab, index) => {
             this.setState({
               scData: JSON.stringify({ index: index + Math.random(), tab })
             });
@@ -52,7 +52,7 @@ class BasicDemo extends React.Component<{}, any> {
             </div>
           </Tabs>
           <h2>page</h2>
-          <Tabs tabs={tabData} onChangeTab={(index, tab) => {
+          <Tabs tabs={tabData} onChange={(tab, index) => {
             this.setState({
               scData2: JSON.stringify({ index: index + Math.random(), tab })
             });

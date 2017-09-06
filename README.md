@@ -71,7 +71,7 @@ online example: http://react-component.github.io/m-tabs/
     { title: 't3' },
     { title: 't4' },
     { title: 't5' },
-]} onChangeTab={(index, tab) => {
+]} onChange={(tab, index) => {
     this.setState({
         scData: JSON.stringify({ index: index + Math.random(), tab })
     });
@@ -141,12 +141,13 @@ swipeable | Whether to switch tabs with swipe gestrue in the content | boolean |
 useOnPan | 使用跟手滚动 | boolean |  true | false
 prerenderingSiblingsNumber  | pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page. | number | 1 | false
 animated | Whether to change tabs with animation | boolean |  true | false
-onChangeTab | Callback when tab is switched | (index: number, tabData: Models.TabData) => void |  | false
+onChange | Callback when tab is switched | (tabData: Models.TabData, index: number) => void |  | false
 tabBarUnderlineStyle | style of the default tab bar's underline | React.CSSProperties \| any |  | false
 tabBarBackgroundColor | color of the default tab bar's background | string |  | false
 tabBarActiveTextColor | color of the default tab bar's text when active | string |  | false
 tabBarInactiveTextColor | color of the default tab bar's text when inactive | string |  | false
 tabBarTextStyle | tional styles to the tab bar's text | React.CSSProperties \| any |  | false
+onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | false
 
 ### TabBarPropsType（Common）:
 属性 | 说明 | 类型 | 默认值 | 必选
@@ -156,6 +157,7 @@ tabs | tabs data | Models.TabData[] | | true
 activeTab | current active tab | number | | true
 animated | Whether to change tabs with animation | boolean | | true
 tabBarPosition | TabBar's position | 'top' \| 'bottom' // TODO left, right | | false
+onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | false
 
 ## Test Case
 

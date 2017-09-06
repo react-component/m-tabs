@@ -38,7 +38,7 @@ class BasicDemo extends React.Component<{}, any> {
       <div>
         <div style={{ ...baseStyle, height: 240 }}>
           <h2>single content</h2>
-          <Tabs tabs={tabData} onChangeTab={(index, tab) => {
+          <Tabs tabs={tabData} onChange={(tab, index) => {
             this.setState({
               scData: JSON.stringify({ index: index + Math.random(), tab })
             });

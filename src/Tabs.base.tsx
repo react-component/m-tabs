@@ -99,9 +99,9 @@ export abstract class Tabs<
       if (this.state.currentTab === index) {
         return false;
       }
-      const { tabs, onChangeTab, prerenderingSiblingsNumber } = this.props as P;
+      const { tabs, onChange, prerenderingSiblingsNumber } = this.props as P;
       if (!force) {
-        onChangeTab && onChangeTab(index, tabs[index]);
+        onChange && onChange(tabs[index], index);
         if (this.props.page !== undefined) {
           return false;
         }
@@ -126,9 +126,11 @@ export abstract class Tabs<
       tabBarInactiveTextColor,
       tabBarTextStyle,
       tabBarUnderlineStyle,
+      onTabClick,
     } = this.props;
     return {
       goToTab: this.goToTab.bind(this),
+      onTabClick,
       tabs,
       activeTab: currentTab,
       animated: !!animated,

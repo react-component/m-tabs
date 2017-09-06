@@ -133,12 +133,18 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     }
   }
 
+  onPress = (index: number) => {
+    const { goToTab, onTabClick, tabs } = this.props;
+    onTabClick && onTabClick(tabs[index], index);
+    goToTab && goToTab(index);
+  }
+
   renderTab(tab: Models.TabData, index: number, width: number, onLayoutHandler: any) {
     const {
             tabBarActiveTextColor: activeTextColor,
       tabBarInactiveTextColor: inactiveTextColor,
       tabBarTextStyle: textStyle,
-      activeTab, goToTab, renderTab,
+      activeTab, renderTab,
       styles = Styles
         } = this.props;
     const isTabActive = activeTab === index;
@@ -151,9 +157,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       key={`${tab.title}_${index}`}
       accessible={true}
       accessibilityTraits="button"
-      onPress={() => {
-        goToTab && goToTab(index);
-      }}
+      onPress={() => this.onPress(index)}
       onLayout={onLayoutHandler}
     >
       <View style={{
