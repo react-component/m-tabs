@@ -11979,27 +11979,27 @@ var Tabs = function (_React$PureComponent) {
 
             var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-            // compatible with preact, because the setState is different between.
-            setImmediate(function () {
-                if (_this2.state.currentTab === index) {
+            if (this.state.currentTab === index) {
+                return false;
+            }
+            var _props = this.props,
+                tabs = _props.tabs,
+                onChange = _props.onChange,
+                prerenderingSiblingsNumber = _props.prerenderingSiblingsNumber;
+
+            if (!force) {
+                onChange && onChange(tabs[index], index);
+                if (this.props.page !== undefined) {
                     return false;
                 }
-                var _props = _this2.props,
-                    tabs = _props.tabs,
-                    onChange = _props.onChange,
-                    prerenderingSiblingsNumber = _props.prerenderingSiblingsNumber;
-
-                if (!force) {
-                    onChange && onChange(tabs[index], index);
-                    if (_this2.props.page !== undefined) {
-                        return false;
-                    }
-                }
-                if (index >= 0 && index < tabs.length) {
+            }
+            if (index >= 0 && index < tabs.length) {
+                // compatible with preact, because the setState is different between.
+                setImmediate(function () {
                     _this2.setState(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ currentTab: index }, _this2.getPrerenderRange(prerenderingSiblingsNumber, undefined, index)));
-                }
-                return true;
-            });
+                });
+            }
+            return true;
         }
     }, {
         key: 'getTabBarBaseProps',
