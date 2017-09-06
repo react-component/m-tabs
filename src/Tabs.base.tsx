@@ -120,13 +120,13 @@ export abstract class Tabs<
     const { currentTab } = this.state;
 
     const {
-                tabs, animated,
+      tabs, animated,
       tabBarActiveTextColor,
       tabBarBackgroundColor,
       tabBarInactiveTextColor,
       tabBarTextStyle,
       tabBarUnderlineStyle,
-            } = this.props;
+    } = this.props;
     return {
       goToTab: this.goToTab.bind(this),
       tabs,

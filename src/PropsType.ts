@@ -9,6 +9,10 @@ export interface TabBarPropsType {
   activeTab: number;
   /** 是否使用动画 */
   animated: boolean;
+  /** 替换Tab渲染 */
+  renderTab?: (tab: Models.TabData) => React.ReactNode;
+  /** 分页个数，超过将启用scroll模式 default: 5 */
+  page?: number;
 
   // TabBar shortcut settings.
   tabBarUnderlineStyle?: React.CSSProperties | any;

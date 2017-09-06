@@ -7,9 +7,6 @@ import { getOffset, setPxStyle, getTransformPropValue, getPxStyle } from './util
 export interface PropsType extends TabBarPropsType {
   /** default: rmc-tabs-tab-bar */
   prefixCls?: string;
-  renderTab?: (tab: Models.TabData) => React.ReactNode;
-  /** 分页个数，超过将启用scroll模式 default: 5 */
-  page?: number;
 }
 export class StateType {
   transform?= '';

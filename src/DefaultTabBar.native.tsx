@@ -16,9 +16,6 @@ import Styles from './Styles.native';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export interface PropsType extends TabBarPropsType {
-  renderTab?: (tab: Models.TabData) => React.ReactNode;
-  /** 分页个数，超过将启用scroll模式 default: 5 */
-  page?: number;
 
   scrollValue?: any;
   styles?: typeof Styles;
