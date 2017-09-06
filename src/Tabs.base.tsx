@@ -94,26 +94,26 @@ export abstract class Tabs<
   }
 
   goToTab(index: number, force = false) {
-    // compatible with preact, because the setState is different between.
-    setImmediate(() => {
-      if (this.state.currentTab === index) {
+    if (this.state.currentTab === index) {
+      return false;
+    }
+    const { tabs, onChange, prerenderingSiblingsNumber } = this.props as P;
+    if (!force) {
+      onChange && onChange(tabs[index], index);
+      if (this.props.page !== undefined) {
         return false;
       }
-      const { tabs, onChange, prerenderingSiblingsNumber } = this.props as P;
-      if (!force) {
-        onChange && onChange(tabs[index], index);
-        if (this.props.page !== undefined) {
-          return false;
-        }
-      }
-      if (index >= 0 && index < tabs.length) {
+    }
+    if (index >= 0 && index < tabs.length) {
+      // compatible with preact, because the setState is different between.
+      setImmediate(() => {
         this.setState({
           currentTab: index,
           ...this.getPrerenderRange(prerenderingSiblingsNumber, undefined, index) as any,
         });
-      }
-      return true;
-    });
+      });
+    }
+    return true;
   }
 
   getTabBarBaseProps() {
