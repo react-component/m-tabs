@@ -4,7 +4,7 @@ import 'rmc-tabs/assets/index.less';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Models, Tabs, DefaultTabBar } from '../src';
+import { Models, Tabs } from '../src';
 
 const tabData = [
   { title: 't1' },
@@ -23,7 +23,7 @@ class BasicDemo extends React.Component<{}, any> {
     };
   }
 
-  renderContent = (tab, index) =>
+  renderContent = (tab: Models.TabData, index: number) =>
     <div>
       <p>single content</p>
       <p>{JSON.stringify({ index: index + Math.random(), tab })}</p>

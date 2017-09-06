@@ -5,7 +5,7 @@ import 'rmc-tabs/assets/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { StickyContainer, Sticky } from 'react-sticky';
-import { Models, Tabs, DefaultTabBar } from '../src';
+import { Tabs, DefaultTabBar } from '../src';
 
 class BasicDemo extends React.Component<{}, {
 }> {

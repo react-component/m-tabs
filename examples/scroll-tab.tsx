@@ -4,7 +4,7 @@ import 'rmc-tabs/assets/index.less';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Models, Tabs, DefaultTabBar } from '../src';
+import { Tabs, DefaultTabBar } from '../src';
 
 const tabData = [
   { title: 'tit 1' },
@@ -27,12 +27,6 @@ class BasicDemo extends React.Component<{}, any> {
       scData2: JSON.stringify({ index: 0, tab: { title: 't1' } }),
     };
   }
-
-  renderContent = (index, tab) =>
-    <div>
-      <p>scrollable tab</p>
-      <p>{JSON.stringify({ index: index + Math.random(), tab })}</p>
-    </div>
 
   render() {
     const baseStyle = {
