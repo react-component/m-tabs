@@ -9,8 +9,6 @@
           flex-direction: column;
   position: relative;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
 }
 .rmc-tabs * {
   box-sizing: border-box;
@@ -66,7 +64,7 @@
   display: flex;
   width: 100%;
 }
-.rmc-tabs-tab-bar-prevpage:before {
+.rmc-tabs-tab-bar-prevpage {
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -78,7 +76,7 @@
   left: 0;
   background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
 }
-.rmc-tabs-tab-bar-nextpage:after {
+.rmc-tabs-tab-bar-nextpage {
   pointer-events: none;
   position: absolute;
   top: 0;

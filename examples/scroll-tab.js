@@ -42,22 +42,6 @@ var BasicDemo = function (_React$Component) {
 
         var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
 
-        _this.renderContent = function (index, tab) {
-            return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    null,
-                    'scrollable tab'
-                ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                    'p',
-                    null,
-                    JSON.stringify({ index: index + Math.random(), tab: tab })
-                )
-            );
-        };
         _this.state = {
             scData: JSON.stringify({ index: 0, tab: { title: 't1' } }),
             scData2: JSON.stringify({ index: 0, tab: { title: 't1' } })
@@ -86,7 +70,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabs: tabData, onChangeTab: function onChangeTab(index, tab) {
+                        { tabs: tabData, onChange: function onChange(tab, index) {
                                 _this2.setState({
                                     scData: JSON.stringify({ index: index + Math.random(), tab: tab })
                                 });
@@ -130,7 +114,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabs: tabData, onChangeTab: function onChangeTab(index, tab) {
+                        { tabs: tabData, onChange: function onChange(tab, index) {
                                 _this2.setState({
                                     scData2: JSON.stringify({ index: index + Math.random(), tab: tab })
                                 });

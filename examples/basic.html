@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>basic.js - example - rmc-tabs@0.5.4</title>
+  <title>basic.js - example - rmc-tabs@1.0.0</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rmc-tabs@0.5.4</h1>
+      <h1>rmc-tabs@1.0.0</h1>
 
       <p>React Mobile Tabs Component(web &amp; react-native)</p>
     </div>
@@ -279,128 +279,134 @@ import { Models, Tabs, DefaultTabBar } from '../src';
 
 class BasicDemo extends React.Component&lt;{}, any&gt; {
 
-    constructor(props: any) {
-        super(props);
+  constructor(props: any) {
+    super(props);
 
-        this.state = {
-            page: 0
-        };
-    }
+    this.state = {
+      page: 0
+    };
+  }
 
-    renderContent() {
-        const pStyle = { margin: 0, padding: 10 } as React.CSSProperties;
+  renderContent() {
+    const pStyle = { margin: 0, padding: 10 } as React.CSSProperties;
 
-        return [
-            &lt;div key="t1" style={{ background: '#ADFFD7' }}&gt;
-                &lt;p style={pStyle}&gt;tab 1 1&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 1 2&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 1 3&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 1 4&lt;/p&gt;
-            &lt;/div&gt;,
-            &lt;div key="t2" style={{ background: '#ADFFD7' }}&gt;
-                &lt;p style={pStyle}&gt;tab 2 1&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 2&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 3&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 4&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 5&lt;/p&gt;
-            &lt;/div&gt;,
-            &lt;div key="t3" style={{ background: '#ADFFD7' }}&gt;
-                &lt;p style={pStyle}&gt;tab 3 1&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 3 2&lt;/p&gt;
-            &lt;/div&gt;,
-            &lt;div key="t4" style={{ background: '#ADFFD7' }}&gt;
-                &lt;p style={pStyle}&gt;tab 4 1&lt;/p&gt;
-            &lt;/div&gt;,
-        ];
-    }
+    return [
+      &lt;div key="t1" style={{ background: '#ADFFD7' }}&gt;
+        &lt;p style={pStyle}&gt;tab 1 1&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 1 2&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 1 3&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 1 4&lt;/p&gt;
+      &lt;/div&gt;,
+      &lt;div key="t2" style={{ background: '#ADFFD7' }}&gt;
+        &lt;p style={pStyle}&gt;tab 2 1&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 2&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 3&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 4&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 5&lt;/p&gt;
+      &lt;/div&gt;,
+      &lt;div key="t3" style={{ background: '#ADFFD7' }}&gt;
+        &lt;p style={pStyle}&gt;tab 3 1&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 3 2&lt;/p&gt;
+      &lt;/div&gt;,
+      &lt;div key="t4" style={{ background: '#ADFFD7' }}&gt;
+        &lt;p style={pStyle}&gt;tab 4 1&lt;/p&gt;
+      &lt;/div&gt;,
+    ];
+  }
 
-    render() {
-        const baseStyle = {
-            display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
-        } as React.CSSProperties;
+  render() {
+    const baseStyle = {
+      display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
+    } as React.CSSProperties;
 
-        return (
-            &lt;div&gt;
-                &lt;div style={baseStyle}&gt;
-                    &lt;h2&gt;normal&lt;/h2&gt;
-                    &lt;div style={{ background: '#eee', boxShadow: '0 0 0 5px #eee', margin: 10, padding: 10 }}
-                        onClick={() =&gt; this.setState({ page: 2 })}
-                    &gt;
-                        change to 3
+    return (
+      &lt;div&gt;
+        &lt;div style={baseStyle}&gt;
+          &lt;h2&gt;normal&lt;/h2&gt;
+          &lt;div style={{ background: '#eee', boxShadow: '0 0 0 5px #eee', margin: 10, padding: 10 }}
+            onClick={() =&gt; this.setState({ page: 2 })}
+          &gt;
+            change to 3
                     &lt;/div&gt;
-                    &lt;Tabs tabs={[
-                        { key: 't1', title: 't1' },
-                        { key: 't2', title: 't2' },
-                        { key: 't3', title: 't3' },
-                    ]} page={this.state.page}
-                        onChangeTab={(index) =&gt; this.setState({ page: index })}
-                        renderTabBar={(props) =&gt; &lt;DefaultTabBar
-                            {...props}
-                            renderTab={(tab: Models.TabData) =&gt; {
-                                if (tab.key === 't2') {
-                                    return &lt;div style={{ position: 'relative' }}&gt;
-                                        {tab.title}
-                                        &lt;div style={{
-                                            position: 'absolute',
-                                            right: -3,
-                                            top: -1,
-                                            width: 6, height: 6,
-                                            background: 'red',
-                                            borderTopLeftRadius: 6,
-                                            borderBottomLeftRadius: 6,
-                                            borderBottomRightRadius: 6,
-                                            borderTopRightRadius: 6,
-                                        }}&gt;&lt;/div&gt;
-                                    &lt;/div&gt;;
-                                }
-                                return &lt;div&gt;{tab.title}&lt;/div&gt;;
-                            }}
-                        /&gt;}
-                    &gt;
-                        {this.renderContent()}
-                    &lt;/Tabs&gt;
-                &lt;/div&gt;
-                &lt;div style={baseStyle}&gt;
-                    &lt;h2&gt;bottom&lt;/h2&gt;
-                    &lt;Tabs tabs={[
-                        { key: 't1', title: 't1' },
-                        { key: 't2', title: 't2' },
-                        { key: 't3', title: 't3' },
-                        { key: 't4', title: 't4' },
-                    ]} initialPage={'t2'} tabBarPosition="bottom"
-                    &gt;
-                        {this.renderContent()}
-                    &lt;/Tabs&gt;
-                &lt;/div&gt;
-                &lt;div style={{ ...baseStyle, height: 240 }}&gt;
-                    &lt;h2&gt;fixed height&lt;/h2&gt;
-                    &lt;Tabs tabs={[
-                        { title: 't1' },
-                        { title: 't2' },
-                        { title: 't3' },
-                        { title: 't4' },
-                        { title: 't5' },
-                    ]} initialPage={1} prerenderingSiblingsNumber={1}
-                    &gt;
-                        {this.renderContent()}
-                    &lt;/Tabs&gt;
-                &lt;/div&gt;
-                &lt;div style={{ ...baseStyle, height: 240 }}&gt;
-                    &lt;h2&gt;no animate&lt;/h2&gt;
-                    &lt;Tabs tabs={[
-                        { title: 't1' },
-                        { title: 't2' },
-                        { title: 't3' },
-                        { title: 't4' },
-                        { title: 't5' },
-                    ]} animated={false} useOnPan={false}
-                    &gt;
-                        {this.renderContent()}
-                    &lt;/Tabs&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        );
-    }
+          &lt;Tabs tabs={[
+            { key: 't1', title: 't1' },
+            { key: 't2', title: 't2' },
+            { key: 't3', title: 't3' },
+          ]} page={this.state.page}
+            onChange={(tab, index) =&gt; {
+              console.log('onChange', tab, index);
+              this.setState({ page: index });
+            }}
+            onTabClick={(tab, index) =&gt; {
+              console.log('onTabClick', tab, index);
+            }}
+            renderTabBar={(props) =&gt; &lt;DefaultTabBar
+              {...props}
+              renderTab={(tab: Models.TabData) =&gt; {
+                if (tab.key === 't2') {
+                  return &lt;div style={{ position: 'relative' }}&gt;
+                    {tab.title}
+                    &lt;div style={{
+                      position: 'absolute',
+                      right: -3,
+                      top: -1,
+                      width: 6, height: 6,
+                      background: 'red',
+                      borderTopLeftRadius: 6,
+                      borderBottomLeftRadius: 6,
+                      borderBottomRightRadius: 6,
+                      borderTopRightRadius: 6,
+                    }}&gt;&lt;/div&gt;
+                  &lt;/div&gt;;
+                }
+                return &lt;div&gt;{tab.title}&lt;/div&gt;;
+              }}
+            /&gt;}
+          &gt;
+            {this.renderContent()}
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
+        &lt;div style={baseStyle}&gt;
+          &lt;h2&gt;bottom&lt;/h2&gt;
+          &lt;Tabs tabs={[
+            { key: 't1', title: 't1' },
+            { key: 't2', title: 't2' },
+            { key: 't3', title: 't3' },
+            { key: 't4', title: 't4' },
+          ]} initialPage={'t2'} tabBarPosition="bottom"
+          &gt;
+            {this.renderContent()}
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
+        &lt;div style={{ ...baseStyle, height: 240 }}&gt;
+          &lt;h2&gt;fixed height&lt;/h2&gt;
+          &lt;Tabs tabs={[
+            { title: 't1' },
+            { title: 't2' },
+            { title: 't3' },
+            { title: 't4' },
+            { title: 't5' },
+          ]} initialPage={1} prerenderingSiblingsNumber={1}
+          &gt;
+            {this.renderContent()}
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
+        &lt;div style={{ ...baseStyle, height: 240 }}&gt;
+          &lt;h2&gt;no animate&lt;/h2&gt;
+          &lt;Tabs tabs={[
+            { title: 't1' },
+            { title: 't2' },
+            { title: 't3' },
+            { title: 't4' },
+            { title: 't5' },
+          ]} animated={false} useOnPan={false}
+          &gt;
+            {this.renderContent()}
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
 }
 
 ReactDOM.render(&lt;BasicDemo /&gt;, document.getElementById('__react-content'));

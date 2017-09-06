@@ -7532,18 +7532,22 @@ var DefaultTabBar = function (_React$PureComponent) {
             };
         };
         _this.onPress = function (index) {
-            var goToTab = _this.props.goToTab;
+            var _this$props = _this.props,
+                goToTab = _this$props.goToTab,
+                onTabClick = _this$props.onTabClick,
+                tabs = _this$props.tabs;
 
+            onTabClick && onTabClick(tabs[index], index);
             goToTab && goToTab(index);
         };
         _this.renderTab = function (t, i, width) {
-            var _this$props = _this.props,
-                prefixCls = _this$props.prefixCls,
-                renderTab = _this$props.renderTab,
-                activeTab = _this$props.activeTab,
-                tabBarTextStyle = _this$props.tabBarTextStyle,
-                tabBarActiveTextColor = _this$props.tabBarActiveTextColor,
-                tabBarInactiveTextColor = _this$props.tabBarInactiveTextColor;
+            var _this$props2 = _this.props,
+                prefixCls = _this$props2.prefixCls,
+                renderTab = _this$props2.renderTab,
+                activeTab = _this$props2.activeTab,
+                tabBarTextStyle = _this$props2.tabBarTextStyle,
+                tabBarActiveTextColor = _this$props2.tabBarActiveTextColor,
+                tabBarInactiveTextColor = _this$props2.tabBarInactiveTextColor;
 
             var textStyle = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, tabBarTextStyle);
             var cls = prefixCls + '-tab';
@@ -11982,11 +11986,11 @@ var Tabs = function (_React$PureComponent) {
                 }
                 var _props = _this2.props,
                     tabs = _props.tabs,
-                    onChangeTab = _props.onChangeTab,
+                    onChange = _props.onChange,
                     prerenderingSiblingsNumber = _props.prerenderingSiblingsNumber;
 
                 if (!force) {
-                    onChangeTab && onChangeTab(index, tabs[index]);
+                    onChange && onChange(tabs[index], index);
                     if (_this2.props.page !== undefined) {
                         return false;
                     }
@@ -12008,10 +12012,12 @@ var Tabs = function (_React$PureComponent) {
                 tabBarBackgroundColor = _props2.tabBarBackgroundColor,
                 tabBarInactiveTextColor = _props2.tabBarInactiveTextColor,
                 tabBarTextStyle = _props2.tabBarTextStyle,
-                tabBarUnderlineStyle = _props2.tabBarUnderlineStyle;
+                tabBarUnderlineStyle = _props2.tabBarUnderlineStyle,
+                onTabClick = _props2.onTabClick;
 
             return {
                 goToTab: this.goToTab.bind(this),
+                onTabClick: onTabClick,
                 tabs: tabs,
                 activeTab: currentTab,
                 animated: !!animated,

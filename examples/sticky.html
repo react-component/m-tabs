@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>sticky.js - example - rmc-tabs@0.5.4</title>
+  <title>sticky.js - example - rmc-tabs@1.0.0</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rmc-tabs@0.5.4</h1>
+      <h1>rmc-tabs@1.0.0</h1>
 
       <p>React Mobile Tabs Component(web &amp; react-native)</p>
     </div>
@@ -276,76 +276,75 @@ import 'rmc-tabs/assets/index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { StickyContainer, Sticky } from 'react-sticky';
-import { Models, Tabs, DefaultTabBar } from '../src';
+import { Tabs, DefaultTabBar } from '../src';
 
 class BasicDemo extends React.Component&lt;{}, {
 }&gt; {
 
-    constructor(props: any) {
-        super(props);
-    }
+  constructor(props: any) {
+    super(props);
+  }
 
-    renderContent() {
-        const pStyle = { margin: 0, padding: 10 } as React.CSSProperties;
+  renderContent() {
+    const pStyle = { margin: 0, padding: 10 } as React.CSSProperties;
 
-        return [
-            &lt;div key="t1" style={{ background: '#ADFFD7' }}&gt;
-                &lt;p style={pStyle}&gt;tab 1 1&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 1 2&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 1 3&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 1 4&lt;/p&gt;
-            &lt;/div&gt;,
-            &lt;div key="t2" style={{ background: '#ADFFD7' }}&gt;
-                &lt;p style={pStyle}&gt;tab 2 1&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 2&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 3&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 4&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 5&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 6&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 7&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 8&lt;/p&gt;
-                &lt;p style={pStyle}&gt;tab 2 9&lt;/p&gt;
-            &lt;/div&gt;,
-            &lt;div key="t3" style={{ background: '#ADFFD7' }}&gt;tab 3&lt;/div&gt;,
-            &lt;div key="t4" style={{ background: '#ADFFD7' }}&gt;tab 4&lt;/div&gt;,
-            &lt;div key="t5" style={{ background: '#ADFFD7' }}&gt;tab 5&lt;/div&gt;,
-        ];
-    }
+    return [
+      &lt;div key="t1" style={{ background: '#ADFFD7' }}&gt;
+        &lt;p style={pStyle}&gt;tab 1 1&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 1 2&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 1 3&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 1 4&lt;/p&gt;
+      &lt;/div&gt;,
+      &lt;div key="t2" style={{ background: '#ADFFD7' }}&gt;
+        &lt;p style={pStyle}&gt;tab 2 1&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 2&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 3&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 4&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 5&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 6&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 7&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 8&lt;/p&gt;
+        &lt;p style={pStyle}&gt;tab 2 9&lt;/p&gt;
+      &lt;/div&gt;,
+      &lt;div key="t3" style={{ background: '#ADFFD7' }}&gt;tab 3&lt;/div&gt;,
+      &lt;div key="t4" style={{ background: '#ADFFD7' }}&gt;tab 4&lt;/div&gt;,
+      &lt;div key="t5" style={{ background: '#ADFFD7' }}&gt;tab 5&lt;/div&gt;,
+    ];
+  }
 
-    render() {
-        const baseStyle = {
-            display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
-        } as React.CSSProperties;
+  render() {
+    const baseStyle = {
+      display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
+    } as React.CSSProperties;
 
-        return (
-            &lt;div&gt;
-                &lt;div style={baseStyle}&gt;
-                    &lt;h2&gt;Sticky&lt;/h2&gt;
-                    &lt;StickyContainer&gt;
-                        &lt;Tabs tabs={[
-                            { key: 't1', title: 't1' },
-                            { key: 't2', title: 't2' },
-                            { key: 't3', title: 't3' },
-                            { key: 't4', title: 't4' },
-                            { key: 't5', title: 't5' },
-                        ]} initialPage={'t2'}
-                            renderTabBar={(props) =&gt; {
-                                return &lt;Sticky style={{ zIndex: 1 }}&gt;
-                                    &lt;DefaultTabBar {...props} /&gt;
-                                &lt;/Sticky&gt;;
-                            }}
-                        &gt;
-                            {this.renderContent()}
-                        &lt;/Tabs&gt;
-                    &lt;/StickyContainer&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        );
-    }
+    return (
+      &lt;div&gt;
+        &lt;div style={baseStyle}&gt;
+          &lt;h2&gt;Sticky&lt;/h2&gt;
+          &lt;StickyContainer&gt;
+            &lt;Tabs tabs={[
+              { key: 't1', title: 't1' },
+              { key: 't2', title: 't2' },
+              { key: 't3', title: 't3' },
+              { key: 't4', title: 't4' },
+              { key: 't5', title: 't5' },
+            ]} initialPage={'t2'}
+              renderTabBar={(props) =&gt; {
+                return &lt;Sticky style={{ zIndex: 1 }}&gt;
+                  &lt;DefaultTabBar {...props} /&gt;
+                &lt;/Sticky&gt;;
+              }}
+            &gt;
+              {this.renderContent()}
+            &lt;/Tabs&gt;
+          &lt;/StickyContainer&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
 }
 
-ReactDOM.render(&lt;BasicDemo /&gt;, document.getElementById('__react-content'));
-</code></pre></div>
+ReactDOM.render(&lt;BasicDemo /&gt;, document.getElementById('__react-content'));</code></pre></div>
   </div>
   <a href="https://github.com/react-component/m-tabs">
     <img style="position: absolute; top: 0; right: 0; border: 0;"

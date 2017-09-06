@@ -153,8 +153,11 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }], page: this.state.page, onChangeTab: function onChangeTab(index) {
-                                return _this2.setState({ page: index });
+                        { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }], page: this.state.page, onChange: function onChange(tab, index) {
+                                console.log('onChange', tab, index);
+                                _this2.setState({ page: index });
+                            }, onTabClick: function onTabClick(tab, index) {
+                                console.log('onTabClick', tab, index);
                             }, renderTabBar: function renderTabBar(props) {
                                 return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__src__["b" /* DefaultTabBar */], __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, props, { renderTab: function renderTab(tab) {
                                         if (tab.key === 't2') {

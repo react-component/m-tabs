@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>single-content.js - example - rmc-tabs@0.5.4</title>
+  <title>single-content.js - example - rmc-tabs@1.0.0</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rmc-tabs@0.5.4</h1>
+      <h1>rmc-tabs@1.0.0</h1>
 
       <p>React Mobile Tabs Component(web &amp; react-native)</p>
     </div>
@@ -275,65 +275,64 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
-<span class="hljs-keyword">import</span> { Models, Tabs, DefaultTabBar } <span class="hljs-keyword">from</span> <span class="hljs-string">'../src'</span>;
+<span class="hljs-keyword">import</span> { Models, Tabs } <span class="hljs-keyword">from</span> <span class="hljs-string">'../src'</span>;
 
 <span class="hljs-keyword">const</span> tabData = [
-    { title: <span class="hljs-string">'t1'</span> },
-    { title: <span class="hljs-string">'t2'</span> },
-    { title: <span class="hljs-string">'t3'</span> },
-    { title: <span class="hljs-string">'t4'</span> },
-    { title: <span class="hljs-string">'t5'</span> },
+  { title: <span class="hljs-string">'t1'</span> },
+  { title: <span class="hljs-string">'t2'</span> },
+  { title: <span class="hljs-string">'t3'</span> },
+  { title: <span class="hljs-string">'t4'</span> },
+  { title: <span class="hljs-string">'t5'</span> },
 ];
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BasicDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span>&lt;</span>{}, any&gt; {
 
-    constructor(props: any) {
-        <span class="hljs-keyword">super</span>(props);
-        <span class="hljs-keyword">this</span>.state = {
-            scData: <span class="hljs-built_in">JSON</span>.stringify({ index: <span class="hljs-number">0</span>, tab: { title: <span class="hljs-string">'t1'</span> } }),
-        };
-    }
+  constructor(props: any) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {
+      scData: <span class="hljs-built_in">JSON</span>.stringify({ index: <span class="hljs-number">0</span>, tab: { title: <span class="hljs-string">'t1'</span> } }),
+    };
+  }
 
-    renderContent = (tab, index) =&gt;
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>single content<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{JSON.stringify({ index: index + Math.random(), tab })}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  renderContent = (tab: Models.TabData, index: number) =&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>single content<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{JSON.stringify({ index: index + Math.random(), tab })}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 
-    render() {
-        const baseStyle = {
-            display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
-        } as React.CSSProperties;
+  render() {
+    const baseStyle = {
+      display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
+    } as React.CSSProperties;
 
-        return (
+    return (
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">...baseStyle</span>, <span class="hljs-attribute">height:</span> <span class="hljs-attribute">240</span> }}&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>single content<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{tabData}</span> <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{(tab,</span> <span class="hljs-attribute">index</span>) =&gt;</span> {
+            this.setState({
+              scData: JSON.stringify({ index: index + Math.random(), tab })
+            });
+          }}
+          &gt;
             <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">...baseStyle</span>, <span class="hljs-attribute">height:</span> <span class="hljs-attribute">240</span> }}&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>single content<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{tabData}</span> <span class="hljs-attribute">onChangeTab</span>=<span class="hljs-value">{(index,</span> <span class="hljs-attribute">tab</span>) =&gt;</span> {
-                        this.setState({
-                            scData: JSON.stringify({ index: index + Math.random(), tab })
-                        });
-                    }}
-                    &gt;
-                        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>single content<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{this.state.scData}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-                        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">...baseStyle</span>, <span class="hljs-attribute">height:</span> <span class="hljs-attribute">240</span> }}&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>single content function<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{tabData}</span>&gt;</span>
-                        {this.renderContent}
-                    <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>single content<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{this.state.scData}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-        )</span>;
-    }
+          <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">...baseStyle</span>, <span class="hljs-attribute">height:</span> <span class="hljs-attribute">240</span> }}&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>single content function<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{tabData}</span>&gt;</span>
+            {this.renderContent}
+          <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    )</span>;
+  }
 }
 
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">BasicDemo</span> /&gt;</span>, document.getElementById('__react-content'));
-</span></code></pre></div>
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">BasicDemo</span> /&gt;</span>, document.getElementById('__react-content'));</span></code></pre></div>
   </div>
   <a href="https://github.com/react-component/m-tabs">
     <img style="position: absolute; top: 0; right: 0; border: 0;"

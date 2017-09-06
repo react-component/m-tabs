@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
-  <title>rmc-tabs@0.5.4 - React Mobile Tabs Component(web &amp; react-native)</title>
+  <title>rmc-tabs@1.0.0 - React Mobile Tabs Component(web &amp; react-native)</title>
   <style>
     @font-face {
       font-family: octicons-anchor;
@@ -737,7 +737,7 @@
 
 <body>
 <div class="header">
-  <h1>rmc-tabs@0.5.4</h1>
+  <h1>rmc-tabs@1.0.0</h1>
 </div>
 <div class="examples">
   <h3>EXAMPLES</h3>
@@ -793,7 +793,7 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
     { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t5</span>' },
-]} <span class="hljs-attribute">onChangeTab</span>=<span class="hljs-value">{(index,</span> <span class="hljs-attribute">tab</span>) =&gt;</span> {
+]} <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{(index,</span> <span class="hljs-attribute">tab</span>) =&gt;</span> {
     this.setState({
         scData: JSON.stringify({ index: index + Math.random(), tab })
     });
@@ -867,21 +867,22 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 </tr>
 <tr>
 <td>tabBarPosition</td>
-<td>TabBar&#39;s position</td>
+<td>TabBar&#39;s position top, bottom</td>
 <td>&#39;top&#39; \</td>
 <td>&#39;bottom&#39; // TODO left, right</td>
-<td></td>
+<td>top</td>
 <td>false</td>
 </tr>
 <tr>
 <td>renderTabBar</td>
 <td>replace the TabBar</td>
-<td>(props: TabBarPropsType) =&gt; React.ReactNode</td>
+<td>((props: TabBarPropsType) =&gt; React.ReactNode) \</td>
+<td>false</td>
 <td></td>
 <td>false</td>
 </tr>
 <tr>
-<td>initalPage</td>
+<td>initialPage</td>
 <td>the tab when inital, index or key</td>
 <td>number \</td>
 <td>string</td>
@@ -904,8 +905,15 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 <td>false</td>
 </tr>
 <tr>
+<td>useOnPan</td>
+<td>使用跟手滚动</td>
+<td>boolean</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
 <td>prerenderingSiblingsNumber</td>
-<td>pre-render nearby # sibling, Infinity === render all the siblings, default to 0 === render current page.</td>
+<td>pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page.</td>
 <td>number</td>
 <td>1</td>
 <td>false</td>
@@ -918,9 +926,53 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 <td>false</td>
 </tr>
 <tr>
-<td>onChangeTab</td>
+<td>onChange</td>
 <td>Callback when tab is switched</td>
-<td>(index: number, tabData: Models.TabData) =&gt; void</td>
+<td>(tabData: Models.TabData, index: number) =&gt; void</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarUnderlineStyle</td>
+<td>style of the default tab bar&#39;s underline</td>
+<td>React.CSSProperties \</td>
+<td>any</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarBackgroundColor</td>
+<td>color of the default tab bar&#39;s background</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarActiveTextColor</td>
+<td>color of the default tab bar&#39;s text when active</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarInactiveTextColor</td>
+<td>color of the default tab bar&#39;s text when inactive</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarTextStyle</td>
+<td>tional styles to the tab bar&#39;s text</td>
+<td>React.CSSProperties \</td>
+<td>any</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>onTabClick</td>
+<td>on tab click</td>
+<td>(tab: Models.TabData, index: number) =&gt; void</td>
 <td></td>
 <td>false</td>
 </tr>
@@ -970,6 +1022,13 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 <td>TabBar&#39;s position</td>
 <td>&#39;top&#39; \</td>
 <td>&#39;bottom&#39; // TODO left, right</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>onTabClick</td>
+<td>on tab click</td>
+<td>(tab: Models.TabData, index: number) =&gt; void</td>
 <td></td>
 <td>false</td>
 </tr>

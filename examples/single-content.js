@@ -85,7 +85,7 @@ var BasicDemo = function (_React$Component) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                        { tabs: tabData, onChangeTab: function onChangeTab(index, tab) {
+                        { tabs: tabData, onChange: function onChange(tab, index) {
                                 _this2.setState({
                                     scData: JSON.stringify({ index: index + Math.random(), tab: tab })
                                 });
