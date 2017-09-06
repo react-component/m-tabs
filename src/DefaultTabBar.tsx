@@ -96,8 +96,8 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         const skipWidth = (index - 2) * width;
         return {
             transform: getPxStyle(Math.min(-skipWidth, 0), '%'),
-            showPrev: activeTab > 2,
-            showNext: activeTab < tabs.length - 3,
+            showPrev: activeTab > 2 && tabs.length > page,
+            showNext: activeTab < tabs.length - 3 && tabs.length > page,
         };
     }
 
@@ -161,12 +161,6 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         if (animated && !isMoving) {
             cls += ` ${prefixCls}-animated`;
         }
-        if (showPrev) {
-            cls += ` ${prefixCls}-prevpage`;
-        }
-        if (showNext) {
-            cls += ` ${prefixCls}-nextpage`;
-        }
 
         let style = {
             backgroundColor: tabBarBackgroundColor || '',
@@ -177,6 +171,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         } : {};
 
         return <div className={`${cls}`} style={style}>
+            {showPrev && <div className={`${prefixCls}-prevpage`}></div>}
             <Gesture {...this.onPan }>
                 <div className={`${prefixCls}-content`} style={transformStyle} ref={this.setContentLayout}>
                     {Tabs}
@@ -187,6 +182,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
                     }} className={`${prefixCls}-underline`}></div>
                 </div>
             </Gesture>
+            {showNext && <div className={`${prefixCls}-nextpage`}></div>}
         </div>;
     }
 }

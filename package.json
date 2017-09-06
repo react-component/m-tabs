@@ -1,6 +1,6 @@
 {
   "name": "rmc-tabs",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "React Mobile Tabs Component(web & react-native)",
   "keywords": [
     "react",
@@ -89,6 +89,7 @@
   },
   "typings": "./lib/index.d.ts",
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ]
 }

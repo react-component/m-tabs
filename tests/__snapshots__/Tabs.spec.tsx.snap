@@ -8,7 +8,7 @@ exports[`basic base. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
       style="background-color:#fff;"
     >
       <div
@@ -138,7 +138,7 @@ exports[`basic inital tab. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
       style="background-color:#fff;"
     >
       <div
@@ -274,7 +274,7 @@ exports[`basic no animation. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-nextpage"
+      class="rmc-tabs-tab-bar"
       style="background-color:#fff;"
     >
       <div
@@ -404,7 +404,7 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
       style="background-color:#fff;"
     >
       <div
@@ -609,7 +609,7 @@ exports[`basic tabBarPosition. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
       style="background-color:#fff;"
     >
       <div
@@ -664,7 +664,7 @@ exports[`single content. base 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
       style="background-color:#fff;"
     >
       <div
@@ -751,7 +751,7 @@ exports[`single content. function 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-nextpage"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
       style="background-color:#fff;"
     >
       <div
