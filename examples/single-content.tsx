@@ -7,58 +7,58 @@ import ReactDOM from 'react-dom';
 import { Models, Tabs, DefaultTabBar } from '../src';
 
 const tabData = [
-    { title: 't1' },
-    { title: 't2' },
-    { title: 't3' },
-    { title: 't4' },
-    { title: 't5' },
+  { title: 't1' },
+  { title: 't2' },
+  { title: 't3' },
+  { title: 't4' },
+  { title: 't5' },
 ];
 
 class BasicDemo extends React.Component<{}, any> {
 
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            scData: JSON.stringify({ index: 0, tab: { title: 't1' } }),
-        };
-    }
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      scData: JSON.stringify({ index: 0, tab: { title: 't1' } }),
+    };
+  }
 
-    renderContent = (tab, index) =>
-        <div>
-            <p>single content</p>
-            <p>{JSON.stringify({ index: index + Math.random(), tab })}</p>
-        </div>
+  renderContent = (tab, index) =>
+    <div>
+      <p>single content</p>
+      <p>{JSON.stringify({ index: index + Math.random(), tab })}</p>
+    </div>
 
-    render() {
-        const baseStyle = {
-            display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
-        } as React.CSSProperties;
+  render() {
+    const baseStyle = {
+      display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
+    } as React.CSSProperties;
 
-        return (
+    return (
+      <div>
+        <div style={{ ...baseStyle, height: 240 }}>
+          <h2>single content</h2>
+          <Tabs tabs={tabData} onChangeTab={(index, tab) => {
+            this.setState({
+              scData: JSON.stringify({ index: index + Math.random(), tab })
+            });
+          }}
+          >
             <div>
-                <div style={{ ...baseStyle, height: 240 }}>
-                    <h2>single content</h2>
-                    <Tabs tabs={tabData} onChangeTab={(index, tab) => {
-                        this.setState({
-                            scData: JSON.stringify({ index: index + Math.random(), tab })
-                        });
-                    }}
-                    >
-                        <div>
-                            <p>single content</p>
-                            <p>{this.state.scData}</p>
-                        </div>
-                    </Tabs>
-                </div>
-                <div style={{ ...baseStyle, height: 240 }}>
-                    <h2>single content function</h2>
-                    <Tabs tabs={tabData}>
-                        {this.renderContent}
-                    </Tabs>
-                </div>
+              <p>single content</p>
+              <p>{this.state.scData}</p>
             </div>
-        );
-    }
+          </Tabs>
+        </div>
+        <div style={{ ...baseStyle, height: 240 }}>
+          <h2>single content function</h2>
+          <Tabs tabs={tabData}>
+            {this.renderContent}
+          </Tabs>
+        </div>
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(<BasicDemo />, document.getElementById('__react-content'));

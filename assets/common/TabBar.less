@@ -1,70 +1,70 @@
 .common-pagination() {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    display: block;
-    width: 59px;
-    height: 100%;
-    content: ' ';
-    z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 59px;
+  height: 100%;
+  content: ' ';
+  z-index: 1;
 }
 
 .@{tabBarPrefixClass} {
-    position: relative;
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  overflow: visible;
+  z-index: 1;
+
+  &-content {
+    display: flex;
+    width: 100%;
+  }
+
+  &-prevpage {
+    .common-pagination();
+
+    left: 0;
+    background: linear-gradient(to right, @page-show-color, @page-hide-color);
+  }
+
+  &-nextpage {
+    .common-pagination();
+
+    right: 0;
+    background: linear-gradient(to right, @page-hide-color, @page-show-color);
+  }
+
+  &-tab {
     display: flex;
     flex-shrink: 0;
-    width: 100%;
-    overflow: visible;
-    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 14px;
+  }
 
-    &-content {
-        display: flex;
-        width: 100%;
-    }
+  &-tab-active {
+    color: @tabs-color;
+  }
 
-    &-prevpage:before {
-        .common-pagination();
+  &-underline {
+    position: absolute;
+    bottom: 0;
+    border: 1px @tabs-color solid;
+  }
 
-        left: 0;
-        background: linear-gradient(to right, @page-show-color, @page-hide-color);
-    }
+  &-animated &-content {
+    transition: transform @effect-duration @easing-in-out;
+    will-change: transform;
+  }
 
-    &-nextpage:after {
-        .common-pagination();
-
-        right: 0;
-        background: linear-gradient(to right, @page-hide-color, @page-show-color);
-    }
-
-    &-tab {
-        display: flex;
-        flex-shrink: 0;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 0;
-        font-size: 14px;
-        line-height: 14px;
-    }
-
-    &-tab-active {
-        color: @tabs-color;
-    }
-
-    &-underline {
-        position: absolute;
-        bottom: 0;
-        border: 1px @tabs-color solid;
-    }
-
-    &-animated &-content {
-        transition: transform @effect-duration @easing-in-out;
-        will-change: transform;
-    }
-
-    &-animated &-underline {
-        transition: left @effect-duration @easing-in-out,
-        color @effect-duration @easing-in-out,
-        width @effect-duration @easing-in-out;
-        will-change: left, width, color;
-    }
+  &-animated &-underline {
+    transition: left @effect-duration @easing-in-out,
+    color @effect-duration @easing-in-out,
+    width @effect-duration @easing-in-out;
+    will-change: left, width, color;
+  }
 }

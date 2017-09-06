@@ -1,49 +1,49 @@
 .@{tabsPrefixClass} {
+  box-sizing: border-box;
+  * {
     box-sizing: border-box;
-    * {
-        box-sizing: border-box;
-    }
+  }
 
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  &-content-wrap {
     display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    height: 100%;
+
+    &-animated {
+      transition: transform @effect-duration @easing-in-out;
+      will-change: transform;
+    }
+  }
+
+  &-pane-wrap {
     width: 100%;
+    flex-shrink: 0;
+    overflow-y: auto;
+  }
 
-    &-content-wrap {
-        display: flex;
+  &-pane-wrap-active {
+    height: auto;
+  }
 
-        &-animated {
-            transition: transform @effect-duration @easing-in-out;
-            will-change: transform;
-        }
-    }
+  &-pane-wrap-inactive {
+    height: 0;
+    overflow: visible;
+  }
 
-    &-pane-wrap {
-        width: 100%;
-        flex-shrink: 0;
-        overflow-y: auto;
-    }
+  &-tab-bar-wrap {
+    flex-shrink: 0;
+  }
 
-    &-pane-wrap-active {
-        height: auto;
-    }
+  &-top &-tab-bar-wrap {
+    border-bottom: 1px #eee solid;
+  }
 
-    &-pane-wrap-inactive {
-        height: 0;
-        overflow: visible;
-    }
-
-    &-tab-bar-wrap {
-        flex-shrink: 0;
-    }
-
-    &-top &-tab-bar-wrap {
-        border-bottom: 1px #eee solid;
-    }
-
-    &-bottom &-tab-bar-wrap {
-        border-top: 1px #eee solid;
-    }
+  &-bottom &-tab-bar-wrap {
+    border-top: 1px #eee solid;
+  }
 }
