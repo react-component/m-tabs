@@ -11979,7 +11979,7 @@ var Tabs = function (_React$PureComponent) {
 
             var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-            if (this.state.currentTab === index) {
+            if (!force && this.state.currentTab === index) {
                 return false;
             }
             var _props = this.props,
@@ -12254,7 +12254,7 @@ var Tabs = function (_Component) {
                 this.renderTabBar(tabBarProps, __WEBPACK_IMPORTED_MODULE_8__DefaultTabBar__["a" /* DefaultTabBar */])
             ), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_6_rc_gesture__["a" /* default */],
-                __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ key: '$content', onSwipe: this.onSwipe }, onPan),
+                __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ key: '$content', direction: 'horizontal', onSwipe: this.onSwipe }, onPan),
                 this.renderContent()
             )];
             return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
