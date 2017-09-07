@@ -140,6 +140,7 @@ export class Tabs extends Component<PropsType, StateType> {
         {this.renderTabBar(tabBarProps, DefaultTabBar)}
       </div>,
       <Gesture key="$content"
+        direction="horizontal"
         onSwipe={this.onSwipe}
         {...onPan}
       >
