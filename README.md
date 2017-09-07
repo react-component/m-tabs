@@ -28,7 +28,7 @@ React Mobile Tabs Component (web & react-native), inspired by [react-native-scro
 ## Development
 
 ```
-npm i 
+npm i
 npm start
 ```
 
@@ -57,11 +57,11 @@ online example: http://react-component.github.io/m-tabs/
     { key: 't5', title: 't5' },
 ]} initalPage={'t2'}
 >
-    <div><p>content1</p></div>
-    <div><p>content2</p></div>
-    <div><p>content3</p></div>
-    <div><p>content4</p></div>
-    <div><p>content5</p></div>
+  <div key="t1"><p>content1</p></div>
+  <div key="t2"><p>content2</p></div>
+  <div key="t3"><p>content3</p></div>
+  <div key="t4"><p>content4</p></div>
+  <div key="t5"><p>content5</p></div>
 </Tabs>
 
 // single content
