@@ -94,7 +94,7 @@ export abstract class Tabs<
   }
 
   goToTab(index: number, force = false) {
-    if (this.state.currentTab === index) {
+    if (!force && this.state.currentTab === index) {
       return false;
     }
     const { tabs, onChange, prerenderingSiblingsNumber } = this.props as P;

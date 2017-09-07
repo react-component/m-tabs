@@ -41,7 +41,8 @@ export class Tabs extends Component<PropsType, StateType> {
     style: {},
   } as PropsType;
 
-  scrollView: ScrollView;
+  AnimatedScrollView = Animated.createAnimatedComponent(ScrollView);
+  scrollView: { _component: ScrollView };
 
   constructor(props: PropsType) {
     super(props);
@@ -57,19 +58,29 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      InteractionManager.runAfterInteractions(() => {
-        if (Platform.OS === 'android') {
-          this.goToTab(this.getTabIndex(this.props));
-        }
-      });
-    }, 0);
+    InteractionManager.runAfterInteractions(() => {
+      if (Platform.OS === 'android') {
+        this.scrollTo(this.state.currentTab, false);
+      }
+    });
 
     this.state.scrollX.addListener(({ value, }) => {
       const scrollValue = value / this.state.containerWidth;
       this.state.scrollValue.setValue(scrollValue);
-      // this.props.onScroll(scrollValue);
     });
+  }
+
+  onScroll = (evt?: RN.NativeSyntheticEvent<RN.NativeScrollEvent>) => {
+    if (evt) {
+      Animated.event([{
+        nativeEvent: { contentOffset: { x: this.state.scrollX } }
+      }], )(evt);
+    }
+  }
+
+  setScrollView = (sv: any) => {
+    this.scrollView = sv;
+    this.scrollTo(this.state.currentTab);
   }
 
   renderContent = (
@@ -77,18 +88,15 @@ export class Tabs extends Component<PropsType, StateType> {
     defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$'
   ) => {
     const { tabs } = this.props;
-    const { currentTab, containerWidth } = this.state;
+    const { currentTab = 0, containerWidth = 0 } = this.state;
 
-    return <ScrollView key="$content"
+    const AnimatedScrollView = this.AnimatedScrollView as ScrollView;
+    return <AnimatedScrollView key="$content"
       horizontal
       pagingEnabled
       automaticallyAdjustContentInsets={false}
-      ref={(scrollView: any) => { this.scrollView = scrollView; }}
-      onScroll={
-        Animated.event([{
-          nativeEvent: { contentOffset: { x: this.state.scrollX } }
-        }])
-      }
+      ref={this.setScrollView}
+      onScroll={this.onScroll}
       onMomentumScrollEnd={this.onMomentumScrollEnd}
       scrollEventThrottle={16}
       scrollsToTop={false}
@@ -115,7 +123,7 @@ export class Tabs extends Component<PropsType, StateType> {
           </TabPane>;
         })
       }
-    </ScrollView>;
+    </AnimatedScrollView>;
   }
 
   onMomentumScrollEnd = (e: RN.NativeSyntheticEvent<RN.NativeScrollEvent>) => {
@@ -126,21 +134,22 @@ export class Tabs extends Component<PropsType, StateType> {
     }
   }
 
-  goToTab(index: number, force: boolean = false) {
+  goToTab(index: number, force: boolean = false, animated = this.props.animated) {
     const result = super.goToTab(index, force);
     if (result) {
-      this.scrollTo(index);
+      requestAnimationFrame(() => {
+        this.scrollTo(this.state.currentTab);
+      });
     }
     return result;
   }
 
   handleLayout = (e: RN.LayoutChangeEvent) => {
     const { width } = e.nativeEvent.layout;
-
-    requestAnimationFrame(() => {
-      this.scrollTo(this.state.currentTab, false);
-    });
     if (Math.round(width) !== Math.round(this.state.containerWidth)) {
+      requestAnimationFrame(() => {
+        this.scrollTo(this.state.currentTab, false);
+      });
       this.setState({ containerWidth: width });
     }
   }
@@ -149,8 +158,9 @@ export class Tabs extends Component<PropsType, StateType> {
     const { containerWidth } = this.state;
     if (containerWidth) {
       const offset = index * containerWidth;
-      if (this.scrollView && this.scrollView.scrollTo) {
-        this.scrollView.scrollTo({ x: offset, animated });
+      if (this.scrollView && this.scrollView._component) {
+        const { scrollTo } = this.scrollView._component;
+        scrollTo && scrollTo({ x: offset, animated });
       }
     }
   }

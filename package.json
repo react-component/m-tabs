@@ -1,6 +1,6 @@
 {
   "name": "rmc-tabs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React Mobile Tabs Component(web & react-native)",
   "keywords": [
     "react",
@@ -82,7 +82,7 @@
     "react-dom": "15.5.x",
     "react-sticky": "5.x",
     "react-native": "~0.42.0",
-    "@types/react-native": "~0.47.9",
+    "@types/react-native": "~0.48.0",
     "react-native-index-page": "^0.2.1",
     "react-test-renderer": "^15.5.0",
     "stylelint-config-standard": "^17.0.0"
