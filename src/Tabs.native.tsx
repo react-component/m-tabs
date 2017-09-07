@@ -138,7 +138,7 @@ export class Tabs extends Component<PropsType, StateType> {
     const result = super.goToTab(index, force);
     if (result) {
       requestAnimationFrame(() => {
-        this.scrollTo(this.state.currentTab);
+        this.scrollTo(this.state.currentTab, animated);
       });
     }
     return result;
