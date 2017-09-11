@@ -11823,6 +11823,7 @@ var TabPane = function (_React$PureComponent) {
         var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).apply(this, arguments));
 
         _this.offset = 0;
+        _this.emptyContent = false;
         _this.setLayout = function (div) {
             _this.layout = div;
         };
@@ -11839,6 +11840,7 @@ var TabPane = function (_React$PureComponent) {
                     this.offset = this.layout.scrollTop;
                 }
             }
+            this.emptyContent = !(this.props.children && nextProps.children);
         }
     }, {
         key: 'render',
@@ -11852,7 +11854,7 @@ var TabPane = function (_React$PureComponent) {
                 __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, props, { style: this.offset ? __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util__["d" /* getTransformPropValue */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util__["c" /* getPxStyle */])(-this.offset, 'px', true))) : {}, ref: this.setLayout }),
                 __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_6__StaticContainer__["a" /* StaticContainer */],
-                    { shouldUpdate: shouldUpdate },
+                    { shouldUpdate: this.emptyContent || shouldUpdate },
                     props.children
                 )
             );
@@ -11889,8 +11891,6 @@ var TabPane = function (_React$PureComponent) {
 
 var StateType = function StateType() {
     __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_classCallCheck___default()(this, StateType);
-
-    this.isMoving = false;
 };
 var Tabs = function (_React$PureComponent) {
     __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default()(Tabs, _React$PureComponent);
@@ -11901,6 +11901,7 @@ var Tabs = function (_React$PureComponent) {
         var _this = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
 
         _this.tmpOffset = 0;
+        _this.tabCache = {};
         _this.getPrerenderRange = function () {
             var preRenderNumber = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
             var state = arguments[1];
@@ -11924,12 +11925,32 @@ var Tabs = function (_React$PureComponent) {
             return minRenderIndex <= idx && idx <= maxRenderIndex;
         };
         _this.shouldUpdateTab = function (idx) {
-            var _this$props$prerender = _this.props.prerenderingSiblingsNumber,
-                prerenderNumber = _this$props$prerender === undefined ? 0 : _this$props$prerender;
             var _this$state$currentTa = _this.state.currentTab,
                 currentTab = _this$state$currentTa === undefined ? 0 : _this$state$currentTa;
 
-            return currentTab - prerenderNumber <= idx && idx <= currentTab + prerenderNumber;
+            var tabChanged = currentTab !== _this.prevCurrentTab;
+            return tabChanged && currentTab === idx;
+        };
+        _this.getSubElements = function () {
+            var children = _this.props.children;
+
+            var subElements = {};
+            return function () {
+                var defaultPrefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '$i$-';
+                var allPrefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '$ALL$';
+
+                if (Array.isArray(children) && children.length > 1) {
+                    children.forEach(function (child, index) {
+                        if (child.key) {
+                            subElements[child.key] = child;
+                        }
+                        subElements['' + defaultPrefix + index] = child;
+                    });
+                } else if (children) {
+                    subElements[allPrefix] = children;
+                }
+                return subElements;
+            };
         };
         _this.state = _this.getPrerenderRange(props.prerenderingSiblingsNumber, {
             currentTab: _this.getTabIndex(props),
@@ -11971,6 +11992,16 @@ var Tabs = function (_React$PureComponent) {
                     maxRenderIndex: this.state.maxRenderIndex
                 }, nextProps.page !== undefined ? this.getTabIndex(nextProps) : this.state.currentTab));
             }
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.prevCurrentTab = this.state.currentTab;
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            this.prevCurrentTab = this.state.currentTab;
         }
     }, {
         key: 'goToTab',
@@ -12043,24 +12074,18 @@ var Tabs = function (_React$PureComponent) {
             }
         }
     }, {
-        key: 'getSubElements',
-        value: function getSubElements() {
-            var defaultPrefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '$i$-';
-            var allPrefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '$ALL$';
-            var children = this.props.children;
+        key: 'getSubElement',
+        value: function getSubElement(tab, index, subElements) {
+            var defaultPrefix = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '$i$-';
+            var allPrefix = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '$ALL$';
 
-            var subElements = {};
-            if (Array.isArray(children) && children.length > 1) {
-                children.forEach(function (child, index) {
-                    if (child.key) {
-                        subElements[child.key] = child;
-                    }
-                    subElements['' + defaultPrefix + index] = child;
-                });
-            } else if (children) {
-                subElements[allPrefix] = children;
+            var key = tab.key || '' + defaultPrefix + index;
+            var elements = subElements(defaultPrefix, allPrefix);
+            var component = elements[key] || elements[allPrefix];
+            if (component instanceof Function) {
+                component = component(tab, index);
             }
-            return subElements;
+            return component;
         }
     }]);
 
@@ -12192,12 +12217,9 @@ var Tabs = function (_Component) {
     __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(Tabs, [{
         key: 'renderContent',
         value: function renderContent() {
-            var subElements = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getSubElements();
-
             var _this2 = this;
 
-            var defaultPrefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '$i$-';
-            var allPrefix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '$ALL$';
+            var getSubElements = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getSubElements();
             var _props = this.props,
                 prefixCls = _props.prefixCls,
                 tabs = _props.tabs,
@@ -12216,21 +12238,17 @@ var Tabs = function (_Component) {
                 'div',
                 { className: contentCls, style: contentStyle, ref: this.setContentLayout },
                 tabs.map(function (tab, index) {
-                    var key = tab.key || '' + defaultPrefix + index;
-                    var component = subElements[key] || subElements[allPrefix];
-                    if (component instanceof Function) {
-                        component = component(tab, index);
-                    }
                     var cls = prefixCls + '-pane-wrap';
                     if (_this2.state.currentTab === index) {
                         cls += ' ' + cls + '-active';
                     } else {
                         cls += ' ' + cls + '-inactive';
                     }
+                    var key = tab.key || 'tab_' + index;
                     return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_7__TabPane__["a" /* TabPane */],
                         { key: key, className: cls, shouldUpdate: _this2.shouldUpdateTab(index), active: currentTab === index },
-                        _this2.shouldRenderTab(index) && component
+                        _this2.shouldRenderTab(index) && _this2.getSubElement(tab, index, getSubElements)
                     );
                 })
             );
