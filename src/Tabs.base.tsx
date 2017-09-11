@@ -106,7 +106,7 @@ export abstract class Tabs<
     }
     if (index >= 0 && index < tabs.length) {
       // compatible with preact, because the setState is different between.
-      setImmediate(() => {
+      setTimeout(() => {
         this.setState({
           currentTab: index,
           ...this.getPrerenderRange(prerenderingSiblingsNumber, undefined, index) as any,
