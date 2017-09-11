@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>basic.js - example - rmc-tabs@1.0.4</title>
+  <title>basic.js - example - rmc-tabs@1.0.5</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rmc-tabs@1.0.4</h1>
+      <h1>rmc-tabs@1.0.5</h1>
 
       <p>React Mobile Tabs Component(web &amp; react-native)</p>
     </div>
@@ -327,7 +327,7 @@ class BasicDemo extends React.Component&lt;{}, any&gt; {
             onClick={() =&gt; this.setState({ page: 2 })}
           &gt;
             change to 3
-                    &lt;/div&gt;
+          &lt;/div&gt;
           &lt;Tabs tabs={[
             { key: 't1', title: 't1' },
             { key: 't2', title: 't2' },
@@ -404,6 +404,18 @@ class BasicDemo extends React.Component&lt;{}, any&gt; {
             {this.renderContent()}
           &lt;/Tabs&gt;
         &lt;/div&gt;
+        &lt;div style={baseStyle}&gt;
+          &lt;h2&gt;no swipeable&lt;/h2&gt;
+          &lt;Tabs tabs={[
+            { key: 't1', title: 't1' },
+            { key: 't2', title: 't2' },
+            { key: 't3', title: 't3' },
+            { key: 't4', title: 't4' },
+          ]} initialPage={'t2'} swipeable={false}
+          &gt;
+            {this.renderContent()}
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     );
   }
@@ -414,7 +426,8 @@ ReactDOM.render(&lt;BasicDemo /&gt;, document.getElementById('__react-content'))
 const ip = (document.body.children[3] as HTMLScriptElement).innerText.split('/')[2].split(':')[0];
 const elm = document.createElement('script');
 elm.src = `http://${ip}:1337/vorlon.js`;
-document.body.appendChild(elm);</code></pre></div>
+document.body.appendChild(elm);
+</code></pre></div>
   </div>
   <a href="https://github.com/react-component/m-tabs">
     <img style="position: absolute; top: 0; right: 0; border: 0;"

@@ -12159,7 +12159,9 @@ var Tabs = function (_Component) {
             _this.tmpOffset = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util__["a" /* getOffset */])(_this.layout);
         };
         _this.onPanMove = function (status) {
-            if (!status.moveStatus || !_this.layout) return;
+            var swipeable = _this.props.swipeable;
+
+            if (!status.moveStatus || !_this.layout || !swipeable) return;
             var angle = Math.abs(status.moveStatus.angle);
             if (45 < angle && angle < 135) return;
             var offset = _this.tmpOffset + status.moveStatus.x;
