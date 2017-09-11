@@ -56,7 +56,7 @@ class BasicDemo extends React.Component<{}, any> {
             onClick={() => this.setState({ page: 2 })}
           >
             change to 3
-                    </div>
+          </div>
           <Tabs tabs={[
             { key: 't1', title: 't1' },
             { key: 't2', title: 't2' },
@@ -129,6 +129,18 @@ class BasicDemo extends React.Component<{}, any> {
             { title: 't4' },
             { title: 't5' },
           ]} animated={false} useOnPan={false}
+          >
+            {this.renderContent()}
+          </Tabs>
+        </div>
+        <div style={baseStyle}>
+          <h2>no swipeable</h2>
+          <Tabs tabs={[
+            { key: 't1', title: 't1' },
+            { key: 't2', title: 't2' },
+            { key: 't3', title: 't3' },
+            { key: 't4', title: 't4' },
+          ]} initialPage={'t2'} swipeable={false}
           >
             {this.renderContent()}
           </Tabs>

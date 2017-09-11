@@ -59,7 +59,8 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   onPanMove = (status: IGestureStatus) => {
-    if (!status.moveStatus || !this.layout) return;
+    const { swipeable } = this.props;
+    if (!status.moveStatus || !this.layout || !swipeable) return;
     const angle = Math.abs(status.moveStatus.angle);
     if (45 < angle && angle < 135) return;
 
