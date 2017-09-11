@@ -11,17 +11,8 @@ import {
 import { PropsType as BasePropsType } from './PropsType';
 import { Tabs as Component, StateType as BaseStateType } from './Tabs.base';
 import { DefaultTabBar } from './DefaultTabBar';
-import { StaticContainer } from './StaticContainer';
 import Styles from './Styles.native';
-
-const TabPane = (Props: any) => {
-  const { shouldUpdate, ...props } = Props;
-  return <View {...props}>
-    <StaticContainer shouldUpdate={shouldUpdate}>
-      {props.children}
-    </StaticContainer>
-  </View>;
-};
+import { TabPane } from './TabPane.native';
 
 export interface PropsType extends BasePropsType {
   children?: any;
@@ -83,10 +74,7 @@ export class Tabs extends Component<PropsType, StateType> {
     this.scrollTo(this.state.currentTab);
   }
 
-  renderContent = (
-    subElements: { [key: string]: any } = this.getSubElements(),
-    defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$'
-  ) => {
+  renderContent = (getSubElements = this.getSubElements()) => {
     const { tabs } = this.props;
     const { currentTab = 0, containerWidth = 0 } = this.state;
 
@@ -108,18 +96,13 @@ export class Tabs extends Component<PropsType, StateType> {
     >
       {
         tabs.map((tab, index) => {
-          const key = tab.key || `${defaultPrefix}${index}`;
-          let component = subElements[key] || subElements[allPrefix];
-          if (component instanceof Function) {
-            component = component(tab, index);
-          }
-
+          const key = tab.key || `tab_${index}`;
           return <TabPane key={key}
             shouldUpdate={this.shouldUpdateTab(index)}
             active={currentTab === index}
             style={{ width: containerWidth }}
           >
-            {this.shouldRenderTab(index) && component}
+            {this.shouldRenderTab(index) && this.getSubElement(tab, index, getSubElements)}
           </TabPane>;
         })
       }

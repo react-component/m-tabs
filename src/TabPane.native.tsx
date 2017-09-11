@@ -1,41 +1,27 @@
 import React from 'react';
+import { default as RN, View } from 'react-native';
 import { StaticContainer } from './StaticContainer';
-import { getPxStyle, getTransformPropValue } from './util';
 
 export interface PropsType {
   key?: string;
+  style?: RN.ViewStyle;
   className?: string;
   shouldUpdate: boolean;
   active: boolean;
 }
 export class TabPane extends React.PureComponent<PropsType, {}> {
-  layout: HTMLDivElement;
-  offset = 0;
   emptyContent = false;
 
   componentWillReceiveProps(nextProps: PropsType & { children?: React.ReactNode }) {
-    if (this.props.active !== nextProps.active) {
-      if (nextProps.active) {
-        this.offset = 0;
-      } else {
-        this.offset = this.layout.scrollTop;
-      }
-    }
     this.emptyContent = !(this.props.children && nextProps.children);
-  }
-
-  setLayout = (div: HTMLDivElement) => {
-    this.layout = div;
   }
 
   render() {
     const { shouldUpdate, active, ...props } = this.props;
-    return <div {...props} style={this.offset ? {
-      ...getTransformPropValue(getPxStyle(-this.offset, 'px', true))
-    } : {}} ref={this.setLayout}>
+    return <View {...props}>
       <StaticContainer shouldUpdate={this.emptyContent || shouldUpdate}>
         {props.children}
       </StaticContainer>
-    </div>;
+    </View>;
   }
 }

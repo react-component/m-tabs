@@ -88,7 +88,7 @@ export class Tabs extends Component<PropsType, StateType> {
     this.layout = div;
   }
 
-  renderContent(subElements: { [key: string]: any } = this.getSubElements(), defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') {
+  renderContent(getSubElements = this.getSubElements()) {
     const { prefixCls, tabs, tabBarPosition, animated } = this.props;
     const { currentTab, isMoving } = this.state;
     let contentCls = `${prefixCls}-content-wrap`;
@@ -100,11 +100,6 @@ export class Tabs extends Component<PropsType, StateType> {
     return <div className={contentCls} style={contentStyle} ref={this.setContentLayout}>
       {
         tabs.map((tab, index) => {
-          const key = tab.key || `${defaultPrefix}${index}`;
-          let component = subElements[key] || subElements[allPrefix];
-          if (component instanceof Function) {
-            component = component(tab, index);
-          }
           let cls = `${prefixCls}-pane-wrap`;
           if (this.state.currentTab === index) {
             cls += ` ${cls}-active`;
@@ -112,11 +107,12 @@ export class Tabs extends Component<PropsType, StateType> {
             cls += ` ${cls}-inactive`;
           }
 
+          const key = tab.key || `tab_${index}`;
           return <TabPane key={key} className={cls}
             shouldUpdate={this.shouldUpdateTab(index)}
             active={currentTab === index}
           >
-            {this.shouldRenderTab(index) && component}
+            {this.shouldRenderTab(index) && this.getSubElement(tab, index, getSubElements)}
           </TabPane>;
         })
       }

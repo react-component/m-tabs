@@ -1,11 +1,11 @@
 import React from 'react';
 import { PropsType } from './PropsType';
+import { Models } from './Models';
 
 export class StateType {
   currentTab: number;
   minRenderIndex: number;
   maxRenderIndex: number;
-  isMoving?= false;
 }
 
 export abstract class Tabs<
@@ -22,6 +22,8 @@ export abstract class Tabs<
   } as PropsType;
 
   tmpOffset = 0;
+  prevCurrentTab: number;
+  tabCache: { [key: string]: React.ReactNode } = {};
 
   constructor(props: P) {
     super(props);
@@ -71,10 +73,9 @@ export abstract class Tabs<
   }
 
   shouldUpdateTab = (idx: number) => {
-    const { prerenderingSiblingsNumber: prerenderNumber = 0 } = this.props as P;
     const { currentTab = 0 } = this.state as S;
-
-    return currentTab - prerenderNumber <= idx && idx <= currentTab + prerenderNumber;
+    const tabChanged = currentTab !== this.prevCurrentTab;
+    return tabChanged && currentTab === idx;
   }
 
   componentWillReceiveProps(nextProps: P) {
@@ -91,6 +92,14 @@ export abstract class Tabs<
         nextProps.page !== undefined ? this.getTabIndex(nextProps) : this.state.currentTab
       ));
     }
+  }
+
+  componentDidMount() {
+    this.prevCurrentTab = this.state.currentTab;
+  }
+
+  componentDidUpdate() {
+    this.prevCurrentTab = this.state.currentTab;
   }
 
   goToTab(index: number, force = false) {
@@ -154,19 +163,38 @@ export abstract class Tabs<
     }
   }
 
-  getSubElements(defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') {
+  getSubElements = () => {
     const { children } = this.props;
-    let subElements: { [key: string]: any } = {};
-    if (Array.isArray(children) && children.length > 1) {
-      children.forEach((child: any, index) => {
-        if (child.key) {
-          subElements[child.key] = child;
-        }
-        subElements[`${defaultPrefix}${index}`] = child;
-      });
-    } else if (children) {
-      subElements[allPrefix] = children;
+    let subElements: { [key: string]: React.ReactNode } = {};
+
+    return (defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') => {
+      if (Array.isArray(children) && children.length > 1) {
+        children.forEach((child: any, index) => {
+          if (child.key) {
+            subElements[child.key] = child;
+          }
+          subElements[`${defaultPrefix}${index}`] = child;
+        });
+      } else if (children) {
+        subElements[allPrefix] = children;
+      }
+      return subElements;
+    };
+  }
+
+  getSubElement(
+    tab: Models.TabData,
+    index: number,
+    subElements: (defaultPrefix: string, allPrefix: string) => { [key: string]: any },
+    defaultPrefix: string = '$i$-',
+    allPrefix: string = '$ALL$'
+  ) {
+    const key = tab.key || `${defaultPrefix}${index}`;
+    const elements = subElements(defaultPrefix, allPrefix);
+    let component = elements[key] || elements[allPrefix];
+    if (component instanceof Function) {
+      component = component(tab, index);
     }
-    return subElements;
+    return component;
   }
 }
