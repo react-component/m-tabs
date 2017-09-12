@@ -11749,8 +11749,8 @@ module.exports = getIteratorFn;
 
 
 
-var StaticContainer = function (_React$Component) {
-    __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default()(StaticContainer, _React$Component);
+var StaticContainer = function (_React$PureComponent) {
+    __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default()(StaticContainer, _React$PureComponent);
 
     function StaticContainer() {
         __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default()(this, StaticContainer);
@@ -11760,7 +11760,7 @@ var StaticContainer = function (_React$Component) {
 
     __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(StaticContainer, [{
         key: 'shouldComponentUpdate',
-        value: function shouldComponentUpdate(nextProps) {
+        value: function shouldComponentUpdate(nextProps, nextState, nextContext) {
             return !!nextProps.shouldUpdate;
         }
     }, {
@@ -11775,7 +11775,7 @@ var StaticContainer = function (_React$Component) {
     }]);
 
     return StaticContainer;
-}(__WEBPACK_IMPORTED_MODULE_4_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_4_react___default.a.PureComponent);
 StaticContainer.defaultProps = { shouldUpdate: true };
 
 /***/ }),
@@ -11918,15 +11918,24 @@ var Tabs = function (_React$PureComponent) {
             return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, state, { minRenderIndex: Math.min(minRenderIndex, currentTab - preRenderNumber), maxRenderIndex: Math.max(maxRenderIndex, currentTab + preRenderNumber) });
         };
         _this.shouldRenderTab = function (idx) {
+            var _this$props = _this.props,
+                destroyInactiveTab = _this$props.destroyInactiveTab,
+                _this$props$prerender = _this$props.prerenderingSiblingsNumber,
+                prerenderingSiblingsNumber = _this$props$prerender === undefined ? 0 : _this$props$prerender;
             var _this$state = _this.state,
                 minRenderIndex = _this$state.minRenderIndex,
-                maxRenderIndex = _this$state.maxRenderIndex;
+                maxRenderIndex = _this$state.maxRenderIndex,
+                _this$state$currentTa = _this$state.currentTab,
+                currentTab = _this$state$currentTa === undefined ? 0 : _this$state$currentTa;
 
+            if (destroyInactiveTab) {
+                return currentTab - prerenderingSiblingsNumber <= idx && idx <= currentTab + prerenderingSiblingsNumber;
+            }
             return minRenderIndex <= idx && idx <= maxRenderIndex;
         };
         _this.shouldUpdateTab = function (idx) {
-            var _this$state$currentTa = _this.state.currentTab,
-                currentTab = _this$state$currentTa === undefined ? 0 : _this$state$currentTa;
+            var _this$state$currentTa2 = _this.state.currentTab,
+                currentTab = _this$state$currentTa2 === undefined ? 0 : _this$state$currentTa2;
 
             var tabChanged = currentTab !== _this.prevCurrentTab;
             return tabChanged && currentTab === idx;
@@ -12097,7 +12106,8 @@ Tabs.defaultProps = {
     swipeable: true,
     animated: true,
     prerenderingSiblingsNumber: 1,
-    tabs: []
+    tabs: [],
+    destroyInactiveTab: false
 };
 
 /***/ }),

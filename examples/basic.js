@@ -123,6 +123,14 @@ var BasicDemo = function (_React$Component) {
                     { style: pStyle },
                     'tab 4 1'
                 )
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                'div',
+                { key: 't5', style: { background: '#ADFFD7' } },
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'p',
+                    { style: pStyle },
+                    'tab 5 1'
+                )
             )];
         }
     }, {
@@ -199,6 +207,20 @@ var BasicDemo = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
                         { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initialPage: 't2', tabBarPosition: 'bottom' },
+                        this.renderContent()
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'div',
+                    { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, baseStyle) },
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        'h2',
+                        null,
+                        'destroyInactiveTab'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
+                        { tabs: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], destroyInactiveTab: true },
                         this.renderContent()
                     )
                 ),
