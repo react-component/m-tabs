@@ -40,6 +40,9 @@ class BasicDemo extends React.Component<{}, any> {
       <div key="t4" style={{ background: '#ADFFD7' }}>
         <p style={pStyle}>tab 4 1</p>
       </div>,
+      <div key="t5" style={{ background: '#ADFFD7' }}>
+        <p style={pStyle}>tab 5 1</p>
+      </div>,
     ];
   }
 
@@ -103,6 +106,19 @@ class BasicDemo extends React.Component<{}, any> {
             { key: 't3', title: 't3' },
             { key: 't4', title: 't4' },
           ]} initialPage={'t2'} tabBarPosition="bottom"
+          >
+            {this.renderContent()}
+          </Tabs>
+        </div>
+        <div style={{ ...baseStyle }}>
+          <h2>destroyInactiveTab</h2>
+          <Tabs tabs={[
+            { title: 't1' },
+            { title: 't2' },
+            { title: 't3' },
+            { title: 't4' },
+            { title: 't5' },
+          ]} destroyInactiveTab={true}
           >
             {this.renderContent()}
           </Tabs>

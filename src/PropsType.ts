@@ -49,6 +49,8 @@ export interface PropsType {
   onChange?: (tab: Models.TabData, index: number) => void;
   /** on tab click */
   onTabClick?: (tab: Models.TabData, index: number) => void;
+  /** 销毁不会动Tab | default: false */
+  destroyInactiveTab?: boolean;
 
   // TabBar shortcut settings.
   /** tabBar下划线样式 */

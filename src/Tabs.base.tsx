@@ -19,6 +19,7 @@ export abstract class Tabs<
     animated: true,
     prerenderingSiblingsNumber: 1,
     tabs: [],
+    destroyInactiveTab: false,
   } as PropsType;
 
   tmpOffset = 0;
@@ -67,8 +68,12 @@ export abstract class Tabs<
   }
 
   shouldRenderTab = (idx: number) => {
-    const { minRenderIndex, maxRenderIndex } = this.state;
+    const { destroyInactiveTab, prerenderingSiblingsNumber = 0 } = this.props as PropsType;
+    const { minRenderIndex, maxRenderIndex, currentTab = 0 } = this.state as any as StateType;
 
+    if (destroyInactiveTab) {
+      return currentTab - prerenderingSiblingsNumber <= idx && idx <= currentTab + prerenderingSiblingsNumber;
+    }
     return minRenderIndex <= idx && idx <= maxRenderIndex;
   }
 
