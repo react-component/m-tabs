@@ -95,6 +95,51 @@ describe('basic', () => {
     );
     expect(renderToJson(wrapper)).toMatchSnapshot();
   });
+
+  it('destroyInactiveTab.', () => {
+    const wrapper = render(
+      <Tabs tabs={tabData}
+        destroyInactiveTab={true}
+        initialPage={2}
+        prerenderingSiblingsNumber={0}
+      >
+        {renderContent()}
+      </Tabs>
+    );
+    expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('renderTabBar renderTab.', () => {
+    const wrapper = render(
+      <Tabs tabs={tabData}
+        renderTabBar={(props) => <Tabs.DefaultTabBar
+          {...props}
+          renderTab={(tab: Models.TabData) => {
+            if (tab.key === 't2') {
+              return <div style={{ position: 'relative' }}>
+                {tab.title}
+                <div style={{
+                  position: 'absolute',
+                  right: -3,
+                  top: -1,
+                  width: 6, height: 6,
+                  background: 'red',
+                  borderTopLeftRadius: 6,
+                  borderBottomLeftRadius: 6,
+                  borderBottomRightRadius: 6,
+                  borderTopRightRadius: 6,
+                }}></div>
+              </div>;
+            }
+            return <div>{tab.title}</div>;
+          }}
+        />}
+      >
+        {renderContent()}
+      </Tabs>
+    );
+    expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
 });
 
 describe('single content.', () => {
