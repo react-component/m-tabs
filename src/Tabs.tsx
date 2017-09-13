@@ -76,7 +76,7 @@ export class Tabs extends Component<PropsType, StateType> {
     setPxStyle(this.layout, offset);
   }
 
-  onPanEnd = (status: IGestureStatus) => {
+  onPanEnd = () => {
     this.setState({
       isMoving: false,
     });
