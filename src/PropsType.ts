@@ -25,8 +25,6 @@ export interface TabBarPropsType {
 }
 
 export interface PropsType {
-  /** 样式前缀(web only) | default: rmc-tabs */
-  prefixCls?: string;
   /** tab数据 */
   tabs: Models.TabData[];
   /** TabBar位置 | default: top | top: 上, bottom: 下 */

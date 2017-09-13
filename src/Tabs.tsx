@@ -1,18 +1,21 @@
 import React from 'react';
 import Gesture, { IGestureStatus } from 'rc-gesture';
-import { PropsType, TabBarPropsType } from './PropsType';
+import { PropsType as BasePropsType, TabBarPropsType } from './PropsType';
 import { TabPane } from './TabPane';
 import { DefaultTabBar } from './DefaultTabBar';
 import { getTransformByIndex, getTransformPropValue, setTransform, setPxStyle, getOffset } from './util';
 import { Tabs as Component } from './Tabs.base';
 
+export interface PropsType extends BasePropsType {
+  /** 样式前缀 | default: rmc-tabs */
+  prefixCls?: string;
+}
 export class StateType {
   currentTab: number;
   minRenderIndex: number;
   maxRenderIndex: number;
   isMoving?= false;
 }
-
 export class Tabs extends Component<PropsType, StateType> {
   static DefaultTabBar = DefaultTabBar;
 
