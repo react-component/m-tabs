@@ -1,17 +1,17 @@
 import { Models } from './Models';
 
 export interface TabBarPropsType {
-  /** 跳转Tab */
+  /** goto Tab */
   goToTab: (index: number) => void;
-  /** tab数据 */
+  /** tabs data */
   tabs: Models.TabData[];
-  /** 当前激活Tab索引 */
+  /** current active tab */
   activeTab: number;
-  /** 是否使用动画 */
+  /** use animate | default: true */
   animated: boolean;
-  /** 替换Tab渲染 */
+  /** render the tab of tabbar */
   renderTab?: (tab: Models.TabData) => React.ReactNode;
-  /** 分页个数，超过将启用scroll模式 default: 5 */
+  /** page size of tabbar's tab | default: 5 */
   page?: number;
   /** on tab click */
   onTabClick?: (tab: Models.TabData, index: number) => void;
@@ -25,40 +25,40 @@ export interface TabBarPropsType {
 }
 
 export interface PropsType {
-  /** tab数据 */
+  /** tabs data */
   tabs: Models.TabData[];
-  /** TabBar位置 | default: top | top: 上, bottom: 下 */
+  /** TabBar's position | default: top */
   tabBarPosition?: 'top' | 'bottom'; // TODO left, right
-  /** 替换TabBar */
+  /** render of TabBar */
   renderTabBar?: ((props: TabBarPropsType) => React.ReactNode) | false;
-  /** 初始化Tab, index or key */
+  /** initial Tab, index or key */
   initialPage?: number | string;
-  /** 当前Tab, index or key */
+  /** current tab, index or key */
   page?: number | string;
-  /** 是否可以滑动内容切换 | default: true */
+  /** can swipe | default: true */
   swipeable?: boolean;
-  /** 使用跟手滚动 | default: true */
+  /** use scroll follow pan | default: true */
   useOnPan?: boolean;
-  /** 预加载两侧Tab数量 | default: 1 */
+  /** the number of prerender sibling tab | default: 1 */
   prerenderingSiblingsNumber?: number;
-  /** 是否开启切换动画 | default: true */
+  /** use animate | default: true */
   animated?: boolean;
-  /** tab变化时触发 */
+  /** on change tab */
   onChange?: (tab: Models.TabData, index: number) => void;
   /** on tab click */
   onTabClick?: (tab: Models.TabData, index: number) => void;
-  /** 销毁不会动Tab | default: false */
+  /** destroy inactive tab | default: false */
   destroyInactiveTab?: boolean;
 
   // TabBar shortcut settings.
-  /** tabBar下划线样式 */
+  /** tabBar underline style */
   tabBarUnderlineStyle?: React.CSSProperties | any;
-  /** tabBar背景色 */
+  /** tabBar background color */
   tabBarBackgroundColor?: string;
-  /** tabBar激活Tab文字颜色 */
+  /** tabBar active text color */
   tabBarActiveTextColor?: string;
-  /** tabBar非激活Tab文字颜色 */
+  /** tabBar inactive text color */
   tabBarInactiveTextColor?: string;
-  /** tabBar文字样式 */
+  /** tabBar text style */
   tabBarTextStyle?: React.CSSProperties | any;
 }

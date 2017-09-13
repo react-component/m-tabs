@@ -7,7 +7,7 @@ import { getTransformByIndex, getTransformPropValue, setTransform, setPxStyle, g
 import { Tabs as Component } from './Tabs.base';
 
 export interface PropsType extends BasePropsType {
-  /** 样式前缀 | default: rmc-tabs */
+  /** prefix class | default: rmc-tabs */
   prefixCls?: string;
 }
 export class StateType {
