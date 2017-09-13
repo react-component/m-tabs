@@ -32,7 +32,7 @@ export class Tabs extends Component<PropsType, StateType> {
     style: {},
   } as PropsType;
 
-  AnimatedScrollView = Animated.createAnimatedComponent(ScrollView);
+  AnimatedScrollView: ScrollView = Animated.createAnimatedComponent(ScrollView);
   scrollView: { _component: ScrollView };
 
   constructor(props: PropsType) {
@@ -78,7 +78,7 @@ export class Tabs extends Component<PropsType, StateType> {
     const { tabs } = this.props;
     const { currentTab = 0, containerWidth = 0 } = this.state;
 
-    const AnimatedScrollView = this.AnimatedScrollView as ScrollView;
+    const AnimatedScrollView = this.AnimatedScrollView;
     return <AnimatedScrollView key="$content"
       horizontal
       pagingEnabled
