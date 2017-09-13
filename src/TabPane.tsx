@@ -7,18 +7,27 @@ export interface PropsType {
   className?: string;
   shouldUpdate: boolean;
   active: boolean;
+  fixX?: boolean;
+  fixY?: boolean;
 }
 export class TabPane extends React.PureComponent<PropsType, {}> {
+  static defaultProps = {
+    fixX: true,
+    fixY: true,
+  };
   layout: HTMLDivElement;
-  offset = 0;
+  offsetX = 0;
+  offsetY = 0;
   emptyContent = false;
 
   componentWillReceiveProps(nextProps: PropsType & { children?: React.ReactNode }) {
     if (this.props.active !== nextProps.active) {
       if (nextProps.active) {
-        this.offset = 0;
+        this.offsetX = 0;
+        this.offsetY = 0;
       } else {
-        this.offset = this.layout.scrollTop;
+        this.offsetX = this.layout.scrollLeft;
+        this.offsetY = this.layout.scrollTop;
       }
     }
     this.emptyContent = !(this.props.children && nextProps.children);
@@ -29,10 +38,13 @@ export class TabPane extends React.PureComponent<PropsType, {}> {
   }
 
   render() {
-    const { shouldUpdate, active, ...props } = this.props;
-    return <div {...props} style={this.offset ? {
-      ...getTransformPropValue(getPxStyle(-this.offset, 'px', true))
-    } : {}} ref={this.setLayout}>
+    const { shouldUpdate, active, fixX, fixY, ...props } = this.props;
+    let style = {
+      ...fixX && this.offsetX ? getTransformPropValue(getPxStyle(-this.offsetX, 'px', false)) : {},
+      ...fixY && this.offsetY ? getTransformPropValue(getPxStyle(-this.offsetY, 'px', true)) : {},
+    };
+
+    return <div {...props} style={style} ref={this.setLayout}>
       <StaticContainer shouldUpdate={this.emptyContent || shouldUpdate}>
         {props.children}
       </StaticContainer>

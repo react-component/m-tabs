@@ -5,12 +5,14 @@
   }
 
   display: flex;
-  flex-direction: column;
   position: relative;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
 
   &-content-wrap {
     display: flex;
+    width: 100%;
 
     &-animated {
       transition: transform @effect-duration @easing-in-out;
@@ -24,15 +26,6 @@
     overflow-y: auto;
   }
 
-  &-pane-wrap-active {
-    height: auto;
-  }
-
-  &-pane-wrap-inactive {
-    height: 0;
-    overflow: visible;
-  }
-
   &-tab-bar-wrap {
     flex-shrink: 0;
   }
@@ -43,5 +36,54 @@
 
   &-bottom &-tab-bar-wrap {
     border-top: 1px #eee solid;
+  }
+
+  &-horizontal {
+    .@{tabsPrefixClass} {
+      &-content-wrap {
+        flex-direction: row;
+      }
+
+      &-pane-wrap-active {
+        height: auto;
+      }
+
+      &-pane-wrap-inactive {
+        height: 0;
+        overflow: visible;
+      }
+    }
+  }
+
+  &-vertical {
+    height: 100%;
+
+    .@{tabsPrefixClass} {
+      &-content-wrap {
+        flex-direction: column;
+      }
+
+      &-pane-wrap {
+        height: 100%;
+      }
+
+      &-pane-wrap-active {
+        overflow: auto;
+      }
+
+      &-pane-wrap-inactive {
+        overflow: hidden;
+      }
+    }
+  }
+
+  &-tabbar-top,
+  &-tabbar-bottom {
+    flex-direction: column;
+  }
+
+  &-tabbar-left,
+  &-tabbar-right {
+    flex-direction: row;
   }
 }

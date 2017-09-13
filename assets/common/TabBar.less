@@ -14,34 +14,15 @@
   display: flex;
   flex-shrink: 0;
   width: 100%;
+  height: 100%;
   overflow: visible;
   z-index: 1;
-
-  &-content {
-    display: flex;
-    width: 100%;
-  }
-
-  &-prevpage {
-    .common-pagination();
-
-    left: 0;
-    background: linear-gradient(to right, @page-show-color, @page-hide-color);
-  }
-
-  &-nextpage {
-    .common-pagination();
-
-    right: 0;
-    background: linear-gradient(to right, @page-hide-color, @page-show-color);
-  }
 
   &-tab {
     display: flex;
     flex-shrink: 0;
     justify-content: center;
     align-items: center;
-    padding: 8px 0;
     font-size: 14px;
     line-height: 14px;
   }
@@ -52,7 +33,6 @@
 
   &-underline {
     position: absolute;
-    bottom: 0;
     border: 1px @tabs-color solid;
   }
 
@@ -62,9 +42,78 @@
   }
 
   &-animated &-underline {
-    transition: left @effect-duration @easing-in-out,
+    transition: top @effect-duration @easing-in-out,
+    left @effect-duration @easing-in-out,
     color @effect-duration @easing-in-out,
     width @effect-duration @easing-in-out;
-    will-change: left, width, color;
+    will-change: top, left, width, color;
+  }
+
+  &-top,
+  &-bottom {
+    flex-direction: row;
+
+    .@{tabBarPrefixClass} {
+      &-content {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+      }
+
+      &-prevpage {
+        .common-pagination();
+
+        left: 0;
+        background: linear-gradient(to right, @page-show-color, @page-hide-color);
+      }
+
+      &-nextpage {
+        .common-pagination();
+
+        right: 0;
+        background: linear-gradient(to right, @page-hide-color, @page-show-color);
+      }
+
+      &-tab {
+        padding: 8px 0;
+      }
+
+      &-underline {
+        bottom: 0;
+      }
+    }
+  }
+
+  &-left,
+  &-right {
+    flex-direction: column;
+
+    .@{tabBarPrefixClass} {
+      &-content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+      }
+
+      &-tab {
+        padding: 0 8px;
+      }
+    }
+  }
+
+  &-left {
+    .@{tabBarPrefixClass} {
+      &-underline {
+        right: 0;
+      }
+    }
+  }
+
+  &-right {
+    .@{tabBarPrefixClass} {
+      &-underline {
+        left: 0;
+      }
+    }
   }
 }

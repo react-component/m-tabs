@@ -16,7 +16,6 @@ import Styles from './Styles.native';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export interface PropsType extends TabBarPropsType {
-
   scrollValue?: any;
   styles?: typeof Styles;
   tabStyle?: RN.ViewStyle;
@@ -24,6 +23,7 @@ export interface PropsType extends TabBarPropsType {
   /** default: false */
   dynamicTabUnderlineWidth?: boolean;
 }
+
 export interface StateType {
   _leftTabUnderline: Animated.Value;
   _widthTabUnderline: Animated.Value;

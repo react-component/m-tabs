@@ -109,6 +109,18 @@ describe('basic', () => {
     expect(renderToJson(wrapper)).toMatchSnapshot();
   });
 
+  it('vertical.', () => {
+    const wrapper = render(
+      <Tabs tabs={tabData}
+        tabBarPosition="left"
+        tabDirection="vertical"
+      >
+        {renderContent()}
+      </Tabs>
+    );
+    expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
+
   it('renderTabBar renderTab.', () => {
     const wrapper = render(
       <Tabs tabs={tabData}

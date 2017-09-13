@@ -111,7 +111,7 @@ export class Tabs extends Component<PropsType, StateType> {
 
   onMomentumScrollEnd = (e: RN.NativeSyntheticEvent<RN.NativeScrollEvent>) => {
     const offsetX = e.nativeEvent.contentOffset.x;
-    const page = Math.round(offsetX / this.state.containerWidth);
+    const page = this.getOffsetIndex(offsetX, this.state.containerWidth);
     if (this.state.currentTab !== page) {
       this.goToTab(page);
     }

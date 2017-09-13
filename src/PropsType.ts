@@ -15,6 +15,7 @@ export interface TabBarPropsType {
   page?: number;
   /** on tab click */
   onTabClick?: (tab: Models.TabData, index: number) => void;
+  tabBarPosition?: 'top' | 'bottom' | 'left' | 'right';
 
   // TabBar shortcut settings.
   tabBarUnderlineStyle?: React.CSSProperties | any;
@@ -28,7 +29,7 @@ export interface PropsType {
   /** tabs data */
   tabs: Models.TabData[];
   /** TabBar's position | default: top */
-  tabBarPosition?: 'top' | 'bottom'; // TODO left, right
+  tabBarPosition?: 'top' | 'bottom' | 'left' | 'right';
   /** render of TabBar */
   renderTabBar?: ((props: TabBarPropsType) => React.ReactNode) | false;
   /** initial Tab, index or key */
@@ -49,6 +50,12 @@ export interface PropsType {
   onTabClick?: (tab: Models.TabData, index: number) => void;
   /** destroy inactive tab | default: false */
   destroyInactiveTab?: boolean;
+  /** distance to change tab, width ratio | default: 0.3 */
+  distanceToChangeTab?: number;
+  /** use paged | default: true */
+  usePaged?: boolean;
+  /** tab paging direction | default: horizontal */
+  tabDirection?: 'horizontal' | 'vertical';
 
   // TabBar shortcut settings.
   /** tabBar underline style */

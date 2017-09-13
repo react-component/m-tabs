@@ -2,13 +2,13 @@
 
 exports[`basic base. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-top"
       style="background-color:#fff;"
     >
       <div
@@ -132,13 +132,13 @@ exports[`basic base. 1`] = `
 
 exports[`basic destroyInactiveTab. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-top"
       style="background-color:#fff;"
     >
       <div
@@ -213,13 +213,13 @@ exports[`basic destroyInactiveTab. 1`] = `
 
 exports[`basic inital tab. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-top"
       style="background-color:#fff;"
     >
       <div
@@ -349,13 +349,13 @@ exports[`basic inital tab. 1`] = `
 
 exports[`basic no animation. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-top"
       style="background-color:#fff;"
     >
       <div
@@ -479,13 +479,13 @@ exports[`basic no animation. 1`] = `
 
 exports[`basic prerenderingSiblingsNumber. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-top"
       style="background-color:#fff;"
     >
       <div
@@ -609,13 +609,13 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
 
 exports[`basic renderTabBar renderTab. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-top"
       style="background-color:#fff;"
     >
       <div
@@ -754,7 +754,7 @@ exports[`basic renderTabBar renderTab. 1`] = `
 
 exports[`basic tabBarPosition. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-bottom"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-bottom"
 >
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
@@ -835,7 +835,7 @@ exports[`basic tabBarPosition. 1`] = `
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-bottom"
       style="background-color:#fff;"
     >
       <div
@@ -882,15 +882,145 @@ exports[`basic tabBarPosition. 1`] = `
 </div>
 `;
 
-exports[`single content. base 1`] = `
+exports[`basic vertical. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-top"
+  class="rmc-tabs rmc-tabs-vertical rmc-tabs-tabbar-left"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-left"
+      style="background-color:#fff;"
+    >
+      <div
+        class="rmc-tabs-tab-bar-content"
+        style="touch-action:pan-x pan-y;"
+      >
+        <div
+          class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          style="height:20%;"
+        >
+          t1
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="height:20%;"
+        >
+          t2
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="height:20%;"
+        >
+          t3
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="height:20%;"
+        >
+          t4
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-tab"
+          style="height:20%;"
+        >
+          t5
+        </div>
+        <div
+          class="rmc-tabs-tab-bar-underline"
+          style="height:20%;top:0%;"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
+    style="touch-action:pan-x;transform:translate3d(0px, 0%, 0px);-webkit-transform:translate3d(0px, 0%, 0px);-moz-transform:translate3d(0px, 0%, 0px);"
+  >
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+    >
+      <div
+        style="background:#ADFFD7;"
+      >
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 1 1
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 1 2
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 1 3
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 1 4
+        </p>
+      </div>
+    </div>
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+    >
+      <div
+        style="background:#ADFFD7;"
+      >
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 1
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 2
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 3
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 4
+        </p>
+        <p
+          style="margin:0;padding:10px;"
+        >
+          tab 2 5
+        </p>
+      </div>
+    </div>
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+    />
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+    />
+    <div
+      class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+    />
+  </div>
+</div>
+`;
+
+exports[`single content. base 1`] = `
+<div
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+>
+  <div
+    class="rmc-tabs-tab-bar-wrap"
+  >
+    <div
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-top"
       style="background-color:#fff;"
     >
       <div
@@ -971,13 +1101,13 @@ exports[`single content. base 1`] = `
 
 exports[`single content. function 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
   >
     <div
-      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated"
+      class="rmc-tabs-tab-bar rmc-tabs-tab-bar-animated rmc-tabs-tab-bar-top"
       style="background-color:#fff;"
     >
       <div

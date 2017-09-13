@@ -8,6 +8,7 @@ export interface PropsType extends TabBarPropsType {
   /** default: rmc-tabs-tab-bar */
   prefixCls?: string;
 }
+
 export class StateType {
   transform?= '';
   isMoving?= false;
@@ -104,13 +105,15 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     goToTab && goToTab(index);
   }
 
-  renderTab = (t: Models.TabData, i: number, width: number) => {
+  isTabBarVertical = (position = (this.props as PropsType).tabBarPosition) => position === 'left' || position === 'right';
+
+  renderTab = (t: Models.TabData, i: number, size: number, isTabBarVertical: boolean) => {
     const {
-            prefixCls, renderTab, activeTab,
+      prefixCls, renderTab, activeTab,
       tabBarTextStyle,
       tabBarActiveTextColor,
       tabBarInactiveTextColor,
-        } = this.props;
+    } = this.props;
 
     const textStyle = { ...tabBarTextStyle } as React.CSSProperties;
     let cls = `${prefixCls}-tab`;
@@ -126,7 +129,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     return <div key={`t_${i}`}
       style={{
         ...textStyle,
-        width: `${width}%`,
+        ...isTabBarVertical ? { height: `${size}%` } : { width: `${size}%` },
       }}
       className={cls}
       onClick={() => this.onPress(i)}
@@ -143,16 +146,17 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
 
   render() {
     const {
-             prefixCls, animated, tabs = [], page = 0, activeTab = 0,
-      tabBarBackgroundColor, tabBarUnderlineStyle
-         } = this.props;
+      prefixCls, animated, tabs = [], page = 0, activeTab = 0,
+      tabBarBackgroundColor, tabBarUnderlineStyle, tabBarPosition
+    } = this.props;
     const { isMoving, transform, showNext, showPrev } = this.state;
+    const isTabBarVertical = this.isTabBarVertical();
 
     const needScroll = tabs.length > page;
-    const width = this.getTabWidth(page, tabs.length);
+    const size = this.getTabWidth(page, tabs.length);
 
     const Tabs = tabs.map((t, i) => {
-      return this.renderTab(t, i, width);
+      return this.renderTab(t, i, size, isTabBarVertical);
     });
 
     let cls = prefixCls;
@@ -168,15 +172,15 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       ...getTransformPropValue(transform),
     } : {};
 
-    return <div className={`${cls}`} style={style}>
+    return <div className={`${cls} ${prefixCls}-${tabBarPosition}`} style={style}>
       {showPrev && <div className={`${prefixCls}-prevpage`}></div>}
       <Gesture {...this.onPan }>
         <div className={`${prefixCls}-content`} style={transformStyle} ref={this.setContentLayout}>
           {Tabs}
           <div style={{
             ...tabBarUnderlineStyle,
-            width: `${width}%`,
-            left: `${width * activeTab}%`,
+            ...isTabBarVertical ? { height: `${size}%` } : { width: `${size}%` },
+            ...isTabBarVertical ? { top: `${size * activeTab}%` } : { left: `${size * activeTab}%` },
           }} className={`${prefixCls}-underline`}></div>
         </div>
       </Gesture>

@@ -6,12 +6,8 @@ export function getTransformPropValue(v: any) {
   };
 }
 
-export function isVertical(tabBarPosition?: string) {
-  return tabBarPosition === 'left' || tabBarPosition === 'right';
-}
-
-export function getTransformByIndex(index: number, tabBarPosition?: string) {
-  const translate = isVertical(tabBarPosition) ? `0px, ${-index * 100}%, ` : `${-index * 100}%, 0px`;
+export function getTransformByIndex(index: number, isVertical = false) {
+  const translate = isVertical ? `0px, ${-index * 100}%` : `${-index * 100}%, 0px`;
   return `translate3d(${translate}, 0px)`;
 }
 

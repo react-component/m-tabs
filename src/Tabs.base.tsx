@@ -20,6 +20,9 @@ export abstract class Tabs<
     prerenderingSiblingsNumber: 1,
     tabs: [],
     destroyInactiveTab: false,
+    usePaged: true,
+    tabDirection: 'horizontal',
+    distanceToChangeTab: .3,
   } as PropsType;
 
   tmpOffset = 0;
@@ -67,6 +70,9 @@ export abstract class Tabs<
     };
   }
 
+  isTabVertical = (direction = (this.props as PropsType).tabDirection) => direction === 'vertical';
+  isTabBarVertical = (position = (this.props as PropsType).tabBarPosition) => position === 'left' || position === 'right';
+
   shouldRenderTab = (idx: number) => {
     const { destroyInactiveTab, prerenderingSiblingsNumber = 0 } = this.props as PropsType;
     const { minRenderIndex, maxRenderIndex, currentTab = 0 } = this.state as any as StateType;
@@ -107,18 +113,32 @@ export abstract class Tabs<
     this.prevCurrentTab = this.state.currentTab;
   }
 
+  getOffsetIndex = (current: number, width: number, threshold = this.props.distanceToChangeTab || 0) => {
+    const ratio = Math.abs(current / width);
+    const direction = ratio > this.state.currentTab ? '<' : '>';
+    const index = Math.floor(ratio);
+    switch (direction) {
+      case '<':
+        return ratio - index > threshold ? index + 1 : index;
+      case '>':
+        return 1 - ratio + index > threshold ? index : index + 1;
+      default:
+        return Math.round(ratio);
+    }
+  }
+
   goToTab(index: number, force = false) {
     if (!force && this.state.currentTab === index) {
       return false;
     }
     const { tabs, onChange, prerenderingSiblingsNumber } = this.props as P;
-    if (!force) {
-      onChange && onChange(tabs[index], index);
-      if (this.props.page !== undefined) {
-        return false;
-      }
-    }
     if (index >= 0 && index < tabs.length) {
+      if (!force) {
+        onChange && onChange(tabs[index], index);
+        if (this.props.page !== undefined) {
+          return false;
+        }
+      }
       // compatible with preact, because the setState is different between.
       setTimeout(() => {
         this.setState({
@@ -134,25 +154,28 @@ export abstract class Tabs<
     const { currentTab } = this.state;
 
     const {
-      tabs, animated,
+      animated,
+      onTabClick,
       tabBarActiveTextColor,
       tabBarBackgroundColor,
       tabBarInactiveTextColor,
+      tabBarPosition,
       tabBarTextStyle,
       tabBarUnderlineStyle,
-      onTabClick,
-    } = this.props;
-    return {
-      goToTab: this.goToTab.bind(this),
-      onTabClick,
       tabs,
+     } = this.props;
+    return {
       activeTab: currentTab,
       animated: !!animated,
+      goToTab: this.goToTab.bind(this),
+      onTabClick,
       tabBarActiveTextColor,
       tabBarBackgroundColor,
       tabBarInactiveTextColor,
+      tabBarPosition,
       tabBarTextStyle,
       tabBarUnderlineStyle,
+      tabs,
     };
   }
 
