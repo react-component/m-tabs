@@ -119,7 +119,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     goToTab && goToTab(index);
   }
 
-  isTabBarVertical = (position = (this.props as PropsType).tabBarPosition) => position === 'left' || position === 'right';
+  isTabBarVertical = (position = this.props.tabBarPosition) => position === 'left' || position === 'right';
 
   renderTab = (t: Models.TabData, i: number, size: number, isTabBarVertical: boolean) => {
     const {

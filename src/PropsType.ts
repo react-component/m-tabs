@@ -1,7 +1,7 @@
 import { Models } from './Models';
 
 export interface TabBarPropsType {
-  /** goto Tab */
+  /** call this function to switch tab */
   goToTab: (index: number) => void;
   /** tabs data */
   tabs: Models.TabData[];
@@ -15,13 +15,19 @@ export interface TabBarPropsType {
   page?: number;
   /** on tab click */
   onTabClick?: (tab: Models.TabData, index: number) => void;
+  /** tabBar's position | defualt: top */
   tabBarPosition?: 'top' | 'bottom' | 'left' | 'right';
 
   // TabBar shortcut settings.
+  /** tabBar underline style */
   tabBarUnderlineStyle?: React.CSSProperties | any;
+  /** tabBar background color */
   tabBarBackgroundColor?: string;
+  /** tabBar active text color */
   tabBarActiveTextColor?: string;
+  /** tabBar inactive text color */
   tabBarInactiveTextColor?: string;
+  /** tabBar text style */
   tabBarTextStyle?: React.CSSProperties | any;
 }
 
@@ -30,21 +36,21 @@ export interface PropsType {
   tabs: Models.TabData[];
   /** TabBar's position | default: top */
   tabBarPosition?: 'top' | 'bottom' | 'left' | 'right';
-  /** render of TabBar */
+  /** render for TabBar */
   renderTabBar?: ((props: TabBarPropsType) => React.ReactNode) | false;
   /** initial Tab, index or key */
   initialPage?: number | string;
   /** current tab, index or key */
   page?: number | string;
-  /** can swipe | default: true */
+  /** whether to switch tabs with swipe gestrue in the content | default: true */
   swipeable?: boolean;
   /** use scroll follow pan | default: true */
   useOnPan?: boolean;
-  /** the number of prerender sibling tab | default: 1 */
+  /** pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page | default: 1 */
   prerenderingSiblingsNumber?: number;
-  /** use animate | default: true */
+  /** whether to change tabs with animation | default: true */
   animated?: boolean;
-  /** on change tab */
+  /** callback when tab is switched */
   onChange?: (tab: Models.TabData, index: number) => void;
   /** on tab click */
   onTabClick?: (tab: Models.TabData, index: number) => void;

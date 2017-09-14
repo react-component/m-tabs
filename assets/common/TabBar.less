@@ -84,6 +84,14 @@
     }
   }
 
+  &-top {
+    border-bottom: 1px #eee solid;
+  }
+
+  &-bottom {
+    border-top: 1px #eee solid;
+  }
+
   &-left,
   &-right {
     flex-direction: column;
@@ -102,6 +110,8 @@
   }
 
   &-left {
+    border-right: 1px #eee solid;
+
     .@{tabBarPrefixClass} {
       &-underline {
         right: 0;
@@ -110,6 +120,8 @@
   }
 
   &-right {
+    border-left: 1px #eee solid;
+
     .@{tabBarPrefixClass} {
       &-underline {
         left: 0;

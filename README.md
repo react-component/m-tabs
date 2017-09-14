@@ -131,33 +131,43 @@ react-native run-ios
 ### Tabs:
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-prefixCls | prefix class (web only) | string |  rmc-tabs | false
 tabs | tabs data | Models.TabData[] |  | true
-tabBarPosition | TabBar's position top, bottom | 'top' \| 'bottom' // TODO left, right |  top | false
-renderTabBar | replace the TabBar | ((props: TabBarPropsType) => React.ReactNode) \| false |  | false
-initialPage | the tab when inital, index or key | number \| string |  | false
+tabBarPosition | TabBar's position | 'top' \| 'bottom' \| 'left' \| 'right' |  top | false
+renderTabBar | render for TabBar | ((props: TabBarPropsType) => React.ReactNode) \| false |  | false
+initialPage | initial Tab, index or key | number \| string |  | false
 page | current tab, index or key | number \| string |  | false
-swipeable | Whether to switch tabs with swipe gestrue in the content | boolean |  true | false
-useOnPan | 使用跟手滚动 | boolean |  true | false
-prerenderingSiblingsNumber  | pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page. | number | 1 | false
-animated | Whether to change tabs with animation | boolean |  true | false
-onChange | Callback when tab is switched | (tabData: Models.TabData, index: number) => void |  | false
-tabBarUnderlineStyle | style of the default tab bar's underline | React.CSSProperties \| any |  | false
-tabBarBackgroundColor | color of the default tab bar's background | string |  | false
-tabBarActiveTextColor | color of the default tab bar's text when active | string |  | false
-tabBarInactiveTextColor | color of the default tab bar's text when inactive | string |  | false
-tabBarTextStyle | tional styles to the tab bar's text | React.CSSProperties \| any |  | false
-onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | false
+swipeable | whether to switch tabs with swipe gestrue in the content | boolean |  true | false
+useOnPan | use scroll follow pan | boolean |  true | false
+prerenderingSiblingsNumber | pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page | number |  1 | false
+animated | whether to change tabs with animation | boolean |  true | false
+onChange | callback when tab is switched | (tab: Models.TabData, index: number) => void |  | false
+onTabClick | on tab click | (tab: Models.TabData, index: number) => void |  | false
+destroyInactiveTab | destroy inactive tab | boolean |  false | false
+distanceToChangeTab | distance to change tab, width ratio | number |  0.3 | false
+usePaged | use paged | boolean |  true | false
+tabDirection | tab paging direction | 'horizontal' \| 'vertical' |  horizontal | false
+tabBarUnderlineStyle | tabBar underline style | React.CSSProperties \| any |  | false
+tabBarBackgroundColor | tabBar background color | string |  | false
+tabBarActiveTextColor | tabBar active text color | string |  | false
+tabBarInactiveTextColor | tabBar inactive text color | string |  | false
+tabBarTextStyle | tabBar text style | React.CSSProperties \| any |  | false
 
 ### TabBarPropsType（Common）:
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-goToTab | call this function to switch tab | (index: number) => void | | true
-tabs | tabs data | Models.TabData[] | | true
-activeTab | current active tab | number | | true
-animated | Whether to change tabs with animation | boolean | | true
-tabBarPosition | TabBar's position | 'top' \| 'bottom' // TODO left, right | | false
-onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | false
+goToTab | call this function to switch tab | (index: number) => void |  | true
+tabs | tabs data | Models.TabData[] |  | true
+activeTab | current active tab | number |  | true
+animated | use animate | boolean |  true | true
+renderTab | render the tab of tabbar | (tab: Models.TabData) => React.ReactNode |  | false
+page | page size of tabbar's tab | number |  5 | false
+onTabClick | on tab click | (tab: Models.TabData, index: number) => void |  | false
+tabBarPosition | tabBar's position defualt: top | 'top' \| 'bottom' \| 'left' \| 'right' |  | false
+tabBarUnderlineStyle | tabBar underline style | React.CSSProperties \| any |  | false
+tabBarBackgroundColor | tabBar background color | string |  | false
+tabBarActiveTextColor | tabBar active text color | string |  | false
+tabBarInactiveTextColor | tabBar inactive text color | string |  | false
+tabBarTextStyle | tabBar text style | React.CSSProperties \| any |  | false
 
 ## Test Case
 
