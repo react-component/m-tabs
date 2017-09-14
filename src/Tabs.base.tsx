@@ -25,9 +25,11 @@ export abstract class Tabs<
     distanceToChangeTab: .3,
   } as PropsType;
 
-  tmpOffset = 0;
   prevCurrentTab: number;
-  tabCache: { [key: string]: React.ReactNode } = {};
+
+  /** compatible for different between react and preact in `setState`. */
+  private nextCurrentTab: number;
+  // private tabCache: { [key: string]: React.ReactNode } = {};
 
   constructor(props: P) {
     super(props);
@@ -37,6 +39,7 @@ export abstract class Tabs<
       minRenderIndex: props.tabs.length - 1,
       maxRenderIndex: 0,
     } as S);
+    this.nextCurrentTab = this.state.currentTab;
   }
 
   getTabIndex(props: P) {
@@ -71,7 +74,6 @@ export abstract class Tabs<
   }
 
   isTabVertical = (direction = (this.props as PropsType).tabDirection) => direction === 'vertical';
-  isTabBarVertical = (position = (this.props as PropsType).tabBarPosition) => position === 'left' || position === 'right';
 
   shouldRenderTab = (idx: number) => {
     const { destroyInactiveTab, prerenderingSiblingsNumber = 0 } = this.props as PropsType;
@@ -127,10 +129,11 @@ export abstract class Tabs<
     }
   }
 
-  goToTab(index: number, force = false) {
-    if (!force && this.state.currentTab === index) {
+  goToTab(index: number, force = false, newState: any = {}) {
+    if (!force && this.nextCurrentTab === index) {
       return false;
     }
+    this.nextCurrentTab = index;
     const { tabs, onChange, prerenderingSiblingsNumber } = this.props as P;
     if (index >= 0 && index < tabs.length) {
       if (!force) {
@@ -139,15 +142,18 @@ export abstract class Tabs<
           return false;
         }
       }
-      // compatible with preact, because the setState is different between.
-      setTimeout(() => {
-        this.setState({
-          currentTab: index,
-          ...this.getPrerenderRange(prerenderingSiblingsNumber, undefined, index) as any,
-        });
+
+      this.setState({
+        currentTab: index,
+        ...this.getPrerenderRange(prerenderingSiblingsNumber, undefined, index) as any,
+        ...newState,
       });
     }
     return true;
+  }
+
+  tabClickGoToTab(index: number) {
+    this.goToTab(index);
   }
 
   getTabBarBaseProps() {
@@ -167,7 +173,7 @@ export abstract class Tabs<
     return {
       activeTab: currentTab,
       animated: !!animated,
-      goToTab: this.goToTab.bind(this),
+      goToTab: this.tabClickGoToTab.bind(this),
       onTabClick,
       tabBarActiveTextColor,
       tabBarBackgroundColor,

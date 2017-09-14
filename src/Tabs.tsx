@@ -3,17 +3,15 @@ import Gesture, { IGestureStatus } from 'rc-gesture';
 import { PropsType as BasePropsType, TabBarPropsType } from './PropsType';
 import { TabPane } from './TabPane';
 import { DefaultTabBar } from './DefaultTabBar';
-import { getTransformByIndex, getTransformPropValue, setTransform, setPxStyle, getOffset } from './util';
-import { Tabs as Component } from './Tabs.base';
+import { getTransformPropValue, setTransform, setPxStyle } from './util';
+import { Tabs as Component, StateType as BaseStateType } from './Tabs.base';
 
 export interface PropsType extends BasePropsType {
   /** prefix class | default: rmc-tabs */
   prefixCls?: string;
 }
-export class StateType {
-  currentTab: number;
-  minRenderIndex: number;
-  maxRenderIndex: number;
+export class StateType extends BaseStateType {
+  transform?= '';
   isMoving?= false;
 }
 export class Tabs extends Component<PropsType, StateType> {
@@ -26,11 +24,95 @@ export class Tabs extends Component<PropsType, StateType> {
   } as PropsType;
 
   layout: HTMLDivElement;
-  tmpOffset = 0;
+
+  onPan = (() => {
+    let lastOffset: number | string = 0;
+    let finalOffset = 0;
+
+    const getLastOffset = (isVertical = this.isTabVertical()) => {
+      let offset = +`${lastOffset}`.replace('%', '');
+      if (`${lastOffset}`.indexOf('%') >= 0) {
+        offset /= 100;
+        offset *= isVertical ? this.layout.clientHeight : this.layout.clientWidth;
+      }
+      return offset;
+    };
+
+    return {
+      onPanStart: () => {
+        if (!this.props.swipeable) return;
+        this.setState({
+          isMoving: true,
+        });
+      },
+
+      onPanMove: (status: IGestureStatus) => {
+        const { swipeable, animated } = this.props;
+        if (!status.moveStatus || !this.layout || !swipeable || !animated) return;
+        const isVertical = this.isTabVertical();
+        let offset = getLastOffset() + (isVertical ? status.moveStatus.y : status.moveStatus.x);
+        const canScrollOffset = isVertical ?
+          -this.layout.scrollHeight + this.layout.clientHeight :
+          -this.layout.scrollWidth + this.layout.clientWidth;
+        offset = Math.min(offset, 0);
+        offset = Math.max(offset, canScrollOffset);
+        setPxStyle(this.layout, offset, 'px', isVertical);
+        finalOffset = offset;
+      },
+
+      onPanEnd: () => {
+        if (!this.props.swipeable) return;
+        lastOffset = finalOffset;
+        const offsetIndex = this.getOffsetIndex(finalOffset, this.layout.clientWidth);
+        this.setState({
+          isMoving: false,
+        });
+        if (offsetIndex === this.state.currentTab) {
+          if (this.props.usePaged) {
+            setTransform(this.layout.style, this.getTransformByIndex(offsetIndex, this.isTabVertical()));
+          }
+        } else {
+          this.goToTab(offsetIndex);
+        }
+      },
+
+      setCurrentOffset: (offset: number | string) => lastOffset = offset,
+    };
+  })();
+
+  constructor(props: PropsType) {
+    super(props);
+    this.state = {
+      ...this.state,
+      ...new StateType,
+      transform: this.getTransformByIndex(this.getTabIndex(props), this.isTabVertical(props.tabDirection)),
+    };
+  }
+
+  goToTab(index: number, force = false, usePaged = this.props.usePaged) {
+    const { tabDirection } = this.props;
+    let newState = {};
+    if (usePaged) {
+      newState = {
+        transform: this.getTransformByIndex(index, this.isTabVertical(tabDirection)),
+      };
+    }
+    return super.goToTab(index, force, newState);
+  }
+
+  tabClickGoToTab(index: number) {
+    this.goToTab(index, false, true);
+  }
+
+  getTransformByIndex(index: number, isVertical = false) {
+    this.onPan.setCurrentOffset(`${-index * 100}%`);
+    const translate = isVertical ? `0px, ${-index * 100}%` : `${-index * 100}%, 0px`;
+    return `translate3d(${translate}, 0px)`;
+  }
 
   onSwipe = (status: IGestureStatus) => {
     const { tabBarPosition, swipeable, usePaged } = this.props;
-    if (!swipeable || !usePaged || this.isTabVertical) return;
+    if (!swipeable || !usePaged || this.isTabVertical()) return;
     // DIRECTION_NONE	1
     // DIRECTION_LEFT	2
     // DIRECTION_RIGHT	4
@@ -45,47 +127,14 @@ export class Tabs extends Component<PropsType, StateType> {
         switch (status.direction) {
           case 2:
           case 8:
-            this.goToTab(this.state.currentTab + 1);
+            this.goToTab(this.prevCurrentTab + 1);
             break;
           case 4:
           case 16:
-            this.goToTab(this.state.currentTab - 1);
+            this.goToTab(this.prevCurrentTab - 1);
             break;
         }
         break;
-    }
-  }
-
-  onPanStart = () => {
-    this.setState({
-      isMoving: true,
-    });
-    this.tmpOffset = getOffset(this.layout);
-  }
-
-  onPanMove = (status: IGestureStatus) => {
-    const { swipeable } = this.props;
-    if (!status.moveStatus || !this.layout || !swipeable) return;
-    const angle = Math.abs(status.moveStatus.angle);
-    if (45 < angle && angle < 135) return;
-
-    let offset = this.tmpOffset + status.moveStatus.x;
-    const canScrollWidth = -this.layout.scrollWidth + this.layout.clientWidth;
-    offset = Math.min(offset, 0);
-    offset = Math.max(offset, canScrollWidth);
-    setPxStyle(this.layout, offset);
-  }
-
-  onPanEnd = () => {
-    this.setState({
-      isMoving: false,
-    });
-    if (!this.props.usePaged) { return; }
-    const offsetIndex = this.getOffsetIndex(getOffset(this.layout), this.layout.clientWidth);
-    if (offsetIndex === this.state.currentTab) {
-      setTransform(this.layout.style, getTransformByIndex(offsetIndex, this.isTabVertical()));
-    } else {
-      this.goToTab(offsetIndex);
     }
   }
 
@@ -95,14 +144,14 @@ export class Tabs extends Component<PropsType, StateType> {
 
   renderContent(getSubElements = this.getSubElements()) {
     const { prefixCls, tabs, animated } = this.props;
-    const { currentTab, isMoving } = this.state;
+    const { currentTab, isMoving, transform } = this.state;
     const isTabVertical = this.isTabVertical();
 
     let contentCls = `${prefixCls}-content-wrap`;
     if (animated && !isMoving) {
       contentCls += ` ${contentCls}-animated`;
     }
-    const contentStyle = getTransformPropValue(getTransformByIndex(currentTab, isTabVertical));
+    const contentStyle = getTransformPropValue(transform);
 
     return <div className={contentCls} style={contentStyle} ref={this.setContentLayout}>
       {
@@ -135,11 +184,7 @@ export class Tabs extends Component<PropsType, StateType> {
       ...this.getTabBarBaseProps(),
     };
 
-    const onPan = !isTabVertical && useOnPan ? {
-      onPanStart: this.onPanStart,
-      onPanMove: this.onPanMove,
-      onPanEnd: this.onPanEnd,
-    } : {};
+    const onPan = !isTabVertical && useOnPan ? this.onPan : {};
 
     const content = [
       <div key="tabBar" className={`${prefixCls}-tab-bar-wrap`}>
@@ -154,7 +199,7 @@ export class Tabs extends Component<PropsType, StateType> {
       </Gesture>,
     ];
 
-    return <div className={`${prefixCls} ${prefixCls}-${tabDirection} ${prefixCls}-tabbar-${tabBarPosition}`}>
+    return <div className={`${prefixCls} ${prefixCls}-${tabDirection} ${prefixCls}-${tabBarPosition}`}>
       {
         tabBarPosition === 'top' || tabBarPosition === 'left' ? content : content.reverse()
       }

@@ -37,6 +37,10 @@ class BasicDemo extends React.Component<{}, {
       <div key="3" style={{ background: '#ADFFD7' }}>tab 3</div>,
       <div key="4" style={{ background: '#ADFFD7' }}>tab 4</div>,
       <div key="5" style={{ background: '#ADFFD7' }}>tab 5</div>,
+      <div key="6" style={{ background: '#ADFFD7' }}>tab 6</div>,
+      <div key="7" style={{ background: '#ADFFD7' }}>tab 7</div>,
+      <div key="8" style={{ background: '#ADFFD7' }}>tab 8</div>,
+      <div key="9" style={{ background: '#ADFFD7' }}>tab 9</div>,
     ];
   }
 
@@ -82,6 +86,35 @@ class BasicDemo extends React.Component<{}, {
             { title: 't4' },
             { title: 't5' },
           ]} tabBarPosition="right" tabDirection="vertical"
+          >
+            {this.renderContent()}
+          </Tabs>
+        </div>
+        <div style={{ ...baseStyle, height: 200 }}>
+          <h2>no paged</h2>
+          <Tabs tabs={[
+            { title: 't1' },
+            { title: 't2' },
+            { title: 't3' },
+            { title: 't4' },
+            { title: 't5' },
+          ]} tabBarPosition="right" tabDirection="vertical" usePaged={false}
+          >
+            {this.renderContent()}
+          </Tabs>
+        </div>
+        <div style={{ ...baseStyle, height: 200 }}>
+          <h2>vertical right</h2>
+          <Tabs tabs={[
+            { title: 't1' },
+            { title: 't2' },
+            { title: 't3' },
+            { title: 't4' },
+            { title: 't5' },
+            { title: 't6' },
+            { title: 't7' },
+            { title: 't8' },
+          ]} tabBarPosition="left" tabDirection="vertical"
           >
             {this.renderContent()}
           </Tabs>

@@ -2,7 +2,7 @@ import React from 'react';
 import Gesture, { IGestureStatus } from 'rc-gesture';
 import { Models } from './Models';
 import { TabBarPropsType } from './PropsType';
-import { getOffset, setPxStyle, getTransformPropValue, getPxStyle } from './util';
+import { setPxStyle, getTransformPropValue, getPxStyle } from './util';
 
 export interface PropsType extends TabBarPropsType {
   /** default: rmc-tabs-tab-bar */
@@ -34,39 +34,51 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
   layout: HTMLDivElement;
 
   onPan = (() => {
-    let tmpOffset = 0;
+    let lastOffset: number | string = 0;
     let finalOffset = 0;
+
+    const getLastOffset = (isVertical = this.isTabBarVertical()) => {
+      let offset = +`${lastOffset}`.replace('%', '');
+      if (`${lastOffset}`.indexOf('%') >= 0) {
+        offset /= 100;
+        offset *= isVertical ? this.layout.clientHeight : this.layout.clientWidth;
+      }
+      return offset;
+    };
 
     return {
       onPanStart: () => {
-        tmpOffset = getOffset(this.layout);
         this.setState({ isMoving: true });
       },
 
       onPanMove: (status: IGestureStatus) => {
         if (!status.moveStatus || !this.layout) return;
-        const angle = Math.abs(status.moveStatus.angle);
-        if (45 < angle && angle < 135) return;
-
-        let offset = tmpOffset + status.moveStatus.x;
-        const canScrollWidth = -this.layout.scrollWidth + this.layout.clientWidth;
+        const isVertical = this.isTabBarVertical();
+        let offset = getLastOffset() + (isVertical ? status.moveStatus.y : status.moveStatus.x);
+        const canScrollOffset = isVertical ?
+          -this.layout.scrollHeight + this.layout.clientHeight :
+          -this.layout.scrollWidth + this.layout.clientWidth;
         offset = Math.min(offset, 0);
-        offset = Math.max(offset, canScrollWidth);
-        setPxStyle(this.layout, offset);
+        offset = Math.max(offset, canScrollOffset);
+        setPxStyle(this.layout, offset, 'px', isVertical);
         finalOffset = offset;
 
         this.setState({
           showPrev: -offset > 0,
-          showNext: offset > canScrollWidth,
+          showNext: offset > canScrollOffset,
         });
       },
 
       onPanEnd: () => {
+        const isVertical = this.isTabBarVertical();
+        lastOffset = finalOffset;
         this.setState({
           isMoving: false,
-          transform: getPxStyle(finalOffset),
+          transform: getPxStyle(finalOffset, 'px', isVertical),
         });
-      }
+      },
+
+      setCurrentOffset: (offset: number | string) => lastOffset = offset,
     };
   })();
 
@@ -88,12 +100,14 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
 
   getTransformByIndex = (props: PropsType) => {
     const { activeTab, tabs, page = 0 } = props;
+    const isVertical = this.isTabBarVertical();
 
-    const width = this.getTabWidth(page, tabs.length);
+    const size = this.getTabSize(page, tabs.length);
     let index = Math.min(activeTab, tabs.length - 3);
-    const skipWidth = (index - 2) * width;
+    const skipSize = Math.min(-(index - 2) * size, 0);
+    this.onPan.setCurrentOffset(`${skipSize}%`);
     return {
-      transform: getPxStyle(Math.min(-skipWidth, 0), '%'),
+      transform: getPxStyle(skipSize, '%', isVertical),
       showPrev: activeTab > 2 && tabs.length > page,
       showNext: activeTab < tabs.length - 3 && tabs.length > page,
     };
@@ -142,7 +156,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     this.layout = div;
   }
 
-  getTabWidth = (page: number, tabLength: number) => 100 / Math.min(page, tabLength);
+  getTabSize = (page: number, tabLength: number) => 100 / Math.min(page, tabLength);
 
   render() {
     const {
@@ -153,7 +167,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     const isTabBarVertical = this.isTabBarVertical();
 
     const needScroll = tabs.length > page;
-    const size = this.getTabWidth(page, tabs.length);
+    const size = this.getTabSize(page, tabs.length);
 
     const Tabs = tabs.map((t, i) => {
       return this.renderTab(t, i, size, isTabBarVertical);
@@ -172,9 +186,13 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       ...getTransformPropValue(transform),
     } : {};
 
+    const { setCurrentOffset, ...onPan } = this.onPan;
+
     return <div className={`${cls} ${prefixCls}-${tabBarPosition}`} style={style}>
       {showPrev && <div className={`${prefixCls}-prevpage`}></div>}
-      <Gesture {...this.onPan }>
+      <Gesture {...onPan }
+        direction={isTabBarVertical ? 'vertical' : 'horizontal'}
+      >
         <div className={`${prefixCls}-content`} style={transformStyle} ref={this.setContentLayout}>
           {Tabs}
           <div style={{

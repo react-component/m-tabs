@@ -38,6 +38,14 @@
     border-top: 1px #eee solid;
   }
 
+  &-left &-tab-bar-wrap {
+    border-right: 1px #eee solid;
+  }
+
+  &-right &-tab-bar-wrap {
+    border-left: 1px #eee solid;
+  }
+
   &-horizontal {
     .@{tabsPrefixClass} {
       &-content-wrap {
@@ -77,13 +85,13 @@
     }
   }
 
-  &-tabbar-top,
-  &-tabbar-bottom {
+  &-top,
+  &-bottom {
     flex-direction: column;
   }
 
-  &-tabbar-left,
-  &-tabbar-right {
+  &-left,
+  &-right {
     flex-direction: row;
   }
 }

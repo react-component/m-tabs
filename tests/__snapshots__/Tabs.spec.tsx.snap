@@ -2,7 +2,7 @@
 
 exports[`basic base. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -13,7 +13,7 @@ exports[`basic base. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -132,7 +132,7 @@ exports[`basic base. 1`] = `
 
 exports[`basic destroyInactiveTab. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -143,7 +143,7 @@ exports[`basic destroyInactiveTab. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab"
@@ -213,7 +213,7 @@ exports[`basic destroyInactiveTab. 1`] = `
 
 exports[`basic inital tab. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -224,7 +224,7 @@ exports[`basic inital tab. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab"
@@ -349,7 +349,7 @@ exports[`basic inital tab. 1`] = `
 
 exports[`basic no animation. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -360,7 +360,7 @@ exports[`basic no animation. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -479,7 +479,7 @@ exports[`basic no animation. 1`] = `
 
 exports[`basic prerenderingSiblingsNumber. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -490,7 +490,7 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -609,7 +609,7 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
 
 exports[`basic renderTabBar renderTab. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -620,7 +620,7 @@ exports[`basic renderTabBar renderTab. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -754,7 +754,7 @@ exports[`basic renderTabBar renderTab. 1`] = `
 
 exports[`basic tabBarPosition. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-bottom"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-bottom"
 >
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
@@ -840,7 +840,7 @@ exports[`basic tabBarPosition. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -884,7 +884,7 @@ exports[`basic tabBarPosition. 1`] = `
 
 exports[`basic vertical. 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-vertical rmc-tabs-tabbar-left"
+  class="rmc-tabs rmc-tabs-vertical rmc-tabs-left"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -895,7 +895,7 @@ exports[`basic vertical. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-x;"
       >
         <div
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -1014,7 +1014,7 @@ exports[`basic vertical. 1`] = `
 
 exports[`single content. base 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -1025,7 +1025,7 @@ exports[`single content. base 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
@@ -1101,7 +1101,7 @@ exports[`single content. base 1`] = `
 
 exports[`single content. function 1`] = `
 <div
-  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-tabbar-top"
+  class="rmc-tabs rmc-tabs-horizontal rmc-tabs-top"
 >
   <div
     class="rmc-tabs-tab-bar-wrap"
@@ -1112,7 +1112,7 @@ exports[`single content. function 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
-        style="touch-action:pan-x pan-y;"
+        style="touch-action:pan-y;"
       >
         <div
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"

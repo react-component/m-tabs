@@ -62,7 +62,8 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   onScroll = (evt?: RN.NativeSyntheticEvent<RN.NativeScrollEvent>) => {
-    if (evt) {
+    const { animated } = this.props;
+    if (evt && animated) {
       Animated.event([{
         nativeEvent: { contentOffset: { x: this.state.scrollX } }
       }], )(evt);
@@ -75,13 +76,13 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   renderContent = (getSubElements = this.getSubElements()) => {
-    const { tabs } = this.props;
+    const { tabs, usePaged } = this.props;
     const { currentTab = 0, containerWidth = 0 } = this.state;
 
     const AnimatedScrollView = this.AnimatedScrollView;
     return <AnimatedScrollView key="$content"
       horizontal
-      pagingEnabled
+      pagingEnabled={usePaged}
       automaticallyAdjustContentInsets={false}
       ref={this.setScrollView}
       onScroll={this.onScroll}
