@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>vertical.js - example - rmc-tabs@1.1.1-alpha.1</title>
+  <title>vertical.js - example - rmc-tabs@1.1.1-alpha.2</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rmc-tabs@1.1.1-alpha.1</h1>
+      <h1>rmc-tabs@1.1.1-alpha.2</h1>
 
       <p>React Mobile Tabs Component(web &amp; react-native)</p>
     </div>
@@ -308,6 +308,10 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
       <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">"3"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">ADFFD7</span>' }}&gt;</span>tab 3<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
       <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">"4"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">ADFFD7</span>' }}&gt;</span>tab 4<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
       <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">"5"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">ADFFD7</span>' }}&gt;</span>tab 5<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">"6"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">ADFFD7</span>' }}&gt;</span>tab 6<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">"7"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">ADFFD7</span>' }}&gt;</span>tab 7<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">"8"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">ADFFD7</span>' }}&gt;</span>tab 8<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">"9"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">ADFFD7</span>' }}&gt;</span>tab 9<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
     ];
   }
 
@@ -353,6 +357,35 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
             { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
             { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t5</span>' },
           ]} <span class="hljs-attribute">tabBarPosition</span>=<span class="hljs-value">"right"</span> <span class="hljs-attribute">tabDirection</span>=<span class="hljs-value">"vertical"</span>
+          &gt;</span>
+            {this.renderContent()}
+          <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">...baseStyle</span>, <span class="hljs-attribute">height:</span> <span class="hljs-attribute">200</span> }}&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>no paged<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t5</span>' },
+          ]} <span class="hljs-attribute">tabBarPosition</span>=<span class="hljs-value">"right"</span> <span class="hljs-attribute">tabDirection</span>=<span class="hljs-value">"vertical"</span> <span class="hljs-attribute">usePaged</span>=<span class="hljs-value">{false}</span>
+          &gt;</span>
+            {this.renderContent()}
+          <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">...baseStyle</span>, <span class="hljs-attribute">height:</span> <span class="hljs-attribute">200</span> }}&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>vertical right<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">Tabs</span> <span class="hljs-attribute">tabs</span>=<span class="hljs-value">{[</span>
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t1</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t2</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t3</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t4</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t5</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t6</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t7</span>' },
+            { <span class="hljs-attribute">title:</span> '<span class="hljs-attribute">t8</span>' },
+          ]} <span class="hljs-attribute">tabBarPosition</span>=<span class="hljs-value">"left"</span> <span class="hljs-attribute">tabDirection</span>=<span class="hljs-value">"vertical"</span>
           &gt;</span>
             {this.renderContent()}
           <span class="hljs-tag">&lt;/<span class="hljs-title">Tabs</span>&gt;</span>

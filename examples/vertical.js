@@ -1,11 +1,11 @@
 webpackJsonp([1],{
 
-/***/ 141:
+/***/ 143:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
@@ -19,9 +19,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src__ = __webpack_require__(37);
 
 
 
@@ -129,6 +129,22 @@ var BasicDemo = function (_React$Component) {
                 'div',
                 { key: '5', style: { background: '#ADFFD7' } },
                 'tab 5'
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                'div',
+                { key: '6', style: { background: '#ADFFD7' } },
+                'tab 6'
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                'div',
+                { key: '7', style: { background: '#ADFFD7' } },
+                'tab 7'
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                'div',
+                { key: '8', style: { background: '#ADFFD7' } },
+                'tab 8'
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                'div',
+                { key: '9', style: { background: '#ADFFD7' } },
+                'tab 9'
             )];
         }
     }, {
@@ -181,6 +197,34 @@ var BasicDemo = function (_React$Component) {
                         { tabs: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], tabBarPosition: 'right', tabDirection: 'vertical' },
                         this.renderContent()
                     )
+                ),
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'div',
+                    { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, baseStyle, { height: 200 }) },
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        'h2',
+                        null,
+                        'no paged'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
+                        { tabs: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }], tabBarPosition: 'right', tabDirection: 'vertical', usePaged: false },
+                        this.renderContent()
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'div',
+                    { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, baseStyle, { height: 200 }) },
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        'h2',
+                        null,
+                        'vertical right'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
+                        { tabs: [{ title: 't1' }, { title: 't2' }, { title: 't3' }, { title: 't4' }, { title: 't5' }, { title: 't6' }, { title: 't7' }, { title: 't8' }], tabBarPosition: 'left', tabDirection: 'vertical' },
+                        this.renderContent()
+                    )
                 )
             );
         }
@@ -193,13 +237,13 @@ __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 295:
+/***/ 303:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(141);
+module.exports = __webpack_require__(143);
 
 
 /***/ })
 
-},[295]);
+},[303]);
 //# sourceMappingURL=vertical.js.map

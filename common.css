@@ -39,6 +39,12 @@
 .rmc-tabs-bottom .rmc-tabs-tab-bar-wrap {
   border-top: 1px #eee solid;
 }
+.rmc-tabs-left .rmc-tabs-tab-bar-wrap {
+  border-right: 1px #eee solid;
+}
+.rmc-tabs-right .rmc-tabs-tab-bar-wrap {
+  border-left: 1px #eee solid;
+}
 .rmc-tabs-horizontal .rmc-tabs-content-wrap {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -70,15 +76,15 @@
 .rmc-tabs-vertical .rmc-tabs-pane-wrap-inactive {
   overflow: hidden;
 }
-.rmc-tabs-tabbar-top,
-.rmc-tabs-tabbar-bottom {
+.rmc-tabs-top,
+.rmc-tabs-bottom {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.rmc-tabs-tabbar-left,
-.rmc-tabs-tabbar-right {
+.rmc-tabs-left,
+.rmc-tabs-right {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
