@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
-  <title>rmc-tabs@1.1.1-alpha.2 - React Mobile Tabs Component(web &amp; react-native)</title>
+  <title>rmc-tabs@1.2.0 - React Mobile Tabs Component(web &amp; react-native)</title>
   <style>
     @font-face {
       font-family: octicons-anchor;
@@ -737,7 +737,7 @@
 
 <body>
 <div class="header">
-  <h1>rmc-tabs@1.1.1-alpha.2</h1>
+  <h1>rmc-tabs@1.2.0</h1>
 </div>
 <div class="examples">
   <h3>EXAMPLES</h3>
@@ -854,13 +854,6 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 </thead>
 <tbody>
 <tr>
-<td>prefixCls</td>
-<td>prefix class (web only)</td>
-<td>string</td>
-<td>rmc-tabs</td>
-<td>false</td>
-</tr>
-<tr>
 <td>tabs</td>
 <td>tabs data</td>
 <td>Models.TabData[]</td>
@@ -869,15 +862,17 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 </tr>
 <tr>
 <td>tabBarPosition</td>
-<td>TabBar&#39;s position top, bottom</td>
+<td>TabBar&#39;s position</td>
 <td>&#39;top&#39; \</td>
-<td>&#39;bottom&#39; // TODO left, right</td>
+<td>&#39;bottom&#39; \</td>
+<td>&#39;left&#39; \</td>
+<td>&#39;right&#39;</td>
 <td>top</td>
 <td>false</td>
 </tr>
 <tr>
 <td>renderTabBar</td>
-<td>replace the TabBar</td>
+<td>render for TabBar</td>
 <td>((props: TabBarPropsType) =&gt; React.ReactNode) \</td>
 <td>false</td>
 <td></td>
@@ -885,7 +880,7 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 </tr>
 <tr>
 <td>initialPage</td>
-<td>the tab when inital, index or key</td>
+<td>initial Tab, index or key</td>
 <td>number \</td>
 <td>string</td>
 <td></td>
@@ -901,73 +896,36 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 </tr>
 <tr>
 <td>swipeable</td>
-<td>Whether to switch tabs with swipe gestrue in the content</td>
+<td>whether to switch tabs with swipe gestrue in the content</td>
 <td>boolean</td>
 <td>true</td>
 <td>false</td>
 </tr>
 <tr>
 <td>useOnPan</td>
-<td>使用跟手滚动</td>
+<td>use scroll follow pan</td>
 <td>boolean</td>
 <td>true</td>
 <td>false</td>
 </tr>
 <tr>
 <td>prerenderingSiblingsNumber</td>
-<td>pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page.</td>
+<td>pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page</td>
 <td>number</td>
 <td>1</td>
 <td>false</td>
 </tr>
 <tr>
 <td>animated</td>
-<td>Whether to change tabs with animation</td>
+<td>whether to change tabs with animation</td>
 <td>boolean</td>
 <td>true</td>
 <td>false</td>
 </tr>
 <tr>
 <td>onChange</td>
-<td>Callback when tab is switched</td>
-<td>(tabData: Models.TabData, index: number) =&gt; void</td>
-<td></td>
-<td>false</td>
-</tr>
-<tr>
-<td>tabBarUnderlineStyle</td>
-<td>style of the default tab bar&#39;s underline</td>
-<td>React.CSSProperties \</td>
-<td>any</td>
-<td></td>
-<td>false</td>
-</tr>
-<tr>
-<td>tabBarBackgroundColor</td>
-<td>color of the default tab bar&#39;s background</td>
-<td>string</td>
-<td></td>
-<td>false</td>
-</tr>
-<tr>
-<td>tabBarActiveTextColor</td>
-<td>color of the default tab bar&#39;s text when active</td>
-<td>string</td>
-<td></td>
-<td>false</td>
-</tr>
-<tr>
-<td>tabBarInactiveTextColor</td>
-<td>color of the default tab bar&#39;s text when inactive</td>
-<td>string</td>
-<td></td>
-<td>false</td>
-</tr>
-<tr>
-<td>tabBarTextStyle</td>
-<td>tional styles to the tab bar&#39;s text</td>
-<td>React.CSSProperties \</td>
-<td>any</td>
+<td>callback when tab is switched</td>
+<td>(tab: Models.TabData, index: number) =&gt; void</td>
 <td></td>
 <td>false</td>
 </tr>
@@ -975,6 +933,72 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 <td>onTabClick</td>
 <td>on tab click</td>
 <td>(tab: Models.TabData, index: number) =&gt; void</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>destroyInactiveTab</td>
+<td>destroy inactive tab</td>
+<td>boolean</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>distanceToChangeTab</td>
+<td>distance to change tab, width ratio</td>
+<td>number</td>
+<td>0.3</td>
+<td>false</td>
+</tr>
+<tr>
+<td>usePaged</td>
+<td>use paged</td>
+<td>boolean</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabDirection</td>
+<td>tab paging direction</td>
+<td>&#39;horizontal&#39; \</td>
+<td>&#39;vertical&#39;</td>
+<td>horizontal</td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarUnderlineStyle</td>
+<td>tabBar underline style</td>
+<td>React.CSSProperties \</td>
+<td>any</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarBackgroundColor</td>
+<td>tabBar background color</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarActiveTextColor</td>
+<td>tabBar active text color</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarInactiveTextColor</td>
+<td>tabBar inactive text color</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarTextStyle</td>
+<td>tabBar text style</td>
+<td>React.CSSProperties \</td>
+<td>any</td>
 <td></td>
 <td>false</td>
 </tr>
@@ -1014,23 +1038,76 @@ react-native run-ios</code></pre></div><h2>API<a id="user-content-api" name="api
 </tr>
 <tr>
 <td>animated</td>
-<td>Whether to change tabs with animation</td>
+<td>use animate</td>
 <td>boolean</td>
-<td></td>
+<td>true</td>
 <td>true</td>
 </tr>
 <tr>
-<td>tabBarPosition</td>
-<td>TabBar&#39;s position</td>
-<td>&#39;top&#39; \</td>
-<td>&#39;bottom&#39; // TODO left, right</td>
+<td>renderTab</td>
+<td>render the tab of tabbar</td>
+<td>(tab: Models.TabData) =&gt; React.ReactNode</td>
 <td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>page</td>
+<td>page size of tabbar&#39;s tab</td>
+<td>number</td>
+<td>5</td>
 <td>false</td>
 </tr>
 <tr>
 <td>onTabClick</td>
 <td>on tab click</td>
 <td>(tab: Models.TabData, index: number) =&gt; void</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarPosition</td>
+<td>tabBar&#39;s position defualt: top</td>
+<td>&#39;top&#39; \</td>
+<td>&#39;bottom&#39; \</td>
+<td>&#39;left&#39; \</td>
+<td>&#39;right&#39;</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarUnderlineStyle</td>
+<td>tabBar underline style</td>
+<td>React.CSSProperties \</td>
+<td>any</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarBackgroundColor</td>
+<td>tabBar background color</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarActiveTextColor</td>
+<td>tabBar active text color</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarInactiveTextColor</td>
+<td>tabBar inactive text color</td>
+<td>string</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>tabBarTextStyle</td>
+<td>tabBar text style</td>
+<td>React.CSSProperties \</td>
+<td>any</td>
 <td></td>
 <td>false</td>
 </tr>
