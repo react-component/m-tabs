@@ -7554,8 +7554,9 @@ var DefaultTabBar = function (_React$PureComponent) {
 
             var isVertical = _this.isTabBarVertical();
             var size = _this.getTabSize(page, tabs.length);
-            var index = Math.min(activeTab, tabs.length - 3);
-            var skipSize = Math.min(-(index - 2) * size, 0);
+            var center = page / 2;
+            var pos = Math.min(activeTab, tabs.length - center - .5);
+            var skipSize = Math.min(-(pos - center + .5) * size, 0);
             _this.onPan.setCurrentOffset(skipSize + '%');
             return {
                 transform: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util__["b" /* getPxStyle */])(skipSize, '%', isVertical),
