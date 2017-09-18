@@ -141,12 +141,12 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
 
   renderTab(tab: Models.TabData, index: number, width: number, onLayoutHandler: any) {
     const {
-            tabBarActiveTextColor: activeTextColor,
+      tabBarActiveTextColor: activeTextColor,
       tabBarInactiveTextColor: inactiveTextColor,
       tabBarTextStyle: textStyle,
       activeTab, renderTab,
       styles = Styles
-        } = this.props;
+    } = this.props;
     const isTabActive = activeTab === index;
     const textColor = isTabActive ?
       (activeTextColor || styles.TabBar.activeTextColor) :
@@ -187,12 +187,12 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
 
   render() {
     const {
-            tabs, page = 1,
+      tabs, page = 1,
       tabBarUnderlineStyle,
       tabBarBackgroundColor,
       styles = Styles,
       tabsContainerStyle
-         } = this.props;
+    } = this.props;
 
     const tabUnderlineStyle = {
       position: 'absolute',

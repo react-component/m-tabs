@@ -103,8 +103,9 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     const isVertical = this.isTabBarVertical();
 
     const size = this.getTabSize(page, tabs.length);
-    let index = Math.min(activeTab, tabs.length - 3);
-    const skipSize = Math.min(-(index - 2) * size, 0);
+    const center = page / 2;
+    let pos = Math.min(activeTab, tabs.length - center - .5);
+    const skipSize = Math.min(-(pos - center + .5) * size, 0);
     this.onPan.setCurrentOffset(`${skipSize}%`);
     return {
       transform: getPxStyle(skipSize, '%', isVertical),

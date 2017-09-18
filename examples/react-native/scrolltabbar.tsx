@@ -36,6 +36,7 @@ const TabsExample = () => (
       { title: '8th Tab' },
       { title: '9th Tab' },
     ]} initialPage={1} tabBarPosition="top"
+      renderTabBar={(props) => <Tabs.DefaultTabBar {...props} page={4} />}
     >
       {renderContent}
     </Tabs>
