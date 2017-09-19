@@ -202,7 +202,7 @@ export abstract class Tabs<
     let subElements: { [key: string]: React.ReactNode } = {};
 
     return (defaultPrefix: string = '$i$-', allPrefix: string = '$ALL$') => {
-      if (Array.isArray(children) && children.length > 1) {
+      if (Array.isArray(children)) {
         children.forEach((child: any, index) => {
           if (child.key) {
             subElements[child.key] = child;
@@ -229,6 +229,6 @@ export abstract class Tabs<
     if (component instanceof Function) {
       component = component(tab, index);
     }
-    return component;
+    return component || null;
   }
 }
