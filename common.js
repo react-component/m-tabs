@@ -12021,7 +12021,7 @@ var Tabs = function (_React$PureComponent) {
                 var defaultPrefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '$i$-';
                 var allPrefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '$ALL$';
 
-                if (Array.isArray(children) && children.length > 1) {
+                if (Array.isArray(children)) {
                     children.forEach(function (child, index) {
                         if (child.key) {
                             subElements[child.key] = child;
@@ -12172,7 +12172,7 @@ var Tabs = function (_React$PureComponent) {
             if (component instanceof Function) {
                 component = component(tab, index);
             }
-            return component;
+            return component || null;
         }
     }]);
 
