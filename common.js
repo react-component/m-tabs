@@ -11995,8 +11995,7 @@ var Tabs = function (_React$PureComponent) {
             var _this$state$currentTa2 = _this.state.currentTab,
                 currentTab = _this$state$currentTa2 === undefined ? 0 : _this$state$currentTa2;
 
-            var tabChanged = currentTab !== _this.prevCurrentTab;
-            return tabChanged && currentTab === idx;
+            return currentTab === idx;
         };
         _this.getOffsetIndex = function (current, width) {
             var threshold = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _this.props.distanceToChangeTab || 0;
