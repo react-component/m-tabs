@@ -87,8 +87,7 @@ export abstract class Tabs<
 
   shouldUpdateTab = (idx: number) => {
     const { currentTab = 0 } = this.state as S;
-    const tabChanged = currentTab !== this.prevCurrentTab;
-    return tabChanged && currentTab === idx;
+    return currentTab === idx;
   }
 
   componentWillReceiveProps(nextProps: P) {
