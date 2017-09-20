@@ -287,7 +287,22 @@ class BasicDemo extends React.Component&lt;{}, any&gt; {
     };
   }
 
-  renderContent() {
+  canvasTest = (canvas: HTMLCanvasElement) =&gt; {
+    if (canvas.getContext) {
+      var context = canvas.getContext('2d');
+      context!.fillStyle = 'red';
+      context!.fillRect(10, 10, 50, 50);
+      context!.fillStyle = 'rgba(0,0,255,0.5)';
+      context!.fillRect(30, 30, 50, 50);
+      context!.strokeStyle = 'red';
+      context!.strokeRect(10, 90, 50, 50);
+      context!.strokeStyle = 'rgba(0,0,255,0.5)';
+      context!.strokeRect(30, 120, 50, 50);
+      context!.clearRect(30, 30, 30, 30);
+    }
+  }
+
+  renderContent(data?: any) {
     const pStyle = { margin: 0, padding: 10 } as React.CSSProperties;
 
     return [
@@ -298,15 +313,12 @@ class BasicDemo extends React.Component&lt;{}, any&gt; {
         &lt;p style={pStyle}&gt;tab 1 4&lt;/p&gt;
       &lt;/div&gt;,
       &lt;div key="t2" style={{ background: '#ADFFD7' }}&gt;
-        &lt;p style={pStyle}&gt;tab 2 1&lt;/p&gt;
-        &lt;p style={pStyle}&gt;tab 2 2&lt;/p&gt;
-        &lt;p style={pStyle}&gt;tab 2 3&lt;/p&gt;
-        &lt;p style={pStyle}&gt;tab 2 4&lt;/p&gt;
-        &lt;p style={pStyle}&gt;tab 2 5&lt;/p&gt;
+        &lt;canvas ref={this.canvasTest} style={{ height: 200 }}&gt;&lt;/canvas&gt;
       &lt;/div&gt;,
       &lt;div key="t3" style={{ background: '#ADFFD7' }}&gt;
         &lt;p style={pStyle}&gt;tab 3 1&lt;/p&gt;
         &lt;p style={pStyle}&gt;tab 3 2&lt;/p&gt;
+        &lt;p style={pStyle}&gt;{JSON.stringify(data)}&lt;/p&gt;
       &lt;/div&gt;,
       &lt;div key="t4" style={{ background: '#ADFFD7' }}&gt;
         &lt;p style={pStyle}&gt;tab 4 1&lt;/p&gt;
@@ -327,9 +339,14 @@ class BasicDemo extends React.Component&lt;{}, any&gt; {
         &lt;div style={baseStyle}&gt;
           &lt;h2&gt;normal&lt;/h2&gt;
           &lt;div style={{ background: '#eee', boxShadow: '0 0 0 5px #eee', margin: 10, padding: 10 }}
-            onClick={() =&gt; this.setState({ page: 2 })}
+            onClick={() =&gt; this.setState({ page: 2, data: Math.random() })}
           &gt;
             change to 3
+          &lt;/div&gt;
+          &lt;div style={{ background: '#eee', boxShadow: '0 0 0 5px #eee', margin: 10, padding: 10 }}
+            onClick={() =&gt; this.setState({ data: Math.random() })}
+          &gt;
+            change data
           &lt;/div&gt;
           &lt;Tabs tabs={[
             { key: 't1', title: 't1' },
@@ -366,7 +383,7 @@ class BasicDemo extends React.Component&lt;{}, any&gt; {
               }}
             /&gt;}
           &gt;
-            {this.renderContent()}
+            {this.renderContent(this.state.data)}
           &lt;/Tabs&gt;
         &lt;/div&gt;
         &lt;div style={baseStyle}&gt;

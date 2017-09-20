@@ -1,31 +1,26 @@
 webpackJsonp([3],{
 
-/***/ 140:
+/***/ 133:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__src__ = __webpack_require__(31);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /* tslint:disable:no-console */
 
@@ -35,12 +30,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var tabData = [{ title: 'tit 1' }, { title: 'tit 2' }, { title: 'tit 3' }, { title: 'tit 4' }, { title: 'tit 5' }, { title: 'tit 6' }, { title: 'tit 7' }, { title: 'tit 8' }, { title: 'tit 9' }];
 
 var BasicDemo = function (_React$Component) {
-    __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(BasicDemo, _React$Component);
+    _inherits(BasicDemo, _React$Component);
 
     function BasicDemo(props) {
-        __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, BasicDemo);
+        _classCallCheck(this, BasicDemo);
 
-        var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
 
         _this.state = {
             scData: JSON.stringify({ index: 0, tab: { title: 't1' } }),
@@ -49,7 +44,7 @@ var BasicDemo = function (_React$Component) {
         return _this;
     }
 
-    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(BasicDemo, [{
+    _createClass(BasicDemo, [{
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -57,94 +52,94 @@ var BasicDemo = function (_React$Component) {
             var baseStyle = {
                 display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
             };
-            return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'div',
-                    { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, baseStyle) },
-                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    { style: _extends({}, baseStyle) },
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         'h2',
                         null,
                         'normal'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_3__src__["a" /* Tabs */],
                         { tabs: tabData, onChange: function onChange(tab, index) {
                                 _this2.setState({
                                     scData: JSON.stringify({ index: index + Math.random(), tab: tab })
                                 });
                             }, renderTabBar: function renderTabBar(props) {
-                                return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__src__["b" /* DefaultTabBar */], props);
+                                return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__src__["b" /* DefaultTabBar */], props);
                             } },
-                        __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                             'div',
                             { style: { padding: 10, background: '#ADFFD7' } },
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 'single content'
                             ),
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 this.state.scData
                             ),
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 'single content'
                             ),
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 'single content'
                             ),
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 'single content'
                             )
                         )
                     ),
-                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         'h2',
                         null,
                         'page'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_3__src__["a" /* Tabs */],
                         { tabs: tabData, onChange: function onChange(tab, index) {
                                 _this2.setState({
                                     scData2: JSON.stringify({ index: index + Math.random(), tab: tab })
                                 });
                             }, renderTabBar: function renderTabBar(props) {
-                                return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__src__["b" /* DefaultTabBar */], __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, props, { page: 4 }));
+                                return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__src__["b" /* DefaultTabBar */], _extends({}, props, { page: 4 }));
                             } },
-                        __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                             'div',
                             { style: { padding: 10, background: '#ADFFD7' } },
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 'single content'
                             ),
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 this.state.scData2
                             ),
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 'single content'
                             ),
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 'single content'
                             ),
-                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                                 'p',
                                 null,
                                 'single content'
@@ -157,19 +152,19 @@ var BasicDemo = function (_React$Component) {
     }]);
 
     return BasicDemo;
-}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
 
-__WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(BasicDemo, null), document.getElementById('__react-content'));
+__WEBPACK_IMPORTED_MODULE_2_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(BasicDemo, null), document.getElementById('__react-content'));
 
 /***/ }),
 
-/***/ 300:
+/***/ 292:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(140);
+module.exports = __webpack_require__(133);
 
 
 /***/ })
 
-},[300]);
+},[292]);
 //# sourceMappingURL=scroll-tab.js.map
