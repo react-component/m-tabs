@@ -16,7 +16,22 @@ class BasicDemo extends React.Component<{}, any> {
     };
   }
 
-  renderContent() {
+  canvasTest = (canvas: HTMLCanvasElement) => {
+    if (canvas.getContext) {
+      var context = canvas.getContext('2d');
+      context!.fillStyle = 'red';
+      context!.fillRect(10, 10, 50, 50);
+      context!.fillStyle = 'rgba(0,0,255,0.5)';
+      context!.fillRect(30, 30, 50, 50);
+      context!.strokeStyle = 'red';
+      context!.strokeRect(10, 90, 50, 50);
+      context!.strokeStyle = 'rgba(0,0,255,0.5)';
+      context!.strokeRect(30, 120, 50, 50);
+      context!.clearRect(30, 30, 30, 30);
+    }
+  }
+
+  renderContent(data?: any) {
     const pStyle = { margin: 0, padding: 10 } as React.CSSProperties;
 
     return [
@@ -27,15 +42,12 @@ class BasicDemo extends React.Component<{}, any> {
         <p style={pStyle}>tab 1 4</p>
       </div>,
       <div key="t2" style={{ background: '#ADFFD7' }}>
-        <p style={pStyle}>tab 2 1</p>
-        <p style={pStyle}>tab 2 2</p>
-        <p style={pStyle}>tab 2 3</p>
-        <p style={pStyle}>tab 2 4</p>
-        <p style={pStyle}>tab 2 5</p>
+        <canvas ref={this.canvasTest} style={{ height: 200 }}></canvas>
       </div>,
       <div key="t3" style={{ background: '#ADFFD7' }}>
         <p style={pStyle}>tab 3 1</p>
         <p style={pStyle}>tab 3 2</p>
+        <p style={pStyle}>{JSON.stringify(data)}</p>
       </div>,
       <div key="t4" style={{ background: '#ADFFD7' }}>
         <p style={pStyle}>tab 4 1</p>
@@ -56,9 +68,14 @@ class BasicDemo extends React.Component<{}, any> {
         <div style={baseStyle}>
           <h2>normal</h2>
           <div style={{ background: '#eee', boxShadow: '0 0 0 5px #eee', margin: 10, padding: 10 }}
-            onClick={() => this.setState({ page: 2 })}
+            onClick={() => this.setState({ page: 2, data: Math.random() })}
           >
             change to 3
+          </div>
+          <div style={{ background: '#eee', boxShadow: '0 0 0 5px #eee', margin: 10, padding: 10 }}
+            onClick={() => this.setState({ data: Math.random() })}
+          >
+            change data
           </div>
           <Tabs tabs={[
             { key: 't1', title: 't1' },
@@ -95,7 +112,7 @@ class BasicDemo extends React.Component<{}, any> {
               }}
             />}
           >
-            {this.renderContent()}
+            {this.renderContent(this.state.data)}
           </Tabs>
         </div>
         <div style={baseStyle}>
