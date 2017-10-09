@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface PropsType { shouldUpdate?: boolean; }
-export class StaticContainer extends React.PureComponent<PropsType, {}> {
+export class StaticContainer extends React.Component<PropsType, {}> {
   static defaultProps = { shouldUpdate: true };
 
   shouldComponentUpdate(nextProps: PropsType): boolean {
