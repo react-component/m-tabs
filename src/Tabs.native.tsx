@@ -5,8 +5,6 @@ import {
   View,
   Animated,
   ScrollView,
-  InteractionManager,
-  Platform,
 } from 'react-native';
 import { PropsType as BasePropsType } from './PropsType';
 import { Tabs as Component, StateType as BaseStateType } from './Tabs.base';
@@ -49,12 +47,6 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   componentDidMount() {
-    InteractionManager.runAfterInteractions(() => {
-      if (Platform.OS === 'android') {
-        this.scrollTo(this.state.currentTab, false);
-      }
-    });
-
     this.state.scrollX.addListener(({ value, }) => {
       const scrollValue = value / this.state.containerWidth;
       this.state.scrollValue.setValue(scrollValue);
@@ -130,10 +122,10 @@ export class Tabs extends Component<PropsType, StateType> {
 
   handleLayout = (e: RN.LayoutChangeEvent) => {
     const { width } = e.nativeEvent.layout;
+    requestAnimationFrame(() => {
+      this.scrollTo(this.state.currentTab, false);
+    });
     if (Math.round(width) !== Math.round(this.state.containerWidth)) {
-      requestAnimationFrame(() => {
-        this.scrollTo(this.state.currentTab, false);
-      });
       this.setState({ containerWidth: width });
     }
   }
