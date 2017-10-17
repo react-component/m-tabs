@@ -109,8 +109,8 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     this.onPan.setCurrentOffset(`${skipSize}%`);
     return {
       transform: getPxStyle(skipSize, '%', isVertical),
-      showPrev: activeTab > 2 && tabs.length > page,
-      showNext: activeTab < tabs.length - 3 && tabs.length > page,
+      showPrev: activeTab > center - .5 && tabs.length > page,
+      showNext: activeTab < tabs.length - center - .5 && tabs.length > page,
     };
   }
 

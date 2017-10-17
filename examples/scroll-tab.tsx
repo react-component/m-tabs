@@ -7,15 +7,15 @@ import ReactDOM from 'react-dom';
 import { Tabs, DefaultTabBar } from '../src';
 
 const tabData = [
-  { title: 'tit 1' },
-  { title: 'tit 2' },
-  { title: 'tit 3' },
-  { title: 'tit 4' },
-  { title: 'tit 5' },
-  { title: 'tit 6' },
-  { title: 'tit 7' },
-  { title: 'tit 8' },
-  { title: 'tit 9' },
+  { title: 'title 1' },
+  { title: 'title 2' },
+  { title: 'title 3' },
+  { title: 'title 4' },
+  { title: 'title 5' },
+  { title: 'title 6' },
+  { title: 'title 7' },
+  { title: 'title 8' },
+  { title: 'title 9' },
 ];
 
 class BasicDemo extends React.Component<{}, any> {
