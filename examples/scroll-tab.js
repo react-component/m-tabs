@@ -32,7 +32,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var tabData = [{ title: 'tit 1' }, { title: 'tit 2' }, { title: 'tit 3' }, { title: 'tit 4' }, { title: 'tit 5' }, { title: 'tit 6' }, { title: 'tit 7' }, { title: 'tit 8' }, { title: 'tit 9' }];
+var tabData = [{ title: 'title 1' }, { title: 'title 2' }, { title: 'title 3' }, { title: 'title 4' }, { title: 'title 5' }, { title: 'title 6' }, { title: 'title 7' }, { title: 'title 8' }, { title: 'title 9' }];
 
 var BasicDemo = function (_React$Component) {
     __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(BasicDemo, _React$Component);

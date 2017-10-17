@@ -7560,8 +7560,8 @@ var DefaultTabBar = function (_React$PureComponent) {
             _this.onPan.setCurrentOffset(skipSize + '%');
             return {
                 transform: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util__["b" /* getPxStyle */])(skipSize, '%', isVertical),
-                showPrev: activeTab > 2 && tabs.length > page,
-                showNext: activeTab < tabs.length - 3 && tabs.length > page
+                showPrev: activeTab > center - .5 && tabs.length > page,
+                showNext: activeTab < tabs.length - center - .5 && tabs.length > page
             };
         };
         _this.onPress = function (index) {
