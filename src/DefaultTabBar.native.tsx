@@ -11,13 +11,13 @@ import {
 } from 'react-native';
 import { TabBarPropsType } from './PropsType';
 import { Models } from './Models';
-import Styles from './Styles.native';
+import defaultStyles from './Styles.native';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export interface PropsType extends TabBarPropsType {
   scrollValue?: any;
-  styles?: typeof Styles;
+  styles?: typeof defaultStyles;
   tabStyle?: RN.ViewStyle;
   tabsContainerStyle?: RN.ViewStyle;
   /** default: false */
@@ -43,7 +43,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     tabBarInactiveTextColor: '',
     tabBarTextStyle: {},
     dynamicTabUnderlineWidth: false,
-    styles: Styles,
+    styles: defaultStyles,
   } as PropsType;
 
   _tabsMeasurements: any[] = [];
@@ -145,7 +145,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       tabBarInactiveTextColor: inactiveTextColor,
       tabBarTextStyle: textStyle,
       activeTab, renderTab,
-      styles = Styles
+      styles = defaultStyles
     } = this.props;
     const isTabActive = activeTab === index;
     const textColor = isTabActive ?
@@ -190,7 +190,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       tabs, page = 1,
       tabBarUnderlineStyle,
       tabBarBackgroundColor,
-      styles = Styles,
+      styles = defaultStyles,
       tabsContainerStyle
     } = this.props;
 
@@ -210,7 +210,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
 
     return <View
       style={{
-        ...Styles.TabBar.container,
+        ...styles.TabBar.container,
         backgroundColor: tabBarBackgroundColor,
       }}
       onLayout={this.onContainerLayout}
