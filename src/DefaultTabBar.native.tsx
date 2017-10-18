@@ -197,6 +197,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     const tabUnderlineStyle = {
       position: 'absolute',
       bottom: 0,
+      ...defaultStyles.TabBar.underline,
       ...styles.TabBar.underline,
       ...tabBarUnderlineStyle,
     };
