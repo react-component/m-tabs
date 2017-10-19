@@ -91,7 +91,11 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
   }
 
   componentWillReceiveProps(nextProps: PropsType) {
-    if (this.props.activeTab !== nextProps.activeTab) {
+    if (
+      this.props.activeTab !== nextProps.activeTab ||
+      this.props.tabs !== nextProps.tabs ||
+      this.props.tabs.length !== nextProps.tabs.length
+    ) {
       this.setState({
         ... this.getTransformByIndex(nextProps),
       });

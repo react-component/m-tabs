@@ -25,6 +25,7 @@ class BasicDemo extends React.Component<{}, any> {
     this.state = {
       scData: JSON.stringify({ index: 0, tab: { title: 't1' } }),
       scData2: JSON.stringify({ index: 0, tab: { title: 't1' } }),
+      dynamicTabs: [] as { title: string }[],
     };
   }
 
@@ -57,6 +58,33 @@ class BasicDemo extends React.Component<{}, any> {
               scData2: JSON.stringify({ index: index + Math.random(), tab })
             });
           }} renderTabBar={(props) => <DefaultTabBar {...props} page={4} />}
+          >
+            <div style={{ padding: 10, background: '#ADFFD7' }}>
+              <p>single content</p>
+              <p>{this.state.scData2}</p>
+              <p>single content</p>
+              <p>single content</p>
+              <p>single content</p>
+            </div>
+          </Tabs>
+          <h2>add page</h2>
+          <div style={{ background: '#eee', boxShadow: '0 0 0 5px #eee', margin: 10, padding: 10 }}
+            onClick={() => {
+              this.setState({
+                dynamicTabs: [
+                  ...this.state.dynamicTabs,
+                  { title: 'title-' + this.state.dynamicTabs.length + 1 }
+                ],
+              });
+            }}
+          >
+            add page
+          </div>
+          <Tabs tabs={this.state.dynamicTabs} onChange={(tab, index) => {
+            this.setState({
+              scData2: JSON.stringify({ index: index + Math.random(), tab })
+            });
+          }} renderTabBar={(props) => <DefaultTabBar {...props} page={3} />}
           >
             <div style={{ padding: 10, background: '#ADFFD7' }}>
               <p>single content</p>
