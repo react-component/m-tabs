@@ -4,7 +4,6 @@
     box-sizing: border-box;
   }
 
-  display: flex;
   position: relative;
   overflow: hidden;
   height: 100%;
@@ -33,10 +32,6 @@
 
   &-horizontal {
     .@{tabsPrefixClass} {
-      &-content-wrap {
-        flex-direction: row;
-      }
-
       &-pane-wrap-active {
         height: auto;
       }
@@ -49,11 +44,16 @@
   }
 
   &-vertical {
+    display: flex;
     height: 100%;
 
     .@{tabsPrefixClass} {
       &-content-wrap {
         flex-direction: column;
+      }
+
+      &-tab-bar-wrap {
+        height: 100%;
       }
 
       &-pane-wrap {
