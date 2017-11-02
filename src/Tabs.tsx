@@ -107,7 +107,8 @@ export class Tabs extends Component<PropsType, StateType> {
   getTransformByIndex(index: number, isVertical = false) {
     this.onPan.setCurrentOffset(`${-index * 100}%`);
     const translate = isVertical ? `0px, ${-index * 100}%` : `${-index * 100}%, 0px`;
-    return `translate3d(${translate}, 0px)`;
+    // fix: content overlay TabBar on iOS 10. ( 0px -> 1px )
+    return `translate3d(${translate}, 1px)`;
   }
 
   onSwipe = (status: IGestureStatus) => {

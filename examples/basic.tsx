@@ -35,24 +35,24 @@ class BasicDemo extends React.Component<{}, any> {
     const pStyle = { margin: 0, padding: 10 } as React.CSSProperties;
 
     return [
-      <div key="t1" style={{ background: '#ADFFD7' }}>
+      <div key="t1" style={{ background: '#CCFFFF', overflow: 'hidden' }}>
         <p style={pStyle}>tab 1 1</p>
         <p style={pStyle}>tab 1 2</p>
         <p style={pStyle}>tab 1 3</p>
         <p style={pStyle}>tab 1 4</p>
       </div>,
-      <div key="t2" style={{ background: '#ADFFD7' }}>
+      <div key="t2" style={{ background: '#00CCFF', overflow: 'hidden' }}>
         <canvas ref={this.canvasTest} style={{ height: 200 }}></canvas>
       </div>,
-      <div key="t3" style={{ background: '#ADFFD7' }}>
+      <div key="t3" style={{ background: '#0099FF', overflow: 'hidden' }}>
         <p style={pStyle}>tab 3 1</p>
         <p style={pStyle}>tab 3 2</p>
         <p style={pStyle}>{JSON.stringify(data)}</p>
       </div>,
-      <div key="t4" style={{ background: '#ADFFD7' }}>
+      <div key="t4" style={{ background: '#99FF66', overflow: 'hidden' }}>
         <p style={pStyle}>tab 4 1</p>
       </div>,
-      <div key="t5" style={{ background: '#ADFFD7' }}>
+      <div key="t5" style={{ background: '#CCFF66', overflow: 'hidden' }}>
         <p style={pStyle}>tab 5 1</p>
       </div>,
     ];
