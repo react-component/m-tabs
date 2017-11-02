@@ -17,7 +17,7 @@ class BasicDemo extends React.Component<{}, any> {
   }
 
   canvasTest = (canvas: HTMLCanvasElement) => {
-    if (canvas.getContext) {
+    if (canvas && canvas.getContext) {
       const context = canvas.getContext('2d');
       context!.fillStyle = 'red';
       context!.fillRect(10, 10, 50, 50);

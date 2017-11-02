@@ -4,8 +4,6 @@ import { Models } from './Models';
 
 export class StateType {
   currentTab: number;
-  minRenderIndex: number;
-  maxRenderIndex: number;
 }
 
 export abstract class Tabs<
@@ -25,20 +23,18 @@ export abstract class Tabs<
     distanceToChangeTab: .3,
   } as PropsType;
 
-  prevCurrentTab: number;
+  protected prevCurrentTab: number;
+  protected tabCache: { [index: number]: React.ReactNode } = {};
 
   /** compatible for different between react and preact in `setState`. */
   private nextCurrentTab: number;
-  // private tabCache: { [key: string]: React.ReactNode } = {};
 
   constructor(props: P) {
     super(props);
 
-    this.state = this.getPrerenderRange(props.prerenderingSiblingsNumber, {
+    this.state = {
       currentTab: this.getTabIndex(props),
-      minRenderIndex: props.tabs.length - 1,
-      maxRenderIndex: 0,
-    } as S);
+    } as any;
     this.nextCurrentTab = this.state.currentTab;
   }
 
@@ -59,50 +55,18 @@ export abstract class Tabs<
     return index < 0 ? 0 : index;
   }
 
-  getPrerenderRange = (preRenderNumber = 0, state?: S, currentTab = -1): S => {
-    let { minRenderIndex, maxRenderIndex } = (state || this.state);
-    state = state || {} as S;
-    if (currentTab === -1) {
-      currentTab = state.currentTab !== undefined ? state.currentTab : this.state.currentTab;
-    }
-
-    return {
-      ...state as any,
-      minRenderIndex: Math.min(minRenderIndex, currentTab - preRenderNumber),
-      maxRenderIndex: Math.max(maxRenderIndex, currentTab + preRenderNumber),
-    };
-  }
-
   isTabVertical = (direction = (this.props as PropsType).tabDirection) => direction === 'vertical';
 
   shouldRenderTab = (idx: number) => {
-    const { destroyInactiveTab, prerenderingSiblingsNumber = 0 } = this.props as PropsType;
-    const { minRenderIndex, maxRenderIndex, currentTab = 0 } = this.state as any as StateType;
+    const { prerenderingSiblingsNumber = 0 } = this.props as PropsType;
+    const { currentTab = 0 } = this.state as any as StateType;
 
-    if (destroyInactiveTab) {
-      return currentTab - prerenderingSiblingsNumber <= idx && idx <= currentTab + prerenderingSiblingsNumber;
-    }
-    return minRenderIndex <= idx && idx <= maxRenderIndex;
-  }
-
-  shouldUpdateTab = (idx: number) => {
-    const { currentTab = 0 } = this.state as S;
-    return currentTab === idx;
+    return currentTab - prerenderingSiblingsNumber <= idx && idx <= currentTab + prerenderingSiblingsNumber;
   }
 
   componentWillReceiveProps(nextProps: P) {
     if (this.props.page !== nextProps.page && nextProps.page !== undefined) {
       this.goToTab(this.getTabIndex(nextProps), true);
-    }
-    if (this.props.prerenderingSiblingsNumber !== nextProps.prerenderingSiblingsNumber) {
-      this.setState(this.getPrerenderRange(
-        nextProps.prerenderingSiblingsNumber,
-        {
-          minRenderIndex: this.state.minRenderIndex,
-          maxRenderIndex: this.state.maxRenderIndex,
-        } as any,
-        nextProps.page !== undefined ? this.getTabIndex(nextProps) : this.state.currentTab
-      ));
     }
   }
 
@@ -133,7 +97,7 @@ export abstract class Tabs<
       return false;
     }
     this.nextCurrentTab = index;
-    const { tabs, onChange, prerenderingSiblingsNumber } = this.props as P;
+    const { tabs, onChange } = this.props as P;
     if (index >= 0 && index < tabs.length) {
       if (!force) {
         onChange && onChange(tabs[index], index);
@@ -144,7 +108,6 @@ export abstract class Tabs<
 
       this.setState({
         currentTab: index,
-        ...this.getPrerenderRange(prerenderingSiblingsNumber, undefined, index) as any,
         ...newState,
       });
     }

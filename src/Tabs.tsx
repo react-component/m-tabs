@@ -144,7 +144,7 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   renderContent(getSubElements = this.getSubElements()) {
-    const { prefixCls, tabs, animated } = this.props;
+    const { prefixCls, tabs, animated, destroyInactiveTab } = this.props;
     const { currentTab, isMoving, transform } = this.state;
     const isTabVertical = this.isTabVertical();
 
@@ -165,12 +165,19 @@ export class Tabs extends Component<PropsType, StateType> {
           }
 
           const key = tab.key || `tab_${index}`;
+
+          // update tab cache
+          if (this.shouldRenderTab(index)) {
+            this.tabCache[index] = this.getSubElement(tab, index, getSubElements);
+          } else if (destroyInactiveTab) {
+            this.tabCache[index] = undefined;
+          }
+
           return <TabPane key={key} className={cls}
-            shouldUpdate={this.shouldUpdateTab(index)}
             active={currentTab === index}
             fixX={isTabVertical} fixY={!isTabVertical}
           >
-            {this.shouldRenderTab(index) && this.getSubElement(tab, index, getSubElements)}
+            {this.tabCache[index]}
           </TabPane>;
         })
       }

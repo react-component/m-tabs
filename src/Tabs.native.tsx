@@ -68,7 +68,7 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   renderContent = (getSubElements = this.getSubElements()) => {
-    const { tabs, usePaged } = this.props;
+    const { tabs, usePaged, destroyInactiveTab } = this.props;
     const { currentTab = 0, containerWidth = 0 } = this.state;
 
     const AnimatedScrollView = this.AnimatedScrollView;
@@ -90,12 +90,19 @@ export class Tabs extends Component<PropsType, StateType> {
       {
         tabs.map((tab, index) => {
           const key = tab.key || `tab_${index}`;
+
+          // update tab cache
+          if (this.shouldRenderTab(index)) {
+            this.tabCache[index] = this.getSubElement(tab, index, getSubElements);
+          } else if (destroyInactiveTab) {
+            this.tabCache[index] = undefined;
+          }
+
           return <TabPane key={key}
-            shouldUpdate={this.shouldUpdateTab(index)}
             active={currentTab === index}
             style={{ width: containerWidth }}
           >
-            {this.shouldRenderTab(index) && this.getSubElement(tab, index, getSubElements)}
+            {this.tabCache[index]}
           </TabPane>;
         })
       }
