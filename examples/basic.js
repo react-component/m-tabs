@@ -67,7 +67,7 @@ var BasicDemo = function (_React$Component) {
             var pStyle = { margin: 0, padding: 10 };
             return [__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
-                { key: 't1', style: { background: '#ADFFD7' } },
+                { key: 't1', style: { background: '#CCFFFF', overflow: 'hidden' } },
                 __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
@@ -90,11 +90,11 @@ var BasicDemo = function (_React$Component) {
                 )
             ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
-                { key: 't2', style: { background: '#ADFFD7' } },
+                { key: 't2', style: { background: '#00CCFF', overflow: 'hidden' } },
                 __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement('canvas', { ref: this.canvasTest, style: { height: 200 } })
             ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
-                { key: 't3', style: { background: '#ADFFD7' } },
+                { key: 't3', style: { background: '#0099FF', overflow: 'hidden' } },
                 __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
@@ -112,7 +112,7 @@ var BasicDemo = function (_React$Component) {
                 )
             ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
-                { key: 't4', style: { background: '#ADFFD7' } },
+                { key: 't4', style: { background: '#99FF66', overflow: 'hidden' } },
                 __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },
@@ -120,7 +120,7 @@ var BasicDemo = function (_React$Component) {
                 )
             ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
-                { key: 't5', style: { background: '#ADFFD7' } },
+                { key: 't5', style: { background: '#CCFF66', overflow: 'hidden' } },
                 __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                     'p',
                     { style: pStyle },

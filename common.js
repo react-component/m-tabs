@@ -12406,7 +12406,8 @@ var Tabs = function (_Component) {
 
             this.onPan.setCurrentOffset(-index * 100 + '%');
             var translate = isVertical ? '0px, ' + -index * 100 + '%' : -index * 100 + '%, 0px';
-            return 'translate3d(' + translate + ', 0px)';
+            // fix: content overlay TabBar on iOS 10. ( 0px -> 1px )
+            return 'translate3d(' + translate + ', 1px)';
         }
     }, {
         key: 'renderContent',
