@@ -185,7 +185,7 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   render() {
-    const { prefixCls, tabBarPosition, tabDirection, useOnPan } = this.props;
+    const { prefixCls, tabBarPosition, tabDirection, useOnPan, noRenderContent } = this.props;
     const isTabVertical = this.isTabVertical(tabDirection);
 
     const tabBarProps: TabBarPropsType = {
@@ -198,7 +198,7 @@ export class Tabs extends Component<PropsType, StateType> {
       <div key="tabBar" className={`${prefixCls}-tab-bar-wrap`}>
         {this.renderTabBar(tabBarProps, DefaultTabBar)}
       </div>,
-      <Gesture key="$content"
+      !noRenderContent && <Gesture key="$content"
         direction={isTabVertical ? 'vertical' : 'horizontal'}
         onSwipe={this.onSwipe}
         {...onPan}

@@ -149,7 +149,7 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   render() {
-    const { tabBarPosition, styles = Styles } = this.props;
+    const { tabBarPosition, styles = Styles, noRenderContent } = this.props;
     const { scrollX, scrollValue, containerWidth } = this.state;
     // let overlayTabs = (this.props.tabBarPosition === 'overlayTop' || this.props.tabBarPosition === 'overlayBottom');
     let overlayTabs = false;
@@ -175,7 +175,7 @@ export class Tabs extends Component<PropsType, StateType> {
       <View key="$tabbar" style={tabBarPosition === 'top' ? styles.Tabs.topTabBarSplitLine : styles.Tabs.bottomTabBarSplitLine}>
         {this.renderTabBar(tabBarProps, DefaultTabBar)}
       </View>,
-      this.renderContent()
+      !noRenderContent && this.renderContent()
     ];
 
     return <View style={{

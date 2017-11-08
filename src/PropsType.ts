@@ -74,4 +74,6 @@ export interface PropsType {
   tabBarInactiveTextColor?: string;
   /** tabBar text style */
   tabBarTextStyle?: React.CSSProperties | any;
+  /** can't render content | default: false */
+  noRenderContent?: boolean;
 }
