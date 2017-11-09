@@ -12381,7 +12381,7 @@ var Tabs = function (_Component) {
                 this.renderTabBar(tabBarProps, __WEBPACK_IMPORTED_MODULE_9__DefaultTabBar__["a" /* DefaultTabBar */])
             ), !noRenderContent && __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_7_rc_gesture__["a" /* default */],
-                __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ key: '$content', direction: isTabVertical ? 'vertical' : 'horizontal', onSwipe: this.onSwipe }, onPan),
+                __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ key: '$content', onSwipe: this.onSwipe }, onPan),
                 this.renderContent()
             )];
             return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
