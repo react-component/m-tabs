@@ -63,7 +63,8 @@ export class Tabs extends Component<PropsType, StateType> {
       onPanEnd: () => {
         if (!this.props.swipeable || !this.props.animated) return;
         lastOffset = finalOffset;
-        const offsetIndex = this.getOffsetIndex(finalOffset, this.layout.clientWidth);
+        const isVertical = this.isTabVertical();
+        const offsetIndex = this.getOffsetIndex(finalOffset, isVertical ? this.layout.clientHeight : this.layout.clientWidth);
         this.setState({
           isMoving: false,
         });
@@ -147,12 +148,22 @@ export class Tabs extends Component<PropsType, StateType> {
       case 'bottom':
         switch (status.direction) {
           case 2:
+            if (!this.isTabVertical()) {
+              this.goToTab(this.prevCurrentTab + 1);
+            }
           case 8:
-            this.goToTab(this.prevCurrentTab + 1);
+            if (this.isTabVertical()) {
+              this.goToTab(this.prevCurrentTab + 1);
+            }
             break;
           case 4:
+            if (!this.isTabVertical()) {
+              this.goToTab(this.prevCurrentTab - 1);
+            }
           case 16:
-            this.goToTab(this.prevCurrentTab - 1);
+            if (this.isTabVertical()) {
+              this.goToTab(this.prevCurrentTab - 1);
+            }
             break;
         }
         break;
@@ -175,9 +186,12 @@ export class Tabs extends Component<PropsType, StateType> {
     const contentStyle: React.CSSProperties = animated ? (
       useLeftInsteadTransform ? {
         position: 'relative',
-        left: contentPos,
+        ...this.isTabVertical() ? { top: contentPos, } : { left: contentPos, }
       } : getTransformPropValue(contentPos)
-    ) : { position: 'relative', left: `${-currentTab * 100}%` };
+    ) : {
+        position: 'relative',
+        ...this.isTabVertical() ? { top: `${-currentTab * 100}%`, } : { left: `${-currentTab * 100}%`, }
+      };
 
     return <div className={contentCls} style={contentStyle} ref={this.setContentLayout}>
       {

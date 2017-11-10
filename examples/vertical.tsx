@@ -119,6 +119,23 @@ class BasicDemo extends React.Component<{}, {
             {this.renderContent()}
           </Tabs>
         </div>
+        <div style={{ ...baseStyle, height: 200 }}>
+          <h2>useLeftInsteadTransform</h2>
+          <Tabs tabs={[
+            { title: 't1' },
+            { title: 't2' },
+            { title: 't3' },
+            { title: 't4' },
+            { title: 't5' },
+            { title: 't6' },
+            { title: 't7' },
+            { title: 't8' },
+          ]} tabBarPosition="left" tabDirection="vertical"
+            useLeftInsteadTransform={true}
+          >
+            {this.renderContent()}
+          </Tabs>
+        </div>
       </div>
     );
   }
