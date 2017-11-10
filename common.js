@@ -12213,7 +12213,7 @@ var Tabs = function (_Component) {
             };
             return {
                 onPanStart: function onPanStart() {
-                    if (!_this2.props.swipeable) return;
+                    if (!_this2.props.swipeable || !_this2.props.animated) return;
                     _this2.setState({
                         isMoving: true
                     });
@@ -12234,7 +12234,7 @@ var Tabs = function (_Component) {
                     finalOffset = offset;
                 },
                 onPanEnd: function onPanEnd() {
-                    if (!_this2.props.swipeable) return;
+                    if (!_this2.props.swipeable || !_this2.props.animated) return;
                     lastOffset = finalOffset;
                     var offsetIndex = _this2.getOffsetIndex(finalOffset, _this2.layout.clientWidth);
                     _this2.setState({
