@@ -295,6 +295,20 @@ var BasicDemo = function (_React$Component) {
                         { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initialPage: 't2', usePaged: false, noRenderContent: true },
                         this.renderContent()
                     )
+                ),
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'div',
+                    { style: baseStyle },
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        'h2',
+                        null,
+                        'use left instead of tansform'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
+                        { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initialPage: 't2', usePaged: false, useLeftInsteadTransform: true },
+                        this.renderContent()
+                    )
                 )
             );
         }

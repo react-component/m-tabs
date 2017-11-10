@@ -5171,8 +5171,13 @@ function getPxStyle(value) {
 function setPxStyle(el, value) {
     var unit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'px';
     var vertical = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+    var useLeft = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
 
-    setTransform(el.style, getPxStyle(value, unit, vertical));
+    if (useLeft) {
+        el.style.left = '' + value + unit;
+    } else {
+        setTransform(el.style, getPxStyle(value, unit, vertical));
+    }
 }
 function setTransform(style, v) {
     style.transform = v;
@@ -12178,7 +12183,7 @@ var StateType = function (_BaseStateType) {
 
         var _this = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(this, (StateType.__proto__ || Object.getPrototypeOf(StateType)).apply(this, arguments));
 
-        _this.transform = '';
+        _this.contentPos = '';
         _this.isMoving = false;
         return _this;
     }
@@ -12216,7 +12221,8 @@ var Tabs = function (_Component) {
                 onPanMove: function onPanMove(status) {
                     var _this2$props = _this2.props,
                         swipeable = _this2$props.swipeable,
-                        animated = _this2$props.animated;
+                        animated = _this2$props.animated,
+                        useLeftInsteadTransform = _this2$props.useLeftInsteadTransform;
 
                     if (!status.moveStatus || !_this2.layout || !swipeable || !animated) return;
                     var isVertical = _this2.isTabVertical();
@@ -12224,7 +12230,7 @@ var Tabs = function (_Component) {
                     var canScrollOffset = isVertical ? -_this2.layout.scrollHeight + _this2.layout.clientHeight : -_this2.layout.scrollWidth + _this2.layout.clientWidth;
                     offset = Math.min(offset, 0);
                     offset = Math.max(offset, canScrollOffset);
-                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["a" /* setPxStyle */])(_this2.layout, offset, 'px', isVertical);
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["a" /* setPxStyle */])(_this2.layout, offset, 'px', isVertical, useLeftInsteadTransform);
                     finalOffset = offset;
                 },
                 onPanEnd: function onPanEnd() {
@@ -12236,7 +12242,7 @@ var Tabs = function (_Component) {
                     });
                     if (offsetIndex === _this2.state.currentTab) {
                         if (_this2.props.usePaged) {
-                            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["d" /* setTransform */])(_this2.layout.style, _this2.getTransformByIndex(offsetIndex, _this2.isTabVertical()));
+                            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["d" /* setTransform */])(_this2.layout.style, _this2.getContentPosByIndex(offsetIndex, _this2.isTabVertical(), _this2.props.useLeftInsteadTransform));
                         }
                     } else {
                         _this2.goToTab(offsetIndex);
@@ -12281,7 +12287,7 @@ var Tabs = function (_Component) {
         _this2.setContentLayout = function (div) {
             _this2.layout = div;
         };
-        _this2.state = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, _this2.state, new StateType(), { transform: _this2.getTransformByIndex(_this2.getTabIndex(props), _this2.isTabVertical(props.tabDirection)) });
+        _this2.state = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, _this2.state, new StateType(), { contentPos: _this2.getContentPosByIndex(_this2.getTabIndex(props), _this2.isTabVertical(props.tabDirection), props.useLeftInsteadTransform) });
         return _this2;
     }
 
@@ -12290,12 +12296,14 @@ var Tabs = function (_Component) {
         value: function goToTab(index) {
             var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
             var usePaged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.props.usePaged;
-            var tabDirection = this.props.tabDirection;
+            var _props = this.props,
+                tabDirection = _props.tabDirection,
+                useLeftInsteadTransform = _props.useLeftInsteadTransform;
 
             var newState = {};
             if (usePaged) {
                 newState = {
-                    transform: this.getTransformByIndex(index, this.isTabVertical(tabDirection))
+                    contentPos: this.getContentPosByIndex(index, this.isTabVertical(tabDirection), useLeftInsteadTransform)
                 };
             }
             return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_get___default()(Tabs.prototype.__proto__ || Object.getPrototypeOf(Tabs.prototype), 'goToTab', this).call(this, index, force, newState);
@@ -12306,14 +12314,19 @@ var Tabs = function (_Component) {
             this.goToTab(index, false, true);
         }
     }, {
-        key: 'getTransformByIndex',
-        value: function getTransformByIndex(index) {
-            var isVertical = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        key: 'getContentPosByIndex',
+        value: function getContentPosByIndex(index, isVertical) {
+            var useLeft = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-            this.onPan.setCurrentOffset(-index * 100 + '%');
-            var translate = isVertical ? '0px, ' + -index * 100 + '%' : -index * 100 + '%, 0px';
-            // fix: content overlay TabBar on iOS 10. ( 0px -> 1px )
-            return 'translate3d(' + translate + ', 1px)';
+            var value = -index * 100 + '%';
+            this.onPan.setCurrentOffset(value);
+            if (useLeft) {
+                return '' + value;
+            } else {
+                var translate = isVertical ? '0px, ' + value : value + ', 0px';
+                // fix: content overlay TabBar on iOS 10. ( 0px -> 1px )
+                return 'translate3d(' + translate + ', 1px)';
+            }
         }
     }, {
         key: 'renderContent',
@@ -12321,22 +12334,26 @@ var Tabs = function (_Component) {
             var _this3 = this;
 
             var getSubElements = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getSubElements();
-            var _props = this.props,
-                prefixCls = _props.prefixCls,
-                tabs = _props.tabs,
-                animated = _props.animated,
-                destroyInactiveTab = _props.destroyInactiveTab;
+            var _props2 = this.props,
+                prefixCls = _props2.prefixCls,
+                tabs = _props2.tabs,
+                animated = _props2.animated,
+                destroyInactiveTab = _props2.destroyInactiveTab,
+                useLeftInsteadTransform = _props2.useLeftInsteadTransform;
             var _state = this.state,
                 currentTab = _state.currentTab,
                 isMoving = _state.isMoving,
-                transform = _state.transform;
+                contentPos = _state.contentPos;
 
             var isTabVertical = this.isTabVertical();
             var contentCls = prefixCls + '-content-wrap';
             if (animated && !isMoving) {
                 contentCls += ' ' + contentCls + '-animated';
             }
-            var contentStyle = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["c" /* getTransformPropValue */])(transform);
+            var contentStyle = animated ? useLeftInsteadTransform ? {
+                position: 'relative',
+                left: contentPos
+            } : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["c" /* getTransformPropValue */])(contentPos) : { position: 'relative', left: -currentTab * 100 + '%' };
             return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { className: contentCls, style: contentStyle, ref: this.setContentLayout },
@@ -12365,12 +12382,12 @@ var Tabs = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _props2 = this.props,
-                prefixCls = _props2.prefixCls,
-                tabBarPosition = _props2.tabBarPosition,
-                tabDirection = _props2.tabDirection,
-                useOnPan = _props2.useOnPan,
-                noRenderContent = _props2.noRenderContent;
+            var _props3 = this.props,
+                prefixCls = _props3.prefixCls,
+                tabBarPosition = _props3.tabBarPosition,
+                tabDirection = _props3.tabDirection,
+                useOnPan = _props3.useOnPan,
+                noRenderContent = _props3.noRenderContent;
 
             var isTabVertical = this.isTabVertical(tabDirection);
             var tabBarProps = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.getTabBarBaseProps());
