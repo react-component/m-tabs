@@ -11,8 +11,12 @@ export function getPxStyle(value: number | string, unit = 'px', vertical: boolea
   return `translate3d(${value})`;
 }
 
-export function setPxStyle(el: HTMLElement, value: number | string, unit = 'px', vertical: boolean = false) {
-  setTransform(el.style, getPxStyle(value, unit, vertical));
+export function setPxStyle(el: HTMLElement, value: number | string, unit = 'px', vertical: boolean = false, useLeft = false) {
+  if (useLeft) {
+    el.style.left = `${value}${unit}`;
+  } else {
+    setTransform(el.style, getPxStyle(value, unit, vertical));
+  }
 }
 
 export function setTransform(style: any, v: any) {

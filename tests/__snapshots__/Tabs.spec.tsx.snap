@@ -54,7 +54,7 @@ exports[`basic base. 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -184,7 +184,7 @@ exports[`basic destroyInactiveTab. 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-y;transform:translate3d(-200%, 0px, 1px);-webkit-transform:translate3d(-200%, 0px, 1px);-moz-transform:translate3d(-200%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(-200%, 0px, 1px);-webkit-transform:translate3d(-200%, 0px, 1px);-moz-transform:translate3d(-200%, 0px, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
@@ -265,7 +265,7 @@ exports[`basic inital tab. 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
@@ -401,7 +401,7 @@ exports[`basic no animation. 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap"
-    style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;position:relative;left:0%;"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -531,7 +531,7 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -676,7 +676,7 @@ exports[`basic renderTabBar renderTab. 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -758,7 +758,7 @@ exports[`basic tabBarPosition. 1`] = `
 >
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -936,7 +936,7 @@ exports[`basic vertical. 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-x;transform:translate3d(0px, 0%, 1px);-webkit-transform:translate3d(0px, 0%, 1px);-moz-transform:translate3d(0px, 0%, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0px, 0%, 1px);-webkit-transform:translate3d(0px, 0%, 1px);-moz-transform:translate3d(0px, 0%, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -1066,7 +1066,7 @@ exports[`single content. base 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
@@ -1153,7 +1153,7 @@ exports[`single content. function 1`] = `
   </div>
   <div
     class="rmc-tabs-content-wrap rmc-tabs-content-wrap-animated"
-    style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
+    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"

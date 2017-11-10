@@ -76,4 +76,6 @@ export interface PropsType {
   tabBarTextStyle?: React.CSSProperties | any;
   /** can't render content | default: false */
   noRenderContent?: boolean;
+  /** use left instead of transform | default: false */
+  useLeftInsteadTransform?: boolean;
 }

@@ -1,6 +1,6 @@
 {
   "name": "rmc-tabs",
-  "version": "1.2.16",
+  "version": "1.2.17",
   "description": "React Mobile Tabs Component(web & react-native)",
   "keywords": [
     "react",
@@ -33,7 +33,7 @@
     "build": "rc-tools run build",
     "gh-pages": "rc-tools run gh-pages",
     "start": "rc-tools run server",
-    "pub": "rc-tools run pub --babel-runtime",
+    "pub": "rc-tools run pub --babel-runtime && tnpm sync rmc-tabs",
     "lint": "rc-tools run lint --no-js-lint",
     "rn-start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",

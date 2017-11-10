@@ -11,7 +11,7 @@ export interface PropsType extends BasePropsType {
   prefixCls?: string;
 }
 export class StateType extends BaseStateType {
-  transform?= '';
+  contentPos?= '';
   isMoving?= false;
 }
 export class Tabs extends Component<PropsType, StateType> {
@@ -47,7 +47,7 @@ export class Tabs extends Component<PropsType, StateType> {
       },
 
       onPanMove: (status: IGestureStatus) => {
-        const { swipeable, animated } = this.props;
+        const { swipeable, animated, useLeftInsteadTransform } = this.props;
         if (!status.moveStatus || !this.layout || !swipeable || !animated) return;
         const isVertical = this.isTabVertical();
         let offset = getLastOffset() + (isVertical ? status.moveStatus.y : status.moveStatus.x);
@@ -56,7 +56,7 @@ export class Tabs extends Component<PropsType, StateType> {
           -this.layout.scrollWidth + this.layout.clientWidth;
         offset = Math.min(offset, 0);
         offset = Math.max(offset, canScrollOffset);
-        setPxStyle(this.layout, offset, 'px', isVertical);
+        setPxStyle(this.layout, offset, 'px', isVertical, useLeftInsteadTransform);
         finalOffset = offset;
       },
 
@@ -69,7 +69,14 @@ export class Tabs extends Component<PropsType, StateType> {
         });
         if (offsetIndex === this.state.currentTab) {
           if (this.props.usePaged) {
-            setTransform(this.layout.style, this.getTransformByIndex(offsetIndex, this.isTabVertical()));
+            setTransform(
+              this.layout.style,
+              this.getContentPosByIndex(
+                offsetIndex,
+                this.isTabVertical(),
+                this.props.useLeftInsteadTransform
+              )
+            );
           }
         } else {
           this.goToTab(offsetIndex);
@@ -85,16 +92,24 @@ export class Tabs extends Component<PropsType, StateType> {
     this.state = {
       ...this.state,
       ...new StateType,
-      transform: this.getTransformByIndex(this.getTabIndex(props), this.isTabVertical(props.tabDirection)),
+      contentPos: this.getContentPosByIndex(
+        this.getTabIndex(props),
+        this.isTabVertical(props.tabDirection),
+        props.useLeftInsteadTransform
+      ),
     };
   }
 
   goToTab(index: number, force = false, usePaged = this.props.usePaged) {
-    const { tabDirection } = this.props;
+    const { tabDirection, useLeftInsteadTransform } = this.props;
     let newState = {};
     if (usePaged) {
       newState = {
-        transform: this.getTransformByIndex(index, this.isTabVertical(tabDirection)),
+        contentPos: this.getContentPosByIndex(
+          index,
+          this.isTabVertical(tabDirection),
+          useLeftInsteadTransform
+        ),
       };
     }
     return super.goToTab(index, force, newState);
@@ -104,11 +119,16 @@ export class Tabs extends Component<PropsType, StateType> {
     this.goToTab(index, false, true);
   }
 
-  getTransformByIndex(index: number, isVertical = false) {
-    this.onPan.setCurrentOffset(`${-index * 100}%`);
-    const translate = isVertical ? `0px, ${-index * 100}%` : `${-index * 100}%, 0px`;
-    // fix: content overlay TabBar on iOS 10. ( 0px -> 1px )
-    return `translate3d(${translate}, 1px)`;
+  getContentPosByIndex(index: number, isVertical: boolean, useLeft = false) {
+    const value = `${-index * 100}%`;
+    this.onPan.setCurrentOffset(value);
+    if (useLeft) {
+      return `${value}`;
+    } else {
+      const translate = isVertical ? `0px, ${value}` : `${value}, 0px`;
+      // fix: content overlay TabBar on iOS 10. ( 0px -> 1px )
+      return `translate3d(${translate}, 1px)`;
+    }
   }
 
   onSwipe = (status: IGestureStatus) => {
@@ -144,15 +164,20 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   renderContent(getSubElements = this.getSubElements()) {
-    const { prefixCls, tabs, animated, destroyInactiveTab } = this.props;
-    const { currentTab, isMoving, transform } = this.state;
+    const { prefixCls, tabs, animated, destroyInactiveTab, useLeftInsteadTransform } = this.props;
+    const { currentTab, isMoving, contentPos } = this.state;
     const isTabVertical = this.isTabVertical();
 
     let contentCls = `${prefixCls}-content-wrap`;
     if (animated && !isMoving) {
       contentCls += ` ${contentCls}-animated`;
     }
-    const contentStyle = getTransformPropValue(transform);
+    const contentStyle: React.CSSProperties = animated ? (
+      useLeftInsteadTransform ? {
+        position: 'relative',
+        left: contentPos,
+      } : getTransformPropValue(contentPos)
+    ) : { position: 'relative', left: `${-currentTab * 100}%` };
 
     return <div className={contentCls} style={contentStyle} ref={this.setContentLayout}>
       {
@@ -199,7 +224,6 @@ export class Tabs extends Component<PropsType, StateType> {
         {this.renderTabBar(tabBarProps, DefaultTabBar)}
       </div>,
       !noRenderContent && <Gesture key="$content"
-        direction={isTabVertical ? 'vertical' : 'horizontal'}
         onSwipe={this.onSwipe}
         {...onPan}
       >
