@@ -12350,7 +12350,7 @@ var Tabs = function (_Component) {
             if (animated && !isMoving) {
                 contentCls += ' ' + contentCls + '-animated';
             }
-            var contentStyle = !animated ? useLeftInsteadTransform ? {
+            var contentStyle = animated ? useLeftInsteadTransform ? {
                 position: 'relative',
                 left: contentPos
             } : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["c" /* getTransformPropValue */])(contentPos) : { position: 'relative', left: -currentTab * 100 + '%' };
