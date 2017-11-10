@@ -5174,7 +5174,11 @@ function setPxStyle(el, value) {
     var useLeft = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
 
     if (useLeft) {
-        el.style.left = '' + value + unit;
+        if (vertical) {
+            el.style.top = '' + value + unit;
+        } else {
+            el.style.left = '' + value + unit;
+        }
     } else {
         setTransform(el.style, getPxStyle(value, unit, vertical));
     }
@@ -12236,7 +12240,8 @@ var Tabs = function (_Component) {
                 onPanEnd: function onPanEnd() {
                     if (!_this2.props.swipeable || !_this2.props.animated) return;
                     lastOffset = finalOffset;
-                    var offsetIndex = _this2.getOffsetIndex(finalOffset, _this2.layout.clientWidth);
+                    var isVertical = _this2.isTabVertical();
+                    var offsetIndex = _this2.getOffsetIndex(finalOffset, isVertical ? _this2.layout.clientHeight : _this2.layout.clientWidth);
                     _this2.setState({
                         isMoving: false
                     });
@@ -12273,12 +12278,22 @@ var Tabs = function (_Component) {
                 case 'bottom':
                     switch (status.direction) {
                         case 2:
+                            if (!_this2.isTabVertical()) {
+                                _this2.goToTab(_this2.prevCurrentTab + 1);
+                            }
                         case 8:
-                            _this2.goToTab(_this2.prevCurrentTab + 1);
+                            if (_this2.isTabVertical()) {
+                                _this2.goToTab(_this2.prevCurrentTab + 1);
+                            }
                             break;
                         case 4:
+                            if (!_this2.isTabVertical()) {
+                                _this2.goToTab(_this2.prevCurrentTab - 1);
+                            }
                         case 16:
-                            _this2.goToTab(_this2.prevCurrentTab - 1);
+                            if (_this2.isTabVertical()) {
+                                _this2.goToTab(_this2.prevCurrentTab - 1);
+                            }
                             break;
                     }
                     break;
@@ -12350,10 +12365,7 @@ var Tabs = function (_Component) {
             if (animated && !isMoving) {
                 contentCls += ' ' + contentCls + '-animated';
             }
-            var contentStyle = animated ? useLeftInsteadTransform ? {
-                position: 'relative',
-                left: contentPos
-            } : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["c" /* getTransformPropValue */])(contentPos) : { position: 'relative', left: -currentTab * 100 + '%' };
+            var contentStyle = animated ? useLeftInsteadTransform ? __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ position: 'relative' }, this.isTabVertical() ? { top: contentPos } : { left: contentPos }) : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util__["c" /* getTransformPropValue */])(contentPos) : __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ position: 'relative' }, this.isTabVertical() ? { top: -currentTab * 100 + '%' } : { left: -currentTab * 100 + '%' });
             return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 'div',
                 { className: contentCls, style: contentStyle, ref: this.setContentLayout },
