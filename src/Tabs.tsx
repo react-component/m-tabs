@@ -40,7 +40,7 @@ export class Tabs extends Component<PropsType, StateType> {
 
     return {
       onPanStart: () => {
-        if (!this.props.swipeable) return;
+        if (!this.props.swipeable || !this.props.animated) return;
         this.setState({
           isMoving: true,
         });
@@ -61,7 +61,7 @@ export class Tabs extends Component<PropsType, StateType> {
       },
 
       onPanEnd: () => {
-        if (!this.props.swipeable) return;
+        if (!this.props.swipeable || !this.props.animated) return;
         lastOffset = finalOffset;
         const offsetIndex = this.getOffsetIndex(finalOffset, this.layout.clientWidth);
         this.setState({
