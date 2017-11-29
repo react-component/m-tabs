@@ -7704,7 +7704,7 @@ var DefaultTabBar = function (_React$PureComponent) {
                         'div',
                         { className: prefixCls + '-content', style: transformStyle, ref: this.setContentLayout },
                         Tabs,
-                        __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, tabBarUnderlineStyle, isTabBarVertical ? { height: size + '%' } : { width: size + '%' }, isTabBarVertical ? { top: size * activeTab + '%' } : { left: size * activeTab + '%' }), className: prefixCls + '-underline' })
+                        __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, isTabBarVertical ? { height: size + '%' } : { width: size + '%' }, isTabBarVertical ? { top: size * activeTab + '%' } : { left: size * activeTab + '%' }, tabBarUnderlineStyle), className: prefixCls + '-underline' })
                     )
                 ),
                 showNext && __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: prefixCls + '-nextpage' })
