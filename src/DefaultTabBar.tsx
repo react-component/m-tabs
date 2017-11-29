@@ -201,9 +201,9 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         <div className={`${prefixCls}-content`} style={transformStyle} ref={this.setContentLayout}>
           {Tabs}
           <div style={{
-            ...tabBarUnderlineStyle,
             ...isTabBarVertical ? { height: `${size}%` } : { width: `${size}%` },
             ...isTabBarVertical ? { top: `${size * activeTab}%` } : { left: `${size * activeTab}%` },
+            ...tabBarUnderlineStyle,
           }} className={`${prefixCls}-underline`}></div>
         </div>
       </Gesture>
