@@ -216,7 +216,40 @@ class BasicDemo extends React.Component<{}, any> {
             {this.renderContent()}
           </Tabs>
         </div>
-      </div>
+        <div style={baseStyle}>
+          <h2>custom underline</h2>
+          <Tabs tabs={[
+            { key: 't1', title: 't1' },
+            { key: 't2', title: 't2' },
+            { key: 't3', title: 't3' },
+            { key: 't4', title: 't4' },
+          ]} initialPage={'t2'}
+            renderTabBar={(props) => <DefaultTabBar
+              {...props}
+              renderUnderline={(ulProps) => {
+                const { style, ...otherProps } = ulProps;
+                const ulStyle = {
+                  ...style,
+                  border: 'none',
+                };
+                return (
+                  <div style={ulStyle} {...otherProps}>
+                    <div style={{
+                      width: 50,
+                      height: 2,
+                      backgroundColor: 'red',
+                      marginLeft: 'auto',
+                      marginRight: 'auto',
+                    }}></div>
+                  </div>
+                );
+              }}
+            />}
+          >
+            {this.renderContent()}
+          </Tabs>
+        </div>
+      </div >
     );
   }
 }

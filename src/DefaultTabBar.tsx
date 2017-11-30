@@ -166,7 +166,8 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
   render() {
     const {
       prefixCls, animated, tabs = [], page = 0, activeTab = 0,
-      tabBarBackgroundColor, tabBarUnderlineStyle, tabBarPosition
+      tabBarBackgroundColor, tabBarUnderlineStyle, tabBarPosition,
+      renderUnderline,
     } = this.props;
     const { isMoving, transform, showNext, showPrev } = this.state;
     const isTabBarVertical = this.isTabBarVertical();
@@ -192,6 +193,14 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     } : {};
 
     const { setCurrentOffset, ...onPan } = this.onPan;
+    const underlineProps = {
+      style: {
+        ...isTabBarVertical ? { height: `${size}%` } : { width: `${size}%` },
+        ...isTabBarVertical ? { top: `${size * activeTab}%` } : { left: `${size * activeTab}%` },
+        ...tabBarUnderlineStyle,
+      },
+      className: `${prefixCls}-underline`,
+    };
 
     return <div className={`${cls} ${prefixCls}-${tabBarPosition}`} style={style}>
       {showPrev && <div className={`${prefixCls}-prevpage`}></div>}
@@ -200,11 +209,10 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       >
         <div className={`${prefixCls}-content`} style={transformStyle} ref={this.setContentLayout}>
           {Tabs}
-          <div style={{
-            ...isTabBarVertical ? { height: `${size}%` } : { width: `${size}%` },
-            ...isTabBarVertical ? { top: `${size * activeTab}%` } : { left: `${size * activeTab}%` },
-            ...tabBarUnderlineStyle,
-          }} className={`${prefixCls}-underline`}></div>
+          {
+            renderUnderline ? renderUnderline(underlineProps) :
+              <div {...underlineProps}></div>
+          }
         </div>
       </Gesture>
       {showNext && <div className={`${prefixCls}-nextpage`}></div>}

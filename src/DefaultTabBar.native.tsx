@@ -191,7 +191,8 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       tabBarUnderlineStyle,
       tabBarBackgroundColor,
       styles = defaultStyles,
-      tabsContainerStyle
+      tabsContainerStyle,
+      renderUnderline,
     } = this.props;
 
     const tabUnderlineStyle = {
@@ -207,6 +208,10 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
     };
 
     const tabWidth = this.state._containerWidth / Math.min(page, tabs.length);
+    const underlineProps = {
+      ...tabUnderlineStyle,
+      ...dynamicTabUnderline,
+    };
 
     return <View
       style={{
@@ -241,10 +246,10 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
               return this.renderTab(tab, index, tabWidth, this.measureTab.bind(this, index));
             })
           }
-          <Animated.View style={{
-            ...tabUnderlineStyle,
-            ...dynamicTabUnderline,
-          }} />
+          {
+            renderUnderline ? renderUnderline(underlineProps) :
+              <Animated.View {...underlineProps} />
+          }
         </View>
       </ScrollView>
     </View>;
