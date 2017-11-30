@@ -28,6 +28,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* tslint:disable:no-console */
+var __rest = this && this.__rest || function (s, e) {
+    var t = {};
+    for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+    }if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+        if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
+    }return t;
+};
 
 
 
@@ -307,6 +315,37 @@ var BasicDemo = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
                         { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initialPage: 't2', usePaged: false, useLeftInsteadTransform: true },
+                        this.renderContent()
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                    'div',
+                    { style: baseStyle },
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        'h2',
+                        null,
+                        'custom underline'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
+                        { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }], initialPage: 't2', renderTabBar: function renderTabBar(props) {
+                                return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__src__["b" /* DefaultTabBar */], __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, props, { renderUnderline: function renderUnderline(ulProps) {
+                                        var style = ulProps.style,
+                                            otherProps = __rest(ulProps, ["style"]);
+                                        var ulStyle = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, style, { border: 'none' });
+                                        return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                                            'div',
+                                            __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ style: ulStyle }, otherProps),
+                                            __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement('div', { style: {
+                                                    width: 50,
+                                                    height: 2,
+                                                    backgroundColor: 'red',
+                                                    marginLeft: 'auto',
+                                                    marginRight: 'auto'
+                                                } })
+                                        );
+                                    } }));
+                            } },
                         this.renderContent()
                     )
                 )

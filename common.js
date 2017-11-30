@@ -7669,7 +7669,8 @@ var DefaultTabBar = function (_React$PureComponent) {
                 activeTab = _props$activeTab === undefined ? 0 : _props$activeTab,
                 tabBarBackgroundColor = _props.tabBarBackgroundColor,
                 tabBarUnderlineStyle = _props.tabBarUnderlineStyle,
-                tabBarPosition = _props.tabBarPosition;
+                tabBarPosition = _props.tabBarPosition,
+                renderUnderline = _props.renderUnderline;
             var _state = this.state,
                 isMoving = _state.isMoving,
                 transform = _state.transform,
@@ -7693,6 +7694,10 @@ var DefaultTabBar = function (_React$PureComponent) {
             var _a = this.onPan,
                 setCurrentOffset = _a.setCurrentOffset,
                 onPan = __rest(_a, ["setCurrentOffset"]);
+            var underlineProps = {
+                style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, isTabBarVertical ? { height: size + '%' } : { width: size + '%' }, isTabBarVertical ? { top: size * activeTab + '%' } : { left: size * activeTab + '%' }, tabBarUnderlineStyle),
+                className: prefixCls + '-underline'
+            };
             return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                 'div',
                 { className: cls + ' ' + prefixCls + '-' + tabBarPosition, style: style },
@@ -7704,7 +7709,7 @@ var DefaultTabBar = function (_React$PureComponent) {
                         'div',
                         { className: prefixCls + '-content', style: transformStyle, ref: this.setContentLayout },
                         Tabs,
-                        __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, isTabBarVertical ? { height: size + '%' } : { width: size + '%' }, isTabBarVertical ? { top: size * activeTab + '%' } : { left: size * activeTab + '%' }, tabBarUnderlineStyle), className: prefixCls + '-underline' })
+                        renderUnderline ? renderUnderline(underlineProps) : __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', underlineProps)
                     )
                 ),
                 showNext && __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: prefixCls + '-nextpage' })
