@@ -9,6 +9,11 @@ import { Tabs, DefaultTabBar } from '../src';
 
 class BasicDemo extends React.Component<{}, {
 }> {
+  state = {
+    current: 0,
+  };
+
+  tabBarProps: any;
 
   constructor(props: any) {
     super(props);
@@ -43,21 +48,24 @@ class BasicDemo extends React.Component<{}, {
 
   render() {
     const baseStyle = {
-      display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
+      display: 'flex', flexDirection: 'column', position: 'relative',
+      marginTop: 10, marginBottom: 10, fontSize: 14,
     } as React.CSSProperties;
+
+    const tabs = [
+      { key: 't1', title: 't1' },
+      { key: 't2', title: 't2' },
+      { key: 't3', title: 't3' },
+      { key: 't4', title: 't4' },
+      { key: 't5', title: 't5' },
+    ];
 
     return (
       <div>
         <div style={baseStyle}>
           <h2>Sticky</h2>
           <StickyContainer>
-            <Tabs tabs={[
-              { key: 't1', title: 't1' },
-              { key: 't2', title: 't2' },
-              { key: 't3', title: 't3' },
-              { key: 't4', title: 't4' },
-              { key: 't5', title: 't5' },
-            ]} initialPage={'t2'}
+            <Tabs tabs={tabs} initialPage={'t2'}
               renderTabBar={(props) => {
                 return <Sticky style={{ zIndex: 1 }}>
                   <DefaultTabBar {...props} />
@@ -67,6 +75,30 @@ class BasicDemo extends React.Component<{}, {
               {this.renderContent()}
             </Tabs>
           </StickyContainer>
+        </div>
+        <div style={baseStyle}>
+          <h2>Sticky unuse react-sticky</h2>
+          <div style={{ position: 'sticky', top: -1, zIndex: 1, background: '#fff' }}>
+            <DefaultTabBar
+              {...this.tabBarProps}
+              activeTab={this.state.current}
+            />
+          </div>
+          <Tabs tabs={tabs} initialPage={'t2'}
+            renderTabBar={(props) => {
+              if (!this.tabBarProps) { // diff?
+                this.tabBarProps = props;
+                setTimeout(() => {
+                  this.forceUpdate();
+                });
+              }
+              return null;
+            }}
+            page={this.state.current}
+            onChange={(tab, index) => this.setState({ current: index })}
+          >
+            {this.renderContent()}
+          </Tabs>
         </div>
       </div>
     );
