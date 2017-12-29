@@ -1,6 +1,6 @@
-webpackJsonp([1],{
+webpackJsonp([0],{
 
-/***/ 111:
+/***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25,18 +25,18 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(110)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(101)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(221)();
+  module.exports = __webpack_require__(203)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 
-/***/ 136:
+/***/ 127:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76,31 +76,29 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 144:
+/***/ 135:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rmc_tabs_assets_index_less__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rmc_tabs_assets_index_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_sticky__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_sticky___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_sticky__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rmc_tabs_assets_index_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_sticky__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_sticky___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_sticky__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src__ = __webpack_require__(31);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /* tslint:disable:no-console */
 
@@ -110,98 +108,103 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var BasicDemo = function (_React$Component) {
-    __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default()(BasicDemo, _React$Component);
+    _inherits(BasicDemo, _React$Component);
 
     function BasicDemo(props) {
-        __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default()(this, BasicDemo);
+        _classCallCheck(this, BasicDemo);
 
-        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default()(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (BasicDemo.__proto__ || Object.getPrototypeOf(BasicDemo)).call(this, props));
+
+        _this.state = {
+            current: 0
+        };
+        return _this;
     }
 
-    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(BasicDemo, [{
+    _createClass(BasicDemo, [{
         key: 'renderContent',
         value: function renderContent() {
             var pStyle = { margin: 0, padding: 10 };
-            return [__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+            return [__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { key: 't1', style: { background: '#ADFFD7' } },
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 1 1'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 1 2'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 1 3'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 1 4'
                 )
-            ), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { key: 't2', style: { background: '#ADFFD7' } },
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 1'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 2'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 3'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 4'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 5'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 6'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 7'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 8'
                 ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'p',
                     { style: pStyle },
                     'tab 2 9'
                 )
-            ), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { key: 't3', style: { background: '#ADFFD7' } },
                 'tab 3'
-            ), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { key: 't4', style: { background: '#ADFFD7' } },
                 'tab 4'
-            ), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { key: 't5', style: { background: '#ADFFD7' } },
                 'tab 5'
@@ -210,34 +213,67 @@ var BasicDemo = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             var baseStyle = {
-                display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
+                display: 'flex', flexDirection: 'column', position: 'relative',
+                marginTop: 10, marginBottom: 10, fontSize: 14
             };
-            return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+            var tabs = [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }];
+            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'div',
                     { style: baseStyle },
-                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                         'h2',
                         null,
                         'Sticky'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_7_react_sticky__["StickyContainer"],
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_3_react_sticky__["StickyContainer"],
                         null,
-                        __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_8__src__["a" /* Tabs */],
-                            { tabs: [{ key: 't1', title: 't1' }, { key: 't2', title: 't2' }, { key: 't3', title: 't3' }, { key: 't4', title: 't4' }, { key: 't5', title: 't5' }], initialPage: 't2', renderTabBar: function renderTabBar(props) {
-                                    return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_7_react_sticky__["Sticky"],
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_4__src__["a" /* Tabs */],
+                            { tabs: tabs, initialPage: 't2', renderTabBar: function renderTabBar(props) {
+                                    return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_3_react_sticky__["Sticky"],
                                         { style: { zIndex: 1 } },
-                                        __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__src__["b" /* DefaultTabBar */], props)
+                                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__src__["b" /* DefaultTabBar */], props)
                                     );
                                 } },
                             this.renderContent()
                         )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    'div',
+                    { style: baseStyle },
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        'h2',
+                        null,
+                        'Sticky unuse react-sticky'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        'div',
+                        { style: { position: 'sticky', top: -1, zIndex: 1, background: '#fff' } },
+                        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__src__["b" /* DefaultTabBar */], _extends({}, this.tabBarProps, { activeTab: this.state.current }))
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_4__src__["a" /* Tabs */],
+                        { tabs: tabs, initialPage: 't2', renderTabBar: function renderTabBar(props) {
+                                if (!_this2.tabBarProps) {
+                                    _this2.tabBarProps = props;
+                                    setTimeout(function () {
+                                        _this2.forceUpdate();
+                                    });
+                                }
+                                return null;
+                            }, page: this.state.current, onChange: function onChange(tab, index) {
+                                return _this2.setState({ current: index });
+                            } },
+                        this.renderContent()
                     )
                 )
             );
@@ -245,13 +281,13 @@ var BasicDemo = function (_React$Component) {
     }]);
 
     return BasicDemo;
-}(__WEBPACK_IMPORTED_MODULE_5_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
 
-__WEBPACK_IMPORTED_MODULE_6_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(BasicDemo, null), document.getElementById('__react-content'));
+__WEBPACK_IMPORTED_MODULE_2_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(BasicDemo, null), document.getElementById('__react-content'));
 
 /***/ }),
 
-/***/ 221:
+/***/ 203:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -266,7 +302,7 @@ __WEBPACK_IMPORTED_MODULE_6_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 var emptyFunction = __webpack_require__(7);
 var invariant = __webpack_require__(1);
-var ReactPropTypesSecret = __webpack_require__(76);
+var ReactPropTypesSecret = __webpack_require__(67);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -317,7 +353,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 296:
+/***/ 278:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -329,19 +365,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(11);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(111);
+var _propTypes = __webpack_require__(102);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(28);
+var _reactDom = __webpack_require__(20);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _channel = __webpack_require__(136);
+var _channel = __webpack_require__(127);
 
 var _channel2 = _interopRequireDefault(_channel);
 
@@ -428,7 +464,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 297:
+/***/ 279:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -439,15 +475,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Channel = exports.StickyContainer = exports.Sticky = undefined;
 
-var _sticky = __webpack_require__(298);
+var _sticky = __webpack_require__(280);
 
 var _sticky2 = _interopRequireDefault(_sticky);
 
-var _container = __webpack_require__(296);
+var _container = __webpack_require__(278);
 
 var _container2 = _interopRequireDefault(_container);
 
-var _channel = __webpack_require__(136);
+var _channel = __webpack_require__(127);
 
 var _channel2 = _interopRequireDefault(_channel);
 
@@ -460,7 +496,7 @@ exports.default = _sticky2.default;
 
 /***/ }),
 
-/***/ 298:
+/***/ 280:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -474,15 +510,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(11);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(111);
+var _propTypes = __webpack_require__(102);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(28);
+var _reactDom = __webpack_require__(20);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -735,13 +771,13 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 315:
+/***/ 297:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(144);
+module.exports = __webpack_require__(135);
 
 
 /***/ })
 
-},[315]);
+},[297]);
 //# sourceMappingURL=sticky.js.map

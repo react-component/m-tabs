@@ -280,6 +280,11 @@ import { Tabs, DefaultTabBar } from '../src';
 
 class BasicDemo extends React.Component&lt;{}, {
 }&gt; {
+  state = {
+    current: 0,
+  };
+
+  tabBarProps: any;
 
   constructor(props: any) {
     super(props);
@@ -314,21 +319,24 @@ class BasicDemo extends React.Component&lt;{}, {
 
   render() {
     const baseStyle = {
-      display: 'flex', flexDirection: 'column', marginTop: 10, marginBottom: 10, fontSize: 14
+      display: 'flex', flexDirection: 'column', position: 'relative',
+      marginTop: 10, marginBottom: 10, fontSize: 14,
     } as React.CSSProperties;
+
+    const tabs = [
+      { key: 't1', title: 't1' },
+      { key: 't2', title: 't2' },
+      { key: 't3', title: 't3' },
+      { key: 't4', title: 't4' },
+      { key: 't5', title: 't5' },
+    ];
 
     return (
       &lt;div&gt;
         &lt;div style={baseStyle}&gt;
           &lt;h2&gt;Sticky&lt;/h2&gt;
           &lt;StickyContainer&gt;
-            &lt;Tabs tabs={[
-              { key: 't1', title: 't1' },
-              { key: 't2', title: 't2' },
-              { key: 't3', title: 't3' },
-              { key: 't4', title: 't4' },
-              { key: 't5', title: 't5' },
-            ]} initialPage={'t2'}
+            &lt;Tabs tabs={tabs} initialPage={'t2'}
               renderTabBar={(props) =&gt; {
                 return &lt;Sticky style={{ zIndex: 1 }}&gt;
                   &lt;DefaultTabBar {...props} /&gt;
@@ -339,12 +347,37 @@ class BasicDemo extends React.Component&lt;{}, {
             &lt;/Tabs&gt;
           &lt;/StickyContainer&gt;
         &lt;/div&gt;
+        &lt;div style={baseStyle}&gt;
+          &lt;h2&gt;Sticky unuse react-sticky&lt;/h2&gt;
+          &lt;div style={{ position: 'sticky', top: -1, zIndex: 1, background: '#fff' }}&gt;
+            &lt;DefaultTabBar
+              {...this.tabBarProps}
+              activeTab={this.state.current}
+            /&gt;
+          &lt;/div&gt;
+          &lt;Tabs tabs={tabs} initialPage={'t2'}
+            renderTabBar={(props) =&gt; {
+              if (!this.tabBarProps) { // diff?
+                this.tabBarProps = props;
+                setTimeout(() =&gt; {
+                  this.forceUpdate();
+                });
+              }
+              return null;
+            }}
+            page={this.state.current}
+            onChange={(tab, index) =&gt; this.setState({ current: index })}
+          &gt;
+            {this.renderContent()}
+          &lt;/Tabs&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     );
   }
 }
 
-ReactDOM.render(&lt;BasicDemo /&gt;, document.getElementById('__react-content'));</code></pre></div>
+ReactDOM.render(&lt;BasicDemo /&gt;, document.getElementById('__react-content'));
+</code></pre></div>
   </div>
   <a href="https://github.com/react-component/m-tabs">
     <img style="position: absolute; top: 0; right: 0; border: 0;"
