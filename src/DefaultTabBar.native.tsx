@@ -236,6 +236,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
           style={{
             ...styles.TabBar.tabs,
             ...tabsContainerStyle,
+            backgroundColor: tabBarBackgroundColor,
           }}
           onLayout={this.onTabContainerLayout}
         >
