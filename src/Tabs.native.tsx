@@ -54,8 +54,7 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   onScroll = (evt?: RN.NativeSyntheticEvent<RN.NativeScrollEvent>) => {
-    const { animated } = this.props;
-    if (evt && animated) {
+    if (evt) {
       Animated.event([{
         nativeEvent: { contentOffset: { x: this.state.scrollX } }
       }], )(evt);
