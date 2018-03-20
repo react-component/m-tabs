@@ -193,6 +193,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       styles = defaultStyles,
       tabsContainerStyle,
       renderUnderline,
+      keyboardShouldPersistTaps,
     } = this.props;
 
     const tabUnderlineStyle = {
@@ -231,6 +232,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         bounces={false}
         scrollsToTop={false}
         scrollEnabled={tabs.length > page}
+        keyboardShouldPersistTaps={keyboardShouldPersistTaps}
       >
         <View
           style={{
