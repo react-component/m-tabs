@@ -67,7 +67,7 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   renderContent = (getSubElements = this.getSubElements()) => {
-    const { tabs, usePaged, destroyInactiveTab } = this.props;
+    const { tabs, usePaged, destroyInactiveTab, keyboardShouldPersistTaps } = this.props;
     const { currentTab = 0, containerWidth = 0 } = this.state;
 
     const AnimatedScrollView = this.AnimatedScrollView;
@@ -85,6 +85,7 @@ export class Tabs extends Component<PropsType, StateType> {
       directionalLockEnabled
       alwaysBounceVertical={false}
       keyboardDismissMode="on-drag"
+      keyboardShouldPersistTaps={keyboardShouldPersistTaps}
     >
       {
         tabs.map((tab, index) => {
@@ -148,7 +149,7 @@ export class Tabs extends Component<PropsType, StateType> {
   }
 
   render() {
-    const { tabBarPosition, styles = Styles, noRenderContent } = this.props;
+    const { tabBarPosition, styles = Styles, noRenderContent, keyboardShouldPersistTaps } = this.props;
     const { scrollX, scrollValue, containerWidth } = this.state;
     // let overlayTabs = (this.props.tabBarPosition === 'overlayTop' || this.props.tabBarPosition === 'overlayBottom');
     let overlayTabs = false;
@@ -156,6 +157,7 @@ export class Tabs extends Component<PropsType, StateType> {
     let tabBarProps = {
       ...this.getTabBarBaseProps(),
 
+      keyboardShouldPersistTaps,
       scrollX: scrollX,
       scrollValue: scrollValue,
       containerWidth: containerWidth,
