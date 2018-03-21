@@ -22,6 +22,7 @@ export interface PropsType extends TabBarPropsType {
   tabsContainerStyle?: RN.ViewStyle;
   /** default: false */
   dynamicTabUnderlineWidth?: boolean;
+  keyboardShouldPersistTaps?: boolean;
 }
 
 export interface StateType {

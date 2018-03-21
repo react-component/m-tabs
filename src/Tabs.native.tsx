@@ -16,6 +16,7 @@ export interface PropsType extends BasePropsType {
   children?: any;
   style?: RN.ViewStyle;
   styles?: typeof Styles;
+  keyboardShouldPersistTaps?: boolean;
 }
 export interface StateType extends BaseStateType {
   scrollX: Animated.Value;
