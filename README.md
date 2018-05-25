@@ -115,6 +115,7 @@ react-native run-ios
 ```
 
 ## API
+
 ### Tabs:
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
@@ -124,7 +125,7 @@ renderTabBar | render for TabBar | ((props: TabBarPropsType) => React.ReactNode)
 initialPage | initial Tab, index or key | number \| string |  | false
 page | current tab, index or key | number \| string |  | false
 swipeable | whether to switch tabs with swipe gestrue in the content | boolean |  true | false
-useOnPan | use scroll follow pan | boolean |  true | false
+useOnPan (`web only`) | use scroll follow pan | boolean |  true | false
 prerenderingSiblingsNumber | pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page | number |  1 | false
 animated | whether to change tabs with animation | boolean |  true | false
 onChange | callback when tab is switched | (tab: Models.TabData, index: number) => void |  | false
@@ -139,7 +140,7 @@ tabBarActiveTextColor | tabBar active text color | string |  | false
 tabBarInactiveTextColor | tabBar inactive text color | string |  | false
 tabBarTextStyle | tabBar text style | React.CSSProperties \| any |  | false
 
-### TabBarPropsType（Common）:
+### TabBarPropsType (Common):
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
 goToTab | call this function to switch tab | (index: number) => void |  | true
