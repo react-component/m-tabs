@@ -35,6 +35,7 @@
     "start": "rc-tools run server",
     "pub": "rc-tools run pub --babel-runtime && tnpm sync rmc-tabs",
     "lint": "rc-tools run lint --no-js-lint",
+    "rn-init": "rc-tools run react-native-init",
     "rn-start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "update-snap": "jest --updateSnapshot",
