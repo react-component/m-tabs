@@ -102,22 +102,7 @@ online example: http://react-component.github.io/m-tabs/
 </Tabs>
 
 // renderTabBar e.g: Sticky, react-sticky
-<StickyContainer>
-    <Tabs tabs={[
-        { title: 't1' },
-        { title: 't2' },
-        { title: 't3' },
-        { title: 't4' },
-        { title: 't5' },
-    ]} renderTabBar={(props) => {
-            return <Sticky style={{ zIndex: 1 }}>
-                <DefaultTabBar {...props} />
-            </Sticky>;
-        }}
-    >
-        ...
-    </Tabs>
-</StickyContainer>
+./examples/sticky.tsx
 ```
 
 ## react-native

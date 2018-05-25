@@ -67,8 +67,8 @@ class BasicDemo extends React.Component<{}, {
           <StickyContainer>
             <Tabs tabs={tabs} initialPage={'t2'}
               renderTabBar={(props) => {
-                return <Sticky style={{ zIndex: 1 }}>
-                  <DefaultTabBar {...props} />
+                return <Sticky>
+                  {({ style }: { style: React.CSSProperties }) => <div style={{ ...style, zIndex: 1 }}><DefaultTabBar {...props} /></div>}
                 </Sticky>;
               }}
             >
@@ -95,7 +95,7 @@ class BasicDemo extends React.Component<{}, {
               return null;
             }}
             page={this.state.current}
-            onChange={(tab, index) => this.setState({ current: index })}
+            onChange={(_tab, index) => this.setState({ current: index })}
           >
             {this.renderContent()}
           </Tabs>
