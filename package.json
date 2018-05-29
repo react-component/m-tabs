@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "babel-runtime": "6.x",
-    "rc-gesture": "^0.0.15"
+    "rc-gesture": "~0.0.18"
   },
   "devDependencies": {
     "@types/enzyme": "^2.8.6",
