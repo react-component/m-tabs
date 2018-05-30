@@ -6,6 +6,18 @@ import { DefaultTabBar } from './DefaultTabBar';
 import { getTransformPropValue, setTransform, setPxStyle } from './util';
 import { Tabs as Component, StateType as BaseStateType } from './Tabs.base';
 
+const getPanDirection = (direction: number|undefined) => {
+  switch (direction) {
+    case 2:
+    case 4:
+      return 'horizontal';
+    case 8:
+    case 16:
+      return 'vertical';
+    default:
+      return 'none';
+  }
+};
 export interface PropsType extends BasePropsType {
   /** prefix class | default: rmc-tabs */
   prefixCls?: string;
@@ -28,6 +40,7 @@ export class Tabs extends Component<PropsType, StateType> {
   onPan = (() => {
     let lastOffset: number | string = 0;
     let finalOffset = 0;
+    let panDirection: string;
 
     const getLastOffset = (isVertical = this.isTabVertical()) => {
       let offset = +`${lastOffset}`.replace('%', '');
@@ -39,8 +52,9 @@ export class Tabs extends Component<PropsType, StateType> {
     };
 
     return {
-      onPanStart: () => {
+      onPanStart: (status: IGestureStatus) => {
         if (!this.props.swipeable || !this.props.animated) return;
+        panDirection = getPanDirection(status.direction);
         this.setState({
           isMoving: true,
         });
@@ -50,7 +64,12 @@ export class Tabs extends Component<PropsType, StateType> {
         const { swipeable, animated, useLeftInsteadTransform } = this.props;
         if (!status.moveStatus || !this.layout || !swipeable || !animated) return;
         const isVertical = this.isTabVertical();
-        let offset = getLastOffset() + (isVertical ? status.moveStatus.y : status.moveStatus.x);
+        let offset = getLastOffset();
+        if (isVertical) {
+          offset += panDirection === 'horizontal' ? 0 : status.moveStatus.y;
+        } else {
+          offset += panDirection === 'vertical' ? 0 : status.moveStatus.x;
+        }
         const canScrollOffset = isVertical ?
           -this.layout.scrollHeight + this.layout.clientHeight :
           -this.layout.scrollWidth + this.layout.clientWidth;
