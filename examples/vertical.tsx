@@ -2,8 +2,8 @@
 
 import 'rmc-tabs/assets/index.less';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { Tabs } from '../src';
 
 class BasicDemo extends React.Component<{}, {

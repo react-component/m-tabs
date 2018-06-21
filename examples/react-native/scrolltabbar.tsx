@@ -2,7 +2,7 @@
 /* tslint:disable:no-console */
 import { View, ScrollView, Text } from 'react-native';
 import { Tabs, Models } from '../../src';
-import React from 'react';
+import * as React from 'react';
 
 const renderContent = (tab: Models.TabData, index: number) =>
   <ScrollView style={{ backgroundColor: '#fff' }}>

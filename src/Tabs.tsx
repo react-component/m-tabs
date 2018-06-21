@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Gesture, { IGestureStatus } from 'rc-gesture';
 import { PropsType as BasePropsType, TabBarPropsType } from './PropsType';
 import { TabPane } from './TabPane';

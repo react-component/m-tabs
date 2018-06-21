@@ -65,17 +65,17 @@
     }
   },
   "dependencies": {
-    "babel-runtime": "6.x",
     "rc-gesture": "~0.0.18"
   },
   "devDependencies": {
     "@types/enzyme": "^2.8.6",
     "@types/enzyme-to-json": "^1.5.0",
     "@types/jest": "^20.0.7",
-    "@types/react": "^15.5.0",
-    "@types/react-dom": "^15.5.0",
-    "@types/react-native": "^0.46.9",
+    "@types/react": "^16.0.0",
+    "@types/react-dom": "^16.0.0",
+    "@types/react-native": "^0.55.0",
     "@types/react-sticky": "^6.0.0",
+    "babel-runtime": "6.x",
     "jest": "^20.0.4",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",

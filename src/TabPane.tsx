@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { getPxStyle, getTransformPropValue } from './util';
 
 export interface PropsType {

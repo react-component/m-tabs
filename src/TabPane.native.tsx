@@ -1,5 +1,6 @@
-import React from 'react';
-import { default as RN, View } from 'react-native';
+import * as React from 'react';
+import * as RN from 'react-native';
+import { View } from 'react-native';
 
 export interface PropsType {
   key?: string;
