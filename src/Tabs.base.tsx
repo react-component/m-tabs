@@ -6,6 +6,8 @@ export class StateType {
   currentTab: number;
 }
 
+let instanceId: number = 0;
+
 export abstract class Tabs<
   P extends PropsType = PropsType,
   S extends StateType = StateType
@@ -23,6 +25,7 @@ export abstract class Tabs<
     distanceToChangeTab: .3,
   } as PropsType;
 
+  protected instanceId: number;
   protected prevCurrentTab: number;
   protected tabCache: { [index: number]: React.ReactNode } = {};
 
@@ -36,6 +39,7 @@ export abstract class Tabs<
       currentTab: this.getTabIndex(props),
     } as any;
     this.nextCurrentTab = this.state.currentTab;
+    this.instanceId = instanceId++;
   }
 
   getTabIndex(props: P) {
@@ -144,6 +148,7 @@ export abstract class Tabs<
       tabBarTextStyle,
       tabBarUnderlineStyle,
       tabs,
+      instanceId: this.instanceId,
     };
   }
 

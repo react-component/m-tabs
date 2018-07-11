@@ -31,6 +31,8 @@ export interface TabBarPropsType {
   tabBarInactiveTextColor?: string;
   /** tabBar text style */
   tabBarTextStyle?: React.CSSProperties | any;
+
+  instanceId: number,
 }
 
 export interface PropsType {
