@@ -211,6 +211,7 @@ export class Tabs extends Component<PropsType, StateType> {
         position: 'relative',
         ...this.isTabVertical() ? { top: `${-currentTab * 100}%`, } : { left: `${-currentTab * 100}%`, }
       };
+    const { instanceId } = this.getTabBarBaseProps();
 
     return <div className={contentCls} style={contentStyle} ref={this.setContentLayout}>
       {
@@ -233,6 +234,9 @@ export class Tabs extends Component<PropsType, StateType> {
 
           return <TabPane key={key} className={cls}
             active={currentTab === index}
+            role="tabpanel"
+            aria-hidden={currentTab !== index}
+            aria-labelledby={`m-tabs-${instanceId}-${index}`}
             fixX={isTabVertical} fixY={!isTabVertical}
           >
             {this.tabCache[index]}

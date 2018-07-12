@@ -132,12 +132,15 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       tabBarTextStyle,
       tabBarActiveTextColor,
       tabBarInactiveTextColor,
+      instanceId,
     } = this.props;
 
     const textStyle = { ...tabBarTextStyle } as React.CSSProperties;
     let cls = `${prefixCls}-tab`;
+    let ariaSelected = false;
     if (activeTab === i) {
       cls += ` ${cls}-active`;
+      ariaSelected = true;
       if (tabBarActiveTextColor) {
         textStyle.color = tabBarActiveTextColor;
       }
@@ -150,6 +153,9 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
         ...textStyle,
         ...isTabBarVertical ? { height: `${size}%` } : { width: `${size}%` },
       }}
+      id={`m-tabs-${instanceId}-${i}`}
+      role="tab"
+      aria-selected={ariaSelected}
       className={cls}
       onClick={() => this.onPress(i)}
     >
@@ -207,7 +213,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       <Gesture {...onPan }
         direction={isTabBarVertical ? 'vertical' : 'horizontal'}
       >
-        <div className={`${prefixCls}-content`} style={transformStyle} ref={this.setContentLayout}>
+        <div role="tablist" className={`${prefixCls}-content`} style={transformStyle} ref={this.setContentLayout}>
           {Tabs}
           {
             renderUnderline ? renderUnderline(underlineProps) :

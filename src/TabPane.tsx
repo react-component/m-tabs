@@ -4,6 +4,7 @@ import { getPxStyle, getTransformPropValue } from './util';
 export interface PropsType {
   key?: string;
   className?: string;
+  role?: string;
   active: boolean;
   fixX?: boolean;
   fixY?: boolean;

@@ -13,34 +13,50 @@ exports[`basic base. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-0-0"
+          role="tab"
           style="width:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-0-1"
+          role="tab"
           style="width:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-0-2"
+          role="tab"
           style="width:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-0-3"
+          role="tab"
           style="width:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-0-4"
+          role="tab"
           style="width:20%;"
         >
           t5
@@ -57,7 +73,10 @@ exports[`basic base. 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-0-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -85,7 +104,10 @@ exports[`basic base. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-0-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -118,13 +140,22 @@ exports[`basic base. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-0-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-0-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-0-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
@@ -143,34 +174,50 @@ exports[`basic destroyInactiveTab. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-5-0"
+          role="tab"
           style="width:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-5-1"
+          role="tab"
           style="width:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-5-2"
+          role="tab"
           style="width:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-5-3"
+          role="tab"
           style="width:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-5-4"
+          role="tab"
           style="width:20%;"
         >
           t5
@@ -187,13 +234,22 @@ exports[`basic destroyInactiveTab. 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(-200%, 0px, 1px);-webkit-transform:translate3d(-200%, 0px, 1px);-moz-transform:translate3d(-200%, 0px, 1px);"
   >
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-5-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-5-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-5-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -202,10 +258,16 @@ exports[`basic destroyInactiveTab. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-5-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-5-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
@@ -224,34 +286,50 @@ exports[`basic inital tab. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-2-0"
+          role="tab"
           style="width:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-2-1"
+          role="tab"
           style="width:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-2-2"
+          role="tab"
           style="width:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-2-3"
+          role="tab"
           style="width:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-2-4"
+          role="tab"
           style="width:20%;"
         >
           t5
@@ -268,7 +346,10 @@ exports[`basic inital tab. 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px);"
   >
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-2-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -296,7 +377,10 @@ exports[`basic inital tab. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-2-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -329,7 +413,10 @@ exports[`basic inital tab. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-2-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -338,10 +425,16 @@ exports[`basic inital tab. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-2-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-2-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
@@ -360,34 +453,50 @@ exports[`basic no animation. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-1-0"
+          role="tab"
           style="width:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-1-1"
+          role="tab"
           style="width:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-1-2"
+          role="tab"
           style="width:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-1-3"
+          role="tab"
           style="width:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-1-4"
+          role="tab"
           style="width:20%;"
         >
           t5
@@ -404,7 +513,10 @@ exports[`basic no animation. 1`] = `
     style="touch-action:pan-x pan-y;position:relative;left:0%;"
   >
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-1-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -432,7 +544,10 @@ exports[`basic no animation. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-1-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -465,13 +580,22 @@ exports[`basic no animation. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-1-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-1-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-1-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
@@ -490,34 +614,50 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-4-0"
+          role="tab"
           style="width:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-4-1"
+          role="tab"
           style="width:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-4-2"
+          role="tab"
           style="width:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-4-3"
+          role="tab"
           style="width:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-4-4"
+          role="tab"
           style="width:20%;"
         >
           t5
@@ -534,7 +674,10 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-4-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -562,7 +705,10 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-4-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -595,13 +741,22 @@ exports[`basic prerenderingSiblingsNumber. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-4-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-4-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-4-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
@@ -620,10 +775,14 @@ exports[`basic renderTabBar renderTab. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-7-0"
+          role="tab"
           style="width:20%;"
         >
           <div>
@@ -631,7 +790,10 @@ exports[`basic renderTabBar renderTab. 1`] = `
           </div>
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-7-1"
+          role="tab"
           style="width:20%;"
         >
           <div
@@ -644,7 +806,10 @@ exports[`basic renderTabBar renderTab. 1`] = `
           </div>
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-7-2"
+          role="tab"
           style="width:20%;"
         >
           <div>
@@ -652,7 +817,10 @@ exports[`basic renderTabBar renderTab. 1`] = `
           </div>
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-7-3"
+          role="tab"
           style="width:20%;"
         >
           <div>
@@ -660,7 +828,10 @@ exports[`basic renderTabBar renderTab. 1`] = `
           </div>
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-7-4"
+          role="tab"
           style="width:20%;"
         >
           <div>
@@ -679,7 +850,10 @@ exports[`basic renderTabBar renderTab. 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-7-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -707,7 +881,10 @@ exports[`basic renderTabBar renderTab. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-7-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -740,13 +917,22 @@ exports[`basic renderTabBar renderTab. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-7-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-7-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-7-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
@@ -761,7 +947,10 @@ exports[`basic tabBarPosition. 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-3-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -789,7 +978,10 @@ exports[`basic tabBarPosition. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-3-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -822,13 +1014,22 @@ exports[`basic tabBarPosition. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-3-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-3-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-3-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
   <div
@@ -840,34 +1041,50 @@ exports[`basic tabBarPosition. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-3-0"
+          role="tab"
           style="width:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-3-1"
+          role="tab"
           style="width:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-3-2"
+          role="tab"
           style="width:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-3-3"
+          role="tab"
           style="width:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-3-4"
+          role="tab"
           style="width:20%;"
         >
           t5
@@ -895,34 +1112,50 @@ exports[`basic vertical. 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-x;"
       >
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-6-0"
+          role="tab"
           style="height:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-6-1"
+          role="tab"
           style="height:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-6-2"
+          role="tab"
           style="height:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-6-3"
+          role="tab"
           style="height:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-6-4"
+          role="tab"
           style="height:20%;"
         >
           t5
@@ -939,7 +1172,10 @@ exports[`basic vertical. 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(0px, 0%, 1px);-webkit-transform:translate3d(0px, 0%, 1px);-moz-transform:translate3d(0px, 0%, 1px);"
   >
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-6-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -967,7 +1203,10 @@ exports[`basic vertical. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-6-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div
         style="background:#ADFFD7;"
@@ -1000,13 +1239,22 @@ exports[`basic vertical. 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-6-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-6-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-6-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
@@ -1025,34 +1273,50 @@ exports[`single content. base 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-9-0"
+          role="tab"
           style="width:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-9-1"
+          role="tab"
           style="width:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-9-2"
+          role="tab"
           style="width:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-9-3"
+          role="tab"
           style="width:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-9-4"
+          role="tab"
           style="width:20%;"
         >
           t5
@@ -1069,7 +1333,10 @@ exports[`single content. base 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-9-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div>
         <p>
@@ -1078,7 +1345,10 @@ exports[`single content. base 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-9-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div>
         <p>
@@ -1087,13 +1357,22 @@ exports[`single content. base 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-9-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-9-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-9-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
@@ -1112,34 +1391,50 @@ exports[`single content. function 1`] = `
     >
       <div
         class="rmc-tabs-tab-bar-content"
+        role="tablist"
         style="touch-action:pan-y;"
       >
         <div
+          aria-selected="true"
           class="rmc-tabs-tab-bar-tab rmc-tabs-tab-bar-tab-active"
+          id="m-tabs-8-0"
+          role="tab"
           style="width:20%;"
         >
           t1
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-8-1"
+          role="tab"
           style="width:20%;"
         >
           t2
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-8-2"
+          role="tab"
           style="width:20%;"
         >
           t3
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-8-3"
+          role="tab"
           style="width:20%;"
         >
           t4
         </div>
         <div
+          aria-selected="false"
           class="rmc-tabs-tab-bar-tab"
+          id="m-tabs-8-4"
+          role="tab"
           style="width:20%;"
         >
           t5
@@ -1156,7 +1451,10 @@ exports[`single content. function 1`] = `
     style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px);"
   >
     <div
+      aria-hidden="false"
+      aria-labelledby="m-tabs-8-0"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-active"
+      role="tabpanel"
     >
       <div>
         <p>
@@ -1168,7 +1466,10 @@ exports[`single content. function 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-8-1"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     >
       <div>
         <p>
@@ -1180,13 +1481,22 @@ exports[`single content. function 1`] = `
       </div>
     </div>
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-8-2"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-8-3"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
     <div
+      aria-hidden="true"
+      aria-labelledby="m-tabs-8-4"
       class="rmc-tabs-pane-wrap rmc-tabs-pane-wrap-inactive"
+      role="tabpanel"
     />
   </div>
 </div>
