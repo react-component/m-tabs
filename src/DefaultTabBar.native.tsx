@@ -113,7 +113,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
   updateTabUnderline(position: number, pageOffset: number, tabCount: number) {
     const { dynamicTabUnderlineWidth } = this.props;
 
-    if (0 <= position && position <= tabCount - 1) {
+    if (0 <= position && position < tabCount - 1) {
       if (dynamicTabUnderlineWidth) {
         const nowLeft = this._tabsMeasurements[position].left;
         const nowRight = this._tabsMeasurements[position].right;
