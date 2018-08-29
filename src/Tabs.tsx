@@ -230,6 +230,8 @@ export class Tabs extends Component<PropsType, StateType> {
             this.tabCache[index] = this.getSubElement(tab, index, getSubElements);
           } else if (destroyInactiveTab) {
             this.tabCache[index] = undefined;
+          } else if(this.tabCache[index]) {
+            this.tabCache[index] = this.getSubElement(tab, index, getSubElements);
           }
 
           return <TabPane key={key} className={cls}
