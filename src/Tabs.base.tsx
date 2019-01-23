@@ -70,7 +70,7 @@ export abstract class Tabs<
 
   componentWillReceiveProps(nextProps: P) {
     if (this.props.page !== nextProps.page && nextProps.page !== undefined) {
-      this.goToTab(this.getTabIndex(nextProps), true);
+      this.goToTab(this.getTabIndex(nextProps), true, {}, nextProps);
     }
   }
 
@@ -96,16 +96,16 @@ export abstract class Tabs<
     }
   }
 
-  goToTab(index: number, force = false, newState: any = {}) {
+  goToTab(index: number, force = false, newState: any = {}, props: P = this.props) {
     if (!force && this.nextCurrentTab === index) {
       return false;
     }
     this.nextCurrentTab = index;
-    const { tabs, onChange } = this.props as P;
+    const { tabs, onChange } = props as P;
     if (index >= 0 && index < tabs.length) {
       if (!force) {
         onChange && onChange(tabs[index], index);
-        if (this.props.page !== undefined) {
+        if (props.page !== undefined) {
           return false;
         }
       }
