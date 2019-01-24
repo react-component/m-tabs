@@ -2,7 +2,7 @@
 
 ---
 
-## 1.2.28 / 2019-01-24
+## 1.2.29 / 2019-01-24
 
 - `fix` 修复 componentWillReceiveProps 时，page 使用 nextProps, tabs 使用 currentProps 导致逻辑逻辑判断出错
 
