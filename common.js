@@ -12487,9 +12487,9 @@ var Tabs = function (_Component) {
         value: function goToTab(index) {
             var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
             var usePaged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.props.usePaged;
-            var _props = this.props,
-                tabDirection = _props.tabDirection,
-                useLeftInsteadTransform = _props.useLeftInsteadTransform;
+            var props = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : this.props;
+            var tabDirection = props.tabDirection,
+                useLeftInsteadTransform = props.useLeftInsteadTransform;
 
             var newState = {};
             if (usePaged) {
@@ -12497,7 +12497,7 @@ var Tabs = function (_Component) {
                     contentPos: this.getContentPosByIndex(index, this.isTabVertical(tabDirection), useLeftInsteadTransform)
                 };
             }
-            return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_get___default()(Tabs.prototype.__proto__ || Object.getPrototypeOf(Tabs.prototype), 'goToTab', this).call(this, index, force, newState);
+            return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_get___default()(Tabs.prototype.__proto__ || Object.getPrototypeOf(Tabs.prototype), 'goToTab', this).call(this, index, force, newState, props);
         }
     }, {
         key: 'tabClickGoToTab',
@@ -12525,12 +12525,12 @@ var Tabs = function (_Component) {
             var _this3 = this;
 
             var getSubElements = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getSubElements();
-            var _props2 = this.props,
-                prefixCls = _props2.prefixCls,
-                tabs = _props2.tabs,
-                animated = _props2.animated,
-                destroyInactiveTab = _props2.destroyInactiveTab,
-                useLeftInsteadTransform = _props2.useLeftInsteadTransform;
+            var _props = this.props,
+                prefixCls = _props.prefixCls,
+                tabs = _props.tabs,
+                animated = _props.animated,
+                destroyInactiveTab = _props.destroyInactiveTab,
+                useLeftInsteadTransform = _props.useLeftInsteadTransform;
             var _state = this.state,
                 currentTab = _state.currentTab,
                 isMoving = _state.isMoving,
@@ -12574,12 +12574,12 @@ var Tabs = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _props3 = this.props,
-                prefixCls = _props3.prefixCls,
-                tabBarPosition = _props3.tabBarPosition,
-                tabDirection = _props3.tabDirection,
-                useOnPan = _props3.useOnPan,
-                noRenderContent = _props3.noRenderContent;
+            var _props2 = this.props,
+                prefixCls = _props2.prefixCls,
+                tabBarPosition = _props2.tabBarPosition,
+                tabDirection = _props2.tabDirection,
+                useOnPan = _props2.useOnPan,
+                noRenderContent = _props2.noRenderContent;
 
             var isTabVertical = this.isTabVertical(tabDirection);
             var tabBarProps = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.getTabBarBaseProps());
