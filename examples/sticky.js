@@ -29,50 +29,10 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(221)();
+  module.exports = __webpack_require__(222)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-
-/***/ 136:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Channel = function Channel(data) {
-  _classCallCheck(this, Channel);
-
-  var listeners = [];
-  data = data || {};
-
-  this.subscribe = function (fn) {
-    listeners.push(fn);
-  };
-
-  this.unsubscribe = function (fn) {
-    var idx = listeners.indexOf(fn);
-    if (idx !== -1) listeners.splice(idx, 1);
-  };
-
-  this.update = function (fn) {
-    if (fn) fn(data);
-    listeners.forEach(function (l) {
-      return l(data);
-    });
-  };
-};
-
-exports.default = Channel;
-module.exports = exports['default'];
 
 /***/ }),
 
@@ -81,25 +41,25 @@ module.exports = exports['default'];
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rmc_tabs_assets_index_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_sticky__ = __webpack_require__(297);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_sticky___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react_sticky__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__src__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__src__ = __webpack_require__(39);
 
 
 
@@ -244,8 +204,15 @@ var BasicDemo = function (_React$Component) {
                             { tabs: tabs, initialPage: 't2', renderTabBar: function renderTabBar(props) {
                                     return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_8_react_sticky__["Sticky"],
-                                        { style: { zIndex: 1 } },
-                                        __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__src__["b" /* DefaultTabBar */], props)
+                                        null,
+                                        function (_ref) {
+                                            var style = _ref.style;
+                                            return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                                                'div',
+                                                { style: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, style, { zIndex: 1 }) },
+                                                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__src__["b" /* DefaultTabBar */], props)
+                                            );
+                                        }
                                     );
                                 } },
                             this.renderContent()
@@ -269,13 +236,14 @@ var BasicDemo = function (_React$Component) {
                         __WEBPACK_IMPORTED_MODULE_9__src__["a" /* Tabs */],
                         { tabs: tabs, initialPage: 't2', renderTabBar: function renderTabBar(props) {
                                 if (!_this2.tabBarProps) {
+                                    // diff?
                                     _this2.tabBarProps = props;
                                     setTimeout(function () {
                                         _this2.forceUpdate();
                                     });
                                 }
                                 return null;
-                            }, page: this.state.current, onChange: function onChange(tab, index) {
+                            }, page: this.state.current, onChange: function onChange(_tab, index) {
                                 return _this2.setState({ current: index });
                             } },
                         this.renderContent()
@@ -292,7 +260,51 @@ __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 221:
+/***/ 220:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
+(function() {
+  var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
+
+  if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
+    module.exports = function() {
+      return performance.now();
+    };
+  } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
+    module.exports = function() {
+      return (getNanoSeconds() - nodeLoadTime) / 1e6;
+    };
+    hrtime = process.hrtime;
+    getNanoSeconds = function() {
+      var hr;
+      hr = hrtime();
+      return hr[0] * 1e9 + hr[1];
+    };
+    moduleLoadTime = getNanoSeconds();
+    upTime = process.uptime() * 1e9;
+    nodeLoadTime = moduleLoadTime - upTime;
+  } else if (Date.now) {
+    module.exports = function() {
+      return Date.now() - loadTime;
+    };
+    loadTime = Date.now();
+  } else {
+    module.exports = function() {
+      return new Date().getTime() - loadTime;
+    };
+    loadTime = new Date().getTime();
+  }
+
+}).call(this);
+
+//# sourceMappingURL=performance-now.js.map
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 222:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -305,9 +317,9 @@ __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 
 
-var emptyFunction = __webpack_require__(7);
-var invariant = __webpack_require__(1);
 var ReactPropTypesSecret = __webpack_require__(76);
+
+function emptyFunction() {}
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -315,12 +327,13 @@ module.exports = function() {
       // It is still safe when called from React.
       return;
     }
-    invariant(
-      false,
+    var err = new Error(
       'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
       'Use PropTypes.checkPropTypes() to call them. ' +
       'Read more at http://fb.me/use-check-prop-types'
     );
+    err.name = 'Invariant Violation';
+    throw err;
   };
   shim.isRequired = shim;
   function getShim() {
@@ -358,150 +371,90 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 296:
+/***/ 223:
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(220)
+  , root = typeof window === 'undefined' ? global : window
+  , vendors = ['moz', 'webkit']
+  , suffix = 'AnimationFrame'
+  , raf = root['request' + suffix]
+  , caf = root['cancel' + suffix] || root['cancelRequest' + suffix]
 
+for(var i = 0; !raf && i < vendors.length; i++) {
+  raf = root[vendors[i] + 'Request' + suffix]
+  caf = root[vendors[i] + 'Cancel' + suffix]
+      || root[vendors[i] + 'CancelRequest' + suffix]
+}
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+// Some versions of FF have rAF but not cAF
+if(!raf || !caf) {
+  var last = 0
+    , id = 0
+    , queue = []
+    , frameDuration = 1000 / 60
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(11);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(111);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _reactDom = __webpack_require__(28);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _channel = __webpack_require__(136);
-
-var _channel2 = _interopRequireDefault(_channel);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Container = function (_React$Component) {
-  _inherits(Container, _React$Component);
-
-  function Container(props) {
-    _classCallCheck(this, Container);
-
-    var _this = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
-
-    _this.updateOffset = function (_ref) {
-      var inherited = _ref.inherited,
-          offset = _ref.offset;
-
-      _this.channel.update(function (data) {
-        data.inherited = inherited + offset;
-      });
-    };
-
-    _this.channel = new _channel2.default({ inherited: 0, offset: 0, node: null });
-    return _this;
+  raf = function(callback) {
+    if(queue.length === 0) {
+      var _now = now()
+        , next = Math.max(0, frameDuration - (_now - last))
+      last = next + _now
+      setTimeout(function() {
+        var cp = queue.slice(0)
+        // Clear queue here to prevent
+        // callbacks from appending listeners
+        // to the current frame's queue
+        queue.length = 0
+        for(var i = 0; i < cp.length; i++) {
+          if(!cp[i].cancelled) {
+            try{
+              cp[i].callback(last)
+            } catch(e) {
+              setTimeout(function() { throw e }, 0)
+            }
+          }
+        }
+      }, Math.round(next))
+    }
+    queue.push({
+      handle: ++id,
+      callback: callback,
+      cancelled: false
+    })
+    return id
   }
 
-  _createClass(Container, [{
-    key: 'getChildContext',
-    value: function getChildContext() {
-      return { 'sticky-channel': this.channel };
+  caf = function(handle) {
+    for(var i = 0; i < queue.length; i++) {
+      if(queue[i].handle === handle) {
+        queue[i].cancelled = true
+      }
     }
-  }, {
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      var parentChannel = this.context['sticky-channel'];
-      if (parentChannel) parentChannel.subscribe(this.updateOffset);
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var node = _reactDom2.default.findDOMNode(this);
-      this.channel.update(function (data) {
-        data.node = node;
-      });
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.channel.update(function (data) {
-        data.node = null;
-      });
+  }
+}
 
-      var parentChannel = this.context['sticky-channel'];
-      if (parentChannel) parentChannel.unsubscribe(this.updateOffset);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        this.props,
-        this.props.children
-      );
-    }
-  }]);
+module.exports = function(fn) {
+  // Wrap in a new function to prevent
+  // `cancel` potentially being assigned
+  // to the native rAF function
+  return raf.call(root, fn)
+}
+module.exports.cancel = function() {
+  caf.apply(root, arguments)
+}
+module.exports.polyfill = function(object) {
+  if (!object) {
+    object = root;
+  }
+  object.requestAnimationFrame = raf
+  object.cancelAnimationFrame = caf
+}
 
-  return Container;
-}(_react2.default.Component);
-
-Container.contextTypes = {
-  'sticky-channel': _propTypes2.default.any
-};
-Container.childContextTypes = {
-  'sticky-channel': _propTypes2.default.any
-};
-exports.default = Container;
-module.exports = exports['default'];
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(311)))
 
 /***/ }),
 
-/***/ 297:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Channel = exports.StickyContainer = exports.Sticky = undefined;
-
-var _sticky = __webpack_require__(298);
-
-var _sticky2 = _interopRequireDefault(_sticky);
-
-var _container = __webpack_require__(296);
-
-var _container2 = _interopRequireDefault(_container);
-
-var _channel = __webpack_require__(136);
-
-var _channel2 = _interopRequireDefault(_channel);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Sticky = _sticky2.default;
-exports.StickyContainer = _container2.default;
-exports.Channel = _channel2.default;
-exports.default = _sticky2.default;
-
-/***/ }),
-
-/***/ 298:
+/***/ 295:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -515,7 +468,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(11);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -523,13 +476,11 @@ var _propTypes = __webpack_require__(111);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(28);
+var _raf = __webpack_require__(223);
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
+var _raf2 = _interopRequireDefault(_raf);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -537,242 +488,333 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Sticky = function (_React$Component) {
-  _inherits(Sticky, _React$Component);
+var Container = function (_PureComponent) {
+  _inherits(Container, _PureComponent);
 
-  function Sticky(props) {
+  function Container() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Container);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Container.__proto__ || Object.getPrototypeOf(Container)).call.apply(_ref, [this].concat(args))), _this), _this.events = ["resize", "scroll", "touchstart", "touchmove", "touchend", "pageshow", "load"], _this.subscribers = [], _this.rafHandle = null, _this.subscribe = function (handler) {
+      _this.subscribers = _this.subscribers.concat(handler);
+    }, _this.unsubscribe = function (handler) {
+      _this.subscribers = _this.subscribers.filter(function (current) {
+        return current !== handler;
+      });
+    }, _this.notifySubscribers = function (evt) {
+      if (!_this.framePending) {
+        var currentTarget = evt.currentTarget;
+
+
+        _this.rafHandle = (0, _raf2.default)(function () {
+          _this.framePending = false;
+
+          var _this$node$getBoundin = _this.node.getBoundingClientRect(),
+              top = _this$node$getBoundin.top,
+              bottom = _this$node$getBoundin.bottom;
+
+          _this.subscribers.forEach(function (handler) {
+            return handler({
+              distanceFromTop: top,
+              distanceFromBottom: bottom,
+              eventSource: currentTarget === window ? document.body : _this.node
+            });
+          });
+        });
+        _this.framePending = true;
+      }
+    }, _this.getParent = function () {
+      return _this.node;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Container, [{
+    key: "getChildContext",
+    value: function getChildContext() {
+      return {
+        subscribe: this.subscribe,
+        unsubscribe: this.unsubscribe,
+        getParent: this.getParent
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.events.forEach(function (event) {
+        return window.addEventListener(event, _this2.notifySubscribers);
+      });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      var _this3 = this;
+
+      if (this.rafHandle) {
+        _raf2.default.cancel(this.rafHandle);
+        this.rafHandle = null;
+      }
+
+      this.events.forEach(function (event) {
+        return window.removeEventListener(event, _this3.notifySubscribers);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return _react2.default.createElement("div", _extends({}, this.props, {
+        ref: function ref(node) {
+          return _this4.node = node;
+        },
+        onScroll: this.notifySubscribers,
+        onTouchStart: this.notifySubscribers,
+        onTouchMove: this.notifySubscribers,
+        onTouchEnd: this.notifySubscribers
+      }));
+    }
+  }]);
+
+  return Container;
+}(_react.PureComponent);
+
+Container.childContextTypes = {
+  subscribe: _propTypes2.default.func,
+  unsubscribe: _propTypes2.default.func,
+  getParent: _propTypes2.default.func
+};
+exports.default = Container;
+
+/***/ }),
+
+/***/ 296:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(34);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _propTypes = __webpack_require__(111);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Sticky = function (_Component) {
+  _inherits(Sticky, _Component);
+
+  function Sticky() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Sticky);
 
-    var _this = _possibleConstructorReturn(this, (Sticky.__proto__ || Object.getPrototypeOf(Sticky)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.updateContext = function (_ref) {
-      var inherited = _ref.inherited,
-          node = _ref.node;
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Sticky.__proto__ || Object.getPrototypeOf(Sticky)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      isSticky: false,
+      wasSticky: false,
+      style: {}
+    }, _this.handleContainerEvent = function (_ref2) {
+      var distanceFromTop = _ref2.distanceFromTop,
+          distanceFromBottom = _ref2.distanceFromBottom,
+          eventSource = _ref2.eventSource;
 
-      _this.containerNode = node;
-      _this.setState({
-        containerOffset: inherited,
-        distanceFromBottom: _this.getDistanceFromBottom()
-      });
-    };
+      var parent = _this.context.getParent();
 
-    _this.recomputeState = function () {
-      var isSticky = _this.isSticky();
-      var height = _this.getHeight();
-      var width = _this.getWidth();
-      var xOffset = _this.getXOffset();
-      var distanceFromBottom = _this.getDistanceFromBottom();
-      var hasChanged = _this.state.isSticky !== isSticky;
-
-      _this.setState({ isSticky: isSticky, height: height, width: width, xOffset: xOffset, distanceFromBottom: distanceFromBottom });
-
-      if (hasChanged) {
-        if (_this.channel) {
-          _this.channel.update(function (data) {
-            data.offset = isSticky ? _this.state.height : 0;
-          });
-        }
-
-        _this.props.onStickyStateChange(isSticky);
+      var preventingStickyStateChanges = false;
+      if (_this.props.relative) {
+        preventingStickyStateChanges = eventSource !== parent;
+        distanceFromTop = -(eventSource.scrollTop + eventSource.offsetTop) + _this.placeholder.offsetTop;
       }
-    };
 
-    _this.state = {};
-    return _this;
+      var placeholderClientRect = _this.placeholder.getBoundingClientRect();
+      var contentClientRect = _this.content.getBoundingClientRect();
+      var calculatedHeight = contentClientRect.height;
+
+      var bottomDifference = distanceFromBottom - _this.props.bottomOffset - calculatedHeight;
+
+      var wasSticky = !!_this.state.isSticky;
+      var isSticky = preventingStickyStateChanges ? wasSticky : distanceFromTop <= -_this.props.topOffset && distanceFromBottom > -_this.props.bottomOffset;
+
+      distanceFromBottom = (_this.props.relative ? parent.scrollHeight - parent.scrollTop : distanceFromBottom) - calculatedHeight;
+
+      var style = !isSticky ? {} : {
+        position: "fixed",
+        top: bottomDifference > 0 ? _this.props.relative ? parent.offsetTop - parent.offsetParent.scrollTop : 0 : bottomDifference,
+        left: placeholderClientRect.left,
+        width: placeholderClientRect.width
+      };
+
+      if (!_this.props.disableHardwareAcceleration) {
+        style.transform = "translateZ(0)";
+      }
+
+      _this.setState({
+        isSticky: isSticky,
+        wasSticky: wasSticky,
+        distanceFromTop: distanceFromTop,
+        distanceFromBottom: distanceFromBottom,
+        calculatedHeight: calculatedHeight,
+        style: style
+      });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Sticky, [{
-    key: 'componentWillMount',
+    key: "componentWillMount",
     value: function componentWillMount() {
-      this.channel = this.context['sticky-channel'];
-      this.channel.subscribe(this.updateContext);
+      if (!this.context.subscribe) throw new TypeError("Expected Sticky to be mounted within StickyContainer");
+
+      this.context.subscribe(this.handleContainerEvent);
     }
   }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.on(['resize', 'scroll', 'touchstart', 'touchmove', 'touchend', 'pageshow', 'load'], this.recomputeState);
-      this.recomputeState();
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps() {
-      this.recomputeState();
-    }
-  }, {
-    key: 'componentWillUnmount',
+    key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      this.off(['resize', 'scroll', 'touchstart', 'touchmove', 'touchend', 'pageshow', 'load'], this.recomputeState);
-      this.channel.unsubscribe(this.updateContext);
+      this.context.unsubscribe(this.handleContainerEvent);
     }
   }, {
-    key: 'getXOffset',
-    value: function getXOffset() {
-      return this.refs.placeholder.getBoundingClientRect().left;
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.placeholder.style.paddingBottom = this.props.disableCompensation ? 0 : (this.state.isSticky ? this.state.calculatedHeight : 0) + "px";
     }
   }, {
-    key: 'getWidth',
-    value: function getWidth() {
-      return this.refs.placeholder.getBoundingClientRect().width;
-    }
-  }, {
-    key: 'getHeight',
-    value: function getHeight() {
-      return _reactDom2.default.findDOMNode(this.refs.children).getBoundingClientRect().height;
-    }
-  }, {
-    key: 'getDistanceFromTop',
-    value: function getDistanceFromTop() {
-      return this.refs.placeholder.getBoundingClientRect().top;
-    }
-  }, {
-    key: 'getDistanceFromBottom',
-    value: function getDistanceFromBottom() {
-      if (!this.containerNode) return 0;
-      return this.containerNode.getBoundingClientRect().bottom;
-    }
-  }, {
-    key: 'isSticky',
-    value: function isSticky() {
-      if (!this.props.isActive) return false;
-
-      var fromTop = this.getDistanceFromTop();
-      var fromBottom = this.getDistanceFromBottom();
-
-      var topBreakpoint = this.state.containerOffset - this.props.topOffset;
-      var bottomBreakpoint = this.state.containerOffset + this.props.bottomOffset;
-
-      return fromTop <= topBreakpoint && fromBottom >= bottomBreakpoint;
-    }
-  }, {
-    key: 'on',
-    value: function on(events, callback) {
-      events.forEach(function (evt) {
-        window.addEventListener(evt, callback);
-      });
-    }
-  }, {
-    key: 'off',
-    value: function off(events, callback) {
-      events.forEach(function (evt) {
-        window.removeEventListener(evt, callback);
-      });
-    }
-  }, {
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate(newProps, newState) {
+    key: "render",
+    value: function render() {
       var _this2 = this;
 
-      // Have we changed the number of props?
-      var propNames = Object.keys(this.props);
-      if (Object.keys(newProps).length != propNames.length) return true;
-
-      // Have we changed any prop values?
-      var valuesMatch = propNames.every(function (key) {
-        return newProps.hasOwnProperty(key) && newProps[key] === _this2.props[key];
-      });
-      if (!valuesMatch) return true;
-
-      // Have we changed any state that will always impact rendering?
-      var state = this.state;
-      if (newState.isSticky !== state.isSticky) return true;
-
-      // If we are sticky, have we changed any state that will impact rendering?
-      if (state.isSticky) {
-        if (newState.height !== state.height) return true;
-        if (newState.width !== state.width) return true;
-        if (newState.xOffset !== state.xOffset) return true;
-        if (newState.containerOffset !== state.containerOffset) return true;
-        if (newState.distanceFromBottom !== state.distanceFromBottom) return true;
-      }
-
-      return false;
-    }
-
-    /*
-     * The special sauce.
-     */
-
-  }, {
-    key: 'render',
-    value: function render() {
-      var placeholderStyle = { paddingBottom: 0 };
-      var className = this.props.className;
-
-      // To ensure that this component becomes sticky immediately on mobile devices instead
-      // of disappearing until the scroll event completes, we add `transform: translateZ(0)`
-      // to 'kick' rendering of this element to the GPU
-      // @see http://stackoverflow.com/questions/32875046
-      var style = _extends({}, { transform: 'translateZ(0)' }, this.props.style);
-
-      if (this.state.isSticky) {
-        var _stickyStyle = {
-          position: 'fixed',
-          top: this.state.containerOffset,
-          left: this.state.xOffset,
-          width: this.state.width
-        };
-
-        var bottomLimit = this.state.distanceFromBottom - this.state.height - this.props.bottomOffset;
-        if (this.state.containerOffset > bottomLimit) {
-          _stickyStyle.top = bottomLimit;
+      var element = _react2.default.cloneElement(this.props.children({
+        isSticky: this.state.isSticky,
+        wasSticky: this.state.wasSticky,
+        distanceFromTop: this.state.distanceFromTop,
+        distanceFromBottom: this.state.distanceFromBottom,
+        calculatedHeight: this.state.calculatedHeight,
+        style: this.state.style
+      }), {
+        ref: function ref(content) {
+          _this2.content = _reactDom2.default.findDOMNode(content);
         }
-
-        placeholderStyle.paddingBottom = this.state.height;
-
-        className += ' ' + this.props.stickyClassName;
-        style = _extends({}, style, _stickyStyle, this.props.stickyStyle);
-      }
-
-      var _props = this.props,
-          topOffset = _props.topOffset,
-          isActive = _props.isActive,
-          stickyClassName = _props.stickyClassName,
-          stickyStyle = _props.stickyStyle,
-          bottomOffset = _props.bottomOffset,
-          onStickyStateChange = _props.onStickyStateChange,
-          props = _objectWithoutProperties(_props, ['topOffset', 'isActive', 'stickyClassName', 'stickyStyle', 'bottomOffset', 'onStickyStateChange']);
+      });
 
       return _react2.default.createElement(
-        'div',
+        "div",
         null,
-        _react2.default.createElement('div', { ref: 'placeholder', style: placeholderStyle }),
-        _react2.default.createElement(
-          'div',
-          _extends({}, props, { ref: 'children', className: className, style: style }),
-          this.props.children
-        )
+        _react2.default.createElement("div", { ref: function ref(placeholder) {
+            return _this2.placeholder = placeholder;
+          } }),
+        element
       );
     }
   }]);
 
   return Sticky;
-}(_react2.default.Component);
+}(_react.Component);
 
 Sticky.propTypes = {
-  isActive: _propTypes2.default.bool,
-  className: _propTypes2.default.string,
-  style: _propTypes2.default.object,
-  stickyClassName: _propTypes2.default.string,
-  stickyStyle: _propTypes2.default.object,
   topOffset: _propTypes2.default.number,
   bottomOffset: _propTypes2.default.number,
-  onStickyStateChange: _propTypes2.default.func
+  relative: _propTypes2.default.bool,
+  children: _propTypes2.default.func.isRequired
 };
 Sticky.defaultProps = {
-  isActive: true,
-  className: '',
-  style: {},
-  stickyClassName: 'sticky',
-  stickyStyle: {},
+  relative: false,
   topOffset: 0,
   bottomOffset: 0,
-  onStickyStateChange: function onStickyStateChange() {}
+  disableCompensation: false,
+  disableHardwareAcceleration: false
 };
 Sticky.contextTypes = {
-  'sticky-channel': _propTypes2.default.any
+  subscribe: _propTypes2.default.func,
+  unsubscribe: _propTypes2.default.func,
+  getParent: _propTypes2.default.func
 };
 exports.default = Sticky;
-module.exports = exports['default'];
+
+/***/ }),
+
+/***/ 297:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StickyContainer = exports.Sticky = undefined;
+
+var _Sticky = __webpack_require__(296);
+
+var _Sticky2 = _interopRequireDefault(_Sticky);
+
+var _Container = __webpack_require__(295);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Sticky = _Sticky2.default;
+exports.StickyContainer = _Container2.default;
+exports.default = _Sticky2.default;
+
+/***/ }),
+
+/***/ 311:
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
 
 /***/ }),
 

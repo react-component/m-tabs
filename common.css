@@ -1,11 +1,9 @@
 .rmc-tabs {
   box-sizing: border-box;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+      flex: 1;
   position: relative;
   overflow: hidden;
   height: 100%;
@@ -15,19 +13,15 @@
   box-sizing: border-box;
 }
 .rmc-tabs-content-wrap {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+      flex: 1;
   width: 100%;
   height: 100%;
 }
 .rmc-tabs-content-wrap-animated {
-  transition: left 0.3s cubic-bezier(0.35, 0, 0.25, 1), top 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
   transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), left 0.3s cubic-bezier(0.35, 0, 0.25, 1), top 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), left 0.3s cubic-bezier(0.35, 0, 0.25, 1), top 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
   will-change: transform, left, top;
 }
 .rmc-tabs-pane-wrap {
@@ -48,10 +42,8 @@
   overflow: visible;
 }
 .rmc-tabs-vertical .rmc-tabs-content-wrap {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
 }
 .rmc-tabs-vertical .rmc-tabs-tab-bar-wrap {
   height: 100%;
@@ -67,29 +59,22 @@
 }
 .rmc-tabs-top,
 .rmc-tabs-bottom {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
 }
 .rmc-tabs-left,
 .rmc-tabs-right {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+      flex-direction: row;
 }
 .rmc-tabs-tab-bar {
   position: relative;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+      flex-direction: row;
   width: 100%;
   height: 100%;
   overflow: visible;
@@ -97,17 +82,14 @@
 }
 .rmc-tabs-tab-bar-tab {
   position: relative;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
   font-size: 14px;
   line-height: 14px;
 }
@@ -119,9 +101,7 @@
   border: 1px #108ee9 solid;
 }
 .rmc-tabs-tab-bar-animated .rmc-tabs-tab-bar-content {
-  transition: -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
   transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
   will-change: transform;
 }
 .rmc-tabs-tab-bar-animated .rmc-tabs-tab-bar-underline {
@@ -130,21 +110,16 @@
 }
 .rmc-tabs-tab-bar-top,
 .rmc-tabs-tab-bar-bottom {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+      flex-direction: row;
 }
 .rmc-tabs-tab-bar-top .rmc-tabs-tab-bar-content,
 .rmc-tabs-tab-bar-bottom .rmc-tabs-tab-bar-content {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+      flex-direction: row;
 }
 .rmc-tabs-tab-bar-top .rmc-tabs-tab-bar-prevpage,
 .rmc-tabs-tab-bar-bottom .rmc-tabs-tab-bar-prevpage {
@@ -188,21 +163,16 @@
 }
 .rmc-tabs-tab-bar-left,
 .rmc-tabs-tab-bar-right {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
 }
 .rmc-tabs-tab-bar-left .rmc-tabs-tab-bar-content,
 .rmc-tabs-tab-bar-right .rmc-tabs-tab-bar-content {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 100%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
 }
 .rmc-tabs-tab-bar-left .rmc-tabs-tab-bar-tab,
 .rmc-tabs-tab-bar-right .rmc-tabs-tab-bar-tab {

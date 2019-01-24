@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>sticky.js - example - rmc-tabs@1.2.25</title>
+  <title>sticky.js - example - rmc-tabs@1.2.28</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rmc-tabs@1.2.25</h1>
+      <h1>rmc-tabs@1.2.28</h1>
 
       <p>React Mobile Tabs Component(web &amp; react-native)</p>
     </div>
@@ -338,8 +338,8 @@ class BasicDemo extends React.Component&lt;{}, {
           &lt;StickyContainer&gt;
             &lt;Tabs tabs={tabs} initialPage={'t2'}
               renderTabBar={(props) =&gt; {
-                return &lt;Sticky style={{ zIndex: 1 }}&gt;
-                  &lt;DefaultTabBar {...props} /&gt;
+                return &lt;Sticky&gt;
+                  {({ style }: { style: React.CSSProperties }) =&gt; &lt;div style={{ ...style, zIndex: 1 }}&gt;&lt;DefaultTabBar {...props} /&gt;&lt;/div&gt;}
                 &lt;/Sticky&gt;;
               }}
             &gt;
@@ -366,7 +366,7 @@ class BasicDemo extends React.Component&lt;{}, {
               return null;
             }}
             page={this.state.current}
-            onChange={(tab, index) =&gt; this.setState({ current: index })}
+            onChange={(_tab, index) =&gt; this.setState({ current: index })}
           &gt;
             {this.renderContent()}
           &lt;/Tabs&gt;
