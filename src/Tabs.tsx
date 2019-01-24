@@ -120,8 +120,8 @@ export class Tabs extends Component<PropsType, StateType> {
     };
   }
 
-  goToTab(index: number, force = false, usePaged = this.props.usePaged) {
-    const { tabDirection, useLeftInsteadTransform } = this.props;
+  goToTab(index: number, force = false, usePaged = this.props.usePaged, props = this.props) {
+    const { tabDirection, useLeftInsteadTransform } = props;
     let newState = {};
     if (usePaged) {
       newState = {
@@ -132,7 +132,7 @@ export class Tabs extends Component<PropsType, StateType> {
         ),
       };
     }
-    return super.goToTab(index, force, newState);
+    return super.goToTab(index, force, newState, props);
   }
 
   tabClickGoToTab(index: number) {
