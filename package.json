@@ -87,7 +87,7 @@
     "react-dom": "^15.5.0",
     "react-sticky": "^6.0.1",
     "react-native": "~0.42.0",
-    "react-native-index-page": "^0.2.1",
+    "react-native-index-page": "^2.0.0",
     "react-test-renderer": "^15.5.0",
     "stylelint-config-standard": "^17.0.0"
   },
