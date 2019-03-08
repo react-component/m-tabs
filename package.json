@@ -71,7 +71,7 @@
   "devDependencies": {
     "@types/enzyme": "^2.8.6",
     "@types/enzyme-to-json": "^1.5.0",
-    "@types/jest": "^20.0.7",
+    "@types/jest": "^24.0.10",
     "@types/react": "^15.5.0",
     "@types/react-dom": "^15.5.0",
     "@types/react-native": "^0.46.9",
