@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
+import * as RN from 'react-native';
 import {
-  default as RN,
   Animated,
   Dimensions,
   Platform,

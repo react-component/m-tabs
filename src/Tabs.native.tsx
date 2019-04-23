@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
+import * as RN from 'react-native';
 import {
-  default as RN,
   Dimensions,
   View,
   Animated,
@@ -31,7 +31,7 @@ export class Tabs extends Component<PropsType, StateType> {
     style: {},
   } as PropsType;
 
-  AnimatedScrollView: ScrollView = Animated.createAnimatedComponent(ScrollView);
+  AnimatedScrollView: typeof ScrollView = Animated.createAnimatedComponent(ScrollView);
   scrollView: { _component: ScrollView };
 
   constructor(props: PropsType) {
