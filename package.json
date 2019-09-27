@@ -82,7 +82,7 @@
     "coveralls": "^2.13.1",
     "pre-commit": "1.x",
     "rc-test": "6.x",
-    "rc-tools": "6.x",
+    "rc-tools": "9.x",
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-sticky": "^6.0.1",
