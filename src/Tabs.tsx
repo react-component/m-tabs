@@ -254,14 +254,14 @@ export class Tabs extends Component<PropsType, StateType> {
       ...this.getTabBarBaseProps(),
     };
 
-    const onPan = !isTabVertical && useOnPan ? this.onPan : {};
-
+    const onPan = !isTabVertical && useOnPan ? this.onPan : null;
+    const onSwipe = onPan ? null : this.onSwipe
     const content = [
       <div key="tabBar" className={`${prefixCls}-tab-bar-wrap`}>
         {this.renderTabBar(tabBarProps, DefaultTabBar)}
       </div>,
       !noRenderContent && <Gesture key="$content"
-        onSwipe={this.onSwipe}
+        onSwipe={onSwipe}
         {...onPan}
       >
         {this.renderContent()}
