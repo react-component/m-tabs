@@ -10,7 +10,7 @@ export interface TabBarPropsType {
   /** use animate | default: true */
   animated: boolean;
   /** render the tab of tabbar */
-  renderTab?: (tab: Models.TabData) => React.ReactNode;
+  renderTab?: (tab: Models.TabData, index: number) => React.ReactNode;
   /** render the underline of tabbar */
   renderUnderline?: (style: React.CSSProperties | any) => React.ReactNode;
   /** page size of tabbar's tab | default: 5 */
