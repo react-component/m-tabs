@@ -159,7 +159,7 @@ export class DefaultTabBar extends React.PureComponent<PropsType, StateType> {
       className={cls}
       onClick={() => this.onPress(i)}
     >
-      {renderTab ? renderTab(t) : t.title}
+      {renderTab ? renderTab(t, i) : t.title}
     </div>;
   }
 
